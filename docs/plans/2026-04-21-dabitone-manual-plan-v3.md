@@ -86,13 +86,117 @@
 - 핫스팟 alt text 필수
 - 스크린 리더용 대체 경로: `/tour/accessible` (순수 텍스트 버전)
 
-### 참조 사이트
+### 참조 사이트 (카테고리별 + 구체 패턴)
 
-- apple.com/iphone — hero + section lock + product 360 (기술적 상한)
-- linear.app — 타이포·여백·다크 섹션 전환
-- framer.com/motion — 마이크로 인터랙션
-- vercel.com — 코드 예시 블록 스타일
-- stripe.com/sessions — 스크롤 스토리텔링
+> **중요한 전제**: 아래는 "이 느낌으로 가자"의 **상한 참조**. Apple·Rabbit 수준의 풀-WebGL·3D 캔버스는 이 프로젝트 범위 밖. 우리는 "Apple 스타일의 정제된 2D + scroll-linked CSS/JS 애니"로 **감각적 수준의 80%를 저예산으로 재현**하는 것이 목표.
+
+#### A. Hero & 제품 리빌 (첫인상)
+
+| 사이트 | 참고 패턴 | 우리 적용 |
+|--------|----------|----------|
+| **apple.com/iphone** | 전체 화면 제품 이미지 + 스크롤에 따라 zoom/pan + title fade 순차 | 랜딩 Hero: DabitONe 메인창 이미지 + 초기 1.2s 타이틀 reveal + 미세 zoom-out |
+| **apple.com/vision-pro** | 대형 제품이 스크롤 따라 좌↔우·앞뒤로 회전 (clip-reveal 기법) | 안 씀 (과함). 대신 탭 이미지 교차 전환으로 축소 재현 |
+| **arc.net** | 브랜드 컬러풀 gradient + soft bounce CTA | CTA(투어 시작 버튼)만 hover 시 부드러운 magnetic 움직임 |
+| **rabbit.tech** | 제품을 거대한 단일 숏으로, 최소 UI | 랜딩 hero는 단일 숏 + 글자만 |
+| **humane.com** | 어둠 베이스 + 단일 하이라이트, 미니멀 카피 | 다크 섹션 배경에 한해 적용 |
+
+#### B. 스크롤 스토리텔링 (서사)
+
+| 사이트 | 참고 패턴 | 우리 적용 |
+|--------|----------|----------|
+| **stripe.com/sessions** | sticky 섹션 + 오른쪽 고정 미디어 + 왼쪽 텍스트 step 교체 | 투어 시나리오 화면 구성과 정확히 일치 — **core reference** |
+| **apple.com/mac** | 스크롤 0~100% 진행도를 타임라인에 매핑, 장면 전환 | 5 탭 섹션: 스크롤 진행도에 따라 각 탭이 차례로 나타나고 이전 탭은 사라짐 |
+| **vercel.com/home** | section fade-up + subtle number counter | 체크포인트 "✅ 연결됨" 같은 완료 피드백을 숫자 counter로 연출 |
+| **raycast.com** | hero 뒤 섹션이 가볍게 slide-in, 많은 여백 | 섹션 간 여백·리듬 기준 |
+| **linear.app/homepage** | 각 섹션이 자기 배경을 가지며 스크롤 동기 cross-fade | 섹션 배경색 전환 방식 |
+
+#### C. 타이포그래피 & 레이아웃
+
+| 사이트 | 참고 패턴 | 우리 적용 |
+|--------|----------|----------|
+| **linear.app** | Inter Display 96px hero, -0.03em tight letter-spacing, 줄바꿈 설계 | Pretendard Variable 96~120px, 한글도 tight letter-spacing 적용(-0.025em), 수동 `<br>` 리듬 |
+| **vercel.com** | Geist 폰트, 대비 100→900 단일 fontface | Pretendard Variable도 같은 방식 — weight axis 활용 |
+| **superhuman.com** | Serif 제목(거대) + sans 본문 | 안 씀 (한글 세리프 폰트 제약). 대신 Pretendard weight 대비로 유사 효과 |
+| **readymag showcase** | editorial magazine 느낌 (drop cap, 큰 따옴표) | 안 씀 (매뉴얼 격식 아님) |
+| **framer.com** | 제목이 단어별 stagger reveal (120ms 간격) | Hero 제목 한 글자씩 reveal 검토 — 한글 자소 단위는 어려우니 **어절 단위** stagger |
+
+#### D. 마이크로 인터랙션 (디테일)
+
+| 사이트 | 참고 패턴 | 우리 적용 |
+|--------|----------|----------|
+| **framer.com** | 버튼 hover magnetic 효과(포인터로 살짝 따라감) | CTA 버튼에만 적용 (거리 > 8px에선 원위치) |
+| **cursor.com** | 페이지 로드 시 cursor-follow spotlight (radial gradient) | 안 씀 (매뉴얼엔 산만) |
+| **linear.app/features** | 카드 hover 시 가장자리에 subtle gradient border 움직임 | 5 탭 카드에 적용 검토 |
+| **vercel.com** | `[⌘K]` 검색 버튼의 키캡 아이콘 | Quartz 검색 유지, 투어에서 "키보드로도 가능" 힌트만 |
+| **stripe.com** | 코드 블록 탭 전환 시 crossfade | 투어의 step 전환 (700ms crossfade) |
+
+#### E. 제품 투어 · 스텝 인터랙션 (가장 중요)
+
+| 사이트 | 참고 패턴 | 우리 적용 |
+|--------|----------|----------|
+| **figma.com/product** | "Click here" annotation + 고정 사이드 설명 | 투어 스텝 핵심 패턴 |
+| **raycast.com/blog** | 실제 제품 스크린샷 + 하이라이트 박스 + 캡션 | 핫스팟 + 라이트 박스 dim 조합 |
+| **tldraw.com** | 임베드된 실제 제품 (iframe-less) — 직접 조작 가능 | 우리는 iframe으로 DabitONe을 못 임베드, 대신 **가짜 인터랙티브 목업** (클릭 가능한 SVG 위 XAML 재현) |
+| **asana.com/product/tour** | 사이드 진행률 리스트 + 본문 스텝 | 투어 레이아웃의 좌 레일 |
+| **rive.app/marketplace** | 실제 Rive 애니메이션이 페이지 안에서 돌아감 | Lottie/CSS로 "성공 토스트 등장" 같은 짧은 애니 재현 |
+
+#### F. 색감 & 다크/라이트 전환
+
+| 사이트 | 참고 패턴 | 우리 적용 |
+|--------|----------|----------|
+| **linear.app** | 섹션마다 배경이 라이트 → 다크로 자연 전환 | R2 랜딩 구성: Hero(dark) → 5탭(light) → 심화(dark) → PDF(light) |
+| **apple.com/macbook-pro** | 다크 섹션에서 제품 이미지가 발광하는 듯한 느낌 | 다크 섹션의 스크린샷 주변에 radial glow 추가 (CSS box-shadow 다중) |
+| **studiofreight.com/lenis** | 다크 + neon 액센트 | 다크 섹션 액센트는 DabitChe 블루(#2563EB) 단일 |
+
+#### G. 핫스팟 / 인터랙티브 어노테이션 (핵심)
+
+| 사이트 | 참고 패턴 | 우리 적용 |
+|--------|----------|----------|
+| **apple.com/iphone-16/specs** | 제품 부위별 hotspot + popover | 우리 핫스팟 디자인의 **직접 모델** |
+| **notion.so/help** | 스크린샷에 번호 라벨 + 하단 설명 | 접근성 모드에서 fallback으로 사용 |
+| **1password.com/tour** | 애니 GIF + 설명 pair | R4 markdown 페이지에서 GIF 임베드 방식 |
+| **slack.com/tour** | 스크린샷 + 화살표 + 캡션 | 같은 패턴, 우리는 화살표 대신 pulse 링 |
+
+#### H. 참조 수집 · 큐레이션 소스
+
+큰 틀을 놓쳤을 때 주기적 점검용:
+
+- **awwwards.com/websites** (SOTD, Developer Award 카테고리)
+- **godly.website** (큐레이션)
+- **siteinspire.com** (미니멀 지향)
+- **typewolf.com** (타이포그래피 전용)
+- **httpster.net** (데일리 큐레이션)
+
+#### I. 기술 레퍼런스 (구현 라이브러리)
+
+- **Motion One (motion.dev)** — scroll-linked API, keyframes, timeline (이미 플랜에)
+- **Lenis (lenis.darkroom.engineering)** — smooth scroll 표준 (이미 플랜에)
+- **GSAP ScrollTrigger** — 대안. 더 강력하지만 번들 크고 라이선스 이슈. **현 플랜은 Motion One로 시작, 한계 시 GSAP 고려**
+- **View Transitions API** — Chrome 111+, 투어 step 전환에 native 지원. **fallback으로 Motion One 사용**
+- **CSS `@starting-style`** (2024+) — 초기 진입 애니 native 지원, reveal 단순화
+
+### 디자인 톤 요약 (한 문장)
+
+> **"Apple의 절제된 cinematic scroll + Linear의 타이포 대비 + Stripe의 sticky sidebar step 구성 + Pretendard 한글 최적화"** — 이 네 축의 교집합이 우리 톤.
+
+### Anti-reference (이런 건 피함)
+
+- **BMW·Mercedes 제품 페이지** — 자동차/명품급 과한 WebGL, 로드 무거움, 매뉴얼 성격과 안 맞음
+- **중소기업 B2B 사이트 (카피캣 템플릿)** — Bootstrap 흔적, 시장 평균 이하
+- **카지노·게임 랜딩** — 과한 네온, 반짝임
+- **스크롤 jack(강제 페이지 고정 너무 오래)** — 독자가 빠져나갈 때 짜증
+- **자동재생 비디오 + 음소거 안 된 상태** — 절대 금지
+- **커서 교체 (custom cursor)** — 접근성 해침
+
+### 검수 기준 (R2 완료 시)
+
+Phase R2 완성 후 아래를 모두 통과해야 R3로 넘어감:
+
+- [ ] 랜딩이 apple.com/iphone과 "같은 카테고리"로 보이는가 (지인 3명 블라인드 테스트)
+- [ ] 모션이 부드럽고 끊김 없는가 (60fps 유지, 크롬 Performance 탭)
+- [ ] 타이포 hierarchy가 linear.app 수준으로 뚜렷한가
+- [ ] 핫스팟 → popover → 딥링크 흐름이 figma.com 투어만큼 명료한가
+- [ ] 다크/라이트 섹션 전환이 자연스러운가
 
 ---
 
