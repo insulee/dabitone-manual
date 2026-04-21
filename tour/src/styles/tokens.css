@@ -1,36 +1,42 @@
 /**
- * DabitONe 투어 디자인 토큰 — Apple-like 기준.
- * 플랜 v3.1 디자인 방향성 §1~4 반영.
+ * DabitONe 투어 디자인 토큰 — LED Grid aesthetic (2026-04-21 재설계).
+ * frontend-design SKILL.md 원칙 + 2026 type-first / industrial minimalism 트렌드.
  */
 
 .tour-page {
   /* Typography */
-  --tour-font-display: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-    sans-serif;
-  --tour-font-body: "Pretendard Variable", -apple-system, sans-serif;
-  --tour-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --tour-font-display: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, "Pretendard Variable", monospace;
+  --tour-font-body: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+  --tour-font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
 
-  --tour-fs-hero: clamp(96px, 12vw, 160px);
-  --tour-fs-title: clamp(32px, 4.5vw, 64px);
-  --tour-fs-section: clamp(24px, 3vw, 40px);
-  --tour-fs-body: clamp(17px, 1.3vw, 21px);
-  --tour-fs-small: 15px;
+  --tour-fs-hero: clamp(72px, 10vw, 144px);
+  --tour-fs-manifesto: clamp(36px, 5vw, 72px);
+  --tour-fs-title: clamp(28px, 3vw, 48px);
+  --tour-fs-section: clamp(20px, 2vw, 28px);
+  --tour-fs-body: clamp(15px, 1.1vw, 17px);
+  --tour-fs-small: 14px;
+  --tour-fs-label: 13px;
 
-  --tour-lh-tight: 1.05;
-  --tour-lh-normal: 1.6;
+  --tour-lh-tight: 1.02;
+  --tour-lh-normal: 1.5;
   --tour-ls-tight: -0.04em;
-  --tour-ls-display: -0.025em;
+  --tour-ls-display: -0.03em;
+  --tour-ls-mono: 0.02em;
+  --tour-ls-label: 0.18em;
 
-  /* Colors — Light */
-  --tour-c-bg: #ffffff;
-  --tour-c-bg-soft: #f5f5f7;
-  --tour-c-bg-dark: #0a0a0a;
-  --tour-c-text: #1d1d1f;
-  --tour-c-text-soft: #515154;
-  --tour-c-text-dark: #f5f5f7;
-  --tour-c-accent: #0066ff;
-  --tour-c-accent-soft: rgba(0, 102, 255, 0.12);
-  --tour-c-line: rgba(0, 0, 0, 0.08);
+  /* Colors — LED Grid */
+  --tour-c-bg: #000000;
+  --tour-c-bg-soft: #0a0a0a;
+  --tour-c-bg-panel: #111111;
+  --tour-c-bg-dark: #000000;
+  --tour-c-text: #f5f5f5;
+  --tour-c-text-soft: #a3a3a3;
+  --tour-c-text-dim: #6b6b6b;
+  --tour-c-text-dark: #f5f5f5;
+  --tour-c-accent: #ff9500;
+  --tour-c-accent-soft: rgba(255, 149, 0, 0.12);
+  --tour-c-line: rgba(255, 255, 255, 0.08);
+  --tour-c-line-strong: rgba(255, 255, 255, 0.16);
 
   /* Motion */
   --tour-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -48,16 +54,15 @@
   --tour-space-6: 96px;
   --tour-space-7: 160px;
 
-  /* Radii */
-  --tour-r-sm: 6px;
-  --tour-r-md: 12px;
-  --tour-r-lg: 20px;
-  --tour-r-2xl: 32px;
+  /* Radii — LED = sharp edges */
+  --tour-r-sm: 0;
+  --tour-r-md: 0;
+  --tour-r-lg: 0;
+  --tour-r-2xl: 0;
 
   /* Shadows */
-  --tour-shadow-pop: 0 20px 48px rgba(0, 0, 0, 0.16),
-    0 4px 12px rgba(0, 0, 0, 0.08);
-  --tour-shadow-hero: 0 40px 100px rgba(0, 0, 0, 0.12);
+  --tour-shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.8);
+  --tour-shadow-hero: 0 0 0 1px rgba(255, 255, 255, 0.08);
 
   background: var(--tour-c-bg);
   color: var(--tour-c-text);
@@ -67,18 +72,7 @@
   text-rendering: optimizeLegibility;
 }
 
-/* Dark mode override (시스템 prefers-color-scheme) */
-@media (prefers-color-scheme: dark) {
-  .tour-page {
-    --tour-c-bg: #0a0a0a;
-    --tour-c-bg-soft: #1c1c1e;
-    --tour-c-text: #f5f5f7;
-    --tour-c-text-soft: #a8a29e;
-    --tour-c-line: rgba(255, 255, 255, 0.08);
-  }
-}
-
-/* reduced-motion — 모든 애니 100ms로 단축 + scroll 즉시 */
+/* reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .tour-page *,
   .tour-page *::before,
@@ -90,14 +84,14 @@
   }
 }
 
-/* 투어 페이지에서 Quartz의 기본 페이지 래퍼·사이드바 숨기기 */
+/* 투어 페이지에서 Quartz 기본 래퍼·사이드바 숨기기 */
 body.tour-page #quartz-root .sidebar,
 body.tour-page #quartz-root .page-header,
 body.tour-page #quartz-root .page-footer {
   display: none;
 }
 
-/* 스크린 리더 전용 텍스트 */
+/* 스크린 리더 전용 */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -110,18 +104,19 @@ body.tour-page #quartz-root .page-footer {
   border: 0;
 }
 
-/* 투어 앱 컨테이너 초기화 */
 body.tour-page {
   margin: 0;
   padding: 0;
+  background: var(--tour-c-bg);
 }
 body.tour-page #tour-root {
   min-height: 100vh;
+  background: var(--tour-c-bg);
 }
 
-/* 키보드 포커스 아웃라인 — Apple 스타일 */
+/* 포커스 */
 .tour-page :focus-visible {
-  outline: 3px solid var(--tour-c-accent);
-  outline-offset: 3px;
-  border-radius: 4px;
+  outline: 1px solid var(--tour-c-accent);
+  outline-offset: 2px;
+  border-radius: 0;
 }

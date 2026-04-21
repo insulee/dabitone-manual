@@ -1,186 +1,110 @@
 /**
- * 랜딩 페이지 — Hero + What's New + 5 탭 핫스팟 + PDF 카드.
- * 플랜 v3.1 Phase R2.
- *
- * MVP 단계: Hero + 간단한 placeholder. R2에서 핫스팟·Before/After 단계적 붙임.
+ * 랜딩 페이지 — LED Grid aesthetic direction (2026-04-21 재설계).
+ * frontend-design SKILL.md 원칙 + 2026 type-first / industrial minimalism 트렌드.
+ * Hero / Manifesto / FeatureGrid / EditorShot / TabIndex / SpecSheet / Footer.
  */
-import { useEffect, useRef, useState } from "preact/hooks"
-import { animate } from "../lib/motion"
+import { useEffect, useRef } from "preact/hooks"
 import { revealOnEnter } from "../lib/observe"
-import { Popover } from "../components/Popover"
-import { Hotspot } from "../components/Hotspot"
-import { landing } from "../../data/landing"
-import type { LandingHotspot } from "../types"
 
 export function Landing() {
-  const heroTitleRef = useRef<HTMLHeadingElement>(null)
-  const heroSubRef = useRef<HTMLParagraphElement>(null)
-  const heroImgRef = useRef<HTMLImageElement>(null)
-  const [openHotspot, setOpenHotspot] = useState<LandingHotspot | null>(null)
-
-  useEffect(() => {
-    if (heroTitleRef.current) {
-      animate(
-        heroTitleRef.current,
-        { opacity: [0, 1], transform: ["translateY(24px)", "translateY(0)"] },
-        { duration: 1.0 },
-      )
-    }
-    if (heroSubRef.current) {
-      animate(
-        heroSubRef.current,
-        { opacity: [0, 1], transform: ["translateY(12px)", "translateY(0)"] },
-        { duration: 0.8, delay: 0.3 },
-      )
-    }
-    if (heroImgRef.current) {
-      animate(
-        heroImgRef.current,
-        {
-          opacity: [0, 1],
-          transform: [
-            "scale(0.96) translateY(40px)",
-            "scale(1) translateY(0)",
-          ],
-        },
-        { duration: 1.2, delay: 0.6 },
-      )
-    }
-  }, [])
-
   return (
     <>
-      <Hero
-        titleRef={heroTitleRef}
-        subRef={heroSubRef}
-        imgRef={heroImgRef}
-        title={landing.hero.title}
-        subtitle={landing.hero.subtitle}
-        heroImage={landing.hero.heroImage}
-      />
-
-      <Highlight
-        title="편집기, 완전히 새로."
-        caption="텍스트·이미지·GIF를 한 환경에서. 드래그 앤 드롭으로."
-        image={{
-          src: "/assets/screens/manual-poc/main-editor.png",
-          alt: "DabitONe 편집기 화면",
-        }}
-      />
-
-      <Highlight
-        title="통신, 한 화면에."
-        caption="Serial·TCP·UDP·BLE·MQTT·dbNet. 전부 한 곳에서 전환."
-        image={{
-          src: "/assets/screens/manual-poc/main-comm.png",
-          alt: "DabitONe 통신 설정 화면",
-        }}
-        variant="reverse"
-      />
-
-      <Highlight
-        title="전송, 선명하게."
-        caption="어디까지 갔고, 무엇이 실패했는지. 한눈에."
-        image={{
-          src: "/assets/screens/manual-poc/main-simulator.png",
-          alt: "DabitONe 전송 화면",
-        }}
-        variant="centered"
-      />
-
-      <HotspotsSection
-        hotspots={landing.hotspots}
-        heroImage={landing.hero.heroImage}
-        onActivate={setOpenHotspot}
-      />
-
+      <Hero />
+      <Manifesto />
+      <FeatureGrid />
+      <EditorShot />
+      <TabIndex />
+      <SpecSheet />
       <PdfFooter />
-
-      {openHotspot && (
-        <Popover
-          open={true}
-          onClose={() => setOpenHotspot(null)}
-          title={openHotspot.hotspot.label}
-          cta={{
-            label: "투어 시작",
-            href: `/tour/quickstart/${openHotspot.tourSlug}/`,
-          }}
-        >
-          {openHotspot.summary}
-        </Popover>
-      )}
     </>
   )
 }
 
-function Hero({
-  titleRef,
-  subRef,
-  imgRef,
-  title,
-  subtitle,
-  heroImage,
-}: {
-  titleRef: preact.RefObject<HTMLHeadingElement>
-  subRef: preact.RefObject<HTMLParagraphElement>
-  imgRef: preact.RefObject<HTMLImageElement>
-  title: string
-  subtitle: string
-  heroImage: { src: string; alt: string; width: number; height: number }
-}) {
+function Hero() {
   return (
     <section class="tour-hero" aria-label="Hero">
       <div class="tour-hero__inner">
-        <h1 class="tour-hero__title" ref={titleRef}>
-          {title}
-        </h1>
-        <p class="tour-hero__subtitle" ref={subRef}>
-          {subtitle}
-        </p>
+        <p class="tour-hero__eyebrow">DABITSOL · LED CONTROL SOFTWARE</p>
+        <h1 class="tour-hero__title">DabitONe</h1>
+        <p class="tour-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
+        <p class="tour-hero__meta">V1.1.0 · WINDOWS · 2026</p>
       </div>
-      <img
-        class="tour-hero__product"
-        ref={imgRef}
-        src={heroImage.src}
-        alt={heroImage.alt}
-        width={heroImage.width}
-        height={heroImage.height}
-        loading="eager"
-        decoding="async"
-      />
     </section>
   )
 }
 
-function Highlight({
-  title,
-  caption,
-  image,
-  variant,
-}: {
-  title: string
-  caption: string
-  image: { src: string; alt: string }
-  variant?: "reverse" | "centered"
-}) {
+function Manifesto() {
   const ref = useRef<HTMLElement>(null)
   useEffect(() => {
     if (ref.current) revealOnEnter(ref.current)
   }, [])
-  const modifier = variant ? ` tour-highlight--${variant}` : ""
+  return (
+    <section ref={ref} class="tour-manifesto" style={{ opacity: 0 }}>
+      <div class="tour-manifesto__inner">
+        <h2 class="tour-manifesto__text">
+          픽셀에서 프로토콜까지,
+          <br />
+          하나의 소프트웨어.
+        </h2>
+      </div>
+    </section>
+  )
+}
+
+const FEATURES: readonly { label: string; desc: string }[] = [
+  { label: "6 PROTOCOLS", desc: "Serial · TCP · UDP · BLE · MQTT · dbNet" },
+  { label: "DRAG & DROP", desc: "편집기에서 바로 이미지·GIF·텍스트" },
+  { label: "REAL-TIME", desc: "전송 진행률 · 재시도 · 실패 분석" },
+  { label: "6 FORMATS", desc: "DAT · ANI · GIF · PLA · BGP · FNT" },
+  { label: "SCHEDULE", desc: "메시지 스케줄 · 배경 순환" },
+  { label: "FIRMWARE", desc: "컨트롤러 OTA 업데이트" },
+] as const
+
+function FeatureGrid() {
+  const ref = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (ref.current) revealOnEnter(ref.current)
+  }, [])
   return (
     <section
       ref={ref}
-      class={`tour-highlight${modifier}`}
+      class="tour-features"
       style={{ opacity: 0 }}
+      aria-label="기능"
     >
-      <div class="tour-highlight__inner">
-        <h2 class="tour-highlight__title">{title}</h2>
-        <p class="tour-highlight__caption">{caption}</p>
+      <div class="tour-features__inner">
+        {FEATURES.map((f) => (
+          <div key={f.label} class="tour-features__cell">
+            <p class="tour-features__label">{f.label}</p>
+            <p class="tour-features__desc">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function EditorShot() {
+  const ref = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (ref.current) revealOnEnter(ref.current)
+  }, [])
+  return (
+    <section
+      ref={ref}
+      class="tour-shot"
+      style={{ opacity: 0 }}
+      aria-label="편집기"
+    >
+      <div class="tour-shot__inner">
+        <p class="tour-shot__eyebrow">EDITOR</p>
+        <h3 class="tour-shot__title">
+          텍스트, 이미지, GIF를 한 환경에서.
+        </h3>
         <img
-          class="tour-highlight__image"
-          src={image.src}
-          alt={image.alt}
+          class="tour-shot__image"
+          src="/assets/screens/manual-poc/main-editor.png"
+          alt="DabitONe 편집기 화면"
           width={1422}
           height={1386}
           loading="lazy"
@@ -190,45 +114,91 @@ function Highlight({
   )
 }
 
-function HotspotsSection({
-  hotspots,
-  heroImage,
-  onActivate,
-}: {
-  hotspots: LandingHotspot[]
-  heroImage: { src: string; alt: string; width: number; height: number }
-  onActivate: (h: LandingHotspot) => void
-}) {
-  const ref = useRef<HTMLDivElement>(null)
+const TABS: readonly {
+  num: string
+  name: string
+  desc: string
+  slug: string
+}[] = [
+  {
+    num: "01",
+    name: "통신",
+    desc: "Serial · TCP · UDP · BLE · MQTT · dbNet",
+    slug: "01-first-connection",
+  },
+  { num: "02", name: "설정", desc: "화면 · 시계 · 밝기", slug: "02-screen-size" },
+  { num: "03", name: "전송", desc: "메시지 · 스케줄", slug: "03-send-message" },
+  { num: "04", name: "편집", desc: "텍스트 · 이미지 · GIF", slug: "04-edit-image" },
+  { num: "05", name: "고급", desc: "펌웨어 · 로그 · 진단", slug: "08-firmware" },
+] as const
+
+function TabIndex() {
+  const ref = useRef<HTMLElement>(null)
   useEffect(() => {
     if (ref.current) revealOnEnter(ref.current)
   }, [])
-
   return (
-    <section class="tour-section tour-section--dark" aria-label="기능별 투어 선택">
-      <div class="tour-section__inner">
-        <h2 class="tour-section__title">어디서부터 시작할까요?</h2>
-        <p class="tour-section__caption">
-          아래 파란 점을 눌러 관심 있는 기능의 체험 투어로 바로 이동할 수
-          있습니다.
-        </p>
-        <div ref={ref} class="tour-stage" style={{ opacity: 0 }}>
-          <img
-            class="tour-stage__image"
-            src={heroImage.src}
-            alt={heroImage.alt}
-            width={heroImage.width}
-            height={heroImage.height}
-            loading="lazy"
-          />
-          {hotspots.map((h) => (
-            <Hotspot
-              key={h.id}
-              data={h.hotspot}
-              onActivate={() => onActivate(h)}
-            />
+    <section
+      ref={ref}
+      class="tour-tabs"
+      style={{ opacity: 0 }}
+      aria-label="투어 시작"
+    >
+      <div class="tour-tabs__inner">
+        <p class="tour-tabs__eyebrow">QUICKSTART</p>
+        <h3 class="tour-tabs__title">어디서부터 시작할까요?</h3>
+        <ul class="tour-tabs__list">
+          {TABS.map((t) => (
+            <li key={t.num} class="tour-tabs__item">
+              <a
+                class="tour-tabs__link"
+                href={`/tour/quickstart/${t.slug}/`}
+              >
+                <span class="tour-tabs__num">{t.num}</span>
+                <span class="tour-tabs__name">{t.name}</span>
+                <span class="tour-tabs__desc">{t.desc}</span>
+                <span class="tour-tabs__arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+const SPECS: readonly { k: string; v: string }[] = [
+  { k: "통신 프로토콜", v: "Serial · TCP · UDP · BLE · MQTT · dbNet" },
+  { k: "파일 포맷", v: "DAT · ANI · GIF · PLA · BGP · FNT" },
+  { k: "플랫폼", v: "Windows 10 이상" },
+  { k: "언어", v: "한국어 · 영어" },
+  { k: "버전", v: "1.1.0 (2026-04)" },
+] as const
+
+function SpecSheet() {
+  const ref = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (ref.current) revealOnEnter(ref.current)
+  }, [])
+  return (
+    <section
+      ref={ref}
+      class="tour-specs"
+      style={{ opacity: 0 }}
+      aria-label="스펙"
+    >
+      <div class="tour-specs__inner">
+        <p class="tour-specs__eyebrow">SPECIFICATIONS</p>
+        <dl class="tour-specs__list">
+          {SPECS.map((s) => (
+            <div key={s.k} class="tour-specs__row">
+              <dt class="tour-specs__k">{s.k}</dt>
+              <dd class="tour-specs__v">{s.v}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   )
@@ -237,37 +207,35 @@ function HotspotsSection({
 function PdfFooter() {
   return (
     <footer class="tour-footer" aria-label="PDF 다운로드">
-      <h2
-        style={{
-          fontFamily: "var(--tour-font-display)",
-          fontSize: "var(--tour-fs-section)",
-          fontWeight: 600,
-          color: "var(--tour-c-text)",
-          margin: "0 0 16px",
-        }}
-      >
-        오프라인 참조용 PDF
-      </h2>
-      <p style={{ marginBottom: "40px" }}>
-        원하시는 분은 아래 PDF를 다운로드해 참조하실 수 있습니다 (Optional).
-      </p>
-      <div class="tour-footer__pdfs">
-        <a class="tour-footer__pdf-card" href="/pdf/DabitONe_Manual_Reference.pdf">
-          <div class="tour-footer__pdf-title">📄 UI 레퍼런스편</div>
-          <div class="tour-footer__pdf-hint">
-            화면별 컨트롤 설명, 파일 포맷, 메뉴 구조
-          </div>
-        </a>
-        <a class="tour-footer__pdf-card" href="/pdf/DabitONe_Manual_Operation.pdf">
-          <div class="tour-footer__pdf-title">📄 운영·문제해결편</div>
-          <div class="tour-footer__pdf-hint">
-            트러블슈팅, FAQ, 릴리즈 노트
-          </div>
-        </a>
+      <div class="tour-footer__inner">
+        <p class="tour-footer__eyebrow">REFERENCE PDF</p>
+        <h3 class="tour-footer__title">오프라인 참조용.</h3>
+        <div class="tour-footer__pdfs">
+          <a
+            class="tour-footer__pdf-card"
+            href="/pdf/DabitONe_Manual_Reference.pdf"
+          >
+            <span class="tour-footer__pdf-num">A</span>
+            <span class="tour-footer__pdf-title">UI 레퍼런스편</span>
+            <span class="tour-footer__pdf-hint">
+              화면별 컨트롤 · 파일 포맷 · 메뉴 구조
+            </span>
+          </a>
+          <a
+            class="tour-footer__pdf-card"
+            href="/pdf/DabitONe_Manual_Operation.pdf"
+          >
+            <span class="tour-footer__pdf-num">B</span>
+            <span class="tour-footer__pdf-title">운영·문제해결편</span>
+            <span class="tour-footer__pdf-hint">
+              트러블슈팅 · FAQ · 릴리즈 노트
+            </span>
+          </a>
+        </div>
+        <p class="tour-footer__colophon">
+          © DABITSOL · DABITONE V1.1.0
+        </p>
       </div>
-      <p style={{ fontSize: "14px", color: "var(--tour-c-text-soft)" }}>
-        © 다빛솔루션 DabitONe — 버전 1.1.0
-      </p>
     </footer>
   )
 }

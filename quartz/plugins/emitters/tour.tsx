@@ -120,20 +120,23 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="${escapeHtml(page.description)}">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="dark">
   <title>${escapeHtml(fullTitle)}</title>
   <link rel="stylesheet" href="${quartzCss}">
   <link rel="stylesheet" href="${tourCss}">
   <link rel="icon" href="${joinSegments(baseDir, "static/icon.png")}">
   <script src="${preScript}"></script>
 </head>
-<body data-slug="${page.slug}" class="tour-page">
+<body data-slug="${page.slug}" class="tour-page" style="background:#000;color:#f5f5f5;">
   <div id="tour-root">
-    <div class="tour-loading" role="status" aria-live="polite">
-      <h1 style="font-family: 'Pretendard Variable', sans-serif; letter-spacing: -0.03em; font-size: clamp(48px, 8vw, 96px); margin: 0; padding: 20vh 6vw 0; opacity: 0.6;">
+    <div class="tour-loading" role="status" aria-live="polite" style="min-height:100vh;padding:20vh 6vw 0;background:#000;">
+      <p style="font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; font-size: 13px; letter-spacing: 0.18em; color: #6b6b6b; text-transform: uppercase; margin: 0 0 40px;">
+        DABITSOL · LED CONTROL SOFTWARE
+      </p>
+      <h1 style="font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; letter-spacing: -0.04em; font-size: clamp(72px, 10vw, 144px); margin: 0; color: #f5f5f5; font-weight: 700;">
         ${escapeHtml(page.title)}
       </h1>
-      <p style="font-family: 'Pretendard Variable', sans-serif; font-size: 19px; color: #515154; padding: 24px 6vw 0; max-width: 640px;">
+      <p style="font-family: 'Pretendard Variable', sans-serif; font-size: clamp(20px, 2vw, 28px); color: #a3a3a3; margin: 24px 0 0; max-width: 880px;">
         ${escapeHtml(page.description)}
       </p>
     </div>
