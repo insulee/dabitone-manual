@@ -1,3 +1,515 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+/* ==================== LED Grid (2026-04-21) ====================
+ * 모든 markdown 페이지(루트 /, ui-reference, troubleshooting, file-formats, blog)에
+ * 검정 배경 · amber accent · monospace label 톤 강제 주입.
+ * /tour/* 는 별도 tour-page 클래스에서 이미 적용됨.
+ */
+
+html {
+  background: #000;
+  color-scheme: dark;
+  scroll-behavior: auto;
+}
+
+body {
+  background: #000 !important;
+  color: #f5f5f5;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 다크모드 토글 숨김 — 항상 다크 */
+.darkmode {
+  display: none !important;
+}
+
+/* ==================== 타이포그래피 ==================== */
+
+article,
+.page {
+  color: #f5f5f5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Pretendard Variable", -apple-system, sans-serif;
+  letter-spacing: -0.03em;
+  color: #f5f5f5;
+}
+
+article h1,
+.article-title {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+article h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+  margin-top: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+  letter-spacing: -0.03em;
+}
+
+article h3 {
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 500;
+  margin-top: 2.5rem;
+}
+
+article h4 {
+  font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: 600;
+  margin-top: 2rem;
+  color: #a3a3a3;
+}
+
+article p,
+article li {
+  color: #f5f5f5;
+  line-height: 1.65;
+}
+
+/* ==================== 링크 ==================== */
+
+article a,
+a.internal,
+a.external,
+.page a {
+  color: #ff9500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+article a:hover,
+a.internal:hover,
+a.external:hover,
+.page a:hover {
+  border-bottom-color: #ff9500;
+  color: #ffb547;
+}
+
+/* ==================== 코드 ==================== */
+
+code {
+  font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  background: #1c1c1e;
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 0;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #0a0a0a !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==================== 인용 ==================== */
+
+blockquote {
+  border-left: 2px solid #ff9500;
+  background: rgba(255, 149, 0, 0.04);
+  margin: 24px 0;
+  padding: 16px 24px;
+  color: #a3a3a3;
+  font-style: normal;
+}
+
+blockquote p {
+  margin: 0;
+  color: #a3a3a3;
+}
+
+/* ==================== 테이블 ==================== */
+
+table {
+  border-collapse: collapse;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  margin: 24px 0;
+  font-size: 15px;
+}
+
+th, td {
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #0a0a0a;
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a3a3a3;
+  font-weight: 600;
+}
+
+td code {
+  font-size: 13px;
+}
+
+/* ==================== HR ==================== */
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 48px 0;
+}
+
+/* ==================== 이미지 ==================== */
+
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+  margin: 24px auto;
+}
+
+/* ==================== 사이드바 / Explorer ==================== */
+
+.sidebar,
+.page > #quartz-body > .sidebar {
+  background: #000;
+  color: #f5f5f5;
+}
+
+#explorer,
+.explorer {
+  font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  background: transparent;
+}
+
+#explorer-content ul,
+#explorer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#explorer-content li a,
+#explorer li a {
+  color: #a3a3a3;
+  text-decoration: none;
+  transition: color 200ms ease;
+  padding: 4px 0;
+  display: block;
+  border-bottom: none;
+}
+
+#explorer-content li a:hover,
+#explorer li a:hover {
+  color: #ff9500;
+}
+
+#explorer-content .folder-outer > .folder-container,
+#explorer .folder-outer > .folder-container {
+  color: #f5f5f5;
+}
+
+.folder-icon,
+.folder-title {
+  color: #f5f5f5 !important;
+}
+
+.folder-title {
+  font-weight: 500;
+}
+
+button#explorer {
+  color: #a3a3a3;
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ==================== Callouts (Obsidian) ==================== */
+
+.callout {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid #ff9500;
+  padding: 16px 20px;
+  margin: 24px 0;
+  color: #f5f5f5;
+  border-radius: 0;
+}
+
+.callout[data-callout="note"] {
+  border-left-color: #ff9500;
+}
+.callout[data-callout="warning"],
+.callout[data-callout="caution"] {
+  border-left-color: #ff9500;
+}
+.callout[data-callout="tip"],
+.callout[data-callout="info"] {
+  border-left-color: #a3a3a3;
+}
+
+.callout-title,
+.callout > .callout-title {
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff9500;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.callout-title-inner {
+  font-weight: 600;
+}
+
+/* ==================== Selection / mark ==================== */
+
+::selection {
+  background: rgba(255, 149, 0, 0.3);
+  color: #f5f5f5;
+}
+
+mark {
+  background: rgba(255, 149, 0, 0.3);
+  color: #f5f5f5;
+  padding: 0 4px;
+}
+
+/* ==================== Header / Breadcrumb ==================== */
+
+.page-header {
+  color: #f5f5f5;
+}
+
+.breadcrumb-container,
+.breadcrumbs {
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.breadcrumb-container a,
+.breadcrumbs a {
+  color: #a3a3a3;
+  border-bottom: 0;
+}
+.breadcrumb-container a:hover {
+  color: #ff9500;
+  border-bottom: 0;
+}
+
+/* ==================== ContentMeta (날짜, 글자 수) ==================== */
+
+.content-meta {
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  margin-bottom: 24px;
+}
+
+.content-meta > * {
+  color: #6b6b6b;
+}
+
+/* ==================== Search ==================== */
+
+.search button,
+.search-button {
+  color: #a3a3a3;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0;
+}
+
+.search-container {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+#search-bar {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  font-family: "Pretendard Variable", sans-serif;
+}
+
+/* ==================== Backlinks / Recent / TOC ==================== */
+
+.backlinks,
+.recent-notes,
+.toc {
+  background: transparent;
+  color: #a3a3a3;
+}
+
+.backlinks h3,
+.recent-notes h3,
+.toc h3,
+.toc-header {
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  font-weight: 600;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.toc-content ul {
+  list-style: none;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.toc-content li a {
+  color: #a3a3a3;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 3px 0;
+  display: block;
+}
+
+.toc-content li a:hover {
+  color: #ff9500;
+}
+
+/* ==================== Graph ==================== */
+
+#graph-container {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+}
+
+/* ==================== Page Title / Footer ==================== */
+
+h1.article-title,
+.page-title {
+  color: #f5f5f5;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+#page-title a {
+  color: #f5f5f5;
+  border-bottom: 0;
+}
+
+.page-footer,
+footer {
+  color: #6b6b6b;
+  font-size: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 64px;
+  padding-top: 24px;
+}
+
+/* ==================== Fields / forms ==================== */
+
+input, textarea, select {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  font-family: "Pretendard Variable", sans-serif;
+  padding: 8px 12px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1px solid #ff9500;
+  outline-offset: 2px;
+  border-color: #ff9500;
+}
+
+button {
+  border-radius: 0;
+  font-family: "Pretendard Variable", sans-serif;
+}
+
+/* ==================== Popover (Quartz 내부 링크 미리보기) ==================== */
+
+.popover {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  color: #f5f5f5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+}
+
+.popover h1, .popover h2, .popover h3 {
+  color: #f5f5f5;
+}
+
+/* ==================== Tags ==================== */
+
+.tags a,
+a.tag-link {
+  background: #1c1c1e;
+  color: #a3a3a3;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 0;
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.tags a:hover,
+a.tag-link:hover {
+  background: #0a0a0a;
+  color: #ff9500;
+  border-color: #ff9500;
+}
+
+/* ==================== 일반 radius 제거 ==================== */
+
+article,
+article *,
+.sidebar,
+.sidebar * {
+  border-radius: 0;
+}
+
+/* KaTeX 수식 색상 */
+.katex {
+  color: #f5f5f5;
+}
