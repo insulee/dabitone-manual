@@ -8,5 +8,6 @@ test-results/
 .obsidian/workspace*.json
 .obsidian/plugins/*/data.json
 
-# 투어 앱 빌드 산출물 (scripts/build-tour.mjs가 생성, CI가 매번 빌드)
-quartz/static/tour/
+# 참고: quartz/static/tour/{tour.js, tour.css}는 scripts/build-tour.mjs 산출물이지만
+# Quartz Static emitter의 glob이 gitignore를 준수하므로 gitignore하면 배포에서 누락된다.
+# 따라서 커밋에 포함한다 (로컬/CI 빌드 후 반드시 재생성해 push).
