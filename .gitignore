@@ -1,0 +1,9 @@
+node_modules/
+.quartz-cache/
+public/
+.wrangler/
+playwright-report/
+test-results/
+*.log
+.obsidian/workspace*.json
+.obsidian/plugins/*/data.json
