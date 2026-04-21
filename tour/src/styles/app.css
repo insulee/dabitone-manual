@@ -145,7 +145,6 @@
   font-weight: 700;
   color: var(--tour-c-text);
   margin: 0;
-  opacity: 0;
 }
 .tour-hero__subtitle {
   font-size: clamp(22px, 2.4vw, 36px);
@@ -155,7 +154,6 @@
   font-weight: 400;
   max-width: 900px;
   line-height: 1.25;
-  opacity: 0;
 }
 .tour-hero__product {
   display: block;
@@ -166,7 +164,6 @@
   border-radius: 20px;
   box-shadow: 0 60px 120px rgba(0, 0, 0, 0.12),
     0 20px 40px rgba(0, 0, 0, 0.06);
-  opacity: 0;
   align-self: center;
 }
 
