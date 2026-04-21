@@ -277,10 +277,9 @@ function Rail({
       style={{
         position: "sticky",
         top: "40px",
-        background: "var(--tour-c-bg)",
+        background: "var(--tour-c-bg-panel)",
         padding: "32px 28px",
-        borderRadius: "var(--tour-r-2xl)",
-        boxShadow: "var(--tour-shadow-pop)",
+        border: "1px solid var(--tour-c-line-strong)",
       }}
     >
       <h2
@@ -428,13 +427,15 @@ function Rail({
 }
 
 const primaryButton: preact.JSX.CSSProperties = {
-  padding: "10px 20px",
+  padding: "12px 24px",
+  fontFamily: "var(--tour-font-body)",
   fontSize: "var(--tour-fs-body)",
   fontWeight: 600,
+  letterSpacing: "-0.01em",
   background: "var(--tour-c-accent)",
-  color: "#fff",
+  color: "#000",
   border: 0,
-  borderRadius: "var(--tour-r-md)",
+  borderRadius: 0,
   cursor: "pointer",
 }
 const primaryLink: preact.JSX.CSSProperties = {
@@ -443,12 +444,13 @@ const primaryLink: preact.JSX.CSSProperties = {
   display: "inline-block",
 }
 const secondaryButton: preact.JSX.CSSProperties = {
-  padding: "10px 20px",
+  padding: "12px 24px",
+  fontFamily: "var(--tour-font-body)",
   fontSize: "var(--tour-fs-body)",
   fontWeight: 500,
-  background: "var(--tour-c-bg-soft)",
+  background: "transparent",
   color: "var(--tour-c-text)",
-  border: "1px solid var(--tour-c-line)",
-  borderRadius: "var(--tour-r-md)",
+  border: "1px solid var(--tour-c-line-strong)",
+  borderRadius: 0,
   cursor: "pointer",
 }

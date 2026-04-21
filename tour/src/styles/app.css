@@ -132,6 +132,21 @@
   color: var(--tour-c-text);
 }
 
+/* ==================== Stage (Tour 스텝 전용) ==================== */
+.tour-stage {
+  position: relative;
+  width: 100%;
+  background: var(--tour-c-bg-soft);
+  border: 1px solid var(--tour-c-line);
+  overflow: hidden;
+}
+.tour-stage__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* ==================== Hero ==================== */
 .tour-hero {
   min-height: 100vh;
