@@ -27,7 +27,7 @@ last_updated: 2026-04-21
 ### 가능한 원인
 
 - **물리 계층 문제**: 케이블 단선, 단자대 +/- 반전, 커넥터 불량
-- **Serial 속도 불일치**: 컨트롤러는 9600인데 DabitONe은 115200 등
+- **Serial 속도 불일치**: 컨트롤러는 9600인데 DabitOne은 115200 등
 - **응답 지연 초과**: 컨트롤러가 바쁘거나 느린 경우 기본 3초로 부족
 - **네트워크 지연** (TCP): 같은 서브넷이지만 라우터 경유로 지연
 
@@ -45,7 +45,7 @@ last_updated: 2026-04-21
 
 ### "COM 포트를 열 수 없습니다"
 
-- COM 포트를 다른 프로그램(PuTTY, 다른 DabitONe 인스턴스 등)이 점유 중
+- COM 포트를 다른 프로그램(PuTTY, 다른 DabitOne 인스턴스 등)이 점유 중
 - **조치**: 점유 중인 프로그램 종료 후 재시도
 
 ### "Host unreachable / No route to host"
@@ -90,10 +90,10 @@ last_updated: 2026-04-21
 ## 그래도 안 되면
 
 - [[troubleshooting/05-faq|자주 묻는 질문]] 확인
-- **support@dabitsol.com** 로 문의 (DabitONe 버전, 컨트롤러 모델·펌웨어 버전, 전광판 구성 함께)
+- **support@dabitsol.com** 로 문의 (DabitOne 버전, 컨트롤러 모델·펌웨어 버전, 전광판 구성 함께)
 
 ## 연락처
 
 **support@dabitsol.com** | 기술지원팀 전화: (제품 라벨 참조)
 
-문의 시 **DabitONe 버전 · 컨트롤러 모델/펌웨어 · 전광판 구성**을 함께 알려주세요.
+문의 시 **DabitOne 버전 · 컨트롤러 모델/펌웨어 · 전광판 구성**을 함께 알려주세요.

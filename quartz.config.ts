@@ -2,13 +2,13 @@ import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
 /**
- * Quartz 4 Configuration — DabitONe 매뉴얼
+ * Quartz 4 Configuration — DabitOne 매뉴얼
  *
  * See https://quartz.jzhao.xyz/configuration for more information.
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "DabitONe 매뉴얼",
+    pageTitle: "DabitOne 매뉴얼",
     pageTitleSuffix: " - 다빛솔루션",
     enableSPA: true,
     enablePopovers: true,
@@ -36,26 +36,26 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#000000",
-          lightgray: "#1c1c1e",
-          gray: "#6b6b6b",
-          darkgray: "#a3a3a3",
-          dark: "#f5f5f5",
-          secondary: "#ff9500",
-          tertiary: "#ffb547",
-          highlight: "rgba(255, 149, 0, 0.08)",
-          textHighlight: "rgba(255, 149, 0, 0.3)",
+          light: "#fafaf9",
+          lightgray: "#f5f5f4",
+          gray: "#a8a29e",
+          darkgray: "#57534e",
+          dark: "#1c1917",
+          secondary: "#c2410c",
+          tertiary: "#9a3412",
+          highlight: "rgba(194, 65, 12, 0.08)",
+          textHighlight: "rgba(194, 65, 12, 0.25)",
         },
         darkMode: {
-          light: "#000000",
-          lightgray: "#1c1c1e",
-          gray: "#6b6b6b",
-          darkgray: "#a3a3a3",
-          dark: "#f5f5f5",
-          secondary: "#ff9500",
-          tertiary: "#ffb547",
-          highlight: "rgba(255, 149, 0, 0.08)",
-          textHighlight: "rgba(255, 149, 0, 0.3)",
+          light: "#fafaf9",
+          lightgray: "#f5f5f4",
+          gray: "#a8a29e",
+          darkgray: "#57534e",
+          dark: "#1c1917",
+          secondary: "#c2410c",
+          tertiary: "#9a3412",
+          highlight: "rgba(194, 65, 12, 0.08)",
+          textHighlight: "rgba(194, 65, 12, 0.25)",
         },
       },
     },

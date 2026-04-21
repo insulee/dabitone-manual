@@ -14,7 +14,7 @@ last_updated: 2026-04-21
 
 ## 컨텍스트
 
-DabitONe 매뉴얼 사이트(`dabitone.dabitsol.com`)의 호스팅 방식 결정. [[001-deploy-mode|ADR-001]]은 "docs.dabitsol.com이 Cloudflare Pages를 쓴다"는 전제로 Cloudflare Pages Direct Upload를 채택했으나, 실제 조사에서 그 전제가 틀렸음을 확인:
+DabitOne 매뉴얼 사이트(`dabitone.dabitsol.com`)의 호스팅 방식 결정. [[001-deploy-mode|ADR-001]]은 "docs.dabitsol.com이 Cloudflare Pages를 쓴다"는 전제로 Cloudflare Pages Direct Upload를 채택했으나, 실제 조사에서 그 전제가 틀렸음을 확인:
 
 ### 재조사 결과 (2026-04-21)
 
@@ -31,7 +31,7 @@ DabitONe 매뉴얼 사이트(`dabitone.dabitsol.com`)의 호스팅 방식 결정
 
 ## 결정
 
-**DabitONe 매뉴얼 사이트도 docs.dabitsol.com과 동일하게 GitHub Pages + GitHub Actions + Cafe24 DNS로 배포한다.**
+**DabitOne 매뉴얼 사이트도 docs.dabitsol.com과 동일하게 GitHub Pages + GitHub Actions + Cafe24 DNS로 배포한다.**
 
 ### 구체 스택
 

@@ -168,7 +168,7 @@ function ProgressHeader({
               marginBottom: "6px",
             }}
           >
-            DabitONe 투어
+            DabitOne 투어
           </div>
           <h1
             style={{
@@ -279,7 +279,8 @@ function Rail({
         top: "40px",
         background: "var(--tour-c-bg-panel)",
         padding: "32px 28px",
-        border: "1px solid var(--tour-c-line-strong)",
+        border: "1px solid var(--tour-c-line)",
+        boxShadow: "var(--tour-shadow-pop)",
       }}
     >
       <h2
@@ -433,7 +434,7 @@ const primaryButton: preact.JSX.CSSProperties = {
   fontWeight: 600,
   letterSpacing: "-0.01em",
   background: "var(--tour-c-accent)",
-  color: "#000",
+  color: "#fff",
   border: 0,
   borderRadius: 0,
   cursor: "pointer",

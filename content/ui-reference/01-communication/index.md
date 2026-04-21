@@ -1,16 +1,16 @@
 ---
 title: 통신
-description: "DabitONe 통신 설정 — Serial·TCP·UDP·BLE·MQTT·dbNet 전체"
+description: "DabitOne 통신 설정 — Serial·TCP·UDP·BLE·MQTT·dbNet 전체"
 last_updated: 2026-04-21
 ---
 
 # 통신 설정
 
-> 경로: 좌측 사이드바 **[통신]** 탭 (DabitONe 실행 시 기본 선택)
+> 경로: 좌측 사이드바 **[통신]** 탭 (DabitOne 실행 시 기본 선택)
 
 ## 이 화면의 역할
 
-DabitONe과 다빛솔루션 LED 컨트롤러를 **물리 연결**하는 모든 방식을 한 화면에 모은 통합 창. 예전엔 연결 방식마다 별도 창이었지만 이제 라디오 버튼 하나로 전환합니다.
+DabitOne과 다빛솔루션 LED 컨트롤러를 **물리 연결**하는 모든 방식을 한 화면에 모은 통합 창. 예전엔 연결 방식마다 별도 창이었지만 이제 라디오 버튼 하나로 전환합니다.
 
 ## 화면 구성
 

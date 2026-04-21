@@ -8,7 +8,7 @@ const EDITOR = {
   src: "/assets/screens/manual-poc/main-editor.png",
   width: 1422,
   height: 1386,
-  alt: "DabitONe 편집 탭 — 이미지 편집 모드",
+  alt: "DabitOne 편집 탭 — 이미지 편집 모드",
 } as const
 
 const tour: Tour = {
@@ -56,7 +56,7 @@ const tour: Tour = {
       srSummary:
         "저장 시 DAT 파일이 프로젝트 폴더에 생성되고 전송 탭에서 선택해 전광판으로 보냅니다.",
       tips: [
-        "저장 경로 기본: 내 문서\\DabitONe\\Data\\",
+        "저장 경로 기본: 내 문서\\DabitOne\\Data\\",
         "파일명은 내용을 알아볼 수 있게 — 예: logo-main.DAT",
       ],
     },

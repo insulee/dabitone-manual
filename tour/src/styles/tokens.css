@@ -1,12 +1,12 @@
 /**
- * DabitONe 투어 디자인 토큰 — LED Grid aesthetic (2026-04-21 재설계).
- * frontend-design SKILL.md 원칙 + 2026 type-first / industrial minimalism 트렌드.
+ * DabitOne 투어 디자인 토큰 — Light stone theme (2026-04-22 재조정).
+ * 가독성 우선: warm stone palette + burnt orange accent + Pretendard primary.
  */
 
 .tour-page {
-  /* Typography */
-  --tour-font-display: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, "Pretendard Variable", monospace;
-  --tour-font-body: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography — Pretendard primary (가독성), Mono는 label 전용 */
+  --tour-font-display: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+  --tour-font-body: "Pretendard Variable", -apple-system, sans-serif;
   --tour-font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
 
   --tour-fs-hero: clamp(72px, 10vw, 144px);
@@ -17,26 +17,26 @@
   --tour-fs-small: 14px;
   --tour-fs-label: 13px;
 
-  --tour-lh-tight: 1.02;
-  --tour-lh-normal: 1.5;
-  --tour-ls-tight: -0.04em;
+  --tour-lh-tight: 1.05;
+  --tour-lh-normal: 1.55;
+  --tour-ls-tight: -0.03em;
   --tour-ls-display: -0.03em;
   --tour-ls-mono: 0.02em;
-  --tour-ls-label: 0.18em;
+  --tour-ls-label: 0.16em;
 
-  /* Colors — LED Grid */
-  --tour-c-bg: #000000;
-  --tour-c-bg-soft: #0a0a0a;
-  --tour-c-bg-panel: #111111;
-  --tour-c-bg-dark: #000000;
-  --tour-c-text: #f5f5f5;
-  --tour-c-text-soft: #a3a3a3;
-  --tour-c-text-dim: #6b6b6b;
-  --tour-c-text-dark: #f5f5f5;
-  --tour-c-accent: #ff9500;
-  --tour-c-accent-soft: rgba(255, 149, 0, 0.12);
-  --tour-c-line: rgba(255, 255, 255, 0.08);
-  --tour-c-line-strong: rgba(255, 255, 255, 0.16);
+  /* Colors — Light warm stone */
+  --tour-c-bg: #fafaf9;
+  --tour-c-bg-soft: #f5f5f4;
+  --tour-c-bg-panel: #ffffff;
+  --tour-c-bg-dark: #1c1917;
+  --tour-c-text: #1c1917;
+  --tour-c-text-soft: #57534e;
+  --tour-c-text-dim: #a8a29e;
+  --tour-c-text-dark: #fafaf9;
+  --tour-c-accent: #c2410c;
+  --tour-c-accent-soft: rgba(194, 65, 12, 0.08);
+  --tour-c-line: rgba(28, 25, 23, 0.08);
+  --tour-c-line-strong: rgba(28, 25, 23, 0.16);
 
   /* Motion */
   --tour-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -54,15 +54,16 @@
   --tour-space-6: 96px;
   --tour-space-7: 160px;
 
-  /* Radii — LED = sharp edges */
+  /* Radii — sharp */
   --tour-r-sm: 0;
   --tour-r-md: 0;
   --tour-r-lg: 0;
   --tour-r-2xl: 0;
 
-  /* Shadows */
-  --tour-shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.8);
-  --tour-shadow-hero: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  /* Shadows — light theme 용 */
+  --tour-shadow-pop: 0 20px 40px rgba(28, 25, 23, 0.12),
+    0 4px 8px rgba(28, 25, 23, 0.04);
+  --tour-shadow-hero: 0 0 0 1px rgba(28, 25, 23, 0.08);
 
   background: var(--tour-c-bg);
   color: var(--tour-c-text);
@@ -72,7 +73,6 @@
   text-rendering: optimizeLegibility;
 }
 
-/* reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .tour-page *,
   .tour-page *::before,
@@ -84,14 +84,12 @@
   }
 }
 
-/* 투어 페이지에서 Quartz 기본 래퍼·사이드바 숨기기 */
 body.tour-page #quartz-root .sidebar,
 body.tour-page #quartz-root .page-header,
 body.tour-page #quartz-root .page-footer {
   display: none;
 }
 
-/* 스크린 리더 전용 */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -114,7 +112,6 @@ body.tour-page #tour-root {
   background: var(--tour-c-bg);
 }
 
-/* 포커스 */
 .tour-page :focus-visible {
   outline: 1px solid var(--tour-c-accent);
   outline-offset: 2px;

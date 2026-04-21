@@ -28,7 +28,7 @@ last_updated: 2026-04-21
 ### 전송 전 (PC)
 
 ```
-C:\Users\[사용자]\Documents\DabitONe\Fonts\
+C:\Users\[사용자]\Documents\DabitOne\Fonts\
 확장자: .FNT
 ```
 

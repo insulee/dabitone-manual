@@ -1,24 +1,24 @@
 @use "./base.scss";
 
-/* ==================== LED Grid (2026-04-21) ====================
+/* ==================== Stone Light theme (2026-04-22) ====================
  * 모든 markdown 페이지(루트 /, ui-reference, troubleshooting, file-formats, blog)에
- * 검정 배경 · amber accent · monospace label 톤 강제 주입.
- * /tour/* 는 별도 tour-page 클래스에서 이미 적용됨.
+ * 오프화이트 배경 · burnt orange accent · Pretendard primary 톤.
+ * /tour/* 는 별도 tour-page 클래스에서 같은 palette.
  */
 
 html {
-  background: #000;
-  color-scheme: dark;
+  background: #fafaf9;
+  color-scheme: light;
   scroll-behavior: auto;
 }
 
 body {
-  background: #000 !important;
-  color: #f5f5f5;
+  background: #fafaf9 !important;
+  color: #1c1917;
   font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* 다크모드 토글 숨김 — 항상 다크 */
+/* 다크모드 토글 숨김 — light 통일 */
 .darkmode {
   display: none !important;
 }
@@ -27,13 +27,13 @@ body {
 
 article,
 .page {
-  color: #f5f5f5;
+  color: #1c1917;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Pretendard Variable", -apple-system, sans-serif;
   letter-spacing: -0.03em;
-  color: #f5f5f5;
+  color: #1c1917;
 }
 
 article h1,
@@ -51,7 +51,7 @@ article h2 {
   font-size: clamp(26px, 3vw, 36px);
   font-weight: 600;
   margin-top: 3rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(28, 25, 23, 0.08);
   padding-bottom: 12px;
   letter-spacing: -0.03em;
 }
@@ -66,13 +66,13 @@ article h4 {
   font-size: clamp(17px, 1.5vw, 20px);
   font-weight: 600;
   margin-top: 2rem;
-  color: #a3a3a3;
+  color: #57534e;
 }
 
 article p,
 article li {
-  color: #f5f5f5;
-  line-height: 1.65;
+  color: #1c1917;
+  line-height: 1.7;
 }
 
 /* ==================== 링크 ==================== */
@@ -81,7 +81,7 @@ article a,
 a.internal,
 a.external,
 .page a {
-  color: #ff9500;
+  color: #c2410c;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 200ms ease, color 200ms ease;
@@ -91,25 +91,25 @@ article a:hover,
 a.internal:hover,
 a.external:hover,
 .page a:hover {
-  border-bottom-color: #ff9500;
-  color: #ffb547;
+  border-bottom-color: #c2410c;
+  color: #9a3412;
 }
 
 /* ==================== 코드 ==================== */
 
 code {
   font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
-  background: #1c1c1e;
-  color: #f5f5f5;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f5f5f4;
+  color: #1c1917;
+  border: 1px solid rgba(28, 25, 23, 0.08);
   padding: 2px 6px;
   border-radius: 0;
   font-size: 0.9em;
 }
 
 pre {
-  background: #0a0a0a !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f5f5f4 !important;
+  border: 1px solid rgba(28, 25, 23, 0.08);
   border-radius: 0;
   padding: 20px 24px;
   overflow-x: auto;
@@ -121,49 +121,50 @@ pre code {
   border: 0;
   padding: 0;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* ==================== 인용 ==================== */
 
 blockquote {
-  border-left: 2px solid #ff9500;
-  background: rgba(255, 149, 0, 0.04);
+  border-left: 2px solid #c2410c;
+  background: rgba(194, 65, 12, 0.04);
   margin: 24px 0;
   padding: 16px 24px;
-  color: #a3a3a3;
+  color: #57534e;
   font-style: normal;
 }
 
 blockquote p {
   margin: 0;
-  color: #a3a3a3;
+  color: #57534e;
 }
 
 /* ==================== 테이블 ==================== */
 
 table {
   border-collapse: collapse;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(28, 25, 23, 0.08);
   width: 100%;
   margin: 24px 0;
   font-size: 15px;
+  background: #ffffff;
 }
 
 th, td {
   padding: 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(28, 25, 23, 0.08);
   text-align: left;
   vertical-align: top;
 }
 
 th {
-  background: #0a0a0a;
+  background: #f5f5f4;
   font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
   font-size: 12px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #a3a3a3;
+  color: #57534e;
   font-weight: 600;
 }
 
@@ -175,7 +176,7 @@ td code {
 
 hr {
   border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(28, 25, 23, 0.08);
   margin: 48px 0;
 }
 
@@ -185,7 +186,7 @@ article img {
   max-width: 100%;
   height: auto;
   border-radius: 0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(28, 25, 23, 0.08);
   display: block;
   margin: 24px auto;
 }
@@ -194,8 +195,8 @@ article img {
 
 .sidebar,
 .page > #quartz-body > .sidebar {
-  background: #000;
-  color: #f5f5f5;
+  background: #fafaf9;
+  color: #1c1917;
 }
 
 #explorer,
@@ -214,7 +215,7 @@ article img {
 
 #explorer-content li a,
 #explorer li a {
-  color: #a3a3a3;
+  color: #57534e;
   text-decoration: none;
   transition: color 200ms ease;
   padding: 4px 0;
@@ -224,17 +225,17 @@ article img {
 
 #explorer-content li a:hover,
 #explorer li a:hover {
-  color: #ff9500;
+  color: #c2410c;
 }
 
 #explorer-content .folder-outer > .folder-container,
 #explorer .folder-outer > .folder-container {
-  color: #f5f5f5;
+  color: #1c1917;
 }
 
 .folder-icon,
 .folder-title {
-  color: #f5f5f5 !important;
+  color: #1c1917 !important;
 }
 
 .folder-title {
@@ -242,7 +243,7 @@ article img {
 }
 
 button#explorer {
-  color: #a3a3a3;
+  color: #57534e;
   font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
   font-size: 12px;
   letter-spacing: 0.18em;
@@ -252,34 +253,28 @@ button#explorer {
 /* ==================== Callouts (Obsidian) ==================== */
 
 .callout {
-  background: #0a0a0a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 2px solid #ff9500;
+  background: #f5f5f4;
+  border: 1px solid rgba(28, 25, 23, 0.08);
+  border-left: 2px solid #c2410c;
   padding: 16px 20px;
   margin: 24px 0;
-  color: #f5f5f5;
+  color: #1c1917;
   border-radius: 0;
 }
 
-.callout[data-callout="note"] {
-  border-left-color: #ff9500;
-}
+.callout[data-callout="note"] { border-left-color: #c2410c; }
 .callout[data-callout="warning"],
-.callout[data-callout="caution"] {
-  border-left-color: #ff9500;
-}
+.callout[data-callout="caution"] { border-left-color: #c2410c; }
 .callout[data-callout="tip"],
-.callout[data-callout="info"] {
-  border-left-color: #a3a3a3;
-}
+.callout[data-callout="info"] { border-left-color: #57534e; }
 
 .callout-title,
 .callout > .callout-title {
   font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #ff9500;
+  color: #c2410c;
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -291,20 +286,20 @@ button#explorer {
 /* ==================== Selection / mark ==================== */
 
 ::selection {
-  background: rgba(255, 149, 0, 0.3);
-  color: #f5f5f5;
+  background: rgba(194, 65, 12, 0.2);
+  color: #1c1917;
 }
 
 mark {
-  background: rgba(255, 149, 0, 0.3);
-  color: #f5f5f5;
+  background: rgba(194, 65, 12, 0.2);
+  color: #1c1917;
   padding: 0 4px;
 }
 
 /* ==================== Header / Breadcrumb ==================== */
 
 .page-header {
-  color: #f5f5f5;
+  color: #1c1917;
 }
 
 .breadcrumb-container,
@@ -313,41 +308,41 @@ mark {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6b6b6b;
+  color: #a8a29e;
 }
 
 .breadcrumb-container a,
 .breadcrumbs a {
-  color: #a3a3a3;
+  color: #57534e;
   border-bottom: 0;
 }
 .breadcrumb-container a:hover {
-  color: #ff9500;
+  color: #c2410c;
   border-bottom: 0;
 }
 
-/* ==================== ContentMeta (날짜, 글자 수) ==================== */
+/* ==================== ContentMeta ==================== */
 
 .content-meta {
   font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6b6b6b;
+  color: #a8a29e;
   margin-bottom: 24px;
 }
 
 .content-meta > * {
-  color: #6b6b6b;
+  color: #a8a29e;
 }
 
 /* ==================== Search ==================== */
 
 .search button,
 .search-button {
-  color: #a3a3a3;
+  color: #57534e;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(28, 25, 23, 0.08);
   font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
   font-size: 13px;
   text-transform: uppercase;
@@ -356,13 +351,13 @@ mark {
 }
 
 .search-container {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(28, 25, 23, 0.4);
 }
 
 #search-bar {
-  background: #0a0a0a;
-  color: #f5f5f5;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #ffffff;
+  color: #1c1917;
+  border: 1px solid rgba(28, 25, 23, 0.16);
   border-radius: 0;
   font-family: "Pretendard Variable", sans-serif;
 }
@@ -373,7 +368,7 @@ mark {
 .recent-notes,
 .toc {
   background: transparent;
-  color: #a3a3a3;
+  color: #57534e;
 }
 
 .backlinks h3,
@@ -382,9 +377,9 @@ mark {
 .toc-header {
   font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #6b6b6b;
+  color: #a8a29e;
   font-weight: 600;
   border-bottom: none;
   padding-bottom: 0;
@@ -393,11 +388,11 @@ mark {
 .toc-content ul {
   list-style: none;
   padding-left: 12px;
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(28, 25, 23, 0.08);
 }
 
 .toc-content li a {
-  color: #a3a3a3;
+  color: #57534e;
   text-decoration: none;
   font-size: 14px;
   padding: 3px 0;
@@ -405,14 +400,14 @@ mark {
 }
 
 .toc-content li a:hover {
-  color: #ff9500;
+  color: #c2410c;
 }
 
 /* ==================== Graph ==================== */
 
 #graph-container {
-  background: #0a0a0a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(28, 25, 23, 0.08);
   border-radius: 0;
 }
 
@@ -420,21 +415,21 @@ mark {
 
 h1.article-title,
 .page-title {
-  color: #f5f5f5;
+  color: #1c1917;
   font-weight: 600;
   letter-spacing: -0.04em;
 }
 
 #page-title a {
-  color: #f5f5f5;
+  color: #1c1917;
   border-bottom: 0;
 }
 
 .page-footer,
 footer {
-  color: #6b6b6b;
+  color: #a8a29e;
   font-size: 13px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(28, 25, 23, 0.08);
   margin-top: 64px;
   padding-top: 24px;
 }
@@ -442,9 +437,9 @@ footer {
 /* ==================== Fields / forms ==================== */
 
 input, textarea, select {
-  background: #0a0a0a;
-  color: #f5f5f5;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #ffffff;
+  color: #1c1917;
+  border: 1px solid rgba(28, 25, 23, 0.16);
   border-radius: 0;
   font-family: "Pretendard Variable", sans-serif;
   padding: 8px 12px;
@@ -453,9 +448,9 @@ input, textarea, select {
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 1px solid #ff9500;
+  outline: 1px solid #c2410c;
   outline-offset: 2px;
-  border-color: #ff9500;
+  border-color: #c2410c;
 }
 
 button {
@@ -463,27 +458,27 @@ button {
   font-family: "Pretendard Variable", sans-serif;
 }
 
-/* ==================== Popover (Quartz 내부 링크 미리보기) ==================== */
+/* ==================== Popover ==================== */
 
 .popover {
-  background: #0a0a0a;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #ffffff;
+  border: 1px solid rgba(28, 25, 23, 0.16);
   border-radius: 0;
-  color: #f5f5f5;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+  color: #1c1917;
+  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.15);
 }
 
 .popover h1, .popover h2, .popover h3 {
-  color: #f5f5f5;
+  color: #1c1917;
 }
 
 /* ==================== Tags ==================== */
 
 .tags a,
 a.tag-link {
-  background: #1c1c1e;
-  color: #a3a3a3;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f5f5f4;
+  color: #57534e;
+  border: 1px solid rgba(28, 25, 23, 0.08);
   padding: 4px 10px;
   border-radius: 0;
   font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
@@ -495,9 +490,9 @@ a.tag-link {
 
 .tags a:hover,
 a.tag-link:hover {
-  background: #0a0a0a;
-  color: #ff9500;
-  border-color: #ff9500;
+  background: #ffffff;
+  color: #c2410c;
+  border-color: #c2410c;
 }
 
 /* ==================== 일반 radius 제거 ==================== */
@@ -509,7 +504,7 @@ article *,
   border-radius: 0;
 }
 
-/* KaTeX 수식 색상 */
+/* KaTeX 수식 */
 .katex {
-  color: #f5f5f5;
+  color: #1c1917;
 }

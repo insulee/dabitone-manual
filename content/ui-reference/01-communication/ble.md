@@ -1,6 +1,6 @@
 ---
 title: BLE (Bluetooth)
-description: "BLE 페어링 — 블루투스 Low Energy 기반 무선 연결 (DabitONe 신기능)"
+description: "BLE 페어링 — 블루투스 Low Energy 기반 무선 연결 (DabitOne 신기능)"
 last_updated: 2026-04-21
 ---
 
@@ -14,7 +14,7 @@ last_updated: 2026-04-21
 - 설치·운영 스태프의 **모바일 장비**에서 원격 제어할 때 (BLE 지원 PC 기준)
 - 현장 방문 시 **빠른 점검·설정 변경**용
 
-> [!info] BLE는 DabitONe에 새로 추가된 신기능입니다. 컨트롤러 펌웨어도 BLE를 지원해야 동작하며, 근거리(~10m)에서만 안정적으로 통신됩니다.
+> [!info] BLE는 DabitOne에 새로 추가된 신기능입니다. 컨트롤러 펌웨어도 BLE를 지원해야 동작하며, 근거리(~10m)에서만 안정적으로 통신됩니다.
 
 ## 기본 사용
 

@@ -70,7 +70,7 @@ last_updated: YYYY-MM-DD
 
 **support@dabitsol.com** | 기술지원팀 전화: (제품 라벨 참조)
 
-문의 시 **DabitONe 버전 · 컨트롤러 모델/펌웨어 · 전광판 구성**을 함께 알려주세요.
+문의 시 **DabitOne 버전 · 컨트롤러 모델/펌웨어 · 전광판 구성**을 함께 알려주세요.
 ```
 
 ## 원칙

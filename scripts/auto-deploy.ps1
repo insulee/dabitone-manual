@@ -1,4 +1,4 @@
-# DabitONe Manual — auto-deploy watcher
+# DabitOne Manual — auto-deploy watcher
 # Polls content/ for .md changes and runs deploy.sh
 # Usage: pwsh -ExecutionPolicy Bypass -File scripts/auto-deploy.ps1
 

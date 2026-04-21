@@ -34,7 +34,7 @@ type TourPageDef = {
 const TOUR_PAGES: readonly TourPageDef[] = [
   {
     slug: "tour/index" as FullSlug,
-    title: "DabitONe 투어",
+    title: "DabitOne 투어",
     description: "새로운 전광판 운영 경험.",
   },
   {
@@ -120,23 +120,20 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="${escapeHtml(page.description)}">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="light">
   <title>${escapeHtml(fullTitle)}</title>
   <link rel="stylesheet" href="${quartzCss}">
   <link rel="stylesheet" href="${tourCss}">
   <link rel="icon" href="${joinSegments(baseDir, "static/icon.png")}">
   <script src="${preScript}"></script>
 </head>
-<body data-slug="${page.slug}" class="tour-page" style="background:#000;color:#f5f5f5;">
+<body data-slug="${page.slug}" class="tour-page" style="background:#fafaf9;color:#1c1917;">
   <div id="tour-root">
-    <div class="tour-loading" role="status" aria-live="polite" style="min-height:100vh;padding:20vh 6vw 0;background:#000;">
-      <p style="font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; font-size: 13px; letter-spacing: 0.18em; color: #6b6b6b; text-transform: uppercase; margin: 0 0 40px;">
-        DABITSOL · LED CONTROL SOFTWARE
-      </p>
-      <h1 style="font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; letter-spacing: -0.04em; font-size: clamp(72px, 10vw, 144px); margin: 0; color: #f5f5f5; font-weight: 700;">
+    <div class="tour-loading" role="status" aria-live="polite" style="min-height:100vh;padding:20vh 6vw 0;background:#fafaf9;">
+      <h1 style="font-family: 'Pretendard Variable', sans-serif; letter-spacing: -0.04em; font-size: clamp(72px, 10vw, 144px); margin: 0; color: #1c1917; font-weight: 700; line-height: 1.05;">
         ${escapeHtml(page.title)}
       </h1>
-      <p style="font-family: 'Pretendard Variable', sans-serif; font-size: clamp(20px, 2vw, 28px); color: #a3a3a3; margin: 24px 0 0; max-width: 880px;">
+      <p style="font-family: 'Pretendard Variable', sans-serif; font-size: clamp(20px, 2vw, 28px); color: #57534e; margin: 24px 0 0; max-width: 880px; line-height: 1.4;">
         ${escapeHtml(page.description)}
       </p>
     </div>
@@ -162,7 +159,7 @@ function renderAliasRedirect(ctx: BuildCtx, fromSlug: string, toSlug: string): s
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>이동 중... DabitONe</title>
+  <title>이동 중... DabitOne</title>
   <link rel="canonical" href="${redirUrl}">
   <meta name="robots" content="noindex">
   <meta http-equiv="refresh" content="0; url=${redirUrl}">

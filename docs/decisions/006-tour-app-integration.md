@@ -6,7 +6,7 @@
 
 ## 배경
 
-DabitONe 매뉴얼 사이트의 `/tour/*` 경로에 Preact 기반 인터랙티브 투어 앱을 임베드하기 위한 Quartz v4 통합 방식을 결정해야 함. 후보는 세 가지.
+DabitOne 매뉴얼 사이트의 `/tour/*` 경로에 Preact 기반 인터랙티브 투어 앱을 임베드하기 위한 Quartz v4 통합 방식을 결정해야 함. 후보는 세 가지.
 
 ## 후보 평가
 
@@ -110,7 +110,7 @@ Quartz의 기존 `renderPage()`를 그대로 쓰기보다, 투어용 얇은 shel
     <!-- Quartz Head component 결과 inline -->
     <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/tour.css">
-    <title>DabitONe 매뉴얼 — {페이지 제목}</title>
+    <title>DabitOne 매뉴얼 — {페이지 제목}</title>
   </head>
   <body>
     <div id="tour-root"></div>

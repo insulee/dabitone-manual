@@ -1,6 +1,6 @@
 /**
  * Quickstart 05 — GIF 편집.
- * 내장 GIF 편집기로 동영상 제작 (DabitONe 확장 기능).
+ * 내장 GIF 편집기로 동영상 제작 (DabitOne 확장 기능).
  */
 import type { Tour } from "../../src/types"
 
@@ -8,19 +8,19 @@ const EDITOR = {
   src: "/assets/screens/manual-poc/main-editor.png",
   width: 1422,
   height: 1386,
-  alt: "DabitONe 편집 탭 — GIF 편집 모드",
+  alt: "DabitOne 편집 탭 — GIF 편집 모드",
 } as const
 
 const tour: Tour = {
   slug: "05-gif-editor",
   title: "GIF 편집",
-  subtitle: "내장 편집기로 애니메이션 제작 (DabitONe 신기능)",
+  subtitle: "내장 편집기로 애니메이션 제작 (DabitOne 신기능)",
   steps: [
     {
       id: "step-1-open",
       title: "GIF 편집 모드 열기",
       description:
-        "[편집] 탭에서 'GIF' 모드를 선택합니다. 기존 GIF 파일을 불러오거나 처음부터 프레임을 그릴 수 있습니다. 이 편집기는 DabitONe에서 새로 제공됩니다.",
+        "[편집] 탭에서 'GIF' 모드를 선택합니다. 기존 GIF 파일을 불러오거나 처음부터 프레임을 그릴 수 있습니다. 이 편집기는 DabitOne에서 새로 제공됩니다.",
       image: EDITOR,
       hotspot: { x: 8, y: 31, ariaLabel: "편집 탭 — GIF 모드", label: "편집" },
       srSummary:

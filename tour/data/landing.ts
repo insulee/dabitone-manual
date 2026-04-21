@@ -1,18 +1,18 @@
 /**
  * 랜딩 페이지 데이터 — Hero + 5 핫스팟.
- * 2026-04-21 재설계: 레거시 호명 제거, "DabitONe." / "새로운 전광판 운영 경험."
+ * 2026-04-21 재설계: 레거시 호명 제거, "DabitOne." / "새로운 전광판 운영 경험."
  * 핫스팟 좌표는 main-comm.png (1422×1386) 기준 % 값. 실제 렌더 후 시각 검증으로 조정.
  */
 import type { LandingData } from "../src/types"
 
 const HERO: LandingData["hero"] = {
-  title: "DabitONe.",
+  title: "DabitOne.",
   subtitle: "새로운 전광판 운영 경험.",
   heroImage: {
     src: "/assets/screens/manual-poc/main-comm.png",
     width: 1422,
     height: 1386,
-    alt: "DabitONe 메인 화면 — 통신 설정 탭이 기본 선택된 상태",
+    alt: "DabitOne 메인 화면 — 통신 설정 탭이 기본 선택된 상태",
   },
 }
 

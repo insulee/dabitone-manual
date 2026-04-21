@@ -8,14 +8,14 @@ const EDITOR = {
   src: "/assets/screens/manual-poc/main-editor.png",
   width: 1422,
   height: 1386,
-  alt: "DabitONe 편집 탭 — 텍스트 편집기",
+  alt: "DabitOne 편집 탭 — 텍스트 편집기",
 } as const
 
 const SIM = {
   src: "/assets/screens/manual-poc/main-simulator.png",
   width: 1422,
   height: 1386,
-  alt: "DabitONe 전송 탭 — 진행률 표시",
+  alt: "DabitOne 전송 탭 — 진행률 표시",
 } as const
 
 const tour: Tour = {

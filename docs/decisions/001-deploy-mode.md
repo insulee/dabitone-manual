@@ -19,7 +19,7 @@ last_updated: 2026-04-21
 
 ## 컨텍스트
 
-DabitONe 사용자 매뉴얼 사이트(`dabitone.dabitsol.com`)는 Quartz SSG 빌드 산출물을 Cloudflare Pages에 배포한다. 저장소는 **Gitea**(`D:\Gitea\dabitche`)다.
+DabitOne 사용자 매뉴얼 사이트(`dabitone.dabitsol.com`)는 Quartz SSG 빌드 산출물을 Cloudflare Pages에 배포한다. 저장소는 **Gitea**(`D:\Gitea\dabitche`)다.
 
 Cloudflare Pages가 지원하는 배포 방식은 두 가지다.
 

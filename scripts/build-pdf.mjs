@@ -9,7 +9,7 @@
  * 1. `public/` 내용을 로컬 HTTP 서버로 서빙
  * 2. Chromium 브라우저로 각 URL 방문 + PDF로 인쇄
  * 3. 챕터별로 PDF 병합
- * 4. `public/pdf/DabitONe_Manual_{Reference,Operation}.pdf` 출력
+ * 4. `public/pdf/DabitOne_Manual_{Reference,Operation}.pdf` 출력
  *
  * /tour/*, /quickstart/* 경로는 제외 (투어는 온라인 전용, plan v3.1 오프라인 전략).
  */
@@ -31,14 +31,14 @@ const MAX_MB = 25
 const CHAPTERS = [
   {
     name: "Reference",
-    title: "DabitONe 매뉴얼 — UI 레퍼런스편",
-    filename: "DabitONe_Manual_Reference.pdf",
+    title: "DabitOne 매뉴얼 — UI 레퍼런스편",
+    filename: "DabitOne_Manual_Reference.pdf",
     includes: [/^ui-reference\//, /^file-formats\//, /^getting-started\//],
   },
   {
     name: "Operation",
-    title: "DabitONe 매뉴얼 — 운영·문제해결편",
-    filename: "DabitONe_Manual_Operation.pdf",
+    title: "DabitOne 매뉴얼 — 운영·문제해결편",
+    filename: "DabitOne_Manual_Operation.pdf",
     includes: [/^troubleshooting\//, /^blog\//],
   },
 ]
@@ -68,7 +68,7 @@ async function collectSlugs() {
 async function buildChapterPdf(browser, page, chapter, slugs) {
   const merged = await PDFDocument.create()
   merged.setTitle(chapter.title)
-  merged.setAuthor("다빛솔루션 DabitONe")
+  merged.setAuthor("다빛솔루션 DabitOne")
   merged.setCreationDate(new Date())
 
   const chapterSlugs = slugs.filter((slug) => slugMatchesAny(slug, chapter.includes))

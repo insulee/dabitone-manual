@@ -1,6 +1,6 @@
 ---
 title: GIF 편집
-description: "내장 GIF 편집기 — 프레임·팔레트·딜레이 (DabitONe 신기능)"
+description: "내장 GIF 편집기 — 프레임·팔레트·딜레이 (DabitOne 신기능)"
 last_updated: 2026-04-21
 ---
 
@@ -12,7 +12,7 @@ last_updated: 2026-04-21
 
 **GIF 애니메이션을 직접 제작·편집**. 기존 GIF 불러와 프레임 단위로 고치거나 처음부터 만들 수 있음. 저장 시 [[file-formats/ani|ANI]] 포맷으로 변환되어 전송.
 
-> [!info] 이 편집기는 DabitONe **신기능**입니다. 기존 DabitChe는 외부 GIF를 불러오기만 가능했습니다.
+> [!info] 이 편집기는 DabitOne **신기능**입니다. 기존 DabitChe는 외부 GIF를 불러오기만 가능했습니다.
 
 ## 기본 사용
 

@@ -7,7 +7,7 @@ const ADVANCED = {
   src: "/assets/screens/manual-poc/main-advanced.png",
   width: 1422,
   height: 1386,
-  alt: "DabitONe 고급 탭 — 펌웨어 업데이트 섹션",
+  alt: "DabitOne 고급 탭 — 펌웨어 업데이트 섹션",
 } as const
 
 const tour: Tour = {

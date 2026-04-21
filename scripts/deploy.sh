@@ -1,5 +1,5 @@
 #!/bin/bash
-# DabitONe Manual — deploy script
+# DabitOne Manual — deploy script
 # 사용법: bash deploy.sh (auto-deploy.ps1에서 호출됨)
 
 set -e
@@ -8,7 +8,7 @@ MANUAL_DIR="D:/GitHub/dabitone-manual"
 REPO_DIR="D:/GitHub/dabitone-manual"
 BRANCH="main"
 
-echo "=== DabitONe Manual 배포 시작 ==="
+echo "=== DabitOne Manual 배포 시작 ==="
 
 cd "$MANUAL_DIR"
 

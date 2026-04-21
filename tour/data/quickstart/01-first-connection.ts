@@ -17,7 +17,7 @@ const SCREEN = {
   src: "/assets/screens/manual-poc/main-comm.png",
   width: 1422,
   height: 1386,
-  alt: "DabitONe 통신 설정 화면 — Serial·Client TCP/IP·Server TCP/IP·UDP 그룹박스",
+  alt: "DabitOne 통신 설정 화면 — Serial·Client TCP/IP·Server TCP/IP·UDP 그룹박스",
 } as const
 
 const tour: Tour = {
@@ -29,7 +29,7 @@ const tour: Tour = {
       id: "step-1-tab",
       title: "좌측 [통신] 탭 확인",
       description:
-        "DabitONe을 실행하면 좌측 사이드바 맨 위의 [통신] 탭이 기본으로 선택되어 있고, 우측에 '통신 설정' 창이 뜹니다. 다른 탭에 있다면 [통신]을 클릭하세요.",
+        "DabitOne을 실행하면 좌측 사이드바 맨 위의 [통신] 탭이 기본으로 선택되어 있고, 우측에 '통신 설정' 창이 뜹니다. 다른 탭에 있다면 [통신]을 클릭하세요.",
       image: SCREEN,
       hotspot: {
         x: 8,
@@ -39,7 +39,7 @@ const tour: Tour = {
         box: { w: 12, h: 4 },
       },
       srSummary:
-        "DabitONe 좌측 사이드바 맨 위에 통신 탭이 있고 기본으로 선택되어 있습니다. 클릭하면 통신 설정 창이 우측에 표시됩니다.",
+        "DabitOne 좌측 사이드바 맨 위에 통신 탭이 있고 기본으로 선택되어 있습니다. 클릭하면 통신 설정 창이 우측에 표시됩니다.",
       nextHint: "연결 방식을 고를 차례입니다.",
       relatedRefs: [
         { label: "통신 UI 레퍼런스", path: "/ui-reference/01-communication/" },

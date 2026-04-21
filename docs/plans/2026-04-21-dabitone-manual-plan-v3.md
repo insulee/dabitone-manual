@@ -1,8 +1,8 @@
-# DabitONe 매뉴얼 사이트 구현 계획 v3 (체험형 투어 피벗)
+# DabitOne 매뉴얼 사이트 구현 계획 v3 (체험형 투어 피벗)
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** **레거시 DabitChe(5~6년간 사용)에서 DabitONe으로 큰 업데이트를 맞은 사용자에게 "얼마나 좋아졌는지"를 감각적으로 체감시키는 마케팅·쇼케이스형 매뉴얼 사이트**를 구축한다. 랜딩과 Quickstart 8개 시나리오는 Apple 홈페이지 수준의 인터랙티브 투어(`/tour/*`)로, Reference/Troubleshooting/File Formats는 markdown + PDF(optional).
+**Goal:** **레거시 DabitChe(5~6년간 사용)에서 DabitOne으로 큰 업데이트를 맞은 사용자에게 "얼마나 좋아졌는지"를 감각적으로 체감시키는 마케팅·쇼케이스형 매뉴얼 사이트**를 구축한다. 랜딩과 Quickstart 8개 시나리오는 Apple 홈페이지 수준의 인터랙티브 투어(`/tour/*`)로, Reference/Troubleshooting/File Formats는 markdown + PDF(optional).
 
 **Architecture:** Quartz v4 유지. `/tour/*`는 **Quartz의 custom emitter**(ADR-006 선택 (b))가 각 deep link별 HTML shell을 emit하여 정적 호스팅에서 새로고침·직접 진입 모두 안전. 투어 앱은 Quartz의 기존 Preact 스택·router와 **one-router 원칙**으로 통합(독립 pushState 금지). 모션은 Motion One + CSS sticky + IntersectionObserver(Lenis는 MVP에서 **제외** — sticky/키보드/터치 충돌 리스크). 접근성은 `/tour/accessible`이 별도 문서가 아니라 같은 `TourStep` 데이터에서 대안 렌더. PDF는 reference 영역만, optional 다운로드.
 
@@ -27,7 +27,7 @@
 | 순위 | 대상 | 특성 | 니즈 |
 |------|-----|------|------|
 | **1차** | **레거시 DabitChe 사용자** | 5~6년간 구버전 UI에 익숙, 이번이 첫 큰 업데이트 | "뭐가 달라졌나", "적응할 가치가 있나" 확인 |
-| **2차** | **DabitONe 신규 사용자** | 업계 처음 접하거나 경쟁 제품에서 전환 | "DabitONe은 어떤 도구인가" 전체 파악 |
+| **2차** | **DabitOne 신규 사용자** | 업계 처음 접하거나 경쟁 제품에서 전환 | "DabitOne은 어떤 도구인가" 전체 파악 |
 | **비타겟** | **현장 설치기사** | 이미 숙지, 레거시 지식 보유 | (이 매뉴얼의 주 고객 아님) |
 
 ### 커뮤니케이션 톤
@@ -45,8 +45,8 @@
 
 ### 핵심 메시지 후보 (Hero 카피, R2.2에서 1개 확정)
 
-- (A) "5년을 기다린 DabitONe. 익숙했던 것을 더 우아하게."
-- (B) "DabitChe는 이제 DabitONe입니다. 전광판 운영, 다시 설계했습니다."
+- (A) "5년을 기다린 DabitOne. 익숙했던 것을 더 우아하게."
+- (B) "DabitChe는 이제 DabitOne입니다. 전광판 운영, 다시 설계했습니다."
 - (C) "같은 컨트롤러, 새로운 경험."
 - (D) "6년 만의 리프레시. 당신이 알던 기능은 그대로, 손끝 감각은 전부 새로."
 
@@ -73,7 +73,7 @@
 
 ## v2 → v3 주요 변경 (대화 피벗 반영)
 
-사용자 피드백(2026-04-21): v2의 reference 매뉴얼 스타일은 docs.dabitsol.com과 결이 유사하여 DabitONe 매뉴얼만의 체험형 가치를 충분히 못 살림. Apple 홈페이지 수준의 감각적 인터랙션(SVG hotspot + cinematic scroll + 딥링크 투어) 채택.
+사용자 피드백(2026-04-21): v2의 reference 매뉴얼 스타일은 docs.dabitsol.com과 결이 유사하여 DabitOne 매뉴얼만의 체험형 가치를 충분히 못 살림. Apple 홈페이지 수준의 감각적 인터랙션(SVG hotspot + cinematic scroll + 딥링크 투어) 채택.
 
 | 항목 | v2 | v3 |
 |------|----|-----|
@@ -148,7 +148,7 @@
 
 | 사이트 | 참고 패턴 | 우리 적용 |
 |--------|----------|----------|
-| **apple.com/iphone** | 전체 화면 제품 이미지 + 스크롤에 따라 zoom/pan + title fade 순차 | 랜딩 Hero: DabitONe 메인창 이미지 + 초기 1.2s 타이틀 reveal + 미세 zoom-out |
+| **apple.com/iphone** | 전체 화면 제품 이미지 + 스크롤에 따라 zoom/pan + title fade 순차 | 랜딩 Hero: DabitOne 메인창 이미지 + 초기 1.2s 타이틀 reveal + 미세 zoom-out |
 | **apple.com/vision-pro** | 대형 제품이 스크롤 따라 좌↔우·앞뒤로 회전 (clip-reveal 기법) | 안 씀 (과함). 대신 탭 이미지 교차 전환으로 축소 재현 |
 | **arc.net** | 브랜드 컬러풀 gradient + soft bounce CTA | CTA(투어 시작 버튼)만 hover 시 부드러운 magnetic 움직임 |
 | **rabbit.tech** | 제품을 거대한 단일 숏으로, 최소 UI | 랜딩 hero는 단일 숏 + 글자만 |
@@ -190,7 +190,7 @@
 |--------|----------|----------|
 | **figma.com/product** | "Click here" annotation + 고정 사이드 설명 | 투어 스텝 핵심 패턴 |
 | **raycast.com/blog** | 실제 제품 스크린샷 + 하이라이트 박스 + 캡션 | 핫스팟 + 라이트 박스 dim 조합 |
-| **tldraw.com** | 임베드된 실제 제품 (iframe-less) — 직접 조작 가능 | 우리는 iframe으로 DabitONe을 못 임베드, 대신 **가짜 인터랙티브 목업** (클릭 가능한 SVG 위 XAML 재현) |
+| **tldraw.com** | 임베드된 실제 제품 (iframe-less) — 직접 조작 가능 | 우리는 iframe으로 DabitOne을 못 임베드, 대신 **가짜 인터랙티브 목업** (클릭 가능한 SVG 위 XAML 재현) |
 | **asana.com/product/tour** | 사이드 진행률 리스트 + 본문 스텝 | 투어 레이아웃의 좌 레일 |
 | **rive.app/marketplace** | 실제 Rive 애니메이션이 페이지 안에서 돌아감 | Lottie/CSS로 "성공 토스트 등장" 같은 짧은 애니 재현 |
 
@@ -291,7 +291,7 @@ Phase R2 완성 후 아래를 모두 통과해야 R3로 넘어감:
 ### 스크린샷 (Q3)
 
 **수동 PoC + Phase 3 병행**:
-- 즉시: DabitONe 실행 → 주요 5창(통신·설정·전송·편집·고급) 수동 캡처, PNG 원본 `content/assets/screens/manual-poc/` 저장
+- 즉시: DabitOne 실행 → 주요 5창(통신·설정·전송·편집·고급) 수동 캡처, PNG 원본 `content/assets/screens/manual-poc/` 저장
 - 해상도: 1920×1080 이상, 2배 DPI 권장 (Retina 대응)
 - 병행: Phase 3 (DabitChe.Desktop `CaptureModeService`) 진행 → 완성 후 자동 갱신 파이프라인 교체
 
@@ -1258,7 +1258,7 @@ git push origin main
 
 **Step 1: Landing.tsx 최소 구현**
 
-"DabitONe 투어" 헤드라인 + Pretendard 적용 + 토큰 CSS 적용 확인
+"DabitOne 투어" 헤드라인 + Pretendard 적용 + 토큰 CSS 적용 확인
 
 **Step 2: TourEmitter 완성**
 
@@ -1302,7 +1302,7 @@ import type { LandingData } from "../src/types";
 export const landing: LandingData = {
   hero: {
     title: "컨트롤러와\n대화하는 가장 우아한 방법",
-    subtitle: "DabitONe으로 다빛솔루션 LED 전광판을 운영하세요.",
+    subtitle: "DabitOne으로 다빛솔루션 LED 전광판을 운영하세요.",
     heroImage: "/assets/screens/manual-poc/main-comm.png",
   },
   hotspots: [
@@ -1362,8 +1362,8 @@ export const landing: LandingData = {
 **Step 1: Hero 카피 확정**
 
 후보 중 사용자와 1개 확정 (또는 AI 제안 + 검토):
-- (A) "5년을 기다린 DabitONe. 익숙했던 것을 더 우아하게."
-- (B) "DabitChe는 이제 DabitONe입니다. 전광판 운영, 다시 설계했습니다."
+- (A) "5년을 기다린 DabitOne. 익숙했던 것을 더 우아하게."
+- (B) "DabitChe는 이제 DabitOne입니다. 전광판 운영, 다시 설계했습니다."
 - (C) "같은 컨트롤러, 새로운 경험."
 - (D) "6년 만의 리프레시. 당신이 알던 기능은 그대로, 손끝 감각은 전부 새로."
 
@@ -1379,19 +1379,19 @@ export const landing: LandingData = {
       title: "통신 설정, 한 화면에",
       caption: "예전엔 Serial·TCP·UDP가 각자 별도 창이었습니다. 이제 한눈에 보고 바로 바꿉니다.",
       before: { src: "/assets/screens/legacy-before/legacy-comm.png", width: 1200, height: 800, alt: "레거시 DabitChe의 통신 설정 화면" },
-      after: { src: "/assets/screens/manual-poc/main-comm.png", width: 1920, height: 1080, alt: "DabitONe의 통일된 통신 설정 화면" },
+      after: { src: "/assets/screens/manual-poc/main-comm.png", width: 1920, height: 1080, alt: "DabitOne의 통일된 통신 설정 화면" },
     },
     {
       title: "편집기, 드래그 앤 드롭",
       caption: "Word처럼, 정말로. 글자를 쓰고, 이미지를 끌어다 놓으세요.",
       before: { src: "/assets/screens/legacy-before/legacy-editor.png", width: 1024, height: 768, alt: "레거시 편집기" },
-      after: { src: "/assets/screens/manual-poc/main-editor.png", width: 1920, height: 1080, alt: "DabitONe 편집기" },
+      after: { src: "/assets/screens/manual-poc/main-editor.png", width: 1920, height: 1080, alt: "DabitOne 편집기" },
     },
     {
       title: "디자인 시스템",
       caption: "Windows 95 체크리스트가 아닌, 2026의 UI.",
       before: { src: "/assets/screens/legacy-before/legacy-schedule.png", width: 1024, height: 768, alt: "레거시 스케줄러" },
-      after: { src: "/assets/screens/manual-poc/main-simulator.png", width: 1920, height: 1080, alt: "DabitONe 전송 탭" },
+      after: { src: "/assets/screens/manual-poc/main-simulator.png", width: 1920, height: 1080, alt: "DabitOne 전송 탭" },
     },
     // 필요 시 2개 더 추가
   ],
@@ -1662,7 +1662,7 @@ export const tour01: Tour = {
     {
       id: "step-1",
       title: "좌측 [통신] 탭 확인",
-      description: "DabitONe을 실행하면 좌측 사이드바 맨 위의 [통신] 탭이 기본으로 선택되어 있고, 우측에 '통신 설정' 창이 뜹니다.",
+      description: "DabitOne을 실행하면 좌측 사이드바 맨 위의 [통신] 탭이 기본으로 선택되어 있고, 우측에 '통신 설정' 창이 뜹니다.",
       hotspot: { x: 12, y: 22, label: "통신" },
       screenshot: "/assets/screens/manual-poc/main-comm.png",
       nextHint: "연결 방식을 골라봅시다.",
@@ -1790,12 +1790,12 @@ v2 Phase 6 Task 6.3~6.6 그대로 진행.
 const CHAPTERS = [
   {
     name: 'Reference',
-    title: 'DabitONe 매뉴얼 — UI 레퍼런스편',
+    title: 'DabitOne 매뉴얼 — UI 레퍼런스편',
     includes: [/^ui-reference\//, /^file-formats\//],
   },
   {
     name: 'Operation',
-    title: 'DabitONe 매뉴얼 — 운영·문제해결편',
+    title: 'DabitOne 매뉴얼 — 운영·문제해결편',
     includes: [/^troubleshooting\//, /^blog\//],
   },
 ];
@@ -1817,7 +1817,7 @@ const urls = Object.keys(index)
 
 ### Task R5.2: 랜딩 PDF 다운로드 섹션 업데이트
 
-R2.5에서 이미 2권 카드 작성. URL 확정: `/pdf/DabitONe_Manual_Reference.pdf`, `/pdf/DabitONe_Manual_Operation.pdf`.
+R2.5에서 이미 2권 카드 작성. URL 확정: `/pdf/DabitOne_Manual_Reference.pdf`, `/pdf/DabitOne_Manual_Operation.pdf`.
 
 ---
 

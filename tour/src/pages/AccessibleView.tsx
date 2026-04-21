@@ -189,7 +189,7 @@ export function AccessibleView() {
               }}
             >
               <a
-                href="/pdf/DabitONe_Manual_Reference.pdf"
+                href="/pdf/DabitOne_Manual_Reference.pdf"
                 style={{
                   color: "var(--tour-c-accent)",
                   textDecoration: "none",
@@ -209,7 +209,7 @@ export function AccessibleView() {
               }}
             >
               <a
-                href="/pdf/DabitONe_Manual_Operation.pdf"
+                href="/pdf/DabitOne_Manual_Operation.pdf"
                 style={{
                   color: "var(--tour-c-accent)",
                   textDecoration: "none",

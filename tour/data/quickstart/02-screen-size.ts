@@ -8,7 +8,7 @@ const SCREEN = {
   src: "/assets/screens/manual-poc/main-setup.png",
   width: 1422,
   height: 1386,
-  alt: "DabitONe 설정 탭 — 화면 크기·시계·밝기 섹션",
+  alt: "DabitOne 설정 탭 — 화면 크기·시계·밝기 섹션",
 } as const
 
 const tour: Tour = {

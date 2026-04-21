@@ -8,7 +8,7 @@ const EDITOR = {
   src: "/assets/screens/manual-poc/main-editor.png",
   width: 1422,
   height: 1386,
-  alt: "DabitONe 편집 탭 — 배경 스케줄",
+  alt: "DabitOne 편집 탭 — 배경 스케줄",
 } as const
 
 const tour: Tour = {

@@ -1,4 +1,4 @@
-name: Deploy DabitONe Manual to GitHub Pages
+name: Deploy DabitOne Manual to GitHub Pages
 
 on:
   push:

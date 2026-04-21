@@ -90,13 +90,13 @@ git -C D:/GitHub/dabitone-manual commit -m "feat(tour): Phase A-2 — 토큰 업
 **Step 1 — landing.ts HERO:**
 ```typescript
 const HERO: LandingData["hero"] = {
-  title: "DabitONe.",
+  title: "DabitOne.",
   subtitle: "새로운 전광판 운영 경험.",
   heroImage: {
     src: "/assets/screens/manual-poc/main-comm.png",
     width: 1422,
     height: 1386,
-    alt: "DabitONe 메인 화면 — 통신 설정 탭이 기본 선택된 상태",
+    alt: "DabitOne 메인 화면 — 통신 설정 탭이 기본 선택된 상태",
   },
 }
 ```
@@ -266,7 +266,7 @@ CI 실패 시 로그 확인 후 수정.
 **Step 3 — 사용자 시각 검증 요청:**
 사용자에게 아래 체크리스트 제시하고 브라우저에서 확인받음:
 - [ ] Hero 배경이 라이트 그라데이션이고 제품 이미지가 opacity 1.0으로 선명
-- [ ] 카피 "DabitONe." (왼쪽 큰 제목) + "새로운 전광판 운영 경험." (서브)
+- [ ] 카피 "DabitOne." (왼쪽 큰 제목) + "새로운 전광판 운영 경험." (서브)
 - [ ] 제품 스크린샷이 카피 아래 풀폭으로 당당히, 하단 걸쳐서 다음 섹션 암시
 - [ ] WhatsNew Before/After 섹션 사라짐
 - [ ] Hotspot·PDF 섹션 그대로 (이번 Phase에서 의도적으로 미수정)

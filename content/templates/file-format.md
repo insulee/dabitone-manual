@@ -45,7 +45,7 @@ last_updated: YYYY-MM-DD
 기본 저장 경로 + 프로젝트별 구조 권장.
 
 ```markdown
-기본: `C:\Users\[사용자]\Documents\DabitONe\Data\`
+기본: `C:\Users\[사용자]\Documents\DabitOne\Data\`
 프로젝트별 구조 권장: `Data\[프로젝트명]\메시지.DAT`
 ```
 
@@ -76,4 +76,4 @@ last_updated: YYYY-MM-DD
 - **사용자 관점**: 바이트 오프셋·헤더 구조 직접 설명 금지 (링크로)
 - **실사용 흐름** 중심: 편집 → 저장 → 전송 단계에서 어디에 등장하는지
 - **파일 확장자**는 대문자 `.DAT` (레거시 관습 유지)
-- DabitONe 내장 기능으로 변환 가능한 다른 포맷과의 관계 명시
+- DabitOne 내장 기능으로 변환 가능한 다른 포맷과의 관계 명시

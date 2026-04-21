@@ -1,6 +1,6 @@
 ---
 title: 고급
-description: "DabitONe 고급 탭 — 시간·보드기능설정·펌웨어·테마"
+description: "DabitOne 고급 탭 — 시간·보드기능설정·펌웨어·테마"
 last_updated: 2026-04-21
 ---
 
@@ -17,7 +17,7 @@ last_updated: 2026-04-21
 - [[ui-reference/05-advanced/time|시간 설정]] — 컨트롤러 실시간 시계 설정·NTP 동기화
 - [[ui-reference/05-advanced/board-settings|보드 기능 설정]] — 컨트롤러 하드웨어 상세 설정 (전문가용)
 - [[ui-reference/05-advanced/firmware|펌웨어 업데이트]] — .bin 파일 기반 컨트롤러 펌웨어 갱신
-- [[ui-reference/05-advanced/theme|테마]] — DabitONe 앱 UI 테마(라이트·다크) 전환
+- [[ui-reference/05-advanced/theme|테마]] — DabitOne 앱 UI 테마(라이트·다크) 전환
 
 ## 주의 사항
 

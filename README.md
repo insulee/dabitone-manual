@@ -1,4 +1,4 @@
-# DabitONe 매뉴얼 사이트
+# DabitOne 매뉴얼 사이트
 
 **URL**: https://dabitone.dabitsol.com
 **소스**: 이 디렉토리는 Quartz SSG 기반 사이트의 루트입니다.
@@ -26,7 +26,7 @@ npx quartz build --serve
 | `scripts/auto-deploy.ps1` | content 변경 감지 → deploy.sh 호출 |
 | `scripts/deploy.sh` | quartz build + git push |
 | `scripts/deploy-cf.ps1` | 수동 Cloudflare Pages 배포 (Wrangler) |
-| `scripts/capture-screens.ps1` | DabitONe WPF 자동 스크린샷 캡처 |
+| `scripts/capture-screens.ps1` | DabitOne WPF 자동 스크린샷 캡처 |
 | `scripts/build-pdf.mjs` | Playwright로 챕터별 PDF 자동 생성 |
 
 ## 결정 기록

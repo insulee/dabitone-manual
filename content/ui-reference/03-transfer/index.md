@@ -1,6 +1,6 @@
 ---
 title: 전송
-description: "DabitONe 전송 탭 — 메시지·페이지·밝기·켜기·배경·섹션 효과 전송"
+description: "DabitOne 전송 탭 — 메시지·페이지·밝기·켜기·배경·섹션 효과 전송"
 last_updated: 2026-04-21
 ---
 

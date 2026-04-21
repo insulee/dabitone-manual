@@ -99,10 +99,10 @@ last_updated: 2026-04-21
 ## 그래도 안 되면
 
 - [[troubleshooting/05-faq|FAQ]] 확인
-- **support@dabitsol.com** 로 문의 (DabitONe 버전·컨트롤러 모델·전광판 구성 함께)
+- **support@dabitsol.com** 로 문의 (DabitOne 버전·컨트롤러 모델·전광판 구성 함께)
 
 ## 연락처
 
 **support@dabitsol.com** | 기술지원팀 전화: (제품 라벨 참조)
 
-문의 시 **DabitONe 버전 · 컨트롤러 모델/펌웨어 · 전광판 구성 · 증상 사진 또는 영상**을 함께 보내주시면 빠르게 도움이 됩니다.
+문의 시 **DabitOne 버전 · 컨트롤러 모델/펌웨어 · 전광판 구성 · 증상 사진 또는 영상**을 함께 보내주시면 빠르게 도움이 됩니다.

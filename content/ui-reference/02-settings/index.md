@@ -1,6 +1,6 @@
 ---
 title: 설정
-description: "DabitONe 설정 탭 — 화면 크기·표출 신호·폰트 관리"
+description: "DabitOne 설정 탭 — 화면 크기·표출 신호·폰트 관리"
 last_updated: 2026-04-21
 ---
 

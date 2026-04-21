@@ -1,25 +1,25 @@
 ---
 title: GIF
-description: "표준 GIF 포맷 — DabitONe 내장 편집기로 제작·편집 후 ANI로 변환"
+description: "표준 GIF 포맷 — DabitOne 내장 편집기로 제작·편집 후 ANI로 변환"
 last_updated: 2026-04-21
 ---
 
 # GIF
 
-> **GIF** — 웹·그래픽 업계 표준 애니메이션 포맷. DabitONe은 표준 GIF를 직접 **제작·편집**할 수 있는 내장 편집기를 제공하며, 전광판 전송 시 자동으로 [[file-formats/ani|ANI]]로 변환.
+> **GIF** — 웹·그래픽 업계 표준 애니메이션 포맷. DabitOne은 표준 GIF를 직접 **제작·편집**할 수 있는 내장 편집기를 제공하며, 전광판 전송 시 자동으로 [[file-formats/ani|ANI]]로 변환.
 
 ## 표준 GIF vs ANI
 
-| 항목 | GIF (표준) | ANI (DabitONe/DabitChe 전용) |
+| 항목 | GIF (표준) | ANI (DabitOne/DabitChe 전용) |
 |------|-----------|------------------------------|
 | 용도 | 웹·그래픽 일반 | 전광판 전용 |
 | 호환성 | 모든 이미지 뷰어·브라우저 | 다빛솔루션 컨트롤러 전용 |
-| 편집 | 일반 이미지 툴 | DabitONe 내장 편집기 |
+| 편집 | 일반 이미지 툴 | DabitOne 내장 편집기 |
 | 전광판 전송 | ANI로 자동 변환 후 전송 | 직접 전송 |
 
-## DabitONe의 GIF 지원 (신규)
+## DabitOne의 GIF 지원 (신규)
 
-이전 DabitChe에서는 외부 툴로 GIF를 만들어 불러오기만 했지만, DabitONe은 **내장 GIF 편집기**를 제공합니다:
+이전 DabitChe에서는 외부 툴로 GIF를 만들어 불러오기만 했지만, DabitOne은 **내장 GIF 편집기**를 제공합니다:
 
 - 프레임 단위 추가·복사·삭제
 - 프레임당 표시 시간 개별 조정
@@ -40,7 +40,7 @@ last_updated: 2026-04-21
 ### 기존 GIF 불러오기
 
 1. [[ui-reference/04-editor/gif|편집 → GIF]] 모드에서 "가져오기"
-2. DabitONe이 자동으로 각 프레임을 **내부 편집 프레임**으로 변환
+2. DabitOne이 자동으로 각 프레임을 **내부 편집 프레임**으로 변환
 3. 이후 프레임 단위 편집 가능
 
 ### 내보내기
