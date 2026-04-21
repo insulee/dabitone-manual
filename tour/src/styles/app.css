@@ -258,6 +258,41 @@
     0 12px 24px rgba(0, 0, 0, 0.04);
   align-self: center;
 }
+.tour-highlight--reverse .tour-highlight__title,
+.tour-highlight--reverse .tour-highlight__caption {
+  grid-column: 2;
+}
+.tour-highlight--reverse .tour-highlight__image {
+  grid-column: 1;
+}
+
+.tour-highlight--centered .tour-highlight__inner {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+.tour-highlight--centered .tour-highlight__title {
+  grid-column: 1;
+  grid-row: auto;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tour-highlight--centered .tour-highlight__caption {
+  grid-column: 1;
+  grid-row: auto;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tour-highlight--centered .tour-highlight__image {
+  grid-column: 1;
+  grid-row: auto;
+  margin-top: clamp(40px, 6vh, 80px);
+  max-width: min(1200px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 900px) {
   .tour-highlight__inner {
     grid-template-columns: 1fr;
@@ -265,6 +300,11 @@
   .tour-highlight__title,
   .tour-highlight__caption,
   .tour-highlight__image {
+    grid-column: 1;
+  }
+  .tour-highlight--reverse .tour-highlight__title,
+  .tour-highlight--reverse .tour-highlight__caption,
+  .tour-highlight--reverse .tour-highlight__image {
     grid-column: 1;
   }
   .tour-highlight__image {

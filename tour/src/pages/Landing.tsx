@@ -59,7 +59,34 @@ export function Landing() {
         heroImage={landing.hero.heroImage}
       />
 
-      <EditorHighlight />
+      <Highlight
+        title="편집기, 완전히 새로."
+        caption="텍스트·이미지·GIF를 한 환경에서. 드래그 앤 드롭으로."
+        image={{
+          src: "/assets/screens/manual-poc/main-editor.png",
+          alt: "DabitONe 편집기 화면",
+        }}
+      />
+
+      <Highlight
+        title="통신, 한 화면에."
+        caption="Serial·TCP·UDP·BLE·MQTT·dbNet. 전부 한 곳에서 전환."
+        image={{
+          src: "/assets/screens/manual-poc/main-comm.png",
+          alt: "DabitONe 통신 설정 화면",
+        }}
+        variant="reverse"
+      />
+
+      <Highlight
+        title="전송, 선명하게."
+        caption="어디까지 갔고, 무엇이 실패했는지. 한눈에."
+        image={{
+          src: "/assets/screens/manual-poc/main-simulator.png",
+          alt: "DabitONe 전송 화면",
+        }}
+        variant="centered"
+      />
 
       <HotspotsSection
         hotspots={landing.hotspots}
@@ -125,22 +152,35 @@ function Hero({
   )
 }
 
-function EditorHighlight() {
+function Highlight({
+  title,
+  caption,
+  image,
+  variant,
+}: {
+  title: string
+  caption: string
+  image: { src: string; alt: string }
+  variant?: "reverse" | "centered"
+}) {
   const ref = useRef<HTMLElement>(null)
   useEffect(() => {
     if (ref.current) revealOnEnter(ref.current)
   }, [])
+  const modifier = variant ? ` tour-highlight--${variant}` : ""
   return (
-    <section ref={ref} class="tour-highlight" style={{ opacity: 0 }}>
+    <section
+      ref={ref}
+      class={`tour-highlight${modifier}`}
+      style={{ opacity: 0 }}
+    >
       <div class="tour-highlight__inner">
-        <h2 class="tour-highlight__title">편집기, 완전히 새로.</h2>
-        <p class="tour-highlight__caption">
-          텍스트·이미지·GIF를 한 환경에서. 드래그 앤 드롭으로.
-        </p>
+        <h2 class="tour-highlight__title">{title}</h2>
+        <p class="tour-highlight__caption">{caption}</p>
         <img
           class="tour-highlight__image"
-          src="/assets/screens/manual-poc/main-editor.png"
-          alt="DabitONe 편집기 화면"
+          src={image.src}
+          alt={image.alt}
           width={1422}
           height={1386}
           loading="lazy"
