@@ -41,6 +41,13 @@ jobs:
       - name: Copy CNAME (custom domain)
         run: cp content/CNAME public/CNAME 2>/dev/null || true
 
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build PDFs (Reference + Operation)
+        run: npm run build:pdf
+        continue-on-error: true   # PDF 실패는 사이트 배포를 막지 않음
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
