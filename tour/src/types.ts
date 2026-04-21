@@ -69,16 +69,6 @@ export interface LandingHotspot {
 }
 
 /**
- * Before/After 비교 슬롯 — 레거시 vs 현 DabitONe.
- */
-export interface WhatsNewItem {
-  title: string
-  caption: string
-  before: ImageAsset
-  after: ImageAsset
-}
-
-/**
  * 랜딩 페이지 전체 데이터.
  */
 export interface LandingData {
@@ -88,5 +78,4 @@ export interface LandingData {
     heroImage: ImageAsset
   }
   hotspots: LandingHotspot[]
-  whatsNew: WhatsNewItem[]
 }

@@ -83,62 +83,7 @@ const HOTSPOTS: LandingData["hotspots"] = [
   },
 ]
 
-const WHATS_NEW: LandingData["whatsNew"] = [
-  {
-    title: "통신 설정, 한 화면에",
-    caption:
-      "예전엔 Serial·TCP·UDP가 각자 별도 창으로 흩어져 있었습니다. 이제 한 화면에 모여 있고, 연결 방식 전환이 즉시 됩니다.",
-    before: {
-      src: "/assets/screens/legacy-before/legacy-comm-2.png",
-      width: 820,
-      height: 777,
-      alt: "레거시 DabitChe의 통신 설정 — 별도 창으로 분리된 상태",
-    },
-    after: {
-      src: "/assets/screens/manual-poc/main-comm.png",
-      width: 1422,
-      height: 1386,
-      alt: "DabitONe의 통합 통신 설정 — 한 화면에 모든 방식",
-    },
-  },
-  {
-    title: "편집기, 완전히 새로",
-    caption:
-      "텍스트·이미지·GIF를 이제 하나의 편집 환경에서. 글꼴, 색상, 효과 모두 실시간 미리보기로 확인하며 만들 수 있습니다.",
-    before: {
-      src: "/assets/screens/legacy-before/legacy-editor.png",
-      width: 1194,
-      height: 1023,
-      alt: "레거시 편집기",
-    },
-    after: {
-      src: "/assets/screens/manual-poc/main-editor.png",
-      width: 1422,
-      height: 1386,
-      alt: "DabitONe 편집기",
-    },
-  },
-  {
-    title: "전송, 더 선명하게",
-    caption:
-      "어디까지 갔고, 무엇이 실패했고, 무엇을 재시도하면 되는지가 한눈에. 현장에서 오래 쓰던 분들도 '이제 로그 읽을 수 있네' 하실 겁니다.",
-    before: {
-      src: "/assets/screens/legacy-before/legacy-simulator.png",
-      width: 810,
-      height: 946,
-      alt: "레거시 전송 화면",
-    },
-    after: {
-      src: "/assets/screens/manual-poc/main-simulator.png",
-      width: 1422,
-      height: 1386,
-      alt: "DabitONe 전송 탭",
-    },
-  },
-]
-
 export const landing: LandingData = {
   hero: HERO,
   hotspots: HOTSPOTS,
-  whatsNew: WHATS_NEW,
 }

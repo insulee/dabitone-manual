@@ -229,49 +229,6 @@
   margin: 0 0 var(--tour-space-5);
 }
 
-/* ==================== What's New (Before/After) ==================== */
-.tour-whatsnew {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--tour-space-4);
-  margin-top: var(--tour-space-5);
-}
-.tour-whatsnew__cell {
-  display: flex;
-  flex-direction: column;
-  gap: var(--tour-space-2);
-}
-.tour-whatsnew__label {
-  font-size: var(--tour-fs-small);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--tour-c-text-soft);
-  font-weight: 600;
-}
-.tour-whatsnew__label--before {
-  color: var(--tour-c-text-soft);
-}
-.tour-whatsnew__label--after {
-  color: var(--tour-c-accent);
-}
-.tour-whatsnew__image {
-  width: 100%;
-  height: auto;
-  border-radius: var(--tour-r-lg);
-  box-shadow: var(--tour-shadow-hero);
-  background: var(--tour-c-bg-soft);
-}
-.tour-whatsnew__image--before {
-  filter: grayscale(0.3) contrast(0.9);
-  opacity: 0.85;
-}
-
-@media (max-width: 720px) {
-  .tour-whatsnew {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ==================== Stage (핫스팟 이미지 컨테이너) ==================== */
 .tour-stage {
   position: relative;

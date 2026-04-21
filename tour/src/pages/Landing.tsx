@@ -44,8 +44,6 @@ export function Landing() {
         heroImage={landing.hero.heroImage}
       />
 
-      <WhatsNewSection items={landing.whatsNew} />
-
       <HotspotsSection
         hotspots={landing.hotspots}
         heroImage={landing.hero.heroImage}
@@ -112,87 +110,6 @@ function Hero({
         ↓
       </div>
     </section>
-  )
-}
-
-function WhatsNewSection({
-  items,
-}: {
-  items: typeof landing.whatsNew
-}) {
-  if (items.length === 0) return null
-  return (
-    <section class="tour-section tour-section--soft" aria-label="5년 만의 변화">
-      <div class="tour-section__inner">
-        <h2 class="tour-section__title">5년 만에 이렇게 달라졌습니다</h2>
-        <p class="tour-section__caption">
-          같은 컨트롤러, 같은 기능. 하지만 손끝의 감각은 전부 새로 설계됐습니다.
-        </p>
-        {items.map((item, i) => (
-          <WhatsNewRow key={i} item={item} />
-        ))}
-      </div>
-    </section>
-  )
-}
-
-function WhatsNewRow({ item }: { item: (typeof landing.whatsNew)[number] }) {
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    if (ref.current) revealOnEnter(ref.current)
-  }, [])
-  return (
-    <div ref={ref} style={{ opacity: 0, marginTop: "80px" }}>
-      <h3
-        style={{
-          fontFamily: "var(--tour-font-display)",
-          fontSize: "var(--tour-fs-section)",
-          letterSpacing: "var(--tour-ls-tight)",
-          fontWeight: 600,
-          marginBottom: "12px",
-        }}
-      >
-        {item.title}
-      </h3>
-      <p
-        style={{
-          fontSize: "var(--tour-fs-body)",
-          color: "var(--tour-c-text-soft)",
-          marginBottom: "32px",
-          maxWidth: "720px",
-        }}
-      >
-        {item.caption}
-      </p>
-      <div class="tour-whatsnew">
-        <div class="tour-whatsnew__cell">
-          <span class="tour-whatsnew__label tour-whatsnew__label--before">
-            예전엔
-          </span>
-          <img
-            class="tour-whatsnew__image tour-whatsnew__image--before"
-            src={item.before.src}
-            alt={item.before.alt}
-            width={item.before.width}
-            height={item.before.height}
-            loading="lazy"
-          />
-        </div>
-        <div class="tour-whatsnew__cell">
-          <span class="tour-whatsnew__label tour-whatsnew__label--after">
-            이제는
-          </span>
-          <img
-            class="tour-whatsnew__image"
-            src={item.after.src}
-            alt={item.after.alt}
-            width={item.after.width}
-            height={item.after.height}
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
   )
 }
 
