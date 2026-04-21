@@ -1,0 +1,144 @@
+/**
+ * 랜딩 페이지 데이터 — Hero + 5 핫스팟 + Before/After.
+ * 플랜 v3.1 Phase R2.1 + R2.1b.
+ *
+ * Hero 카피는 (D) "6년 만의 리프레시. 당신이 알던 기능은 그대로, 손끝 감각은 전부 새로."로 확정.
+ * 플랜의 타겟 오디언스(레거시 DabitChe 사용자)에 직접 말을 걸기 때문.
+ *
+ * 핫스팟 좌표는 main-comm.png (1422×1386) 기준 % 값. 실제 렌더 후 시각 검증으로 조정.
+ */
+import type { LandingData } from "../src/types"
+
+const HERO: LandingData["hero"] = {
+  title: "6년 만의 리프레시.\n당신이 알던 기능은 그대로,\n손끝 감각은 전부 새로.",
+  subtitle: "DabitChe는 이제 DabitONe입니다. 다빛솔루션 LED 전광판 운영, 다시 설계했습니다.",
+  heroImage: {
+    src: "/assets/screens/manual-poc/main-comm.png",
+    width: 1422,
+    height: 1386,
+    alt: "DabitONe 메인 화면 — 통신 설정 탭이 기본 선택된 상태",
+  },
+}
+
+const HOTSPOTS: LandingData["hotspots"] = [
+  {
+    id: "nav-connect",
+    hotspot: {
+      x: 8,
+      y: 19,
+      ariaLabel: "통신 탭 — 컨트롤러 연결",
+      label: "통신",
+    },
+    summary:
+      "Serial·TCP·UDP·BLE·MQTT·dbNet을 한 화면에 모았습니다. 예전엔 별도 창으로 흩어져 있던 설정이 이제 한눈에 보이고 한 번에 바뀝니다.",
+    tourSlug: "01-first-connection",
+  },
+  {
+    id: "nav-setup",
+    hotspot: {
+      x: 8,
+      y: 23,
+      ariaLabel: "설정 탭 — 화면 크기·시계·밝기",
+      label: "설정",
+    },
+    summary:
+      "화면 크기, 색상 깊이, 시계, 밝기 스케줄 등 컨트롤러의 기본 운영 설정을 모았습니다. 값이 바뀌면 바로 저장, 복잡한 확인창 없이 깔끔하게.",
+    tourSlug: "02-screen-size",
+  },
+  {
+    id: "nav-simulator",
+    hotspot: {
+      x: 8,
+      y: 27,
+      ariaLabel: "전송 탭 — 메시지·스케줄 전송",
+      label: "전송",
+    },
+    summary:
+      "편집한 메시지와 스케줄을 컨트롤러로 전송합니다. 진행률·재시도·실패 분석이 더 선명해졌습니다.",
+    tourSlug: "03-send-message",
+  },
+  {
+    id: "nav-editor",
+    hotspot: {
+      x: 8,
+      y: 31,
+      ariaLabel: "편집 탭 — 텍스트·이미지·GIF 제작",
+      label: "편집",
+    },
+    summary:
+      "텍스트·이미지·GIF 제작 환경을 전면 재설계했습니다. 드래그 앤 드롭이 됩니다. 정말로.",
+    tourSlug: "04-edit-image",
+  },
+  {
+    id: "nav-advanced",
+    hotspot: {
+      x: 8,
+      y: 35,
+      ariaLabel: "고급 탭 — 펌웨어·로그·진단",
+      label: "고급",
+    },
+    summary:
+      "펌웨어 업데이트, 로그, 진단 등 고급 운영 기능을 모았습니다. 신규 사용자에겐 안 보여도 전문가에겐 바로 손에 닿는 곳에.",
+    tourSlug: "08-firmware",
+  },
+]
+
+const WHATS_NEW: LandingData["whatsNew"] = [
+  {
+    title: "통신 설정, 한 화면에",
+    caption:
+      "예전엔 Serial·TCP·UDP가 각자 별도 창으로 흩어져 있었습니다. 이제 한 화면에 모여 있고, 연결 방식 전환이 즉시 됩니다.",
+    before: {
+      src: "/assets/screens/legacy-before/legacy-comm-2.png",
+      width: 820,
+      height: 777,
+      alt: "레거시 DabitChe의 통신 설정 — 별도 창으로 분리된 상태",
+    },
+    after: {
+      src: "/assets/screens/manual-poc/main-comm.png",
+      width: 1422,
+      height: 1386,
+      alt: "DabitONe의 통합 통신 설정 — 한 화면에 모든 방식",
+    },
+  },
+  {
+    title: "편집기, 완전히 새로",
+    caption:
+      "텍스트·이미지·GIF를 이제 하나의 편집 환경에서. 글꼴, 색상, 효과 모두 실시간 미리보기로 확인하며 만들 수 있습니다.",
+    before: {
+      src: "/assets/screens/legacy-before/legacy-editor.png",
+      width: 1194,
+      height: 1023,
+      alt: "레거시 편집기",
+    },
+    after: {
+      src: "/assets/screens/manual-poc/main-editor.png",
+      width: 1422,
+      height: 1386,
+      alt: "DabitONe 편집기",
+    },
+  },
+  {
+    title: "전송, 더 선명하게",
+    caption:
+      "어디까지 갔고, 무엇이 실패했고, 무엇을 재시도하면 되는지가 한눈에. 현장에서 오래 쓰던 분들도 '이제 로그 읽을 수 있네' 하실 겁니다.",
+    before: {
+      src: "/assets/screens/legacy-before/legacy-simulator.png",
+      width: 810,
+      height: 946,
+      alt: "레거시 전송 화면",
+    },
+    after: {
+      src: "/assets/screens/manual-poc/main-simulator.png",
+      width: 1422,
+      height: 1386,
+      alt: "DabitONe 전송 탭",
+    },
+  },
+]
+
+export const landing: LandingData = {
+  hero: HERO,
+  hotspots: HOTSPOTS,
+  whatsNew: WHATS_NEW,
+}

@@ -1,0 +1,127 @@
+/**
+ * DabitONe 투어 디자인 토큰 — Apple-like 기준.
+ * 플랜 v3.1 디자인 방향성 §1~4 반영.
+ */
+
+.tour-page {
+  /* Typography */
+  --tour-font-display: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --tour-font-body: "Pretendard Variable", -apple-system, sans-serif;
+  --tour-font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --tour-fs-hero: clamp(48px, 8vw, 120px);
+  --tour-fs-title: clamp(32px, 4.5vw, 64px);
+  --tour-fs-section: clamp(24px, 3vw, 40px);
+  --tour-fs-body: clamp(17px, 1.3vw, 21px);
+  --tour-fs-small: 15px;
+
+  --tour-lh-tight: 1.05;
+  --tour-lh-normal: 1.6;
+  --tour-ls-tight: -0.03em;
+  --tour-ls-display: -0.025em;
+
+  /* Colors — Light */
+  --tour-c-bg: #ffffff;
+  --tour-c-bg-soft: #f5f5f7;
+  --tour-c-bg-dark: #0a0a0a;
+  --tour-c-text: #1d1d1f;
+  --tour-c-text-soft: #515154;
+  --tour-c-text-dark: #f5f5f7;
+  --tour-c-accent: #2563eb;
+  --tour-c-accent-soft: rgba(37, 99, 235, 0.12);
+  --tour-c-line: rgba(0, 0, 0, 0.08);
+
+  /* Motion */
+  --tour-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --tour-ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+  --tour-dur-micro: 400ms;
+  --tour-dur-trans: 700ms;
+  --tour-dur-hero: 1200ms;
+
+  /* Spacing */
+  --tour-space-1: 8px;
+  --tour-space-2: 16px;
+  --tour-space-3: 24px;
+  --tour-space-4: 40px;
+  --tour-space-5: 64px;
+  --tour-space-6: 96px;
+  --tour-space-7: 160px;
+
+  /* Radii */
+  --tour-r-sm: 6px;
+  --tour-r-md: 12px;
+  --tour-r-lg: 20px;
+  --tour-r-2xl: 32px;
+
+  /* Shadows */
+  --tour-shadow-pop: 0 20px 48px rgba(0, 0, 0, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  --tour-shadow-hero: 0 40px 100px rgba(0, 0, 0, 0.12);
+
+  background: var(--tour-c-bg);
+  color: var(--tour-c-text);
+  font-family: var(--tour-font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Dark mode override (시스템 prefers-color-scheme) */
+@media (prefers-color-scheme: dark) {
+  .tour-page {
+    --tour-c-bg: #0a0a0a;
+    --tour-c-bg-soft: #1c1c1e;
+    --tour-c-text: #f5f5f7;
+    --tour-c-text-soft: #a8a29e;
+    --tour-c-line: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* reduced-motion — 모든 애니 100ms로 단축 + scroll 즉시 */
+@media (prefers-reduced-motion: reduce) {
+  .tour-page *,
+  .tour-page *::before,
+  .tour-page *::after {
+    animation-duration: 100ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 100ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 투어 페이지에서 Quartz의 기본 페이지 래퍼·사이드바 숨기기 */
+body.tour-page #quartz-root .sidebar,
+body.tour-page #quartz-root .page-header,
+body.tour-page #quartz-root .page-footer {
+  display: none;
+}
+
+/* 스크린 리더 전용 텍스트 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 투어 앱 컨테이너 초기화 */
+body.tour-page {
+  margin: 0;
+  padding: 0;
+}
+body.tour-page #tour-root {
+  min-height: 100vh;
+}
+
+/* 키보드 포커스 아웃라인 — Apple 스타일 */
+.tour-page :focus-visible {
+  outline: 3px solid var(--tour-c-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

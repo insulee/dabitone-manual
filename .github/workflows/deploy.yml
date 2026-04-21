@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build tour app (esbuild Preact bundle)
+        run: npm run build:tour
+
       - name: Quartz build
         run: npx quartz build
 

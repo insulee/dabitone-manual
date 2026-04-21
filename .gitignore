@@ -7,3 +7,6 @@ test-results/
 *.log
 .obsidian/workspace*.json
 .obsidian/plugins/*/data.json
+
+# 투어 앱 빌드 산출물 (scripts/build-tour.mjs가 생성, CI가 매번 빌드)
+quartz/static/tour/

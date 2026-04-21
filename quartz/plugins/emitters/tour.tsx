@@ -96,7 +96,9 @@ const TOUR_ALIASES: Record<string, string> = {
 function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   const cfg = ctx.cfg.configuration
   const baseDir = pathToRoot(page.slug)
-  const cssHref = joinSegments(baseDir, "index.css")
+  const quartzCss = joinSegments(baseDir, "index.css")
+  const tourCss = joinSegments(baseDir, "static/tour/tour.css")
+  const tourJs = joinSegments(baseDir, "static/tour/tour.js")
   const preScript = joinSegments(baseDir, "prescript.js")
   const postScript = joinSegments(baseDir, "postscript.js")
   const fullTitle = `${page.title}${cfg.pageTitleSuffix ?? ""}`
@@ -110,21 +112,19 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   <meta name="description" content="${escapeHtml(page.description)}">
   <meta name="color-scheme" content="light dark">
   <title>${escapeHtml(fullTitle)}</title>
-  <link rel="stylesheet" href="${cssHref}">
+  <link rel="stylesheet" href="${quartzCss}">
+  <link rel="stylesheet" href="${tourCss}">
   <link rel="icon" href="${joinSegments(baseDir, "static/icon.png")}">
   <script src="${preScript}"></script>
 </head>
 <body data-slug="${page.slug}" class="tour-page">
   <div id="tour-root">
     <div class="tour-loading" role="status" aria-live="polite">
-      <h1 style="font-family: 'Pretendard Variable', sans-serif; letter-spacing: -0.03em; font-size: clamp(48px, 8vw, 96px); margin: 0; padding: 20vh 6vw 0;">
+      <h1 style="font-family: 'Pretendard Variable', sans-serif; letter-spacing: -0.03em; font-size: clamp(48px, 8vw, 96px); margin: 0; padding: 20vh 6vw 0; opacity: 0.6;">
         ${escapeHtml(page.title)}
       </h1>
       <p style="font-family: 'Pretendard Variable', sans-serif; font-size: 19px; color: #515154; padding: 24px 6vw 0; max-width: 640px;">
         ${escapeHtml(page.description)}
-      </p>
-      <p style="font-family: 'Pretendard Variable', sans-serif; font-size: 15px; color: #a8a29e; padding: 48px 6vw; font-style: italic;">
-        인터랙티브 투어 준비 중 — Phase R2 완성 후 실제 체험이 여기에 로드됩니다.
       </p>
     </div>
   </div>
@@ -132,11 +132,12 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
     <div style="padding: 6vw; font-family: 'Pretendard Variable', sans-serif;">
       <h2>JavaScript가 필요합니다</h2>
       <p>이 투어는 브라우저 JavaScript를 사용합니다. 접근성 대안 텍스트 경로는
-        <a href="${joinSegments(baseDir, "tour/accessible")}">/tour/accessible</a>에서 이용 가능합니다.
+        <a href="${joinSegments(baseDir, "tour/accessible")}/">/tour/accessible/</a>에서 이용 가능합니다.
       </p>
     </div>
   </noscript>
   <script src="${postScript}" type="module"></script>
+  <script src="${tourJs}" type="module"></script>
 </body>
 </html>`
 }
