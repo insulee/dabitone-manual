@@ -8,7 +8,13 @@ type LoaderFn = () => Promise<{ default: Tour } | { tour: Tour }>
 
 const LOADERS: Record<string, LoaderFn> = {
   "01-first-connection": () => import("./01-first-connection"),
-  // R3.3~R3.9에서 02~08 추가
+  "02-screen-size": () => import("./02-screen-size"),
+  "03-send-message": () => import("./03-send-message"),
+  "04-edit-image": () => import("./04-edit-image"),
+  "05-gif-editor": () => import("./05-gif-editor"),
+  "06-schedule-pla": () => import("./06-schedule-pla"),
+  "07-background-bgp": () => import("./07-background-bgp"),
+  "08-firmware": () => import("./08-firmware"),
 }
 
 export async function loadTour(slug: string): Promise<Tour | null> {

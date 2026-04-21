@@ -87,10 +87,20 @@ const TOUR_PAGES: readonly TourPageDef[] = [
 /**
  * 레거시 URL redirect 매핑.
  * { 레거시_slug: 새_slug } 형태. fromSlug에도 `/index` 접미사 적용하여
- * `/quickstart/01-first-connection/` 트레일링 슬래시 URL이 redirect되도록.
+ * 트레일링 슬래시 URL이 redirect되도록.
+ *
+ * 모든 /quickstart/* URL을 /tour/quickstart/* 로 이전한다 (plan v3.1 피벗).
  */
 const TOUR_ALIASES: Record<string, string> = {
+  "quickstart/index": "tour/",
   "quickstart/01-first-connection/index": "tour/quickstart/01-first-connection/",
+  "quickstart/02-screen-size/index": "tour/quickstart/02-screen-size/",
+  "quickstart/03-send-message/index": "tour/quickstart/03-send-message/",
+  "quickstart/04-edit-image/index": "tour/quickstart/04-edit-image/",
+  "quickstart/05-gif-editor/index": "tour/quickstart/05-gif-editor/",
+  "quickstart/06-schedule-pla/index": "tour/quickstart/06-schedule-pla/",
+  "quickstart/07-background-bgp/index": "tour/quickstart/07-background-bgp/",
+  "quickstart/08-firmware/index": "tour/quickstart/08-firmware/",
 }
 
 function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
