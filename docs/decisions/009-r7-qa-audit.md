@@ -50,19 +50,28 @@
 - **PDF 품질·크기**: CI가 PDF 생성 시도, 실제 파일 크기·폰트 렌더 품질 확인 필요
 - **다크 모드 대비**: prefers-color-scheme dark 상태에서 모든 페이지 확인 필요
 
-### 🟡 이 세션에서 미구현 (후속 작업)
+### ✅ 이어진 후속 세션에서 완료 (R4a~R4d)
 
-- **UI Reference 개별 페이지** (Serial/TCP/UDP·02-settings 상세 3종·03-transfer 상세 6종·04-editor 상세 5종·05-advanced 상세 4종·나머지 01-communication 3종): 현재 stub. 플랜상 R4에 포함되나 이번 세션에선 index + 일부만 작성
-- **File Formats 6종**: 전부 stub 상태
-- **Troubleshooting 02~05**: 전부 stub (01만 완성)
-- **Getting Started install·overview**: stub
+- **R4a**: Troubleshooting 02~05 + Getting Started install/overview 본문 (6 페이지)
+- **R4b**: File Formats 6종(DAT·ANI·GIF·PLA·BGP·FNT) 본문
+- **R4c**: UI Reference 01-communication BLE/MQTT/dbNet 본문 (3 페이지)
+- **R4d**: UI Reference 02~05 서브 페이지 전체 본문 (18 페이지)
+  - 02-settings: screen-size·display-signal·font
+  - 03-transfer: message·page·brightness·power·background·section-effect
+  - 04-editor: text·image·gif·schedule-grid·split-mode
+  - 05-advanced: time·board-settings·firmware·theme
+
+→ **`content/` 전체 stub 제거 완료**. 49개 markdown 파일 모두 본문 작성됨.
+
+### 🟡 이 세션 이후에도 남은 후속 작업
+
 - **Preact 투어 앱 세부 마감**:
   - 투어 스텝 간 crossfade 애니 (현재 즉시 전환)
   - 하이라이트 박스(step.hotspot.box) 시각 렌더링
-  - 핫스팟 파동 효과의 reduced-motion 세부 처리
   - 모바일 Prev/Next 스와이프 제스처 (현재 버튼만)
 - **Before/After 섹션 인터랙션**: 스크러버 드래그 또는 crossfade 미구현 (현재 정적 2열 배치)
-- **Hero 카피 후보 A~C 선택 UI**: (D)로 고정
+- **핫스팟 좌표 미세 조정**: 실제 렌더 시 픽셀 단위 검증 필요
+- **Hero 카피 후보 A~C 선택 UI**: (D)로 고정 — 사용자가 원하면 `tour/data/landing.ts`의 HERO.title 변경
 
 ## 플랜 v3.1 검수 기준 대비
 
