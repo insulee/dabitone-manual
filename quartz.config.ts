@@ -95,6 +95,7 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
+      Plugin.TourEmitter(),
       // CustomOgImages disabled — Pretendard 폰트 Satori 호환성 이슈
       // Plugin.CustomOgImages(),
     ],
