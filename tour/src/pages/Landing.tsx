@@ -59,6 +59,8 @@ export function Landing() {
         heroImage={landing.hero.heroImage}
       />
 
+      <EditorHighlight />
+
       <HotspotsSection
         hotspots={landing.hotspots}
         heroImage={landing.hero.heroImage}
@@ -123,6 +125,31 @@ function Hero({
   )
 }
 
+function EditorHighlight() {
+  const ref = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (ref.current) revealOnEnter(ref.current)
+  }, [])
+  return (
+    <section ref={ref} class="tour-highlight" style={{ opacity: 0 }}>
+      <div class="tour-highlight__inner">
+        <h2 class="tour-highlight__title">편집기, 완전히 새로.</h2>
+        <p class="tour-highlight__caption">
+          텍스트·이미지·GIF를 한 환경에서. 드래그 앤 드롭으로.
+        </p>
+        <img
+          class="tour-highlight__image"
+          src="/assets/screens/manual-poc/main-editor.png"
+          alt="DabitONe 편집기 화면"
+          width={1422}
+          height={1386}
+          loading="lazy"
+        />
+      </div>
+    </section>
+  )
+}
+
 function HotspotsSection({
   hotspots,
   heroImage,
@@ -138,7 +165,7 @@ function HotspotsSection({
   }, [])
 
   return (
-    <section class="tour-section" aria-label="기능별 투어 선택">
+    <section class="tour-section tour-section--dark" aria-label="기능별 투어 선택">
       <div class="tour-section__inner">
         <h2 class="tour-section__title">어디서부터 시작할까요?</h2>
         <p class="tour-section__caption">

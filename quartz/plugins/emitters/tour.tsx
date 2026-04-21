@@ -35,7 +35,7 @@ const TOUR_PAGES: readonly TourPageDef[] = [
   {
     slug: "tour/index" as FullSlug,
     title: "DabitONe 투어",
-    description: "6년 만의 리프레시 — 익숙했던 기능은 그대로, 경험은 새롭게.",
+    description: "새로운 전광판 운영 경험.",
   },
   {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,

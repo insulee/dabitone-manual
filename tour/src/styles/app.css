@@ -183,6 +183,15 @@
   background: var(--tour-c-bg-dark);
   color: var(--tour-c-text-dark);
 }
+.tour-section--dark .tour-section__title {
+  color: var(--tour-c-text-dark);
+}
+.tour-section--dark .tour-section__caption {
+  color: rgba(245, 245, 247, 0.7);
+}
+.tour-section--dark .tour-stage {
+  background: transparent;
+}
 .tour-section__inner {
   max-width: 1200px;
   width: 100%;
@@ -201,6 +210,66 @@
   color: var(--tour-c-text-soft);
   max-width: 640px;
   margin: 0 0 var(--tour-space-5);
+}
+
+/* ==================== Editor Highlight (1 섹션 강조) ==================== */
+.tour-highlight {
+  background: #fafafa;
+  padding: clamp(100px, 14vh, 180px) clamp(40px, 10vw, 160px);
+  position: relative;
+  overflow: hidden;
+}
+.tour-highlight__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: clamp(32px, 6vw, 80px) clamp(24px, 4vw, 60px);
+  align-items: start;
+}
+.tour-highlight__title {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--tour-font-display);
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 1.05;
+  letter-spacing: var(--tour-ls-tight);
+  font-weight: 600;
+  color: var(--tour-c-text);
+  margin: 0;
+}
+.tour-highlight__caption {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: clamp(18px, 1.5vw, 22px);
+  color: var(--tour-c-text-soft);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 480px;
+}
+.tour-highlight__image {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1),
+    0 12px 24px rgba(0, 0, 0, 0.04);
+  align-self: center;
+}
+@media (max-width: 900px) {
+  .tour-highlight__inner {
+    grid-template-columns: 1fr;
+  }
+  .tour-highlight__title,
+  .tour-highlight__caption,
+  .tour-highlight__image {
+    grid-column: 1;
+  }
+  .tour-highlight__image {
+    grid-row: auto;
+  }
 }
 
 /* ==================== Stage (핫스팟 이미지 컨테이너) ==================== */
