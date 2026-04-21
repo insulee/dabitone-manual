@@ -1,17 +1,13 @@
 /**
- * 랜딩 페이지 데이터 — Hero + 5 핫스팟 + Before/After.
- * 플랜 v3.1 Phase R2.1 + R2.1b.
- *
- * Hero 카피는 (D) "6년 만의 리프레시. 당신이 알던 기능은 그대로, 손끝 감각은 전부 새로."로 확정.
- * 플랜의 타겟 오디언스(레거시 DabitChe 사용자)에 직접 말을 걸기 때문.
- *
+ * 랜딩 페이지 데이터 — Hero + 5 핫스팟.
+ * 2026-04-21 재설계: 레거시 호명 제거, "DabitONe." / "새로운 전광판 운영 경험."
  * 핫스팟 좌표는 main-comm.png (1422×1386) 기준 % 값. 실제 렌더 후 시각 검증으로 조정.
  */
 import type { LandingData } from "../src/types"
 
 const HERO: LandingData["hero"] = {
-  title: "6년 만의 리프레시.\n당신이 알던 기능은 그대로,\n손끝 감각은 전부 새로.",
-  subtitle: "DabitChe는 이제 DabitONe입니다. 다빛솔루션 LED 전광판 운영, 다시 설계했습니다.",
+  title: "DabitONe.",
+  subtitle: "새로운 전광판 운영 경험.",
   heroImage: {
     src: "/assets/screens/manual-poc/main-comm.png",
     width: 1422,

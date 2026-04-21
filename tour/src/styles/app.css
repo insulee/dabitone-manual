@@ -124,73 +124,50 @@
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  color: var(--tour-c-text-dark);
-  display: grid;
-  place-items: center;
-  background: var(--tour-c-bg-dark);
-}
-.tour-hero__bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.55;
-  filter: saturate(1.1);
-}
-.tour-hero__shade {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 0%,
-    rgba(0, 0, 0, 0.4) 70%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
+  color: var(--tour-c-text);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(80px, 12vh, 140px) clamp(40px, 10vw, 160px) 0;
 }
 .tour-hero__inner {
-  position: relative;
-  text-align: center;
-  max-width: 1200px;
-  padding: 0 var(--tour-space-4);
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
 }
 .tour-hero__title {
   font-family: var(--tour-font-display);
   font-size: var(--tour-fs-hero);
-  line-height: var(--tour-lh-tight);
+  line-height: 1;
   letter-spacing: var(--tour-ls-tight);
   font-weight: 700;
+  color: var(--tour-c-text);
   margin: 0;
-}
-.tour-hero__line {
-  display: block;
+  opacity: 0;
 }
 .tour-hero__subtitle {
-  font-size: var(--tour-fs-body);
-  opacity: 0.85;
-  margin-top: var(--tour-space-4);
+  font-size: clamp(22px, 2.4vw, 36px);
+  letter-spacing: -0.02em;
+  color: #4a4a4a;
+  margin: clamp(16px, 2vh, 32px) 0 0;
   font-weight: 400;
+  max-width: 900px;
+  line-height: 1.25;
+  opacity: 0;
 }
-.tour-hero__scroll-hint {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px;
-  opacity: 0.7;
-  animation: scroll-hint 2s var(--tour-ease-out) infinite;
-  pointer-events: none;
-}
-@keyframes scroll-hint {
-  0%,
-  100% {
-    transform: translate(-50%, 0);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(-50%, 12px);
-    opacity: 1;
-  }
+.tour-hero__product {
+  display: block;
+  width: 100%;
+  max-width: min(1400px, 92vw);
+  margin: clamp(56px, 8vh, 120px) auto 0;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.12),
+    0 20px 40px rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  align-self: center;
 }
 
 /* ==================== Section (일반) ==================== */

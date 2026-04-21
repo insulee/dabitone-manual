@@ -15,6 +15,7 @@ import type { LandingHotspot } from "../types"
 export function Landing() {
   const heroTitleRef = useRef<HTMLHeadingElement>(null)
   const heroSubRef = useRef<HTMLParagraphElement>(null)
+  const heroImgRef = useRef<HTMLImageElement>(null)
   const [openHotspot, setOpenHotspot] = useState<LandingHotspot | null>(null)
 
   useEffect(() => {
@@ -32,6 +33,19 @@ export function Landing() {
         { duration: 0.8, delay: 0.3 },
       )
     }
+    if (heroImgRef.current) {
+      animate(
+        heroImgRef.current,
+        {
+          opacity: [0, 1],
+          transform: [
+            "scale(0.96) translateY(40px)",
+            "scale(1) translateY(0)",
+          ],
+        },
+        { duration: 1.2, delay: 0.6 },
+      )
+    }
   }, [])
 
   return (
@@ -39,6 +53,7 @@ export function Landing() {
       <Hero
         titleRef={heroTitleRef}
         subRef={heroSubRef}
+        imgRef={heroImgRef}
         title={landing.hero.title}
         subtitle={landing.hero.subtitle}
         heroImage={landing.hero.heroImage}
@@ -72,43 +87,38 @@ export function Landing() {
 function Hero({
   titleRef,
   subRef,
+  imgRef,
   title,
   subtitle,
   heroImage,
 }: {
   titleRef: preact.RefObject<HTMLHeadingElement>
   subRef: preact.RefObject<HTMLParagraphElement>
+  imgRef: preact.RefObject<HTMLImageElement>
   title: string
   subtitle: string
   heroImage: { src: string; alt: string; width: number; height: number }
 }) {
   return (
     <section class="tour-hero" aria-label="Hero">
-      <img
-        class="tour-hero__bg"
-        src={heroImage.src}
-        alt=""
-        width={heroImage.width}
-        height={heroImage.height}
-        loading="eager"
-        decoding="async"
-      />
-      <div class="tour-hero__shade" />
       <div class="tour-hero__inner">
         <h1 class="tour-hero__title" ref={titleRef}>
-          {title.split("\n").map((l, i) => (
-            <span key={i} class="tour-hero__line">
-              {l}
-            </span>
-          ))}
+          {title}
         </h1>
         <p class="tour-hero__subtitle" ref={subRef}>
           {subtitle}
         </p>
       </div>
-      <div class="tour-hero__scroll-hint" aria-hidden="true">
-        ↓
-      </div>
+      <img
+        class="tour-hero__product"
+        ref={imgRef}
+        src={heroImage.src}
+        alt={heroImage.alt}
+        width={heroImage.width}
+        height={heroImage.height}
+        loading="eager"
+        decoding="async"
+      />
     </section>
   )
 }
