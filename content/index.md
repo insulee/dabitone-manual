@@ -1,33 +1,75 @@
 ---
 title: DabitOne 매뉴얼
-description: "다빛솔루션 LED 전광판 운영 소프트웨어 DabitOne — 6년 만의 리프레시"
+description: "다빛솔루션 LED 전광판 운영 소프트웨어 DabitOne 공식 매뉴얼 — 통신·설정·전송·편집·고급"
 ---
 
-> [!abstract] DabitChe는 이제 **DabitOne**입니다. 6년 만에 전면 재설계된 다빛솔루션 LED 전광판 운영 소프트웨어의 공식 매뉴얼 사이트.
+# DabitOne 매뉴얼
+
+DabitChe는 이제 **DabitOne**입니다. 다빛솔루션 LED 전광판 운영 소프트웨어 공식 매뉴얼 사이트. 본 문서는 **DabitOne v1.1.0** 기준.
 
 ## 체험으로 먼저 만나보세요
 
-DabitOne의 달라진 화면과 기능을 직접 눌러보며 익힐 수 있는 **인터랙티브 투어**를 준비했습니다.
+달라진 화면과 기능을 직접 눌러보며 익힐 수 있는 **인터랙티브 투어**부터 시작하시길 권장합니다.
 
-### [**→ /tour/ 로 시작하기**](/tour/)
+**[→ /tour/ 로 시작하기](/tour/)** — 통신·설정·전송·편집·고급 5개 탭을 실제 스크린샷 위에서 체험.
 
-- DabitOne 첫 화면의 주요 버튼을 눌러 설명·애니메이션 확인
-- 시나리오별 4단계 체험 (통신·화면·메시지·전송 등)
-- 레거시 DabitChe 대비 무엇이 어떻게 달라졌는지 Before/After 비교
+---
 
-## 레퍼런스가 필요하신가요?
+## 기능별 탭
 
-체험 대신 "이 버튼이 뭘 하죠?"를 빠르게 찾고 싶다면:
+DabitOne의 좌측 사이드바 5개 탭 순서대로 구성된 레퍼런스.
 
-- [[ui-reference/index|UI 레퍼런스]] — 5 그룹 사이드바 순서대로 컨트롤 전체
-- [[file-formats/dat|파일 포맷]] — DAT·ANI·GIF·PLA·BGP·FNT 6종
-- [[troubleshooting/01-connection|문제 해결]] — 연결·표시·전송·펌웨어 증상별
+### 01. 통신
 
-## PDF 다운로드 (선택)
+컨트롤러와 연결. Serial · TCP · UDP · BLE · MQTT · dbNet 지원.
 
-현장 참조가 필요하신 분은 PDF도 받을 수 있습니다.
+→ [[ui-reference/01-communication/index|UI 레퍼런스]] · [투어](/tour/quickstart/01-first-connection/)
 
-- **[📄 UI 레퍼런스편](/pdf/DabitOne_Manual_Reference.pdf)** — 화면별 컨트롤 설명, 파일 포맷, 메뉴 구조
-- **[📄 운영·문제해결편](/pdf/DabitOne_Manual_Operation.pdf)** — 트러블슈팅, FAQ, 릴리즈 노트
+### 02. 설정
 
-> [!info] 이 문서는 **DabitOne v1.1.0** 기준입니다.
+화면 크기·표출신호·폰트 등 컨트롤러 기본값.
+
+→ [[ui-reference/02-settings/index|UI 레퍼런스]] · [투어](/tour/quickstart/02-screen-size/)
+
+### 03. 전송
+
+메시지·페이지·밝기·배경 송출.
+
+→ [[ui-reference/03-transfer/index|UI 레퍼런스]] · [투어](/tour/quickstart/03-send-message/)
+
+### 04. 편집
+
+텍스트·이미지·GIF·스케줄 제작.
+
+→ [[ui-reference/04-editor/index|UI 레퍼런스]] · [투어](/tour/quickstart/04-edit-image/)
+
+### 05. 고급
+
+펌웨어·시간·보드기능·진단.
+
+→ [[ui-reference/05-advanced/index|UI 레퍼런스]] · [투어](/tour/quickstart/08-firmware/)
+
+---
+
+## 시작하기
+
+처음 DabitOne을 쓰는 분을 위한 안내.
+
+- [[getting-started/install|설치]] — 시스템 요구사항·설치 절차·자주 겪는 오류
+- [[getting-started/overview|전체 화면 구조]] — 사이드바 5 그룹·주요 UI 용어·첫 사용자 워크플로우
+
+## 레퍼런스 · 문제 해결
+
+- [[file-formats/index|파일 포맷]] — DAT·ANI·GIF·PLA·BGP·FNT 6종
+- [[troubleshooting/index|트러블슈팅]] — 연결·표시·전송·펌웨어·색상·동기화 등 8가지 증상
+- [[troubleshooting/05-faq|자주 묻는 질문]] — 22 Q&A (설치·연결·편집·전송·펌웨어 카테고리)
+- [[blog/2026-04-21-v1-1-0|릴리즈 노트]] — v1.1.0 변경사항
+
+## PDF (현장 참조용)
+
+- [📄 UI 레퍼런스편](/pdf/DabitOne_Manual_Reference.pdf) — 화면별 컨트롤·파일 포맷·메뉴 구조
+- [📄 운영·문제해결편](/pdf/DabitOne_Manual_Operation.pdf) — 트러블슈팅·FAQ·릴리즈 노트
+
+---
+
+**support@dabitsol.com** | [다빛솔루션](https://www.dabitsol.com)

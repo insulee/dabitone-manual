@@ -201,9 +201,9 @@ article img {
 
 #explorer,
 .explorer {
-  font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
-  font-size: 13px;
-  letter-spacing: 0.02em;
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  letter-spacing: -0.01em;
   background: transparent;
 }
 
@@ -244,10 +244,11 @@ article img {
 
 button#explorer {
   color: #57534e;
-  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-family: "Pretendard Variable", -apple-system, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 /* ==================== Callouts (Obsidian) ==================== */
