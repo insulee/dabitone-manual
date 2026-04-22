@@ -461,6 +461,42 @@ git push origin main
 
 순차 실행 기본 (Q2=1 합의). 각 Phase 끝 commit+push.
 
+## Codex Review Findings (반영 사항)
+
+2026-04-22 `codex review --commit e0767c4` 결과. 구현 시 반드시 반영.
+
+### [P1] Tour 페이지 hydration 대기 + step 순회 (Task 1)
+
+**문제**: `page.goto(..., { waitUntil: "domcontentloaded" })` 직후 `$$eval("a[href]")`는 Preact 클라이언트 렌더 전 static shell만 봄. `/tour/` Landing의 5 quickstart 링크, TourScenario의 `relatedRefs`(특히 `?s=N` 스텝별) 놓침 → false 0-broken.
+
+**반영**:
+- `/tour/*` 경로는 hydration 신호(예: `.tour-tabs__list` 또는 `.tour-scenario__rail` 선택자) 까지 `waitFor` 후 링크 수집
+- Tour 시나리오 페이지는 `?s=0..N` 각 스텝 순회해서 `relatedRefs` 링크 전수 수집 (N은 `tour/data/quickstart/*.ts`에서 동적 로드 또는 max 8 고정)
+- Landing의 `tour-tabs__link` 5개 링크 수집 필수
+
+### [P2] PDF·asset 링크 상태 체크 (Task 1)
+
+**문제**: `/pdf/`·`/assets/` skip 중. content/index.md + tour의 Landing·AccessibleView에 PDF 하드코딩 참조. PDF 파일 이름 변경·누락 시 사용자 404 직면하지만 verifier pass.
+
+**반영**:
+- PDF 링크는 `page.request.head()`로 status 체크 (다운로드 skip, 200/404만 확인)
+- `/assets/` 이미지도 동일 (선택)
+
+### [P2] Task 6 전에 전체 재빌드 (Task 6 Step 0)
+
+**문제**: Task 6이 `npm run build:pdf`부터 시작하지만 `scripts/build-pdf.mjs`는 `npx quartz build`로 생성된 `public/`를 읽음. 직전에 content 수정이 있으면 stale public 검증. Phase G는 G-2·G-3·G-5가 content 수정이라 Task 6 전에 반드시 풀 빌드 필요.
+
+**반영**:
+- Task 6 Step 0: `npm run build` 먼저 (build:tour + quartz build)
+- 그 다음 `npm run build:pdf`
+
+### 요약 — 구현 시 체크리스트
+
+- [ ] verify-links.mjs: `/tour/*`에 hydration wait 추가
+- [ ] verify-links.mjs: tour 시나리오 `?s=N` 순회 루프
+- [ ] verify-links.mjs: PDF HEAD 요청 status 체크
+- [ ] Task 6 Step 0: `npm run build` 선행
+
 ## 후속 스킬 선택
 
 - 본 세션에서 직접 실행 (Phase A~F 패턴 일관)
