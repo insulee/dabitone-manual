@@ -22,7 +22,7 @@ const tour: Tour = {
       description:
         "[편집] 탭에서 'GIF' 모드를 선택합니다. 기존 GIF 파일을 불러오거나 처음부터 프레임을 그릴 수 있습니다. 이 편집기는 DabitOne에서 새로 제공됩니다.",
       image: EDITOR,
-      hotspot: { x: 8, y: 31, ariaLabel: "편집 탭 — GIF 모드", label: "편집" },
+      hotspot: { x: 3, y: 31, ariaLabel: "편집 탭 — GIF 모드", label: "편집" },
       srSummary:
         "편집 탭의 GIF 모드에서 기존 GIF 불러오기 또는 신규 제작 가능. 레거시 DabitChe에는 없던 기능입니다.",
       tips: [

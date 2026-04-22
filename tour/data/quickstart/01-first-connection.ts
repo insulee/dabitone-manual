@@ -32,11 +32,11 @@ const tour: Tour = {
         "DabitOne을 실행하면 좌측 사이드바 맨 위의 [통신] 탭이 기본으로 선택되어 있고, 우측에 '통신 설정' 창이 뜹니다. 다른 탭에 있다면 [통신]을 클릭하세요.",
       image: SCREEN,
       hotspot: {
-        x: 8,
-        y: 19,
+        x: 3,
+        y: 12,
         ariaLabel: "통신 탭",
         label: "통신",
-        box: { w: 12, h: 4 },
+        box: { w: 7, h: 5 },
       },
       srSummary:
         "DabitOne 좌측 사이드바 맨 위에 통신 탭이 있고 기본으로 선택되어 있습니다. 클릭하면 통신 설정 창이 우측에 표시됩니다.",
@@ -52,11 +52,11 @@ const tour: Tour = {
         "통신 설정 창 좌측 열에는 Serial / Client TCP/IP / Server TCP/IP / UDP 네 개의 그룹박스가 세로로 나열되어 있습니다. 각 그룹박스 헤더의 라디오 버튼으로 하나 선택. 기본은 Serial입니다.",
       image: SCREEN,
       hotspot: {
-        x: 28,
-        y: 30,
+        x: 11,
+        y: 11,
         ariaLabel: "연결 방식 라디오 버튼 그룹 — Serial 기본 선택",
-        label: "연결 방식 선택",
-        box: { w: 24, h: 6 },
+        label: "연결 방식",
+        box: { w: 23, h: 18 },
       },
       srSummary:
         "연결 방식은 네 가지: Serial(시리얼 케이블 직결), Client TCP/IP(컨트롤러 IP 입력), Server TCP/IP(컨트롤러가 접속해옴), UDP(브로드캐스트·단방향). 처음이라면 대부분 Serial 또는 Client TCP/IP입니다.",
@@ -78,11 +78,11 @@ const tour: Tour = {
         "Serial이면 '포트'와 '속도' 드롭다운을 채웁니다. 기본 속도는 115200. 컨트롤러 펌웨어 설정과 일치해야 합니다. 모르는 경우 [속도 찾기] 버튼으로 자동 탐색. TCP/UDP이면 'IP Address'와 'IP Port'를 입력합니다(기본 192.168.0.201 : 5000).",
       image: SCREEN,
       hotspot: {
-        x: 40,
-        y: 40,
+        x: 23,
+        y: 16,
         ariaLabel: "포트·속도 또는 IP·Port 입력 영역",
         label: "설정 입력",
-        box: { w: 28, h: 8 },
+        box: { w: 18, h: 8 },
       },
       srSummary:
         "Serial은 포트와 속도를 선택, TCP/UDP는 IP 주소와 포트 번호를 입력합니다. 모든 값은 컨트롤러 설정과 일치해야 합니다. 속도가 불확실하면 속도 찾기 버튼으로 자동 탐색 가능.",
@@ -102,11 +102,11 @@ const tour: Tour = {
         "통신 설정 창 맨 아래 [연결 테스트] 버튼을 클릭하면 현재 설정이 저장되고 컨트롤러에 echo 요청이 갑니다. 성공 시 '연결 테스트 성공' 녹색 토스트가 뜨고 상단 상태가 '연결됨'으로 바뀝니다.",
       image: SCREEN,
       hotspot: {
-        x: 24,
-        y: 82,
+        x: 16,
+        y: 75,
         ariaLabel: "연결 테스트 버튼",
         label: "[연결 테스트]",
-        box: { w: 16, h: 5 },
+        box: { w: 12, h: 4 },
       },
       srSummary:
         "연결 테스트 버튼이 통신 설정 창 하단에 있습니다. 클릭하면 설정 저장 + echo 요청 발송. 응답시간은 기본 3초이며 드롭다운으로 1~6초 선택 가능. 성공 시 녹색 토스트, 응답 없을 때 노란 토스트, 실패 시 빨간 토스트가 표시됩니다.",

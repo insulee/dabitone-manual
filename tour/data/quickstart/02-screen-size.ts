@@ -22,7 +22,7 @@ const tour: Tour = {
       description:
         "연결이 성공했다면 좌측 사이드바에서 [설정] 탭을 클릭합니다. 화면 크기·시계·밝기 스케줄 등을 한곳에서 관리합니다.",
       image: SCREEN,
-      hotspot: { x: 8, y: 23, ariaLabel: "설정 탭", label: "설정" },
+      hotspot: { x: 3, y: 18, ariaLabel: "설정 탭", label: "설정" },
       srSummary:
         "좌측 [설정] 탭에 화면 크기 섹션이 있습니다. 먼저 연결이 성공한 상태여야 전송이 가능합니다.",
       relatedRefs: [
@@ -35,6 +35,13 @@ const tour: Tour = {
       description:
         "전광판의 가로 모듈 수, 세로 모듈 수, 모듈 한 개당 픽셀(예: 16×16, 32×16)을 입력합니다. 색상 깊이(1비트 단색 ~ 24비트 풀컬러)도 함께 선택합니다.",
       image: SCREEN,
+      hotspot: {
+        x: 23,
+        y: 16,
+        ariaLabel: "전광판 화면 구성 입력 영역",
+        label: "화면 구성",
+        box: { w: 38, h: 12 },
+      },
       srSummary:
         "가로 모듈 수, 세로 모듈 수, 픽셀 해상도를 입력합니다. 전광판 실물의 물리 구성과 일치해야 합니다. 색상 깊이는 모듈의 색상 지원에 맞춰 선택.",
       tips: [
@@ -50,6 +57,13 @@ const tour: Tour = {
       description:
         "값을 입력한 뒤 [전송] 또는 [적용] 버튼으로 컨트롤러에 바로 반영됩니다. 현장에서 화면이 즉시 재배열되는 것을 확인하세요.",
       image: SCREEN,
+      hotspot: {
+        x: 50,
+        y: 17,
+        ariaLabel: "화면 구성 전송 버튼",
+        label: "[전송]",
+        box: { w: 6, h: 4 },
+      },
       srSummary:
         "전송 버튼을 클릭하면 컨트롤러로 즉시 반영되며, 전광판 화면이 재구성됩니다. 재부팅 없이 적용됩니다.",
       tips: [

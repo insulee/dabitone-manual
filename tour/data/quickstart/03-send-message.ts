@@ -29,7 +29,7 @@ const tour: Tour = {
       description:
         "좌측 [편집] 탭에서 텍스트 편집기가 기본으로 열립니다. 전광판에 띄울 내용을 바로 입력합니다.",
       image: EDITOR,
-      hotspot: { x: 8, y: 31, ariaLabel: "편집 탭", label: "편집" },
+      hotspot: { x: 3, y: 31, ariaLabel: "편집 탭", label: "편집" },
       srSummary:
         "편집 탭 진입 시 텍스트 편집기가 기본으로 열립니다. 글꼴·크기·색상·효과를 선택하면서 실시간으로 미리보기가 갱신됩니다.",
       tips: [
@@ -59,7 +59,7 @@ const tour: Tour = {
       description:
         "[전송] 탭으로 이동해 편집한 메시지를 컨트롤러로 전송합니다. 진행률 바가 표시되고, 완료되면 전광판에 바로 표출됩니다.",
       image: SIM,
-      hotspot: { x: 8, y: 27, ariaLabel: "전송 탭", label: "전송" },
+      hotspot: { x: 3, y: 24, ariaLabel: "전송 탭", label: "전송" },
       srSummary:
         "전송 탭에서 전송 버튼을 누르면 진행률이 실시간으로 표시되며, 완료되면 전광판이 해당 메시지를 보여줍니다.",
       tips: [

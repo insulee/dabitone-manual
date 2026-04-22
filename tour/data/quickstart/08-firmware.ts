@@ -21,7 +21,7 @@ const tour: Tour = {
       description:
         "좌측 [고급] 탭에 펌웨어 업데이트 섹션이 있습니다. 컨트롤러 제조사에서 제공한 .bin 파일이 있어야 진행 가능합니다.",
       image: ADVANCED,
-      hotspot: { x: 8, y: 35, ariaLabel: "고급 탭", label: "고급" },
+      hotspot: { x: 3, y: 37, ariaLabel: "고급 탭", label: "고급" },
       srSummary:
         "고급 탭에 펌웨어 업데이트 섹션이 있습니다. 컨트롤러가 이미 연결된 상태여야 하고, .bin 펌웨어 파일이 준비돼 있어야 합니다.",
       tips: [
@@ -42,6 +42,13 @@ const tour: Tour = {
       description:
         "파일 선택 창에서 .bin 펌웨어 파일을 열어 로드합니다. 파일 무결성 검사가 자동으로 수행됩니다.",
       image: ADVANCED,
+      hotspot: {
+        x: 80,
+        y: 44,
+        ariaLabel: "펌웨어 열기 버튼",
+        label: "[열기]",
+        box: { w: 8, h: 4 },
+      },
       srSummary:
         "파일 선택 대화상자로 .bin 펌웨어를 열고 무결성 검증을 통과해야 업데이트 진행이 가능합니다.",
       tips: [
@@ -55,6 +62,13 @@ const tour: Tour = {
       description:
         "[업데이트 시작] 버튼을 누르면 진행률이 실시간 표시됩니다. 완료 후 컨트롤러가 자동 재부팅되고 새 버전으로 동작합니다.",
       image: ADVANCED,
+      hotspot: {
+        x: 80,
+        y: 48,
+        ariaLabel: "펌웨어 전송 버튼",
+        label: "[전송]",
+        box: { w: 8, h: 4 },
+      },
       srSummary:
         "업데이트 시작 버튼 클릭 후 진행률 0~100% 바가 표시되고, 완료 후 컨트롤러가 재부팅됩니다. 재부팅 완료 후 재연결이 자동으로 이뤄집니다.",
       tips: [

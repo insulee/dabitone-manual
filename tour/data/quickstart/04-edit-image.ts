@@ -22,7 +22,7 @@ const tour: Tour = {
       description:
         "[편집] 탭에서 '이미지' 모드를 선택한 뒤, 파일 불러오기로 BMP·PNG·JPG를 엽니다. 드래그 앤 드롭도 지원합니다.",
       image: EDITOR,
-      hotspot: { x: 8, y: 31, ariaLabel: "편집 탭", label: "편집" },
+      hotspot: { x: 3, y: 31, ariaLabel: "편집 탭", label: "편집" },
       srSummary:
         "편집 탭의 이미지 모드에서 파일을 불러오거나 드래그 앤 드롭으로 가져올 수 있습니다. BMP, PNG, JPG 포맷 지원.",
       tips: [
