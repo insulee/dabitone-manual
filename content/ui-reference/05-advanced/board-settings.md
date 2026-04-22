@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # 보드 기능 설정
 
+![보드 기능 설정 UI](/assets/screens/reference/advanced-board.png)
+
 > 경로: **[고급] → 보드 기능 섹션**
 > 
 > ⚠️ **전문가용**. 잘못 설정하면 컨트롤러가 응답하지 않거나 화면이 깨질 수 있습니다.

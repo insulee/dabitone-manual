@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # 메시지 전송 (ASCII/HEX)
 
+![메시지 전송 UI](/assets/screens/reference/transfer-message.png)
+
 > 경로: **[전송] → 메시지 섹션**
 
 ## 이 화면의 역할

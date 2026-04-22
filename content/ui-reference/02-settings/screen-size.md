@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # 화면 크기·배열·색상
 
+![전광판 화면 구성 UI](/assets/screens/reference/settings-screen-size.png)
+
 > 경로: **[설정] → 화면 크기 섹션**
 
 ## 이 화면의 역할

@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # 펌웨어
 
+![펌웨어 업데이트 UI](/assets/screens/reference/advanced-firmware.png)
+
 > 경로: **[고급] → 펌웨어 섹션**
 
 ## 이 화면의 역할

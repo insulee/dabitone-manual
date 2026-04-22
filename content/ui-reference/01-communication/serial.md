@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # Serial
 
+![Serial 통신 설정 UI](/assets/screens/reference/comm-serial.png)
+
 > 경로: **[통신] → Serial 그룹박스**
 
 ## 기본 사용

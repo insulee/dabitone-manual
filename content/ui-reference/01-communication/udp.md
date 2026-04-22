@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # UDP
 
+![UDP 통신 설정 UI](/assets/screens/reference/comm-udp.png)
+
 > 경로: **[통신] → UDP 그룹박스**
 
 ## 언제 쓰나

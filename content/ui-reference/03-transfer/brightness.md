@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # 밝기 설정
 
+![밝기 UI](/assets/screens/reference/transfer-brightness.png)
+
 > 경로: **[전송] → 밝기 섹션**
 
 ## 이 화면의 역할

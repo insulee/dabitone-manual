@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # 표출 신호
 
+![표출신호 설정 UI](/assets/screens/reference/settings-display-signal.png)
+
 > 경로: **[설정] → 표출 신호 섹션**
 
 ## 이 화면의 역할

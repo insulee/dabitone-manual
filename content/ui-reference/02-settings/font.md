@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # 폰트 전송
 
+![폰트 전송 UI](/assets/screens/reference/settings-font.png)
+
 > 경로: **[설정] → 폰트 섹션**
 
 ## 이 화면의 역할

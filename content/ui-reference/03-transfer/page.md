@@ -6,6 +6,8 @@ last_updated: 2026-04-21
 
 # 페이지 전송
 
+![페이지 메시지 UI](/assets/screens/reference/transfer-page.png)
+
 > 경로: **[전송] → 페이지 섹션**
 
 ## 이 화면의 역할
