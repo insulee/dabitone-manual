@@ -1,10 +1,10 @@
 ---
-title: 설정
+title: 설정 개요
 description: "DabitOne 설정 탭 — 화면 크기·표출 신호·폰트 관리"
 last_updated: 2026-04-21
 ---
 
-# 설정
+# 설정 개요
 
 > 경로: 좌측 사이드바 **[설정]** 탭
 

@@ -13,3 +13,4 @@ test-results/
 # 따라서 커밋에 포함한다 (로컬/CI 빌드 후 반드시 재생성해 push).
 verify-hotspots/
 verify-links/
+verify-compare/

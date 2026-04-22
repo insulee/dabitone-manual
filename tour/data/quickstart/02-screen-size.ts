@@ -26,7 +26,7 @@ const tour: Tour = {
       srSummary:
         "좌측 [설정] 탭에 화면 크기 섹션이 있습니다. 먼저 연결이 성공한 상태여야 전송이 가능합니다.",
       relatedRefs: [
-        { label: "설정 UI 레퍼런스", path: "/02-settings/" },
+        { label: "설정 개요", path: "/02-settings/" },
       ],
     },
     {

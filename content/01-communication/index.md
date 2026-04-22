@@ -1,10 +1,10 @@
 ---
-title: 통신
+title: 통신 개요
 description: "DabitOne 통신 설정 — Serial·TCP·UDP·BLE·MQTT·dbNet 전체"
 last_updated: 2026-04-21
 ---
 
-# 통신 설정
+# 통신 개요
 
 > 경로: 좌측 사이드바 **[통신]** 탭 (DabitOne 실행 시 기본 선택)
 

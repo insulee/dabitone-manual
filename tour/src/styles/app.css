@@ -171,12 +171,12 @@
 
 /* ==================== Hero ==================== */
 .tour-hero {
-  min-height: 100vh;
+  min-height: 70vh;
   background: var(--tour-c-bg);
   color: var(--tour-c-text);
   display: flex;
   align-items: center;
-  padding: clamp(80px, 12vh, 160px) clamp(24px, 6vw, 96px);
+  padding: clamp(48px, 8vh, 96px) clamp(24px, 6vw, 96px);
   position: relative;
   border-bottom: 1px solid var(--tour-c-line);
 }
@@ -223,7 +223,7 @@
 
 /* ==================== Manifesto ==================== */
 .tour-manifesto {
-  padding: clamp(120px, 20vh, 240px) clamp(24px, 6vw, 96px);
+  padding: clamp(72px, 12vh, 144px) clamp(24px, 6vw, 96px);
   background: var(--tour-c-bg);
   border-bottom: 1px solid var(--tour-c-line);
 }
@@ -244,7 +244,7 @@
 
 /* ==================== Editor Shot (컴팩트) ==================== */
 .tour-shot {
-  padding: clamp(48px, 7vh, 80px) clamp(24px, 6vw, 96px);
+  padding: clamp(32px, 4vh, 56px) clamp(24px, 6vw, 96px);
   background: var(--tour-c-bg);
   border-bottom: 1px solid var(--tour-c-line);
 }
@@ -285,8 +285,8 @@
   grid-row: 1 / span 2;
   display: block;
   width: 100%;
-  max-width: 500px;
-  max-height: 340px;
+  max-width: 440px;
+  max-height: 260px;
   height: auto;
   object-fit: contain;
   border: 1px solid var(--tour-c-line-strong);
@@ -310,7 +310,7 @@
 
 /* ==================== Tab Index ==================== */
 .tour-tabs {
-  padding: clamp(100px, 16vh, 200px) clamp(24px, 6vw, 96px);
+  padding: clamp(64px, 10vh, 128px) clamp(24px, 6vw, 96px);
   background: var(--tour-c-bg);
   border-bottom: 1px solid var(--tour-c-line);
 }
@@ -413,7 +413,7 @@
 
 /* ==================== Footer ==================== */
 .tour-footer {
-  padding: clamp(100px, 16vh, 200px) clamp(24px, 6vw, 96px) clamp(60px, 10vh, 120px);
+  padding: clamp(64px, 10vh, 128px) clamp(24px, 6vw, 96px) clamp(40px, 6vh, 80px);
   background: var(--tour-c-bg);
   color: var(--tour-c-text);
 }

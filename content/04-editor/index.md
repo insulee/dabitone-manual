@@ -1,10 +1,10 @@
 ---
-title: 편집
+title: 편집 개요
 description: "DabitOne 편집 탭 — 스케줄·텍스트·이미지·GIF·분할 모드"
 last_updated: 2026-04-21
 ---
 
-# 편집
+# 편집 개요
 
 > 경로: 좌측 사이드바 **[편집]** 탭
 

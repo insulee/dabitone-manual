@@ -188,7 +188,7 @@ function PdfFooter() {
             href="/pdf/DabitOne_Manual_Reference.pdf"
           >
             <span class="tour-footer__pdf-num">A</span>
-            <span class="tour-footer__pdf-title">UI 레퍼런스편</span>
+            <span class="tour-footer__pdf-title">매뉴얼 — 기능편</span>
             <span class="tour-footer__pdf-hint">
               화면별 컨트롤 · 파일 포맷 · 메뉴 구조
             </span>
@@ -198,7 +198,7 @@ function PdfFooter() {
             href="/pdf/DabitOne_Manual_Operation.pdf"
           >
             <span class="tour-footer__pdf-num">B</span>
-            <span class="tour-footer__pdf-title">운영·문제해결편</span>
+            <span class="tour-footer__pdf-title">매뉴얼 — 운영편</span>
             <span class="tour-footer__pdf-hint">
               트러블슈팅 · FAQ · 릴리즈 노트
             </span>

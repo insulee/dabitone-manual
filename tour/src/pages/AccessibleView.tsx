@@ -196,7 +196,7 @@ export function AccessibleView() {
                   fontWeight: 500,
                 }}
               >
-                UI 레퍼런스편 →
+                매뉴얼 — 기능편 →
               </a>{" "}
               <span style={{ color: "var(--tour-c-text-soft)" }}>
                 화면별 컨트롤 · 파일 포맷 · 메뉴 구조

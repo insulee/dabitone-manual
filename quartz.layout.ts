@@ -18,15 +18,36 @@ const hiddenFilterFn = (node: any) => {
   return true
 }
 
-// 폴더 숫자 prefix(01-, 02-) 기반 정렬
+// 폴더 숫자 prefix(01-, 02-) 기반 정렬 — slug 기준 (displayName은 한글이라 가나다 순됨)
 const customSortFn = (a: any, b: any) => {
   if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-    return a.displayName.localeCompare(b.displayName, undefined, {
+    const aSlug = String(a.slug ?? a.displayName)
+    const bSlug = String(b.slug ?? b.displayName)
+    return aSlug.localeCompare(bSlug, undefined, {
       numeric: true,
       sensitivity: "base",
     })
   }
   return a.isFolder ? -1 : 1
+}
+
+// 최상위 폴더 사이드바 이름 오버라이드 — index.md title은 "X 개요"로 두고 폴더명은 짧게.
+// 클로저 금지(브라우저 측 new Function 평가) — 인라인 라벨.
+const folderLabelMapFn = (node: any) => {
+  if (!node.isFolder) return
+  const slug = String(node.slug ?? "")
+  const parts = slug.split("/")
+  if (parts.length !== 2 || parts[parts.length - 1] !== "index") return
+  const labels: Record<string, string> = {
+    "01-communication": "통신",
+    "02-settings": "설정",
+    "03-transfer": "전송",
+    "04-editor": "편집",
+    "05-advanced": "고급",
+    "file-formats": "파일 형식",
+  }
+  const label = labels[parts[0]]
+  if (label) node.displayName = label
 }
 
 // 사이드바 하단 바로가기
@@ -78,9 +99,10 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.Explorer({
       folderClickBehavior: "link",
-      folderDefaultState: "open",
+      folderDefaultState: "collapsed",
       sortFn: customSortFn,
       filterFn: hiddenFilterFn,
+      mapFn: folderLabelMapFn,
     }),
     quickLinks,
   ],
@@ -107,9 +129,10 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.Explorer({
       folderClickBehavior: "link",
-      folderDefaultState: "open",
+      folderDefaultState: "collapsed",
       sortFn: customSortFn,
       filterFn: hiddenFilterFn,
+      mapFn: folderLabelMapFn,
     }),
     quickLinks,
   ],
