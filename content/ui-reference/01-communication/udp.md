@@ -52,5 +52,5 @@ DabitOne UDP 통신은 포트 5108로 고정. 컨트롤러 쪽 UDP 수신 포트
 ## 관련
 
 - 체험: [/tour/quickstart/01-first-connection/](/tour/quickstart/01-first-connection/)
-- TCP (확인 가능한 연결): [[ui-reference/01-communication/tcp|TCP]]
-- 문제 해결: [[troubleshooting/01-connection|연결이 안 될 때]]
+- TCP (확인 가능한 연결): [TCP](/ui-reference/01-communication/tcp)
+- 문제 해결: [연결이 안 될 때](/troubleshooting/01-connection)

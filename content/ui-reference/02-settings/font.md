@@ -19,7 +19,7 @@ last_updated: 2026-04-21
 1. `파일 선택` — PC의 `.FNT` 파일 선택
 2. `슬롯 번호` — 저장할 컨트롤러 폰트 슬롯 (1~4, 컨트롤러마다 다름)
 3. **[전송]** → 업로드 진행률 표시 후 완료
-4. [[ui-reference/04-editor/text|편집 → 텍스트]] 글꼴 드롭다운에서 업로드한 폰트 확인
+4. [편집 → 텍스트](/ui-reference/04-editor/text) 글꼴 드롭다운에서 업로드한 폰트 확인
 
 ## 화면 구성
 
@@ -50,5 +50,5 @@ FNT 파일 1개당 수십~수백 KB. 컨트롤러 총 폰트 저장공간이 제
 
 ## 관련
 
-- FNT 포맷 상세: [[file-formats/fnt|FNT]]
-- 텍스트 편집: [[ui-reference/04-editor/text|텍스트 편집]]
+- FNT 포맷 상세: [FNT](/file-formats/fnt)
+- 텍스트 편집: [텍스트 편집](/ui-reference/04-editor/text)

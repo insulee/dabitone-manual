@@ -66,6 +66,6 @@ last_updated: 2026-04-21
 
 ## 관련
 
-- TCP 무선 대안: Wi-Fi + [[ui-reference/01-communication/tcp|TCP]]
-- 원격 관리: [[ui-reference/01-communication/mqtt|MQTT]]
-- 문제 해결: [[troubleshooting/01-connection|연결이 안 될 때]]
+- TCP 무선 대안: Wi-Fi + [TCP](/ui-reference/01-communication/tcp)
+- 원격 관리: [MQTT](/ui-reference/01-communication/mqtt)
+- 문제 해결: [연결이 안 될 때](/troubleshooting/01-connection)

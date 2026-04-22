@@ -62,5 +62,5 @@ last_updated: 2026-04-21
 
 ## 관련
 
-- 전원 스케줄: [[ui-reference/03-transfer/power|켜기·끄기 스케줄]]
-- 시계 설정: [[ui-reference/05-advanced/time|시간 설정]]
+- 전원 스케줄: [켜기·끄기 스케줄](/ui-reference/03-transfer/power)
+- 시계 설정: [시간 설정](/ui-reference/05-advanced/time)

@@ -58,9 +58,9 @@ last_updated: YYYY-MM-DD
 ### 6. 관련
 
 ```markdown
-- 작업 가이드: [[quickstart/01-first-connection|컨트롤러 최초 연결]]
+- 작업 가이드: [컨트롤러 최초 연결](/quickstart/01-first-connection)
 - 기술 스펙: [docs.dabitsol.com 해당 섹션](...)
-- 문제 해결: [[troubleshooting/01-connection|연결이 안 될 때]]
+- 문제 해결: [연결이 안 될 때](/troubleshooting/01-connection)
 ```
 
 ## 원칙

@@ -43,7 +43,7 @@ last_updated: 2026-04-21
 - **8 bit** — 256색 — 중간급
 - **24 bit** — 풀컬러 (16,777,216색) — 현대 풀컬러 전광판
 
-모듈이 지원하는 최대 값을 선택. 잘못 선택하면 색상이 이상하게 표시됨 → [[troubleshooting/02-display-corruption|표시가 깨질 때]] 참조.
+모듈이 지원하는 최대 값을 선택. 잘못 선택하면 색상이 이상하게 표시됨 → [표시가 깨질 때](/troubleshooting/02-display-corruption) 참조.
 
 ### 배열 유형
 
@@ -56,5 +56,5 @@ last_updated: 2026-04-21
 ## 관련
 
 - 체험 투어: [/tour/quickstart/02-screen-size/](/tour/quickstart/02-screen-size/)
-- 색상 이상: [[troubleshooting/02-display-corruption|표시가 깨질 때]]
-- 표출 신호 설정: [[ui-reference/02-settings/display-signal|표출 신호]]
+- 색상 이상: [표시가 깨질 때](/troubleshooting/02-display-corruption)
+- 표출 신호 설정: [표출 신호](/ui-reference/02-settings/display-signal)

@@ -10,7 +10,7 @@ last_updated: 2026-04-21
 
 ## 이 화면의 역할
 
-**GIF 애니메이션을 직접 제작·편집**. 기존 GIF 불러와 프레임 단위로 고치거나 처음부터 만들 수 있음. 저장 시 [[file-formats/ani|ANI]] 포맷으로 변환되어 전송.
+**GIF 애니메이션을 직접 제작·편집**. 기존 GIF 불러와 프레임 단위로 고치거나 처음부터 만들 수 있음. 저장 시 [ANI](/file-formats/ani) 포맷으로 변환되어 전송.
 
 > [!info] 이 편집기는 DabitOne **신기능**입니다. 기존 DabitChe는 외부 GIF를 불러오기만 가능했습니다.
 
@@ -86,5 +86,5 @@ last_updated: 2026-04-21
 ## 관련
 
 - 체험: [/tour/quickstart/05-gif-editor/](/tour/quickstart/05-gif-editor/)
-- 포맷: [[file-formats/gif|GIF]] / [[file-formats/ani|ANI]]
-- 이미지 편집: [[ui-reference/04-editor/image|이미지 편집]]
+- 포맷: [GIF](/file-formats/gif) / [ANI](/file-formats/ani)
+- 이미지 편집: [이미지 편집](/ui-reference/04-editor/image)

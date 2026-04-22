@@ -44,7 +44,7 @@ last_updated: 2026-04-21
 
 ### 페이지 번호
 
-컨트롤러는 여러 메시지를 페이지 슬롯에 저장할 수 있음. `1`번 페이지에 저장하면 보통 기본 표시됨. 페이지 개수는 컨트롤러마다 다름 ([[ui-reference/03-transfer/page|페이지 관리]] 참조).
+컨트롤러는 여러 메시지를 페이지 슬롯에 저장할 수 있음. `1`번 페이지에 저장하면 보통 기본 표시됨. 페이지 개수는 컨트롤러마다 다름 ([페이지 관리](/ui-reference/03-transfer/page) 참조).
 
 ### ASCII vs HEX
 
@@ -60,5 +60,5 @@ last_updated: 2026-04-21
 ## 관련
 
 - 체험: [/tour/quickstart/03-send-message/](/tour/quickstart/03-send-message/)
-- 페이지 관리: [[ui-reference/03-transfer/page|페이지 전송]]
-- 전송 실패: [[troubleshooting/03-transfer-fail|전송이 실패할 때]]
+- 페이지 관리: [페이지 전송](/ui-reference/03-transfer/page)
+- 전송 실패: [전송이 실패할 때](/troubleshooting/03-transfer-fail)

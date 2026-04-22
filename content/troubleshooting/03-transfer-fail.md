@@ -15,7 +15,7 @@ last_updated: 2026-04-21
 
 ## 먼저 확인
 
-- [ ] [[troubleshooting/01-connection|연결]]이 먼저 성공한 상태인지 확인
+- [ ] [연결](/troubleshooting/01-connection)이 먼저 성공한 상태인지 확인
 - [ ] 상단 상태 표시가 **"연결됨"** 녹색인지
 - [ ] 전송 중 **케이블을 건드리거나 PC가 슬립 모드**로 들어가진 않았는지
 - [ ] 컨트롤러 **저장 공간**이 충분한지 (너무 많은 파일 누적 시 가득 찰 수 있음)
@@ -70,7 +70,7 @@ last_updated: 2026-04-21
 
 1. 통신 창 `응답시간`을 **5초 또는 6초**로 상향 후 재시도
 2. 컨트롤러 **전원을 껐다 다시 켜서** 상태 초기화
-3. [[troubleshooting/01-connection|연결 문제]] 체크리스트도 확인
+3. [연결 문제](/troubleshooting/01-connection) 체크리스트도 확인
 
 ## 증상: 전송 완료됐는데 화면은 그대로
 
@@ -85,8 +85,8 @@ last_updated: 2026-04-21
 ### 조치
 
 1. 컨트롤러 재부팅해 다시 읽도록
-2. [[ui-reference/03-transfer/page|페이지 전송]]에서 **표시할 페이지 번호**를 명시적으로 변경
-3. [[ui-reference/03-transfer/background|배경]]이 전면을 덮고 있는지 확인
+2. [페이지 전송](/ui-reference/03-transfer/page)에서 **표시할 페이지 번호**를 명시적으로 변경
+3. [배경](/ui-reference/03-transfer/background)이 전면을 덮고 있는지 확인
 
 ## 증상: 컨트롤러 저장공간 부족
 
@@ -100,7 +100,7 @@ last_updated: 2026-04-21
 
 ## 그래도 안 되면
 
-- [[troubleshooting/05-faq|FAQ]] 확인
+- [FAQ](/troubleshooting/05-faq) 확인
 - **support@dabitsol.com** 로 문의
 
 ## 연락처

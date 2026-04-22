@@ -12,7 +12,7 @@ last_updated: 2026-04-21
 
 ## 이 화면의 역할
 
-컨트롤러는 시간 기반 스케줄([[file-formats/pla|PLA]], 자동 밝기, 켜기·끄기 등)을 **자체 실시간 시계(RTC)**로 실행합니다. 이 화면에서 RTC를 PC 시간 또는 NTP 서버와 동기화.
+컨트롤러는 시간 기반 스케줄([PLA](/file-formats/pla), 자동 밝기, 켜기·끄기 등)을 **자체 실시간 시계(RTC)**로 실행합니다. 이 화면에서 RTC를 PC 시간 또는 NTP 서버와 동기화.
 
 ## 기본 사용 — PC 시간 동기화 (간단)
 
@@ -62,9 +62,9 @@ last_updated: 2026-04-21
 
 ## 왜 시간 동기화가 중요한가
 
-시간 기반 스케줄([[ui-reference/03-transfer/brightness|자동 밝기]], [[ui-reference/03-transfer/power|켜기·끄기]], [[file-formats/pla|PLA]])이 전부 컨트롤러 시계 기준으로 동작하기 때문. 시계가 어긋나면 **의도한 시간과 다른 시각에** 메시지가 뜨거나 전원이 제어됨.
+시간 기반 스케줄([자동 밝기](/ui-reference/03-transfer/brightness), [켜기·끄기](/ui-reference/03-transfer/power), [PLA](/file-formats/pla))이 전부 컨트롤러 시계 기준으로 동작하기 때문. 시계가 어긋나면 **의도한 시간과 다른 시각에** 메시지가 뜨거나 전원이 제어됨.
 
 ## 관련
 
-- 자동 밝기 스케줄: [[ui-reference/03-transfer/brightness|밝기 설정]]
-- 켜기·끄기 스케줄: [[ui-reference/03-transfer/power|켜기·끄기]]
+- 자동 밝기 스케줄: [밝기 설정](/ui-reference/03-transfer/brightness)
+- 켜기·끄기 스케줄: [켜기·끄기](/ui-reference/03-transfer/power)

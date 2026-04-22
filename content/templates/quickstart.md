@@ -56,15 +56,15 @@ last_updated: YYYY-MM-DD
 ### 5. 잘 안될 때 (짧게)
 
 ```markdown
-- **응답 없음** — COM 포트 중복 확인. [[troubleshooting/01-connection|연결 문제 해결]]
+- **응답 없음** — COM 포트 중복 확인. [연결 문제 해결](/troubleshooting/01-connection)
 - **CRC 오류** — 전선 상태 점검, 재연결
 ```
 
 ### 6. 관련 페이지
 
 ```markdown
-- [[quickstart/02-screen-size|다음 단계: 화면 크기 설정]]
-- [[ui-reference/01-communication/index|통신 UI 상세 레퍼런스]]
+- [다음 단계: 화면 크기 설정](/quickstart/02-screen-size)
+- [통신 UI 상세 레퍼런스](/ui-reference/01-communication/)
 ```
 
 ## 톤·문체
@@ -81,7 +81,7 @@ last_updated: YYYY-MM-DD
 꼭 필요할 때만:
 
 ```markdown
-![[assets/screens/main-comm.png|600]]
+![600](/assets/screens/main-comm.png)
 ```
 
 Phase 3 완료 후 자동 캡처 스크린샷이 `content/assets/screens/`에 쌓임.

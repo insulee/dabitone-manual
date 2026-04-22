@@ -67,10 +67,10 @@ last_updated: 2026-04-21
 ## 실패 시 대응
 
 - **진행률 중단**: 케이블 확인 후 재시도. 반복 실패 시 제조사 지원
-- **부팅 반복**: [[troubleshooting/04-firmware-error|펌웨어 오류]] 참조
+- **부팅 반복**: [펌웨어 오류](/troubleshooting/04-firmware-error) 참조
 - **검증 실패**: 파일 재다운로드 (다운로드 중 손상 가능)
 
 ## 관련
 
 - 체험: [/tour/quickstart/08-firmware/](/tour/quickstart/08-firmware/)
-- 오류 대응: [[troubleshooting/04-firmware-error|펌웨어 오류]]
+- 오류 대응: [펌웨어 오류](/troubleshooting/04-firmware-error)

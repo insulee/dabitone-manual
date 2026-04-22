@@ -23,31 +23,31 @@ DabitOne의 좌측 사이드바 5개 탭 순서대로 구성된 레퍼런스.
 
 컨트롤러와 연결. Serial · TCP · UDP · BLE · MQTT · dbNet 지원.
 
-→ [[ui-reference/01-communication/index|UI 레퍼런스]] · [투어](/tour/quickstart/01-first-connection/)
+→ [UI 레퍼런스](/ui-reference/01-communication/) · [투어](/tour/quickstart/01-first-connection/)
 
 ### 02. 설정
 
 화면 크기·표출신호·폰트 등 컨트롤러 기본값.
 
-→ [[ui-reference/02-settings/index|UI 레퍼런스]] · [투어](/tour/quickstart/02-screen-size/)
+→ [UI 레퍼런스](/ui-reference/02-settings/) · [투어](/tour/quickstart/02-screen-size/)
 
 ### 03. 전송
 
 메시지·페이지·밝기·배경 송출.
 
-→ [[ui-reference/03-transfer/index|UI 레퍼런스]] · [투어](/tour/quickstart/03-send-message/)
+→ [UI 레퍼런스](/ui-reference/03-transfer/) · [투어](/tour/quickstart/03-send-message/)
 
 ### 04. 편집
 
 텍스트·이미지·GIF·스케줄 제작.
 
-→ [[ui-reference/04-editor/index|UI 레퍼런스]] · [투어](/tour/quickstart/04-edit-image/)
+→ [UI 레퍼런스](/ui-reference/04-editor/) · [투어](/tour/quickstart/04-edit-image/)
 
 ### 05. 고급
 
 펌웨어·시간·보드기능·진단.
 
-→ [[ui-reference/05-advanced/index|UI 레퍼런스]] · [투어](/tour/quickstart/08-firmware/)
+→ [UI 레퍼런스](/ui-reference/05-advanced/) · [투어](/tour/quickstart/08-firmware/)
 
 ---
 
@@ -55,15 +55,15 @@ DabitOne의 좌측 사이드바 5개 탭 순서대로 구성된 레퍼런스.
 
 처음 DabitOne을 쓰는 분을 위한 안내.
 
-- [[getting-started/install|설치]] — 시스템 요구사항·설치 절차·자주 겪는 오류
-- [[getting-started/overview|전체 화면 구조]] — 사이드바 5 그룹·주요 UI 용어·첫 사용자 워크플로우
+- [설치](/getting-started/install) — 시스템 요구사항·설치 절차·자주 겪는 오류
+- [전체 화면 구조](/getting-started/overview) — 사이드바 5 그룹·주요 UI 용어·첫 사용자 워크플로우
 
 ## 레퍼런스 · 문제 해결
 
-- [[file-formats/index|파일 포맷]] — DAT·ANI·GIF·PLA·BGP·FNT 6종
-- [[troubleshooting/index|트러블슈팅]] — 연결·표시·전송·펌웨어·색상·동기화 등 8가지 증상
-- [[troubleshooting/05-faq|자주 묻는 질문]] — 22 Q&A (설치·연결·편집·전송·펌웨어 카테고리)
-- [[blog/2026-04-21-v1-1-0|릴리즈 노트]] — v1.1.0 변경사항
+- [파일 포맷](/file-formats/) — DAT·ANI·GIF·PLA·BGP·FNT 6종
+- [트러블슈팅](/troubleshooting/) — 연결·표시·전송·펌웨어·색상·동기화 등 8가지 증상
+- [자주 묻는 질문](/troubleshooting/05-faq) — 22 Q&A (설치·연결·편집·전송·펌웨어 카테고리)
+- [릴리즈 노트](/blog/2026-04-21-v1-1-0) — v1.1.0 변경사항
 
 ## PDF (현장 참조용)
 

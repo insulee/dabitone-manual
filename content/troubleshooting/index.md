@@ -6,11 +6,11 @@ title: 문제 해결
 
 ## 카테고리
 
-- [[troubleshooting/01-connection|연결이 안 될 때]] — Serial/TCP/UDP 연결 실패, 응답 없음, COM 포트 충돌
-- [[troubleshooting/02-display-corruption|표시가 깨질 때]] — 색상 밀림, 잔상, 일부 모듈만 표시, 글자 뒤집힘
-- [[troubleshooting/03-transfer-fail|전송이 실패할 때]] — 전송 도중 끊김, CRC 오류, 타임아웃
-- [[troubleshooting/04-firmware-error|펌웨어 오류]] — 업데이트 실패, 부팅 반복, 펌웨어 정보 읽기 실패
-- [[troubleshooting/05-faq|자주 묻는 질문]] — 이것저것 모음
+- [연결이 안 될 때](/troubleshooting/01-connection) — Serial/TCP/UDP 연결 실패, 응답 없음, COM 포트 충돌
+- [표시가 깨질 때](/troubleshooting/02-display-corruption) — 색상 밀림, 잔상, 일부 모듈만 표시, 글자 뒤집힘
+- [전송이 실패할 때](/troubleshooting/03-transfer-fail) — 전송 도중 끊김, CRC 오류, 타임아웃
+- [펌웨어 오류](/troubleshooting/04-firmware-error) — 업데이트 실패, 부팅 반복, 펌웨어 정보 읽기 실패
+- [자주 묻는 질문](/troubleshooting/05-faq) — 이것저것 모음
 
 ## 연락처
 

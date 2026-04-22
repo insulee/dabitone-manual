@@ -73,6 +73,6 @@ last_updated: 2026-04-21
 ## 관련
 
 - 체험: [/tour/quickstart/01-first-connection/](/tour/quickstart/01-first-connection/)
-- UDP: [[ui-reference/01-communication/udp|UDP]]
-- dbNet 자동 검색: [[ui-reference/01-communication/dbnet|dbNet]]
-- 문제 해결: [[troubleshooting/01-connection|연결이 안 될 때]]
+- UDP: [UDP](/ui-reference/01-communication/udp)
+- dbNet 자동 검색: [dbNet](/ui-reference/01-communication/dbnet)
+- 문제 해결: [연결이 안 될 때](/troubleshooting/01-connection)

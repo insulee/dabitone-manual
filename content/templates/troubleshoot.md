@@ -59,7 +59,7 @@ last_updated: YYYY-MM-DD
 3. 로그 확인: `[연결] → 로그 보기` → 송신 후 수신 없음이면 물리 계층 이슈
 
 ### 그래도 안 되면
-- [[troubleshooting/05-faq|FAQ]] 확인
+- [FAQ](/troubleshooting/05-faq) 확인
 - 기술지원팀 연락 (support@dabitsol.com)
 ```
 

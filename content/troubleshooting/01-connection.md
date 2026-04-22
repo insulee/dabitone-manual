@@ -85,11 +85,11 @@ last_updated: 2026-04-21
 ### 조치
 
 - 통신 창 하단 `KeepOpen` 옵션이 있다면 체크 후 재연결
-- 그래도 끊기면 [[troubleshooting/05-faq|FAQ]] 확인
+- 그래도 끊기면 [FAQ](/troubleshooting/05-faq) 확인
 
 ## 그래도 안 되면
 
-- [[troubleshooting/05-faq|자주 묻는 질문]] 확인
+- [자주 묻는 질문](/troubleshooting/05-faq) 확인
 - **support@dabitsol.com** 로 문의 (DabitOne 버전, 컨트롤러 모델·펌웨어 버전, 전광판 구성 함께)
 
 ## 연락처

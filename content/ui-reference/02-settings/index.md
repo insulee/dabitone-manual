@@ -14,9 +14,9 @@ last_updated: 2026-04-21
 
 ## 주요 섹션
 
-- [[ui-reference/02-settings/screen-size|화면 크기]] — 가로/세로 모듈 수, 모듈 해상도, 배열 방향
-- [[ui-reference/02-settings/display-signal|표출 신호]] — 색상 깊이·스캔 방식·새로고침 주기
-- [[ui-reference/02-settings/font|폰트 전송]] — 컨트롤러에 사용자 폰트 업로드
+- [화면 크기](/ui-reference/02-settings/screen-size) — 가로/세로 모듈 수, 모듈 해상도, 배열 방향
+- [표출 신호](/ui-reference/02-settings/display-signal) — 색상 깊이·스캔 방식·새로고침 주기
+- [폰트 전송](/ui-reference/02-settings/font) — 컨트롤러에 사용자 폰트 업로드
 
 ## 설정 영속성
 
@@ -25,4 +25,4 @@ last_updated: 2026-04-21
 ## 관련
 
 - 체험 투어: [/tour/quickstart/02-screen-size/](/tour/quickstart/02-screen-size/)
-- 표시 문제 해결: [[troubleshooting/02-display-corruption|표시가 깨질 때]]
+- 표시 문제 해결: [표시가 깨질 때](/troubleshooting/02-display-corruption)

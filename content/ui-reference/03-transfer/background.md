@@ -12,7 +12,7 @@ last_updated: 2026-04-21
 
 ## 이 화면의 역할
 
-전광판의 **배경 레이어**에 이미지 또는 스케줄([[file-formats/bgp|BGP]])을 전송합니다. 전면 메시지([[file-formats/pla|PLA]])가 그 위로 표출됩니다.
+전광판의 **배경 레이어**에 이미지 또는 스케줄([BGP](/file-formats/bgp))을 전송합니다. 전면 메시지([PLA](/file-formats/pla))가 그 위로 표출됩니다.
 
 ## 기본 사용 — 단일 배경 이미지
 
@@ -24,7 +24,7 @@ last_updated: 2026-04-21
 
 여러 배경 이미지를 순환시키려면:
 
-1. [[ui-reference/04-editor/schedule-grid|편집 → 스케줄 그리드]]에서 `.BGP` 파일 제작
+1. [편집 → 스케줄 그리드](/ui-reference/04-editor/schedule-grid)에서 `.BGP` 파일 제작
 2. 이 화면에서 `.BGP` 선택 후 전송
 
 ## 화면 구성
@@ -65,5 +65,5 @@ last_updated: 2026-04-21
 ## 관련
 
 - 체험: [/tour/quickstart/07-background-bgp/](/tour/quickstart/07-background-bgp/)
-- BGP 포맷: [[file-formats/bgp|BGP]]
-- 편집: [[ui-reference/04-editor/schedule-grid|스케줄 그리드]]
+- BGP 포맷: [BGP](/file-formats/bgp)
+- 편집: [스케줄 그리드](/ui-reference/04-editor/schedule-grid)

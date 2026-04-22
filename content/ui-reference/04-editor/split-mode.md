@@ -16,7 +16,7 @@ last_updated: 2026-04-21
 
 1. `분할 레이아웃` 선택 (좌우 2분할 / 상하 2분할 / 4분할 등)
 2. 각 섹션을 클릭 → 해당 섹션에 DAT/ANI 파일 배정
-3. 각 섹션의 속도·효과는 [[ui-reference/03-transfer/section-effect|섹션 효과]] 화면에서
+3. 각 섹션의 속도·효과는 [섹션 효과](/ui-reference/03-transfer/section-effect) 화면에서
 4. **[저장]** → 분할 설정 파일 생성 후 전송
 
 ## 화면 구성
@@ -41,7 +41,7 @@ last_updated: 2026-04-21
 
 ### 속도·효과 (섹션 개별)
 
-분할 모드에서는 각 섹션에 **서로 다른 효과·속도**를 줄 수 있음. 상세 설정은 [[ui-reference/03-transfer/section-effect|섹션 효과]] 참조.
+분할 모드에서는 각 섹션에 **서로 다른 효과·속도**를 줄 수 있음. 상세 설정은 [섹션 효과](/ui-reference/03-transfer/section-effect) 참조.
 
 ## 주요 옵션
 
@@ -72,5 +72,5 @@ last_updated: 2026-04-21
 
 ## 관련
 
-- 섹션별 효과: [[ui-reference/03-transfer/section-effect|섹션 효과]]
-- 단일 화면 편집: [[ui-reference/04-editor/text|텍스트]] / [[ui-reference/04-editor/image|이미지]]
+- 섹션별 효과: [섹션 효과](/ui-reference/03-transfer/section-effect)
+- 단일 화면 편집: [텍스트](/ui-reference/04-editor/text) / [이미지](/ui-reference/04-editor/image)

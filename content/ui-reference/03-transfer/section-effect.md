@@ -10,7 +10,7 @@ last_updated: 2026-04-21
 
 ## 이 화면의 역할
 
-[[ui-reference/04-editor/split-mode|분할 모드]]로 나눈 **각 섹션에 서로 다른 효과**를 적용. 예를 들어 좌측 섹션은 고정, 우측 섹션은 흐름 효과.
+[분할 모드](/ui-reference/04-editor/split-mode)로 나눈 **각 섹션에 서로 다른 효과**를 적용. 예를 들어 좌측 섹션은 고정, 우측 섹션은 흐름 효과.
 
 ## 기본 사용
 
@@ -60,5 +60,5 @@ last_updated: 2026-04-21
 
 ## 관련
 
-- 분할 모드: [[ui-reference/04-editor/split-mode|분할 모드]]
-- 편집 효과: [[ui-reference/04-editor/text|텍스트 편집 효과]]
+- 분할 모드: [분할 모드](/ui-reference/04-editor/split-mode)
+- 편집 효과: [텍스트 편집 효과](/ui-reference/04-editor/text)

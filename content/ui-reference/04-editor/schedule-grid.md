@@ -10,7 +10,7 @@ last_updated: 2026-04-21
 
 ## 이 화면의 역할
 
-여러 [[file-formats/dat|DAT]]·[[file-formats/ani|ANI]] 파일을 **시간 순서로 배치**해 플레이리스트([[file-formats/pla|PLA]]) 또는 배경 스케줄([[file-formats/bgp|BGP]])을 제작.
+여러 [DAT](/file-formats/dat)·[ANI](/file-formats/ani) 파일을 **시간 순서로 배치**해 플레이리스트([PLA](/file-formats/pla)) 또는 배경 스케줄([BGP](/file-formats/bgp))을 제작.
 
 ## 기본 사용
 
@@ -76,10 +76,10 @@ last_updated: 2026-04-21
 ## 저장·내보내기
 
 - `Ctrl+S` — PLA 또는 BGP 파일 저장
-- 스케줄에 포함된 DAT·ANI 파일은 **자동 참조**만 — 함께 전송하려면 [[ui-reference/03-transfer/message|전송 탭]]에서 일괄 전송 옵션
+- 스케줄에 포함된 DAT·ANI 파일은 **자동 참조**만 — 함께 전송하려면 [전송 탭](/ui-reference/03-transfer/message)에서 일괄 전송 옵션
 
 ## 관련
 
 - 체험: [/tour/quickstart/06-schedule-pla/](/tour/quickstart/06-schedule-pla/)
-- 포맷: [[file-formats/pla|PLA]] / [[file-formats/bgp|BGP]]
-- 전송: [[ui-reference/03-transfer/message|메시지 전송]]
+- 포맷: [PLA](/file-formats/pla) / [BGP](/file-formats/bgp)
+- 전송: [메시지 전송](/ui-reference/03-transfer/message)

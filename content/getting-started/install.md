@@ -130,7 +130,7 @@ last_updated: 2026-04-22
 
 ## 관련 페이지
 
-- [[getting-started/overview|전체 화면 구조]] — 5 그룹 사이드바 개요
+- [전체 화면 구조](/getting-started/overview) — 5 그룹 사이드바 개요
 - [/tour/](/tour/) — 인터랙티브 체험 투어
-- [[troubleshooting/01-connection|연결이 안 될 때]]
-- [[troubleshooting/05-faq|자주 묻는 질문]]
+- [연결이 안 될 때](/troubleshooting/01-connection)
+- [자주 묻는 질문](/troubleshooting/05-faq)

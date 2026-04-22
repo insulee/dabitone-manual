@@ -14,12 +14,12 @@ last_updated: 2026-04-21
 
 ## 주요 섹션
 
-- [[ui-reference/03-transfer/message|메시지 전송]] — 편집한 DAT·ANI 메시지 직송
-- [[ui-reference/03-transfer/page|페이지 전송]] — 복수 페이지 전환 설정
-- [[ui-reference/03-transfer/brightness|밝기 설정]] — 시간대별 자동 밝기 스케줄
-- [[ui-reference/03-transfer/power|켜기·끄기 스케줄]] — 주·야간 자동 전원 제어
-- [[ui-reference/03-transfer/background|배경 이미지 전송]] — 배경 레이어(BGP) 업로드
-- [[ui-reference/03-transfer/section-effect|섹션 효과]] — 영역별 개별 효과 설정
+- [메시지 전송](/ui-reference/03-transfer/message) — 편집한 DAT·ANI 메시지 직송
+- [페이지 전송](/ui-reference/03-transfer/page) — 복수 페이지 전환 설정
+- [밝기 설정](/ui-reference/03-transfer/brightness) — 시간대별 자동 밝기 스케줄
+- [켜기·끄기 스케줄](/ui-reference/03-transfer/power) — 주·야간 자동 전원 제어
+- [배경 이미지 전송](/ui-reference/03-transfer/background) — 배경 레이어(BGP) 업로드
+- [섹션 효과](/ui-reference/03-transfer/section-effect) — 영역별 개별 효과 설정
 
 ## 공통 동작
 
@@ -32,4 +32,4 @@ last_updated: 2026-04-21
 ## 관련
 
 - 체험 투어: [/tour/quickstart/03-send-message/](/tour/quickstart/03-send-message/)
-- 전송 실패 시: [[troubleshooting/03-transfer-fail|전송이 실패할 때]]
+- 전송 실패 시: [전송이 실패할 때](/troubleshooting/03-transfer-fail)

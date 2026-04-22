@@ -41,7 +41,7 @@ last_updated: 2026-04-21
 | 복잡도 | 단순 | 시간·조건 기반 순환 |
 | 용도 | 특정 메시지 고정 표출 | 시간표 기반 플레이리스트 |
 
-간단한 전광판은 페이지만 써도 충분. 시간대별로 다른 내용을 띄우려면 [[file-formats/pla|PLA]] 사용.
+간단한 전광판은 페이지만 써도 충분. 시간대별로 다른 내용을 띄우려면 [PLA](/file-formats/pla) 사용.
 
 ### 순환 모드
 
@@ -57,5 +57,5 @@ last_updated: 2026-04-21
 
 ## 관련
 
-- 메시지 전송: [[ui-reference/03-transfer/message|메시지 전송]]
-- 시간대 순환: [[file-formats/pla|PLA 스케줄]]
+- 메시지 전송: [메시지 전송](/ui-reference/03-transfer/message)
+- 시간대 순환: [PLA 스케줄](/file-formats/pla)

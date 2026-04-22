@@ -14,10 +14,10 @@ last_updated: 2026-04-21
 
 ## 주요 섹션
 
-- [[ui-reference/05-advanced/time|시간 설정]] — 컨트롤러 실시간 시계 설정·NTP 동기화
-- [[ui-reference/05-advanced/board-settings|보드 기능 설정]] — 컨트롤러 하드웨어 상세 설정 (전문가용)
-- [[ui-reference/05-advanced/firmware|펌웨어 업데이트]] — .bin 파일 기반 컨트롤러 펌웨어 갱신
-- [[ui-reference/05-advanced/theme|테마]] — DabitOne 앱 UI 테마(라이트·다크) 전환
+- [시간 설정](/ui-reference/05-advanced/time) — 컨트롤러 실시간 시계 설정·NTP 동기화
+- [보드 기능 설정](/ui-reference/05-advanced/board-settings) — 컨트롤러 하드웨어 상세 설정 (전문가용)
+- [펌웨어 업데이트](/ui-reference/05-advanced/firmware) — .bin 파일 기반 컨트롤러 펌웨어 갱신
+- [테마](/ui-reference/05-advanced/theme) — DabitOne 앱 UI 테마(라이트·다크) 전환
 
 ## 주의 사항
 
@@ -28,4 +28,4 @@ last_updated: 2026-04-21
 ## 관련
 
 - 체험 투어: [/tour/quickstart/08-firmware/](/tour/quickstart/08-firmware/)
-- 펌웨어 오류: [[troubleshooting/04-firmware-error|펌웨어 오류]]
+- 펌웨어 오류: [펌웨어 오류](/troubleshooting/04-firmware-error)

@@ -10,7 +10,7 @@ last_updated: 2026-04-21
 
 ## 이 화면의 역할
 
-**BMP·PNG·JPG** 이미지를 불러와 전광판 해상도·색상 깊이에 맞게 변환하고 [[file-formats/dat|DAT]]로 저장. 로고·아이콘·사진 표출에 사용.
+**BMP·PNG·JPG** 이미지를 불러와 전광판 해상도·색상 깊이에 맞게 변환하고 [DAT](/file-formats/dat)로 저장. 로고·아이콘·사진 표출에 사용.
 
 ## 기본 사용
 
@@ -65,11 +65,11 @@ RGB 24비트 원본을 3비트·8비트 등으로 **축약**할 때 **디더링*
 ## 저장·내보내기
 
 - `Ctrl+S` — DAT 저장
-- 효과 포함 시 자동으로 [[file-formats/ani|ANI]]
+- 효과 포함 시 자동으로 [ANI](/file-formats/ani)
 - 편집 원본은 DabitOne 내부 포맷으로 별도 저장(재편집 가능)
 
 ## 관련
 
 - 체험: [/tour/quickstart/04-edit-image/](/tour/quickstart/04-edit-image/)
-- 포맷: [[file-formats/dat|DAT]]
-- 텍스트 편집: [[ui-reference/04-editor/text|텍스트 편집]]
+- 포맷: [DAT](/file-formats/dat)
+- 텍스트 편집: [텍스트 편집](/ui-reference/04-editor/text)

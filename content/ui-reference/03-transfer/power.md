@@ -64,5 +64,5 @@ OFF가 더 유용. 전원 차단은 점검·수리 시에만.
 
 ## 관련
 
-- 밝기: [[ui-reference/03-transfer/brightness|밝기 설정]]
-- 시계 동기화: [[ui-reference/05-advanced/time|시간 설정]]
+- 밝기: [밝기 설정](/ui-reference/03-transfer/brightness)
+- 시계 동기화: [시간 설정](/ui-reference/05-advanced/time)
