@@ -96,6 +96,27 @@ const tour: Tour = {
       ],
     },
     {
+      id: "step-timing",
+      title: "응답시간 조정 (선택)",
+      description:
+        "응답시간 드롭다운으로 컨트롤러 응답 대기 시간을 1~6초로 조정합니다. 기본 3초. 케이블이 길거나 RS-485 장거리 배선이면 5~6초 권장.",
+      image: SCREEN,
+      hotspot: {
+        x: 28,
+        y: 75,
+        ariaLabel: "응답시간 드롭다운",
+        label: "응답시간",
+        box: { w: 12, h: 4 },
+      },
+      srSummary:
+        "응답시간 기본 3초. 장거리 배선·노이즈 환경에서는 5~6초로 늘려 안정성 확보.",
+      tips: [
+        "단거리 USB-Serial: 3초 기본값 충분",
+        "RS-485 100m 이상: 5~6초 권장",
+        "응답시간을 늘리면 timeout 감소하지만 실패 인지가 늦어짐",
+      ],
+    },
+    {
       id: "step-4-test",
       title: "[연결 테스트] 클릭",
       description:
@@ -118,6 +139,26 @@ const tour: Tour = {
       relatedRefs: [
         {
           label: "연결이 안 될 때",
+          path: "/troubleshooting/01-connection",
+        },
+      ],
+    },
+    {
+      id: "step-result",
+      title: "연결 결과 확인",
+      description:
+        "테스트 후 화면 하단·우측에 토스트 알림이 뜹니다. 녹색=성공, 노란색=응답 없음(케이블·속도 재확인), 빨간색=실패(포트 점유·서브넷 불일치). 성공 시 상단 상태 표시가 '연결됨'으로 바뀝니다.",
+      image: SCREEN,
+      srSummary:
+        "토스트 색상으로 결과 확인. 녹색은 정상 연결, 노란색은 응답 시간 초과, 빨간색은 연결 실패. 실패 시 통신 설정의 IP·속도·포트를 재점검.",
+      tips: [
+        "노란 토스트: 응답시간을 6초로 올려 재시도",
+        "빨간 토스트: 다른 프로그램이 COM 포트 점유 중일 가능성",
+        "토스트는 잠시 표시 후 자동 사라짐 — 로그 영역에서도 확인 가능",
+      ],
+      relatedRefs: [
+        {
+          label: "연결 트러블슈팅",
           path: "/troubleshooting/01-connection",
         },
       ],

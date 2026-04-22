@@ -11,15 +11,21 @@ import { render } from "preact"
 import { App } from "./App"
 import { hydrateFromUrl } from "./lib/state"
 
-function mount() {
+function mount(attempt = 0) {
   const root = document.getElementById("tour-root")
-  if (!root) return
-  // 기존 플레이스홀더(SSR된 tour-loading)를 비우고 Preact로 교체
+  if (!root) {
+    // Quartz micromorph가 body diff 직후라 새 tour-root가 아직 settle 중일 수 있음.
+    // 최대 10회(약 300ms) 재시도.
+    if (attempt < 10) {
+      setTimeout(() => mount(attempt + 1), 30)
+    }
+    return
+  }
+  // 기존 플레이스홀더(tour-loading)를 비우고 Preact로 교체.
   root.innerHTML = ""
   render(<App />, root)
 }
 
-// Quartz SPA router 전환 후에도 재mount되도록 nav 이벤트 구독
 function init() {
   hydrateFromUrl()
   mount()
@@ -31,8 +37,10 @@ if (document.readyState === "loading") {
   init()
 }
 
-// Quartz SPA 전환 시 (새 페이지가 document.body로 교체됨) 재초기화
+// Quartz SPA 전환 시 (마이크로몰프가 body diff) 재초기화 — RAF로 한 frame 뒤에 실행.
 document.addEventListener("nav", () => {
-  hydrateFromUrl()
-  mount()
+  requestAnimationFrame(() => {
+    hydrateFromUrl()
+    mount()
+  })
 })
