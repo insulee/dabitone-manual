@@ -23,31 +23,31 @@ DabitOne의 좌측 사이드바 5개 탭 순서 그대로 구성했습니다.
 
 컨트롤러와 연결. Serial · TCP · UDP · BLE · MQTT · dbNet 지원.
 
-→ [상세](/01-communication/) · [투어](/tour/quickstart/01-first-connection/)
+→ [상세](/01-communication/overview) · [투어](/tour/quickstart/01-first-connection/)
 
 ### 02. 설정
 
 화면 크기·표출신호·폰트 등 컨트롤러 기본값.
 
-→ [상세](/02-settings/) · [투어](/tour/quickstart/02-screen-size/)
+→ [상세](/02-settings/overview) · [투어](/tour/quickstart/02-screen-size/)
 
 ### 03. 전송
 
 메시지·페이지·밝기·배경 송출.
 
-→ [상세](/03-transfer/) · [투어](/tour/quickstart/03-send-message/)
+→ [상세](/03-transfer/overview) · [투어](/tour/quickstart/03-send-message/)
 
 ### 04. 편집
 
 텍스트·이미지·GIF·스케줄 제작.
 
-→ [상세](/04-editor/) · [투어](/tour/quickstart/04-edit-image/)
+→ [상세](/04-editor/overview) · [투어](/tour/quickstart/04-edit-image/)
 
 ### 05. 고급
 
 펌웨어·시간·보드기능·진단.
 
-→ [상세](/05-advanced/) · [투어](/tour/quickstart/08-firmware/)
+→ [상세](/05-advanced/overview) · [투어](/tour/quickstart/08-firmware/)
 
 ---
 
@@ -60,7 +60,7 @@ DabitOne의 좌측 사이드바 5개 탭 순서 그대로 구성했습니다.
 
 ## 파일 형식 · 문제 해결
 
-- [파일 포맷](/file-formats/) — DAT·ANI·GIF·PLA·BGP·FNT 6종
+- [파일 포맷](/file-formats/overview) — DAT·ANI·GIF·PLA·BGP·FNT 6종
 - [트러블슈팅](/troubleshooting/) — 연결·표시·전송·펌웨어·색상·동기화 등 8가지 증상
 - [자주 묻는 질문](/troubleshooting/05-faq) — 22 Q&A (설치·연결·편집·전송·펌웨어 카테고리)
 - [릴리즈 노트](/blog/2026-04-21-v1-1-0) — v1.1.0 변경사항

@@ -42,7 +42,7 @@ const tour: Tour = {
         "DabitOne 좌측 사이드바 맨 위에 통신 탭이 있고 기본으로 선택되어 있습니다. 클릭하면 통신 설정 창이 우측에 표시됩니다.",
       nextHint: "연결 방식을 고를 차례입니다.",
       relatedRefs: [
-        { label: "통신 개요", path: "/01-communication/" },
+        { label: "통신 개요", path: "/01-communication/overview" },
       ],
     },
     {

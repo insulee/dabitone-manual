@@ -18,9 +18,22 @@ const hiddenFilterFn = (node: any) => {
   return true
 }
 
-// 폴더 숫자 prefix(01-, 02-) 기반 정렬 — slug 기준 (displayName은 한글이라 가나다 순됨)
+// 폴더 숫자 prefix(01-, 02-) 기반 정렬 — slug 기준.
+// 파일은 같은 폴더 안에서 `overview`가 항상 최상단(펼쳤을 때 첫번째).
 const customSortFn = (a: any, b: any) => {
-  if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+  if (!a.isFolder && !b.isFolder) {
+    const aIsOverview = String(a.slug ?? "").endsWith("/overview")
+    const bIsOverview = String(b.slug ?? "").endsWith("/overview")
+    if (aIsOverview && !bIsOverview) return -1
+    if (!aIsOverview && bIsOverview) return 1
+    const aSlug = String(a.slug ?? a.displayName)
+    const bSlug = String(b.slug ?? b.displayName)
+    return aSlug.localeCompare(bSlug, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    })
+  }
+  if (a.isFolder && b.isFolder) {
     const aSlug = String(a.slug ?? a.displayName)
     const bSlug = String(b.slug ?? b.displayName)
     return aSlug.localeCompare(bSlug, undefined, {
@@ -31,7 +44,8 @@ const customSortFn = (a: any, b: any) => {
   return a.isFolder ? -1 : 1
 }
 
-// 최상위 폴더 사이드바 이름 오버라이드 — index.md title은 "X 개요"로 두고 폴더명은 짧게.
+// 최상위 폴더 사이드바 이름 오버라이드 — index.md 없이 fileSegmentHint로
+// fallback되면 '01-communication' 같은 slug가 노출되므로 짧은 한글 라벨로 덮는다.
 // 클로저 금지(브라우저 측 new Function 평가) — 인라인 라벨.
 const folderLabelMapFn = (node: any) => {
   if (!node.isFolder) return
@@ -98,7 +112,7 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      folderClickBehavior: "link",
+      folderClickBehavior: "collapse",
       folderDefaultState: "collapsed",
       sortFn: customSortFn,
       filterFn: hiddenFilterFn,
@@ -128,7 +142,7 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      folderClickBehavior: "link",
+      folderClickBehavior: "collapse",
       folderDefaultState: "collapsed",
       sortFn: customSortFn,
       filterFn: hiddenFilterFn,
