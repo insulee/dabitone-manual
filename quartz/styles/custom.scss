@@ -197,6 +197,15 @@ code {
   border-radius: 4px;
 }
 
+// ─── Body images — 가독성 위해 최대 너비 제한 ───
+article img {
+  max-width: 560px;
+  height: auto;
+  display: block;
+  margin: 1.2rem auto;
+  border-radius: 6px;
+}
+
 // ─── Darkmode toggle — light 통일 ───
 .darkmode {
   display: none !important;

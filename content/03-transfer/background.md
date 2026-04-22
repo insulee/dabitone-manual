@@ -6,7 +6,6 @@ last_updated: 2026-04-21
 
 # 배경 이미지 전송
 
-![배경이미지 UI](/assets/screens/reference/transfer-background.png)
 
 > 경로: **[전송] → 배경 이미지 섹션**
 

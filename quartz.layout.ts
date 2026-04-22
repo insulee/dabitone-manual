@@ -1,6 +1,21 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
+// 사이드바에서 숨길 최상위 폴더 (URL은 유지, Explorer만 숨김)
+const hiddenFilterFn = (node: any) => {
+  const hiddenTop = new Set([
+    "blog",
+    "getting-started",
+    "troubleshooting",
+    "templates",
+    "tour",
+  ])
+  if (node.depth === 1 && hiddenTop.has(node.slugSegment)) return false
+  // 기본: tags는 Quartz 기본 제외
+  if (node.slugSegment === "tags") return false
+  return true
+}
+
 // 폴더 숫자 prefix(01-, 02-) 기반 정렬
 const customSortFn = (a: any, b: any) => {
   if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
@@ -60,9 +75,10 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      folderClickBehavior: "collapse",
-      folderDefaultState: "collapsed",
+      folderClickBehavior: "link",
+      folderDefaultState: "open",
       sortFn: customSortFn,
+      filterFn: hiddenFilterFn,
     }),
     quickLinks,
   ],
@@ -88,9 +104,10 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      folderClickBehavior: "collapse",
-      folderDefaultState: "collapsed",
+      folderClickBehavior: "link",
+      folderDefaultState: "open",
       sortFn: customSortFn,
+      filterFn: hiddenFilterFn,
     }),
     quickLinks,
   ],

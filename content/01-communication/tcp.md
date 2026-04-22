@@ -6,7 +6,6 @@ last_updated: 2026-04-21
 
 # TCP (Client / Server)
 
-![TCP/IP 통신 설정 UI](/assets/screens/reference/comm-tcp-client.png)
 
 > 경로: **[통신] → Client TCP/IP 그룹박스** 또는 **Server TCP/IP 그룹박스**
 

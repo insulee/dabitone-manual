@@ -6,7 +6,6 @@ last_updated: 2026-04-21
 
 # dbNet
 
-![dbNet 설정 UI](/assets/screens/reference/comm-dbnet.png)
 
 > 경로: **[통신] → dbNet 패널** (우측 영역, Serial 선택 시 비활성화)
 

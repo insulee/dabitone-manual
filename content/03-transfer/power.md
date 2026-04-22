@@ -6,7 +6,6 @@ last_updated: 2026-04-21
 
 # 켜기·끄기 스케줄
 
-![전광판 켜기/끄기 UI](/assets/screens/reference/transfer-power.png)
 
 > 경로: **[전송] → 켜기·끄기 섹션**
 

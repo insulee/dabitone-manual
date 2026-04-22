@@ -6,7 +6,6 @@ last_updated: 2026-04-21
 
 # 보드 기능 설정
 
-![보드 기능 설정 UI](/assets/screens/reference/advanced-board.png)
 
 > 경로: **[고급] → 보드 기능 섹션**
 > 

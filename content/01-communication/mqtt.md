@@ -6,7 +6,6 @@ last_updated: 2026-04-21
 
 # MQTT
 
-![BLE/MQTT 영역](/assets/screens/reference/comm-ble-mqtt.png)
 
 > 경로: **[통신] → [MQTT] 버튼** (별도 설정창 팝업)
 

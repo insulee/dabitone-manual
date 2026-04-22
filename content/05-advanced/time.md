@@ -6,7 +6,6 @@ last_updated: 2026-04-21
 
 # 시간 설정
 
-![시간 설정 UI](/assets/screens/reference/advanced-time.png)
 
 > 경로: **[고급] → 시간 섹션**
 
