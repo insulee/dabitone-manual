@@ -2,17 +2,19 @@ import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
 // 사이드바에서 숨길 최상위 폴더 (URL은 유지, Explorer만 숨김)
+// FileTrieNode에 depth 필드가 없어서 slug 첫 segment로 체크.
 const hiddenFilterFn = (node: any) => {
-  const hiddenTop = new Set([
+  const hidden = new Set([
     "blog",
     "getting-started",
     "troubleshooting",
     "templates",
     "tour",
+    "tags",
   ])
-  if (node.depth === 1 && hiddenTop.has(node.slugSegment)) return false
-  // 기본: tags는 Quartz 기본 제외
-  if (node.slugSegment === "tags") return false
+  const slug = String(node.slug ?? "")
+  const first = slug.split("/")[0]
+  if (hidden.has(first)) return false
   return true
 }
 
