@@ -1,27 +1,203 @@
 @use "./base.scss";
 
 /**
- * dabitone.dabitsol.com — Quartz 기본 테마 활용.
- * 색상은 quartz.config.ts의 theme.colors (stone light + burnt orange)에서 관리.
- * docs.dabitsol.com과 동일 레이아웃·타이포·컴포넌트, 색상만 다름.
- * /tour/* 는 tokens.css(body.tour-page)로 별도 관리 — 이 파일 영향 없음.
+ * dabitone.dabitsol.com — docs.dabitsol.com과 동일 테마.
+ * 색상은 quartz.config.ts theme.colors (stone light + burnt orange)에서 관리.
+ * /tour/* 는 tokens.css(body.tour-page)로 별도 관리.
  */
 
-/* 폰트 — Pretendard primary (한국어), mono는 code 전용 */
-body {
-  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+// ─── Heading hierarchy ───
+article {
+  & > h1 {
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark);
+  }
+
+  & > h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-top: 2.2rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--lightgray);
+    color: var(--dark);
+  }
+
+  & > h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+  }
+
+  & > h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-bottom: 0.4rem;
+    color: var(--dark);
+  }
+
+  & > h5,
+  & > h6 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 1.3rem;
+    margin-bottom: 0.3rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Pretendard Variable", -apple-system, sans-serif;
+// ─── Page list: clean card-like items ───
+ul.section-ul {
+  margin-top: 1.2em;
+}
+
+li.section-li {
+  margin-bottom: 0.25em;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: var(--highlight);
+    border-color: var(--lightgray);
+  }
+
+  & > .section > .desc > h3 {
+    font-size: 0.92rem;
+    font-weight: 500;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+// ─── Article title ───
+.article-title {
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-code, pre, kbd, samp, tt {
-  font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+// ─── Internal links ───
+a.internal {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--lightgray);
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-bottom-color: var(--secondary);
+  }
 }
 
-/* 다크모드 토글 숨김 — light 통일 */
+a.internal.tag-link {
+  background-color: var(--highlight) !important;
+  padding: 0.15rem 0.45rem !important;
+  border-radius: 12px !important;
+  border-bottom: none !important;
+  font-size: 0.82rem;
+}
+
+// ─── Left sidebar ───
+.left {
+  & .page-title {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+}
+
+// ─── Explorer ───
+.explorer {
+  & ul > li > a {
+    font-size: 0.88rem;
+  }
+
+  & .num-prefix {
+    display: inline-block;
+    font-family: var(--codeFont);
+    font-size: 0.85em;
+    opacity: 0.7;
+    min-width: 1.8em;
+  }
+
+  & .explorer-content > ul > li {
+    margin-bottom: 0.15rem;
+  }
+
+  & .folder-outer ul > li {
+    margin-bottom: 0.1rem;
+  }
+
+  & button.desktop-explorer {
+    display: none !important;
+  }
+
+  & .explorer-content {
+    margin-top: 0;
+  }
+}
+
+// ─── Breadcrumbs ───
+.breadcrumb-container {
+  font-size: 0.84rem;
+  opacity: 0.65;
+}
+
+// ─── Footer ───
+footer {
+  opacity: 0.5;
+  font-size: 0.85rem;
+}
+
+// ─── Callouts ───
+.callout {
+  border-radius: 8px;
+}
+
+// ─── Search ───
+.search > .search-button {
+  border-radius: 8px;
+}
+
+// ─── TOC ───
+.toc {
+  & .depth-1 {
+    font-weight: 500;
+  }
+}
+
+// ─── Sidebar section titles ───
+.graph > h3,
+.backlinks > h3,
+.toc > h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  font-weight: 600;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+// ─── Code blocks ───
+pre {
+  border-radius: 8px;
+}
+
+code {
+  border-radius: 4px;
+}
+
+// ─── Darkmode toggle — light 통일 ───
 .darkmode {
   display: none !important;
 }
