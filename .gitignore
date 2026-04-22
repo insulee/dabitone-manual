@@ -12,3 +12,4 @@ test-results/
 # Quartz Static emitter의 glob이 gitignore를 준수하므로 gitignore하면 배포에서 누락된다.
 # 따라서 커밋에 포함한다 (로컬/CI 빌드 후 반드시 재생성해 push).
 verify-hotspots/
+verify-links/
