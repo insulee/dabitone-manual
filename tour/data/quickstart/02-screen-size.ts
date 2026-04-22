@@ -52,6 +52,33 @@ const tour: Tour = {
       ],
     },
     {
+      id: "step-display-signal",
+      title: "표출신호 등록 (선택)",
+      description:
+        "전광판 모듈의 물리 사양(픽셀 간격·구동 IC·스캔 방식)에 맞는 표출신호를 목록에서 선택합니다. 새 모듈이라면 [★ 등록] 버튼으로 신호 정의를 추가할 수 있습니다.",
+      image: SCREEN,
+      hotspot: {
+        x: 24,
+        y: 53,
+        ariaLabel: "표출신호 설정 영역",
+        label: "표출신호 설정",
+        box: { w: 42, h: 50 },
+      },
+      srSummary:
+        "표출신호 설정 섹션에서 모듈 사양(예: 16D-P16D1S11 = 16dot·16×16·1:1 스캔)을 선택. 목록에 없으면 ★ 등록으로 새 정의 추가.",
+      tips: [
+        "신호 코드 의미: D=Dot, P=Pitch(픽셀 간격), S=Scan 방식",
+        "모듈 공급사 스펙 시트의 값을 그대로 입력",
+        "잘못된 신호 선택 시 화면 깨짐 — 실물로 맞춰야",
+      ],
+      relatedRefs: [
+        {
+          label: "표출신호 상세",
+          path: "/ui-reference/02-settings/display-signal",
+        },
+      ],
+    },
+    {
       id: "step-3-send",
       title: "컨트롤러로 전송",
       description:
@@ -75,6 +102,30 @@ const tour: Tour = {
           label: "화면이 이상하게 나올 때",
           path: "/troubleshooting/02-display-corruption",
         },
+      ],
+    },
+    {
+      id: "step-font",
+      title: "폰트 전송 (선택)",
+      description:
+        "표출할 글꼴을 컨트롤러로 전송합니다. 영문(ENG)·한글조합형(KOR)·사용자 폰트 3종을 폰트그룹 1~4에 분산 배치 가능. 활성 그룹 체크 후 [폰트파일 전송] 실행.",
+      image: SCREEN,
+      hotspot: {
+        x: 65,
+        y: 13,
+        ariaLabel: "폰트그룹 1 영역",
+        label: "폰트그룹 1",
+        box: { w: 28, h: 18 },
+      },
+      srSummary:
+        "폰트전송 섹션에서 폰트그룹 체크 후 각 언어별 .fnt 파일 지정. 마지막에 폰트파일 전송 버튼 클릭.",
+      tips: [
+        "기본 폰트: ENG 08×16·KOR 16×16",
+        "한글이 깨져 보이면 KOR 폰트 재전송으로 해결",
+        "사용자 폰트는 특수 용도 (로고·기호 등)",
+      ],
+      relatedRefs: [
+        { label: "폰트 파일 상세", path: "/ui-reference/02-settings/font" },
       ],
     },
   ],

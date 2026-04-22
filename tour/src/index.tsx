@@ -44,3 +44,26 @@ document.addEventListener("nav", () => {
     mount()
   })
 })
+
+// tour-page 내 tour 링크는 micromorph SPA를 우회하고 full page reload로 이동.
+// micromorph diff와 Preact re-mount 사이 race 상황에서 흰 화면 발생 방지.
+document.addEventListener(
+  "click",
+  (e) => {
+    const target = e.target as HTMLElement | null
+    const a = target?.closest?.("a[href]") as HTMLAnchorElement | null
+    if (!a) return
+    if (a.target === "_blank" || a.hasAttribute("download")) return
+    if (!document.body.classList.contains("tour-page")) return
+    const href = a.getAttribute("href") ?? ""
+    const isTourLink =
+      href.startsWith("/tour/") ||
+      (href.startsWith("./") && a.pathname.includes("/tour/")) ||
+      (href.startsWith("../") && a.pathname.includes("/tour/"))
+    if (!isTourLink) return
+    e.preventDefault()
+    e.stopImmediatePropagation()
+    window.location.assign(a.href)
+  },
+  true,
+)
