@@ -22,6 +22,7 @@ const tour: Tour = {
       description:
         "BGP는 메인 메시지 뒤에서 순환하는 '배경' 전용 스케줄입니다. PLA와 별도 레이어로 재생되어 브랜딩·배경 무늬·시간표 등에 사용됩니다.",
       image: EDITOR,
+      hotspot: { x: 3, y: 31, ariaLabel: "편집 탭 — 배경 모드", label: "편집" },
       srSummary:
         "PLA는 전면 메시지 플레이리스트, BGP는 배경 레이어 플레이리스트. 두 레이어가 동시에 재생됩니다.",
       relatedRefs: [

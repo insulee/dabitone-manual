@@ -20,6 +20,8 @@
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
     "build:tour": "node scripts/build-tour.mjs",
     "build:pdf": "node scripts/build-pdf.mjs",
+    "verify:serve": "npx http-server public -p 8888 -s",
+    "verify:hotspots": "node scripts/verify-hotspots.mjs",
     "build": "npm run build:tour && npx quartz build",
     "build:all": "npm run build:tour && npx quartz build && npm run build:pdf",
     "dev": "npm run build:tour && npx quartz build --serve"

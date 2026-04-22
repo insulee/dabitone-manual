@@ -22,6 +22,7 @@ const tour: Tour = {
       description:
         "[편집] 탭의 스케줄 모드로 이동해 새 PLA 파일을 만듭니다. PLA는 여러 DAT·ANI 항목을 시간 순서대로 조합한 플레이리스트 파일입니다.",
       image: EDITOR,
+      hotspot: { x: 3, y: 31, ariaLabel: "편집 탭", label: "편집" },
       srSummary:
         "스케줄 모드에서 새 PLA 파일을 생성합니다. 기존 저장된 DAT·ANI 메시지들을 선택해 조합할 수 있습니다.",
       relatedRefs: [
