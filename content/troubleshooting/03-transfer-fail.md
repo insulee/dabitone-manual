@@ -85,8 +85,8 @@ last_updated: 2026-04-21
 ### 조치
 
 1. 컨트롤러 재부팅해 다시 읽도록
-2. [페이지 전송](/ui-reference/03-transfer/page)에서 **표시할 페이지 번호**를 명시적으로 변경
-3. [배경](/ui-reference/03-transfer/background)이 전면을 덮고 있는지 확인
+2. [페이지 전송](/03-transfer/page)에서 **표시할 페이지 번호**를 명시적으로 변경
+3. [배경](/03-transfer/background)이 전면을 덮고 있는지 확인
 
 ## 증상: 컨트롤러 저장공간 부족
 

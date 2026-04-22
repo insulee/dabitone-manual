@@ -63,6 +63,6 @@ tags:
 
 - [전송 실패 시](/troubleshooting/03-transfer-fail)
 - [펌웨어 오류](/troubleshooting/04-firmware-error)
-- [시간 설정](/ui-reference/05-advanced/time)
-- [편집기 분할 모드](/ui-reference/04-editor/split-mode)
-- [dbNet 통신](/ui-reference/01-communication/dbnet)
+- [시간 설정](/05-advanced/time)
+- [편집기 분할 모드](/04-editor/split-mode)
+- [dbNet 통신](/01-communication/dbnet)

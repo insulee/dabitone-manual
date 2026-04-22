@@ -60,7 +60,7 @@ tags:
 
 ## 관련
 
-- [화면 크기 설정](/ui-reference/02-settings/screen-size)
-- [표출신호 Scan Order](/ui-reference/02-settings/display-signal)
-- [보드 기능 설정](/ui-reference/05-advanced/board-settings)
+- [화면 크기 설정](/02-settings/screen-size)
+- [표출신호 Scan Order](/02-settings/display-signal)
+- [보드 기능 설정](/05-advanced/board-settings)
 - [화면 깨짐 (일반)](/troubleshooting/02-display-corruption)

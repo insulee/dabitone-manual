@@ -28,7 +28,7 @@ const tour: Tour = {
       relatedRefs: [
         {
           label: "스케줄 그리드 상세",
-          path: "/ui-reference/04-editor/schedule-grid",
+          path: "/04-editor/schedule-grid",
         },
         { label: "PLA 포맷", path: "/file-formats/pla" },
       ],

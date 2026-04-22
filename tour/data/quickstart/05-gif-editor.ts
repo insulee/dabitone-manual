@@ -30,7 +30,7 @@ const tour: Tour = {
         "프레임당 표시 시간 개별 설정",
       ],
       relatedRefs: [
-        { label: "GIF 편집기 상세", path: "/ui-reference/04-editor/gif" },
+        { label: "GIF 편집기 상세", path: "/04-editor/gif" },
         { label: "GIF 포맷", path: "/file-formats/gif" },
       ],
     },

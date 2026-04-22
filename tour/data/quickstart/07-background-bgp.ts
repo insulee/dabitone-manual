@@ -29,7 +29,7 @@ const tour: Tour = {
         { label: "BGP 포맷", path: "/file-formats/bgp" },
         {
           label: "배경 전송 옵션",
-          path: "/ui-reference/03-transfer/background",
+          path: "/03-transfer/background",
         },
       ],
     },

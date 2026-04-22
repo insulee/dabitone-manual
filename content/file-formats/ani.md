@@ -12,8 +12,8 @@ last_updated: 2026-04-21
 
 | 편집 화면 | 결과물 |
 |----------|--------|
-| [GIF 편집](/ui-reference/04-editor/gif) | `.ANI` — 프레임 타임라인 기반으로 제작 (**DabitOne 신규**) |
-| [텍스트 편집](/ui-reference/04-editor/text) 효과 | `.ANI` — 흐름·점멸 등 시간 효과가 적용된 텍스트 |
+| [GIF 편집](/04-editor/gif) | `.ANI` — 프레임 타임라인 기반으로 제작 (**DabitOne 신규**) |
+| [텍스트 편집](/04-editor/text) 효과 | `.ANI` — 흐름·점멸 등 시간 효과가 적용된 텍스트 |
 | 외부 GIF 불러오기 | 자동으로 ANI로 변환 |
 
 ## 구조

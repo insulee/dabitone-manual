@@ -6,7 +6,7 @@ last_updated: 2026-04-22
 
 # 전체 화면 구조
 
-DabitOne 실행 시 보이는 화면 구성과 주요 UI 용어, 첫 사용자가 따라갈 표준 워크플로우를 한 페이지로 정리. 각 탭의 세부 컨트롤은 [UI 레퍼런스](/ui-reference/)에서.
+DabitOne 실행 시 보이는 화면 구성과 주요 UI 용어, 첫 사용자가 따라갈 표준 워크플로우를 한 페이지로 정리. 각 탭의 세부 컨트롤은 [UI 레퍼런스](/)에서.
 
 ## 화면 레이아웃
 
@@ -131,7 +131,7 @@ DabitOne이 관리하는 파일들의 실제 경로:
 
 ### 다크/라이트 테마
 
-[고급 → 테마](/ui-reference/05-advanced/theme)에서 전환 가능. 야간 작업 환경 또는 선호에 따라. 사이드바 하단의 테마 스위쳐로도 빠르게 변경.
+[고급 → 테마](/05-advanced/theme)에서 전환 가능. 야간 작업 환경 또는 선호에 따라. 사이드바 하단의 테마 스위쳐로도 빠르게 변경.
 
 ### 설정 영속성
 
@@ -157,5 +157,5 @@ DabitOne이 관리하는 파일들의 실제 경로:
 - 연결 시작 → [/tour/quickstart/01-first-connection/](/tour/quickstart/01-first-connection/)
 - 화면 크기 맞추기 → [/tour/quickstart/02-screen-size/](/tour/quickstart/02-screen-size/)
 - 첫 메시지 → [/tour/quickstart/03-send-message/](/tour/quickstart/03-send-message/)
-- 자세한 컨트롤 설명 → [UI 레퍼런스](/ui-reference/)
+- 자세한 컨트롤 설명 → [UI 레퍼런스](/)
 - 문제 해결 → [트러블슈팅](/troubleshooting/)

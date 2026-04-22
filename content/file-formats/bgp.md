@@ -24,7 +24,7 @@ last_updated: 2026-04-21
 
 ## 어디서 만들어지나
 
-[전송 → 배경 이미지](/ui-reference/03-transfer/background) 또는 [편집 → 스케줄 그리드](/ui-reference/04-editor/schedule-grid)에서 배경 모드로 생성.
+[전송 → 배경 이미지](/03-transfer/background) 또는 [편집 → 스케줄 그리드](/04-editor/schedule-grid)에서 배경 모드로 생성.
 
 PLA 생성과 유사하지만 **배경용 투명도·겹침 처리**가 추가됩니다.
 

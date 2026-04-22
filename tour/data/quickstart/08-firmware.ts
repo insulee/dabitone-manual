@@ -29,7 +29,7 @@ const tour: Tour = {
         "현재 펌웨어 버전은 고급 탭에서 조회 가능",
       ],
       relatedRefs: [
-        { label: "펌웨어 상세", path: "/ui-reference/05-advanced/firmware" },
+        { label: "펌웨어 상세", path: "/05-advanced/firmware" },
         {
           label: "펌웨어 오류 대처",
           path: "/troubleshooting/04-firmware-error",

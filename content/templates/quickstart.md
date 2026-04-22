@@ -64,7 +64,7 @@ last_updated: YYYY-MM-DD
 
 ```markdown
 - [다음 단계: 화면 크기 설정](/quickstart/02-screen-size)
-- [통신 UI 상세 레퍼런스](/ui-reference/01-communication/)
+- [통신 UI 상세 레퍼런스](/01-communication/)
 ```
 
 ## 톤·문체

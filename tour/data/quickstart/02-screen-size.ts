@@ -26,7 +26,7 @@ const tour: Tour = {
       srSummary:
         "좌측 [설정] 탭에 화면 크기 섹션이 있습니다. 먼저 연결이 성공한 상태여야 전송이 가능합니다.",
       relatedRefs: [
-        { label: "설정 UI 레퍼런스", path: "/ui-reference/02-settings/" },
+        { label: "설정 UI 레퍼런스", path: "/02-settings/" },
       ],
     },
     {
@@ -74,7 +74,7 @@ const tour: Tour = {
       relatedRefs: [
         {
           label: "표출신호 상세",
-          path: "/ui-reference/02-settings/display-signal",
+          path: "/02-settings/display-signal",
         },
       ],
     },
@@ -125,7 +125,7 @@ const tour: Tour = {
         "사용자 폰트는 특수 용도 (로고·기호 등)",
       ],
       relatedRefs: [
-        { label: "폰트 파일 상세", path: "/ui-reference/02-settings/font" },
+        { label: "폰트 파일 상세", path: "/02-settings/font" },
       ],
     },
   ],

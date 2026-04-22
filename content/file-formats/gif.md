@@ -26,7 +26,7 @@ last_updated: 2026-04-21
 - 프레임별 이미지·텍스트 삽입
 - 반복 재생 횟수 설정
 
-자세한 편집 방법은 [편집 → GIF](/ui-reference/04-editor/gif) 참조.
+자세한 편집 방법은 [편집 → GIF](/04-editor/gif) 참조.
 
 ## 어디에 저장되나
 
@@ -39,7 +39,7 @@ last_updated: 2026-04-21
 
 ### 기존 GIF 불러오기
 
-1. [편집 → GIF](/ui-reference/04-editor/gif) 모드에서 "가져오기"
+1. [편집 → GIF](/04-editor/gif) 모드에서 "가져오기"
 2. DabitOne이 자동으로 각 프레임을 **내부 편집 프레임**으로 변환
 3. 이후 프레임 단위 편집 가능
 

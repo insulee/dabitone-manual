@@ -37,7 +37,7 @@ const tour: Tour = {
         "글꼴·색상은 미리보기에 즉시 반영",
       ],
       relatedRefs: [
-        { label: "텍스트 편집기 상세", path: "/ui-reference/04-editor/text" },
+        { label: "텍스트 편집기 상세", path: "/04-editor/text" },
       ],
     },
     {

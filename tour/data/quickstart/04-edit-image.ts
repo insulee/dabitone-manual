@@ -30,7 +30,7 @@ const tour: Tour = {
         "배경 투명 PNG 지원 — 검정 배경으로 채워짐",
       ],
       relatedRefs: [
-        { label: "이미지 편집기 상세", path: "/ui-reference/04-editor/image" },
+        { label: "이미지 편집기 상세", path: "/04-editor/image" },
         { label: "DAT 포맷", path: "/file-formats/dat" },
       ],
     },

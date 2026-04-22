@@ -23,31 +23,31 @@ DabitOne의 좌측 사이드바 5개 탭 순서대로 구성된 레퍼런스.
 
 컨트롤러와 연결. Serial · TCP · UDP · BLE · MQTT · dbNet 지원.
 
-→ [UI 레퍼런스](/ui-reference/01-communication/) · [투어](/tour/quickstart/01-first-connection/)
+→ [UI 레퍼런스](/01-communication/) · [투어](/tour/quickstart/01-first-connection/)
 
 ### 02. 설정
 
 화면 크기·표출신호·폰트 등 컨트롤러 기본값.
 
-→ [UI 레퍼런스](/ui-reference/02-settings/) · [투어](/tour/quickstart/02-screen-size/)
+→ [UI 레퍼런스](/02-settings/) · [투어](/tour/quickstart/02-screen-size/)
 
 ### 03. 전송
 
 메시지·페이지·밝기·배경 송출.
 
-→ [UI 레퍼런스](/ui-reference/03-transfer/) · [투어](/tour/quickstart/03-send-message/)
+→ [UI 레퍼런스](/03-transfer/) · [투어](/tour/quickstart/03-send-message/)
 
 ### 04. 편집
 
 텍스트·이미지·GIF·스케줄 제작.
 
-→ [UI 레퍼런스](/ui-reference/04-editor/) · [투어](/tour/quickstart/04-edit-image/)
+→ [UI 레퍼런스](/04-editor/) · [투어](/tour/quickstart/04-edit-image/)
 
 ### 05. 고급
 
 펌웨어·시간·보드기능·진단.
 
-→ [UI 레퍼런스](/ui-reference/05-advanced/) · [투어](/tour/quickstart/08-firmware/)
+→ [UI 레퍼런스](/05-advanced/) · [투어](/tour/quickstart/08-firmware/)
 
 ---
 

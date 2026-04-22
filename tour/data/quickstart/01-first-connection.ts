@@ -42,7 +42,7 @@ const tour: Tour = {
         "DabitOne 좌측 사이드바 맨 위에 통신 탭이 있고 기본으로 선택되어 있습니다. 클릭하면 통신 설정 창이 우측에 표시됩니다.",
       nextHint: "연결 방식을 고를 차례입니다.",
       relatedRefs: [
-        { label: "통신 UI 레퍼런스", path: "/ui-reference/01-communication/" },
+        { label: "통신 UI 레퍼런스", path: "/01-communication/" },
       ],
     },
     {
@@ -67,8 +67,8 @@ const tour: Tour = {
         "컨트롤러가 PC로 접속 → Server TCP/IP (드물음)",
       ],
       relatedRefs: [
-        { label: "Serial 상세", path: "/ui-reference/01-communication/serial" },
-        { label: "TCP 상세", path: "/ui-reference/01-communication/tcp" },
+        { label: "Serial 상세", path: "/01-communication/serial" },
+        { label: "TCP 상세", path: "/01-communication/tcp" },
       ],
     },
     {
@@ -92,7 +92,7 @@ const tour: Tour = {
         "TCP 기본 포트 5000, UDP 포트는 5108로 고정",
       ],
       relatedRefs: [
-        { label: "Serial 상세", path: "/ui-reference/01-communication/serial" },
+        { label: "Serial 상세", path: "/01-communication/serial" },
       ],
     },
     {
