@@ -19,13 +19,37 @@ const hiddenFilterFn = (node: any) => {
 }
 
 // 폴더 숫자 prefix(01-, 02-) 기반 정렬 — slug 기준.
-// 파일은 같은 폴더 안에서 `overview`가 항상 최상단(펼쳤을 때 첫번째).
+// 파일은 같은 폴더 안에서 `overview`가 항상 최상단, 이후는 폴더별 explicit
+// 순서(orderMap) → explicit 없는 나머지는 slug 알파벳순 fallback.
+// 클로저 금지(브라우저 new Function 평가) — 맵 인라인.
 const customSortFn = (a: any, b: any) => {
   if (!a.isFolder && !b.isFolder) {
-    const aIsOverview = String(a.slug ?? "").endsWith("/overview")
-    const bIsOverview = String(b.slug ?? "").endsWith("/overview")
-    if (aIsOverview && !bIsOverview) return -1
-    if (!aIsOverview && bIsOverview) return 1
+    const aIsOv = String(a.slug ?? "").endsWith("/overview")
+    const bIsOv = String(b.slug ?? "").endsWith("/overview")
+    if (aIsOv && !bIsOv) return -1
+    if (!aIsOv && bIsOv) return 1
+
+    const orderMap: Record<string, string[]> = {
+      "01-communication": ["serial", "dbnet", "tcp", "udp", "ble", "mqtt"],
+      "02-settings": ["screen-size", "display-signal", "font"],
+      "03-transfer": ["message"],
+      "04-editor": ["text", "image", "gif", "schedule-grid", "split-mode"],
+      "05-advanced": ["time", "board-settings", "firmware", "theme"],
+    }
+    const aParts = String(a.slug ?? "").split("/")
+    const bParts = String(b.slug ?? "").split("/")
+    const aFolder = aParts[0]
+    const bFolder = bParts[0]
+    const aName = aParts[aParts.length - 1]
+    const bName = bParts[bParts.length - 1]
+    if (aFolder === bFolder && orderMap[aFolder]) {
+      const order = orderMap[aFolder]
+      const aIdx = order.indexOf(aName)
+      const bIdx = order.indexOf(bName)
+      if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx
+      if (aIdx !== -1) return -1
+      if (bIdx !== -1) return 1
+    }
     const aSlug = String(a.slug ?? a.displayName)
     const bSlug = String(b.slug ?? b.displayName)
     return aSlug.localeCompare(bSlug, undefined, {
