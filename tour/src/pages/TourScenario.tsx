@@ -96,32 +96,14 @@ function ScenarioBody({ tour }: { tour: Tour }) {
   }, [stepIdx, isFirst, isLast])
 
   return (
-    <main
-      class="tour-scenario"
-      aria-label={`투어: ${tour.title}`}
-      style={{
-        minHeight: "100vh",
-        padding: "40px 32px",
-        maxWidth: "1600px",
-        margin: "0 auto",
-      }}
-    >
+    <main class="tour-scenario" aria-label={`투어: ${tour.title}`}>
       <LiveRegion
         message={`스텝 ${stepIdx + 1} / ${tour.steps.length}: ${step.title}`}
       />
 
       <ProgressHeader tour={tour} stepIdx={stepIdx} pct={progressPct} />
 
-      <div
-        class="tour-scenario__stage-and-rail"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0, 1.8fr) minmax(280px, 1fr)",
-          gap: "40px",
-          marginTop: "40px",
-          alignItems: "start",
-        }}
-      >
+      <div class="tour-scenario__stage-and-rail">
         <Stage step={step} />
         <Rail
           step={step}
