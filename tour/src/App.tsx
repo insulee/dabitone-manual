@@ -5,13 +5,15 @@ import { useEffect } from "preact/hooks"
 import { currentTourSlug } from "./lib/state"
 import { Landing } from "./pages/Landing"
 import { LandingGrid } from "./pages/LandingGrid"
+import { LandingConsole } from "./pages/LandingConsole"
 import { TourScenario } from "./pages/TourScenario"
 import { AccessibleView } from "./pages/AccessibleView"
 
-function getCurrentRoute(): "landing" | "landing-grid" | "scenario" | "accessible" {
+function getCurrentRoute(): "landing" | "landing-grid" | "landing-console" | "scenario" | "accessible" {
   const p = window.location.pathname
   if (p.startsWith("/tour/accessible")) return "accessible"
   if (p.match(/\/tour\/quickstart\/[^/]+/)) return "scenario"
+  if (p.startsWith("/tour2")) return "landing-console"
   if (p.startsWith("/tour1")) return "landing-grid"
   return "landing"
 }
@@ -36,6 +38,9 @@ export function App() {
   }
   if (route === "landing-grid") {
     return <LandingGrid />
+  }
+  if (route === "landing-console") {
+    return <LandingConsole />
   }
   return <Landing />
 }

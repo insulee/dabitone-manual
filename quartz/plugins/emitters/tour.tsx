@@ -44,6 +44,12 @@ const TOUR_PAGES: readonly TourPageDef[] = [
     description: "새로운 전광판 운영 경험 (안 B, 2×2 Feature Grid).",
   },
   {
+    // Variant C Landing (실험 경로) — Operator's Console. 다크 모드, 수평 sticky pin, bento grid.
+    slug: "tour2/index" as FullSlug,
+    title: "DabitOne 투어 — Operator's Console",
+    description: "LED 전광판 운영 콘솔 (안 C, 다크 · 터미널 메타포).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",

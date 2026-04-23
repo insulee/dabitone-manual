@@ -63,6 +63,7 @@
   --tour-c-line: rgba(10, 10, 10, 0.10);
   --tour-c-line-strong: rgba(10, 10, 10, 0.18);
   --tour-c-line-on-dark: rgba(255, 255, 255, 0.12);
+  --tour-c-console-accent: #00FF87;
 
   /* Motion */
   --tour-ease-out: cubic-bezier(0.22, 1, 0.36, 1);

@@ -48,11 +48,12 @@ await build({
   legalComments: "none",
 })
 
-// 2. CSS 번들 — tokens + app을 하나로 합침
+// 2. CSS 번들 — tokens + app + console을 하나로 합침
 await build({
   entryPoints: [
     resolve(projectRoot, "tour/src/styles/tokens.css"),
     resolve(projectRoot, "tour/src/styles/app.css"),
+    resolve(projectRoot, "tour/src/styles/console.css"),
   ],
   outdir: outDir,
   bundle: true,
@@ -62,16 +63,19 @@ await build({
   external: ["/static/fonts/*"],
 })
 
-// 3. 병합: tokens.css + app.css → tour.css
+// 3. 병합: tokens.css + app.css + console.css → tour.css
 const tokensPath = resolve(outDir, "tokens.css")
 const appPath = resolve(outDir, "app.css")
+const consolePath = resolve(outDir, "console.css")
 const tourCssPath = resolve(outDir, "tour.css")
 
 const tokens = readFileSync(tokensPath, "utf-8")
 const app = readFileSync(appPath, "utf-8")
-writeFileSync(tourCssPath, tokens + "\n" + app)
+const consoleCss = readFileSync(consolePath, "utf-8")
+writeFileSync(tourCssPath, tokens + "\n" + app + "\n" + consoleCss)
 unlinkSync(tokensPath)
 unlinkSync(appPath)
+unlinkSync(consolePath)
 
 const elapsed = Date.now() - startedAt
 console.log(`[build-tour] done in ${elapsed}ms`)
