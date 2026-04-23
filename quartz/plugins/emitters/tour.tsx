@@ -71,6 +71,13 @@ const TOUR_PAGES: readonly TourPageDef[] = [
     description: "가로 스크롤 film strip (안 Horizontal, 6 패널 · wheel·키보드·dot 네비).",
   },
   {
+    // Variant Scrolly Landing (실험 경로) — Scrollytelling with pinned DabitOne UI mock.
+    // 좌 45% sticky UI mock + 우 55% 4 chapter 스크롤. NYT/Bloomberg 스크롤리텔링 방식.
+    slug: "tour6/index" as FullSlug,
+    title: "DabitOne 투어 — Scrollytelling",
+    description: "스크롤에 따라 DabitOne UI mock이 4 state로 전환되는 스크롤리텔링.",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",
