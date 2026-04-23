@@ -25,13 +25,33 @@
   font-style: italic;
   font-display: swap;
 }
+@font-face {
+  font-family: "Source Serif Variable";
+  src: url("/static/fonts/SourceSerifVariable.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif Variable";
+  src: url("/static/fonts/SourceSerifVariable-Italic.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
 
 .tour-page {
   /* Typography — Pretendard primary (가독성), Mono는 label 전용 */
   /* Inter Variable: Pretendard 로드 실패 시 Latin 폴백 (Pretendard가 한·영 모두 커버하므로 실사용은 드묾) */
-  --tour-font-display: "Pretendard Variable", "Inter Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+  --tour-font-display:
+    "Pretendard Variable", "Inter Variable", -apple-system, BlinkMacSystemFont, sans-serif;
   --tour-font-body: "Pretendard Variable", "Inter Variable", -apple-system, sans-serif;
   --tour-font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  --tour-font-serif:
+    "Source Serif Variable", "Iowan Old Style", "Apple Garamond", Georgia, "Times New Roman", serif;
+
+  /* Editorial (tour4) accent — 단 하나의 red 사용처: FIG 라벨·얇은 rule·hover underline 전용 */
+  --tour-c-editorial-rule: #d40000;
 
   --tour-fs-hero: clamp(64px, 10vw, 128px);
   --tour-fs-manifesto: clamp(32px, 5vw, 48px);
@@ -60,10 +80,10 @@
   --tour-c-text-dark-soft: #a3a3a3;
   --tour-c-accent: currentColor; /* hotspot dot·ripple·focus-outline 전용 — currentColor 상속으로 다크 반전 자동 */
   --tour-c-accent-soft: rgba(10, 10, 10, 0.08);
-  --tour-c-line: rgba(10, 10, 10, 0.10);
+  --tour-c-line: rgba(10, 10, 10, 0.1);
   --tour-c-line-strong: rgba(10, 10, 10, 0.18);
   --tour-c-line-on-dark: rgba(255, 255, 255, 0.12);
-  --tour-c-console-accent: #00FF87;
+  --tour-c-console-accent: #00ff87;
 
   /* Motion */
   --tour-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -88,8 +108,7 @@
   --tour-r-2xl: 0;
 
   /* Shadows — light theme 용 */
-  --tour-shadow-pop: 0 20px 40px rgba(10, 10, 10, 0.12),
-    0 4px 8px rgba(10, 10, 10, 0.04);
+  --tour-shadow-pop: 0 20px 40px rgba(10, 10, 10, 0.12), 0 4px 8px rgba(10, 10, 10, 0.04);
   --tour-shadow-hero: 0 0 0 1px rgba(10, 10, 10, 0.08);
 
   background: var(--tour-c-bg);

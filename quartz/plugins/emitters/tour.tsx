@@ -56,6 +56,14 @@ const TOUR_PAGES: readonly TourPageDef[] = [
     description: "DabitOne 데스크톱 앱 창 메타포 (안 E-1, 라이트 · Variable Font Kinetic).",
   },
   {
+    // Variant Concept 1+F Landing (실험 경로) — Editorial Magazine.
+    // Wallpaper 매거진풍 serif display + FIG.01~04 figure caption + VOL.1 ISSUE 01 masthead.
+    slug: "tour4/index" as FullSlug,
+    title: "DabitOne 투어 — Editorial Magazine",
+    description:
+      "매거진 에디토리얼 레이아웃 (안 F, Source Serif 4 + 비대칭 그리드 · 단일 red accent).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",

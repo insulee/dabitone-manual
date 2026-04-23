@@ -15,6 +15,13 @@
  *   3. Pretendard Variable (단일 파일, 한글 전 영역 포함)
  *        pretendard/dist/web/variable/woff2/PretendardVariable.woff2
  *        → quartz/static/fonts/PretendardVariable.woff2
+ *   4. Source Serif 4 Variable (Latin, wght+opsz 두 축, normal/italic)
+ *        @fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2
+ *        → quartz/static/fonts/SourceSerifVariable.woff2
+ *        @fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-italic.woff2
+ *        → quartz/static/fonts/SourceSerifVariable-Italic.woff2
+ *      (opsz = optical sizing — 대형 display에서 얇게, 본문에서 두껍게 자동 최적화.
+ *       editorial magazine 디자인의 핵심 특징)
  *
  * build 전 자동 실행 (package.json scripts의 `build` 체인 참조).
  *
@@ -55,6 +62,22 @@ const assets = [
       "node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
     ),
     dest: resolve(destDir, "PretendardVariable.woff2"),
+  },
+  {
+    label: "Source Serif 4 Variable (Latin, opsz+wght, normal)",
+    src: resolve(
+      projectRoot,
+      "node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2",
+    ),
+    dest: resolve(destDir, "SourceSerifVariable.woff2"),
+  },
+  {
+    label: "Source Serif 4 Variable (Latin, opsz+wght, italic)",
+    src: resolve(
+      projectRoot,
+      "node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-italic.woff2",
+    ),
+    dest: resolve(destDir, "SourceSerifVariable-Italic.woff2"),
   },
 ]
 
