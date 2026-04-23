@@ -864,3 +864,108 @@
     max-height: none;
   }
 }
+
+/* ==================== Features Grid (variant B, /tour1) ==================== */
+/* 기존 .tour-feature* 규칙은 /tour/ 안 A용. 아래는 /tour1/ 안 B 전용 2×2 grid. */
+.tour-features-grid {
+  padding: 120px 24px;
+  background: var(--tour-c-bg);
+}
+.tour-features-grid__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.tour-features-grid__eyebrow {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-label);
+  letter-spacing: var(--tour-ls-label);
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+.tour-features-grid__title {
+  font-family: var(--tour-font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  letter-spacing: var(--tour-ls-tight);
+  line-height: var(--tour-lh-tight);
+  margin: 0 0 56px;
+  color: var(--tour-c-text);
+}
+.tour-features-grid__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tour-features-grid__card {
+  padding: 40px;
+  border: 1px solid var(--tour-c-line);
+  background: var(--tour-c-bg-panel);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--tour-dur-micro) var(--tour-ease-out);
+}
+.tour-features-grid__card:hover {
+  border-color: var(--tour-c-line-strong);
+}
+.tour-features-grid__card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.tour-features-grid__card-num {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-label);
+  letter-spacing: var(--tour-ls-label);
+  text-transform: uppercase;
+  color: var(--tour-c-text-dim);
+  font-weight: 500;
+}
+.tour-features-grid__card-label {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-label);
+  letter-spacing: var(--tour-ls-label);
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  font-weight: 600;
+}
+.tour-features-grid__card-title {
+  font-family: var(--tour-font-display);
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 600;
+  letter-spacing: var(--tour-ls-tight);
+  line-height: var(--tour-lh-tight);
+  margin: 0 0 16px;
+  color: var(--tour-c-text);
+}
+.tour-features-grid__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tour-features-grid__card-line {
+  font-size: var(--tour-fs-small);
+  line-height: var(--tour-lh-normal);
+  color: var(--tour-c-text-soft);
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .tour-features-grid {
+    padding: 80px 20px;
+  }
+  .tour-features-grid__title {
+    margin-bottom: 40px;
+  }
+  .tour-features-grid__list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .tour-features-grid__card {
+    padding: 28px;
+  }
+}

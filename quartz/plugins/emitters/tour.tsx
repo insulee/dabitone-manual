@@ -38,6 +38,12 @@ const TOUR_PAGES: readonly TourPageDef[] = [
     description: "새로운 전광판 운영 경험.",
   },
   {
+    // Variant B Landing (실험 경로) — Feature 2×2 grid. /tour/와 동일 shell/에셋 사용, App.tsx가 pathname으로 분기.
+    slug: "tour1/index" as FullSlug,
+    title: "DabitOne 투어 — Variant B",
+    description: "새로운 전광판 운영 경험 (안 B, 2×2 Feature Grid).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",
