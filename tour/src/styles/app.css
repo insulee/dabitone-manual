@@ -154,19 +154,36 @@
   color: var(--tour-c-text);
 }
 
-/* ==================== Stage (Tour 스텝 전용) ==================== */
+/* ==================== Quickstart — Stage ==================== */
 .tour-stage {
   position: relative;
   width: 100%;
-  background: var(--tour-c-bg-soft);
+  max-height: 78vh;
   border: 1px solid var(--tour-c-line);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   overflow: hidden;
+  background: var(--tour-c-bg-panel);
 }
 .tour-stage__image {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  display: block;
+}
+
+/* ==================== Quickstart — Progress bar ==================== */
+.tour-progress {
+  height: 2px;
+  background: var(--tour-c-line);
+  overflow: hidden;
+}
+.tour-progress__fill {
+  height: 100%;
+  background: var(--tour-c-text);
+  transition: width 400ms var(--tour-ease-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-progress__fill { transition: none; }
 }
 
 /* ==================== Hero ==================== */

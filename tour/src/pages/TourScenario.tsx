@@ -183,7 +183,7 @@ function Stage({ step }: { step: TourStep }) {
     : hotspot
 
   return (
-    <div class="tour-stage" style={{ aspectRatio: `${step.image.width} / ${step.image.height}`, maxHeight: "78vh" }}>
+    <div class="tour-stage" style={{ aspectRatio: `${step.image.width} / ${step.image.height}` }}>
       <img
         class="tour-stage__image"
         src={step.image.src}
