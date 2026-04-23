@@ -114,11 +114,13 @@ function Feature({
   label,
   title,
   lines,
+  flip,
 }: {
   num: string
   label: string
   title: string
   lines: string[]
+  flip?: boolean
 }) {
   const ref = useRef<HTMLElement>(null)
   useEffect(() => {
@@ -127,22 +129,27 @@ function Feature({
   return (
     <section
       ref={ref}
-      class="tour-feature"
+      class={`tour-feature ${flip ? "tour-feature--flip" : ""}`}
       style={{ opacity: 0 }}
       aria-label={label.toLowerCase()}
     >
       <div class="tour-feature__inner">
-        <div class="tour-feature__head">
-          <span class="tour-feature__num">{num}</span>
-          <span class="tour-feature__label">{label}</span>
+        <div class="tour-feature__text">
+          <div class="tour-feature__head">
+            <span class="tour-feature__num">{num}</span>
+            <span class="tour-feature__label">{label}</span>
+          </div>
+          <h3 class="tour-feature__title">{title}</h3>
+          <div class="tour-feature__body">
+            {lines.map((line, i) => (
+              <p key={i} class="tour-feature__line">
+                {line}
+              </p>
+            ))}
+          </div>
         </div>
-        <h3 class="tour-feature__title">{title}</h3>
-        <div class="tour-feature__body">
-          {lines.map((line, i) => (
-            <p key={i} class="tour-feature__line">
-              {line}
-            </p>
-          ))}
+        <div class="tour-feature__visual" aria-hidden="true">
+          <div class="tour-feature__visual-mark">{num}</div>
         </div>
       </div>
     </section>
