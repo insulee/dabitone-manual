@@ -10,7 +10,6 @@ export function Landing() {
   return (
     <>
       <Hero />
-      <Manifesto />
       <Feature
         num="F01"
         label="ALL-IN-ONE"
@@ -37,7 +36,7 @@ export function Landing() {
         lines={[
           "UDP 브로드캐스트 한 번으로 같은 서브넷의 컨트롤러가 MAC·IP 목록으로.",
           "장비를 클릭하면 연결 설정으로 자동 반영, 곧바로 연결 테스트.",
-          "레거시에서는 IP를 모르면 연결 자체가 막혔습니다. dbNet은 타이핑과 오타 확인의 자리를 덜어 줍니다.",
+          "이전보다 안정적인 응답, 타이핑과 오타 확인이 줄어든 흐름.",
         ]}
       />
       <Feature
@@ -45,7 +44,7 @@ export function Landing() {
         label="HEX · ASCII"
         title="한 화면에서, 두 프로토콜."
         lines={[
-          "속성 그리드로 조립하는 HEX, 텍스트 영역으로 쓰는 ASCII.",
+          "메시지 종류·섹션·페이지를 라디오·콤보박스로 선택하는 HEX. 텍스트 영역에 직접 쓰는 ASCII.",
           "가운데의 “ASCII 변환” 버튼이 HEX 설정값을 ASCII 문자열로 바꿔 줍니다.",
           "프로토콜 문서 없이도 패킷 구조 확인. 시스템 연동과 현장 디버깅에서 학습 시간이 짧아집니다.",
         ]}
@@ -57,29 +56,20 @@ export function Landing() {
 }
 
 function Hero() {
-  return (
-    <section class="tour-hero" aria-label="Hero">
-      <div class="tour-hero__inner">
-        <h1 class="tour-hero__title">DabitOne</h1>
-        <p class="tour-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
-      </div>
-    </section>
-  )
-}
-
-function Manifesto() {
   const ref = useRef<HTMLElement>(null)
   useEffect(() => {
     if (ref.current) revealOnEnter(ref.current)
   }, [])
   return (
-    <section ref={ref} class="tour-manifesto" style={{ opacity: 0 }}>
-      <div class="tour-manifesto__inner">
-        <h2 class="tour-manifesto__text">
+    <section ref={ref} class="tour-hero" aria-label="Hero" style={{ opacity: 0 }}>
+      <div class="tour-hero__inner">
+        <h1 class="tour-hero__title">DabitOne</h1>
+        <p class="tour-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
+        <p class="tour-hero__manifesto">
           픽셀에서 프로토콜까지,
           <br />
           하나의 소프트웨어.
-        </h2>
+        </p>
       </div>
     </section>
   )

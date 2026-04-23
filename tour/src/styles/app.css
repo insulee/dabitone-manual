@@ -169,14 +169,14 @@
   object-fit: contain;
 }
 
-/* ==================== Hero ==================== */
+/* ==================== Hero (통합: 타이틀 + 서브 + 매니페스토) ==================== */
 .tour-hero {
-  min-height: 70vh;
+  min-height: 100vh;
   background: var(--tour-c-bg);
   color: var(--tour-c-text);
   display: flex;
   align-items: center;
-  padding: clamp(48px, 8vh, 96px) clamp(24px, 6vw, 96px);
+  padding: clamp(72px, 12vh, 144px) clamp(24px, 6vw, 96px);
   position: relative;
   border-bottom: 1px solid var(--tour-c-line);
 }
@@ -184,14 +184,6 @@
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-}
-.tour-hero__eyebrow {
-  font-family: var(--tour-font-mono);
-  font-size: var(--tour-fs-label);
-  letter-spacing: var(--tour-ls-label);
-  color: var(--tour-c-text-dim);
-  text-transform: uppercase;
-  margin: 0 0 clamp(40px, 8vh, 80px);
 }
 .tour-hero__title {
   font-family: var(--tour-font-display);
@@ -212,33 +204,14 @@
   font-weight: 400;
   max-width: 880px;
 }
-.tour-hero__meta {
-  font-family: var(--tour-font-mono);
-  font-size: var(--tour-fs-label);
-  letter-spacing: var(--tour-ls-label);
-  color: var(--tour-c-text-dim);
-  text-transform: uppercase;
-  margin: clamp(80px, 10vh, 120px) 0 0;
-}
-
-/* ==================== Manifesto ==================== */
-.tour-manifesto {
-  padding: clamp(72px, 12vh, 144px) clamp(24px, 6vw, 96px);
-  background: var(--tour-c-bg);
-  border-bottom: 1px solid var(--tour-c-line);
-}
-.tour-manifesto__inner {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.tour-manifesto__text {
+.tour-hero__manifesto {
   font-family: var(--tour-font-body);
-  font-size: var(--tour-fs-manifesto);
+  font-size: clamp(32px, 4.8vw, 72px);
   line-height: 1.15;
   letter-spacing: var(--tour-ls-tight);
   font-weight: 500;
   color: var(--tour-c-text);
-  margin: 0;
+  margin: clamp(80px, 12vh, 160px) 0 0;
   max-width: 1200px;
 }
 
