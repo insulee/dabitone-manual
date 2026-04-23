@@ -390,7 +390,7 @@ function Terminal() {
     <section class="console-terminal" aria-label="설치">
       <div class="console-terminal__inner">
         <p class="console-terminal__eyebrow">READY</p>
-        <p class="console-terminal__line" role="text" aria-label="install dabitone">
+        <p class="console-terminal__line" aria-label="install dabitone">
           <span class="console-terminal__prompt">$ </span>
           <span class="console-terminal__command">install dabitone</span>
           <span class="console-terminal__caret" aria-hidden="true">_</span>
