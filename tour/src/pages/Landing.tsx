@@ -211,33 +211,53 @@ function TabIndex() {
   )
 }
 
-function PdfFooter() {
+function Footer() {
   return (
-    <footer class="tour-footer" aria-label="PDF 다운로드">
+    <footer
+      class="tour-footer tour-section--dark"
+      aria-label="다운로드 및 참조"
+    >
       <div class="tour-footer__inner">
-        <p class="tour-footer__eyebrow">REFERENCE PDF</p>
-        <h3 class="tour-footer__title">오프라인 참조용.</h3>
+        <div class="tour-footer__install">
+          <p class="tour-footer__eyebrow">START USING</p>
+          <h3 class="tour-footer__title">DabitOne을 지금 다운로드.</h3>
+          <p class="tour-footer__lead">
+            설치 파일은 다빛솔루션 공식 사이트에서 제공됩니다.
+          </p>
+          <a
+            class="tour-btn tour-btn--primary"
+            href="https://www.dabitsol.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            DabitOne 다운로드 →
+          </a>
+        </div>
         <div class="tour-footer__pdfs">
-          <a
-            class="tour-footer__pdf-card"
-            href="/pdf/DabitOne_Manual_Reference.pdf"
-          >
-            <span class="tour-footer__pdf-num">A</span>
-            <span class="tour-footer__pdf-title">매뉴얼 — 기능편</span>
-            <span class="tour-footer__pdf-hint">
-              화면별 컨트롤 · 파일 포맷 · 메뉴 구조
-            </span>
-          </a>
-          <a
-            class="tour-footer__pdf-card"
-            href="/pdf/DabitOne_Manual_Operation.pdf"
-          >
-            <span class="tour-footer__pdf-num">B</span>
-            <span class="tour-footer__pdf-title">매뉴얼 — 운영편</span>
-            <span class="tour-footer__pdf-hint">
-              트러블슈팅 · FAQ · 릴리즈 노트
-            </span>
-          </a>
+          <p class="tour-footer__eyebrow">REFERENCE PDF</p>
+          <h3 class="tour-footer__title">오프라인 참조용.</h3>
+          <div class="tour-footer__pdf-list">
+            <a
+              class="tour-footer__pdf-card"
+              href="/pdf/DabitOne_Manual_Reference.pdf"
+            >
+              <span class="tour-footer__pdf-num">A</span>
+              <span class="tour-footer__pdf-title">매뉴얼 — 기능편</span>
+              <span class="tour-footer__pdf-hint">
+                화면별 컨트롤 · 파일 포맷 · 메뉴 구조
+              </span>
+            </a>
+            <a
+              class="tour-footer__pdf-card"
+              href="/pdf/DabitOne_Manual_Operation.pdf"
+            >
+              <span class="tour-footer__pdf-num">B</span>
+              <span class="tour-footer__pdf-title">매뉴얼 — 운영편</span>
+              <span class="tour-footer__pdf-hint">
+                트러블슈팅 · FAQ · 릴리즈 노트
+              </span>
+            </a>
+          </div>
         </div>
         <p class="tour-footer__colophon">© 다빛솔루션</p>
       </div>
