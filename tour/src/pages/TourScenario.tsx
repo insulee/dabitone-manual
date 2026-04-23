@@ -223,116 +223,32 @@ function Rail({
   nextTour?: string
 }) {
   return (
-    <aside
-      class="tour-scenario__rail"
-      style={{
-        position: "sticky",
-        top: "40px",
-        background: "var(--tour-c-bg-panel)",
-        padding: "32px 28px",
-        border: "1px solid var(--tour-c-line)",
-        boxShadow: "var(--tour-shadow-pop)",
-      }}
-    >
-      <h2
-        style={{
-          fontFamily: "var(--tour-font-display)",
-          fontSize: "clamp(24px, 2.2vw, 32px)",
-          letterSpacing: "var(--tour-ls-tight)",
-          fontWeight: 600,
-          lineHeight: "var(--tour-lh-tight)",
-          margin: "0 0 16px",
-        }}
-      >
-        {step.title}
-      </h2>
-      <p
-        style={{
-          fontSize: "var(--tour-fs-body)",
-          lineHeight: "var(--tour-lh-normal)",
-          color: "var(--tour-c-text-soft)",
-          margin: "0 0 24px",
-        }}
-      >
-        {step.description}
-      </p>
+    <aside class="tour-rail">
+      <h2 class="tour-rail__title">{step.title}</h2>
+      <p class="tour-rail__desc">{step.description}</p>
 
       {step.tips && step.tips.length > 0 && (
-        <ul
-          style={{
-            listStyle: "none",
-            padding: 0,
-            margin: "0 0 24px",
-            borderTop: "1px solid var(--tour-c-line)",
-            paddingTop: "16px",
-          }}
-        >
+        <ul class="tour-rail__tips">
           {step.tips.map((tip, i) => (
-            <li
-              key={i}
-              style={{
-                fontSize: "15px",
-                color: "var(--tour-c-text-soft)",
-                padding: "6px 0 6px 20px",
-                position: "relative",
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  left: 0,
-                  color: "var(--tour-c-text-soft)",
-                }}
-              >
-                ·
-              </span>
-              {tip}
-            </li>
+            <li key={i} class="tour-rail__tip">{tip}</li>
           ))}
         </ul>
       )}
 
       {step.relatedRefs && step.relatedRefs.length > 0 && (
-        <div
-          style={{
-            borderTop: "1px solid var(--tour-c-line)",
-            paddingTop: "16px",
-            marginBottom: "24px",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "13px",
-              color: "var(--tour-c-text-soft)",
-              textTransform: "uppercase",
-              letterSpacing: "0.1em",
-              marginBottom: "8px",
-              fontWeight: 600,
-            }}
-          >
-            더 자세히
-          </div>
-          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+        <div class="tour-rail__refs">
+          <div class="tour-rail__refs-head">더 자세히</div>
+          <ul class="tour-rail__refs-list">
             {step.relatedRefs.map((ref, i) => (
-              <li key={i} style={{ marginBottom: "4px" }}>
-                <a
-                  href={ref.path}
-                  style={{
-                    color: "var(--tour-c-text)",
-                    textDecoration: "none",
-                    fontSize: "15px",
-                  }}
-                >
-                  {ref.label} →
-                </a>
+              <li key={i}>
+                <a class="tour-rail__ref-link" href={ref.path}>{ref.label} →</a>
               </li>
             ))}
           </ul>
         </div>
       )}
 
-      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+      <div class="tour-rail__actions">
         <button
           onClick={onPrev}
           disabled={isFirst}
@@ -342,9 +258,7 @@ function Rail({
           ← 이전
         </button>
         {!isLast && (
-          <button onClick={onNext} class="tour-btn tour-btn--primary">
-            다음 →
-          </button>
+          <button onClick={onNext} class="tour-btn tour-btn--primary">다음 →</button>
         )}
         {isLast && nextTour && (
           <a href={`/tour/quickstart/${nextTour}/`} class="tour-btn tour-btn--primary">
@@ -359,16 +273,7 @@ function Rail({
       </div>
 
       {step.nextHint && !isLast && (
-        <p
-          style={{
-            fontSize: "13px",
-            color: "var(--tour-c-text-soft)",
-            marginTop: "16px",
-            fontStyle: "italic",
-          }}
-        >
-          다음: {step.nextHint}
-        </p>
+        <p class="tour-rail__hint">다음: {step.nextHint}</p>
       )}
     </aside>
   )

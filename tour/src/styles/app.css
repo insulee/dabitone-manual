@@ -688,3 +688,96 @@
   white-space: nowrap;
   padding-top: 8px;
 }
+
+/* ==================== Quickstart — Rail ==================== */
+.tour-rail {
+  position: sticky;
+  top: 40px;
+  background: var(--tour-c-bg);
+  padding: 32px 28px;
+  border: 1px solid var(--tour-c-line);
+  box-shadow: none;
+}
+.tour-rail__title {
+  font-family: var(--tour-font-display);
+  font-size: var(--tour-fs-title);
+  font-weight: 600;
+  letter-spacing: var(--tour-ls-tight);
+  line-height: var(--tour-lh-tight);
+  margin: 0 0 16px;
+  color: var(--tour-c-text);
+}
+.tour-rail__desc {
+  font-size: var(--tour-fs-body);
+  line-height: var(--tour-lh-normal);
+  color: var(--tour-c-text-soft);
+  margin: 0 0 24px;
+}
+.tour-rail__tips {
+  list-style: none;
+  padding: 16px 0 0;
+  margin: 0 0 24px;
+  border-top: 1px solid var(--tour-c-line);
+}
+.tour-rail__tip {
+  font-size: 15px;
+  color: var(--tour-c-text-soft);
+  padding: 6px 0 6px 20px;
+  position: relative;
+  line-height: var(--tour-lh-normal);
+}
+.tour-rail__tip::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--tour-c-text);
+  font-weight: 700;
+}
+.tour-rail__refs {
+  border-top: 1px solid var(--tour-c-line);
+  padding-top: 16px;
+  margin-bottom: 24px;
+}
+.tour-rail__refs-head {
+  font-family: var(--tour-font-mono);
+  font-size: 13px;
+  color: var(--tour-c-text-soft);
+  text-transform: uppercase;
+  letter-spacing: var(--tour-ls-label);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.tour-rail__refs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tour-rail__refs-list li {
+  margin-bottom: 4px;
+}
+.tour-rail__ref-link {
+  color: var(--tour-c-text);
+  text-decoration: none;
+  font-size: 15px;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--tour-dur-micro) var(--tour-ease-out);
+}
+.tour-rail__ref-link:hover,
+.tour-rail__ref-link:focus-visible {
+  border-bottom-color: var(--tour-c-text);
+  outline: none;
+}
+.tour-rail__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tour-rail__hint {
+  font-size: 13px;
+  color: var(--tour-c-text-dim);
+  margin: 16px 0 0;
+  font-style: italic;
+}
+@media (max-width: 1023px) {
+  .tour-rail { position: static; padding: 28px 24px; }
+}
