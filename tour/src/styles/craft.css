@@ -1,0 +1,816 @@
+/**
+ * craft.css — /tour8/ 전용 (Craft Atlas).
+ *
+ * 디자인 레퍼런스: rauno.me, Paco Coursey, tldraw.com, Cal.com design craft.
+ * Dieter Rams industrial design atlas book의 web 번역.
+ *
+ * 원칙:
+ *  - warm off-white #F5F1EB + ink #0A0A0A + single red #D40000 (annotation 전용).
+ *  - Source Serif Variable display (italic 혼용, wght 축).
+ *  - Pretendard Variable 본문.
+ *  - IBM Plex Mono / mono fallback — label.
+ *  - Hand-drawn annotation: dotted/dashed curved paths + feTurbulence displacement.
+ *  - Custom spring cursor — pointer:coarse·reduced-motion 시 네이티브 fallback.
+ *  - SVG noise grain overlay (opacity ~7%).
+ *  - Micro-delay stagger — IntersectionObserver + CSS transitions.
+ */
+
+/* =========================================================================
+   Body & shell
+   ========================================================================= */
+
+body.tour8-page {
+  background: #f5f1eb;
+  color: #0a0a0a;
+  /* 얇은 scrollbar — WebKit */
+  scrollbar-width: thin;
+  scrollbar-color: #0a0a0a #f5f1eb;
+}
+body.tour8-page::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+body.tour8-page::-webkit-scrollbar-thumb {
+  background: rgba(10, 10, 10, 0.3);
+  border-radius: 0;
+}
+body.tour8-page::-webkit-scrollbar-track {
+  background: #f5f1eb;
+}
+
+body.tour8-page #tour-root {
+  background: #f5f1eb;
+}
+
+/* Custom cursor active — hide native */
+body.tour8-page.tour8-has-cursor,
+body.tour8-page.tour8-has-cursor * {
+  cursor: none !important;
+}
+
+.tour8-shell {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 48px 64px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================================
+   Grain overlay — fixed, full-viewport, subtle
+   ========================================================================= */
+
+.tour8-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.55; /* SVG alpha 0.08 * 0.55 ≈ 4~7% — subtle */
+  mix-blend-mode: multiply;
+}
+.tour8-grain svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour8-grain {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================================================
+   Spring cursor — dot + ring
+   ========================================================================= */
+
+.tour8-cursor-dot,
+.tour8-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+.tour8-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #0a0a0a;
+  border-radius: 50%;
+  transform: translate3d(-100px, -100px, 0);
+}
+.tour8-cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #0a0a0a;
+  border-radius: 50%;
+  transform: translate3d(-100px, -100px, 0);
+  transition:
+    width 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 200ms ease,
+    background 200ms ease;
+}
+.tour8-cursor-ring.is-hover {
+  width: 56px;
+  height: 56px;
+  margin: -10px 0 0 -10px;
+  border-color: #d40000;
+  background: rgba(212, 0, 0, 0.06);
+}
+
+@media (pointer: coarse) {
+  .tour8-cursor-dot,
+  .tour8-cursor-ring {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour8-cursor-dot,
+  .tour8-cursor-ring {
+    display: none;
+  }
+}
+
+/* =========================================================================
+   Handwritten font — serif italic as substitute
+   ========================================================================= */
+
+.tour8-handwritten {
+  font-family: var(--tour-font-serif);
+  font-style: italic;
+  font-variation-settings:
+    "wght" 400,
+    "opsz" 14;
+  letter-spacing: 0.01em;
+}
+
+/* =========================================================================
+   Entry — shared section styles
+   ========================================================================= */
+
+.tour8-entry {
+  padding: 80px 0;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.14);
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tour8-entry.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.tour8-entry:last-of-type {
+  border-bottom: 0;
+}
+
+.tour8-entry__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  margin: 0 0 48px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.2);
+}
+.tour8-entry__meta--dark {
+  color: inherit;
+  border-bottom-color: rgba(245, 241, 235, 0.25);
+}
+
+.tour8-entry__title {
+  font-family: var(--tour-font-serif);
+  font-size: clamp(44px, 6vw, 80px);
+  font-variation-settings:
+    "wght" 400,
+    "opsz" 144;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin: 0 0 32px;
+  color: #0a0a0a;
+  transition: font-variation-settings 600ms ease;
+}
+.tour8-entry__title em {
+  font-style: italic;
+  font-variation-settings:
+    "wght" 300,
+    "opsz" 144;
+}
+.tour8-entry__title:hover {
+  font-variation-settings:
+    "wght" 620,
+    "opsz" 144;
+}
+
+.tour8-entry__body {
+  font-family: var(--tour-font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  color: #0a0a0a;
+  max-width: 620px;
+  margin: 0 0 20px;
+}
+.tour8-entry__body:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================================
+   HOMEPAGE — cover
+   ========================================================================= */
+
+.tour8-entry--home {
+  padding: 64px 0 100px;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.14);
+}
+
+.tour8-home__title {
+  font-family: var(--tour-font-serif);
+  font-size: clamp(72px, 13vw, 180px);
+  font-variation-settings:
+    "wght" 300,
+    "opsz" 144;
+  letter-spacing: -0.055em;
+  line-height: 0.88;
+  margin: 0 0 32px;
+  color: #0a0a0a;
+}
+.tour8-home__title em {
+  font-style: italic;
+  font-variation-settings:
+    "wght" 300,
+    "opsz" 144;
+}
+
+.tour8-home__sub {
+  font-family: var(--tour-font-serif);
+  font-variation-settings:
+    "wght" 400,
+    "opsz" 36;
+  font-style: italic;
+  font-size: clamp(22px, 2.2vw, 30px);
+  color: rgba(10, 10, 10, 0.72);
+  margin: 0 0 40px;
+  letter-spacing: -0.01em;
+}
+
+.tour8-home__body {
+  font-family: var(--tour-font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 0 48px;
+  color: #0a0a0a;
+}
+
+.tour8-home__cta-wrap {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 64px;
+  max-width: 560px;
+}
+
+.tour8-home__cta {
+  /* 빨간 화살표가 이 버튼을 지시 */
+  position: relative;
+}
+
+.tour8-home__arrow {
+  position: absolute;
+  top: -80px;
+  right: -40px;
+  width: 220px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tour8-home__foot {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(10, 10, 10, 0.55);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* =========================================================================
+   ENTRY 01 — THE WHOLE
+   ========================================================================= */
+
+.tour8-whole__grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.tour8-whole__left {
+  padding-top: 12px;
+}
+
+.tour8-whole__right {
+  position: relative;
+}
+
+.tour8-whole__diagram {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tour8-whole__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tour8-whole__wordmark {
+  font-family: var(--tour-font-serif);
+  font-variation-settings:
+    "wght" 500,
+    "opsz" 60;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+  z-index: 1;
+  position: relative;
+}
+
+.tour8-whole__caption {
+  text-align: center;
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(10, 10, 10, 0.55);
+  margin: 16px 0 0;
+  text-transform: lowercase;
+}
+
+/* =========================================================================
+   ENTRY 02 — LIBRARY
+   ========================================================================= */
+
+.tour8-library__list {
+  list-style: none;
+  padding: 0;
+  margin: 48px 0 0;
+  border-top: 1px solid rgba(10, 10, 10, 0.2);
+}
+
+.tour8-library__row {
+  display: grid;
+  grid-template-columns: 60px 1fr 180px;
+  gap: 32px;
+  align-items: baseline;
+  padding: 28px 0;
+  border-bottom: 1px dotted rgba(10, 10, 10, 0.4);
+  transition: background 220ms ease;
+}
+.tour8-library__row:hover {
+  background: rgba(10, 10, 10, 0.03);
+}
+
+.tour8-library__num {
+  font-family: var(--tour-font-serif);
+  font-variation-settings:
+    "wght" 500,
+    "opsz" 36;
+  font-style: italic;
+  font-size: 28px;
+  color: #0a0a0a;
+  letter-spacing: 0;
+}
+
+.tour8-library__text {
+  min-width: 0;
+}
+
+.tour8-library__name {
+  font-family: var(--tour-font-display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #0a0a0a;
+  margin: 0 0 6px;
+}
+
+.tour8-library__caption {
+  font-family: var(--tour-font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(10, 10, 10, 0.62);
+  margin: 0;
+}
+
+.tour8-library__arrow {
+  width: 100%;
+  max-width: 160px;
+  height: 48px;
+  justify-self: end;
+}
+.tour8-library__arrow.is-accent {
+  /* red only here */
+}
+
+/* =========================================================================
+   ENTRY 03 — TEXTURES
+   ========================================================================= */
+
+.tour8-textures__intro {
+  margin-bottom: 48px;
+}
+
+.tour8-textures__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.tour8-textures__tile {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tour8-textures__frame {
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(10, 10, 10, 0.4);
+  background: #faf7f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  transition: border-color 220ms ease;
+}
+.tour8-textures__frame:hover {
+  border-color: #0a0a0a;
+}
+.tour8-textures__frame svg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.tour8-textures__caption {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(10, 10, 10, 0.72);
+  display: flex;
+  gap: 6px;
+}
+
+.tour8-textures__fig {
+  font-style: italic;
+  font-family: var(--tour-font-serif);
+  font-variation-settings:
+    "wght" 400,
+    "opsz" 14;
+  color: #0a0a0a;
+}
+
+.tour8-textures__title {
+  color: rgba(10, 10, 10, 0.65);
+}
+
+/* =========================================================================
+   ENTRY 04 — EXCURSION
+   ========================================================================= */
+
+.tour8-excursion__intro {
+  margin-bottom: 40px;
+}
+
+.tour8-excursion__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 64px;
+}
+
+.tour8-excursion__row {
+  border-top: 1px solid rgba(10, 10, 10, 0.18);
+}
+.tour8-excursion__row:last-child {
+  border-bottom: 1px solid rgba(10, 10, 10, 0.18);
+}
+
+.tour8-excursion__link {
+  display: grid;
+  grid-template-columns: 56px auto 1fr 56px;
+  gap: 16px;
+  align-items: baseline;
+  padding: 20px 0;
+  text-decoration: none;
+  color: #0a0a0a;
+  transition: color 220ms ease, background 220ms ease;
+}
+.tour8-excursion__link:hover {
+  color: #d40000;
+  background: rgba(10, 10, 10, 0.02);
+}
+.tour8-excursion__link:hover .tour8-excursion__dots {
+  background-image: radial-gradient(circle, #d40000 1px, transparent 1.6px);
+}
+.tour8-excursion__link:hover .tour8-excursion__title {
+  font-variation-settings:
+    "wght" 560,
+    "opsz" 36;
+}
+
+.tour8-excursion__num {
+  font-family: var(--tour-font-serif);
+  font-variation-settings:
+    "wght" 400,
+    "opsz" 36;
+  font-style: italic;
+  font-size: 26px;
+  letter-spacing: 0;
+  color: #0a0a0a;
+}
+
+.tour8-excursion__dots {
+  flex: 1;
+  min-width: 40px;
+  height: 1em;
+  background-image: radial-gradient(circle, rgba(10, 10, 10, 0.5) 1px, transparent 1.6px);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  transition: background-image 220ms ease;
+}
+
+.tour8-excursion__title {
+  font-family: var(--tour-font-serif);
+  font-variation-settings:
+    "wght" 460,
+    "opsz" 36;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: #0a0a0a;
+  transition: font-variation-settings 220ms ease;
+  white-space: nowrap;
+  padding-right: 4px;
+}
+
+.tour8-excursion__page {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(10, 10, 10, 0.55);
+  justify-self: end;
+}
+
+.tour8-excursion__flourish {
+  text-align: center;
+  font-family: var(--tour-font-serif);
+  font-variation-settings:
+    "wght" 300,
+    "opsz" 36;
+  font-style: italic;
+  font-size: 22px;
+  color: rgba(10, 10, 10, 0.55);
+  margin: 0;
+  letter-spacing: 0.4em;
+}
+
+/* =========================================================================
+   COLOPHON
+   ========================================================================= */
+
+.tour8-entry--colophon {
+  background: #0a0a0a;
+  color: #f5f1eb;
+  margin: 80px -64px -80px;
+  padding: 96px 64px 96px;
+  border-bottom: 0;
+}
+.tour8-entry--colophon .tour8-entry__meta {
+  color: #f5f1eb;
+  border-bottom-color: rgba(245, 241, 235, 0.25);
+}
+.tour8-entry--colophon .tour8-entry__title,
+.tour8-entry--colophon .tour8-colophon__title {
+  color: #f5f1eb;
+}
+
+.tour8-colophon__title {
+  font-family: var(--tour-font-serif);
+  font-size: clamp(44px, 6vw, 80px);
+  font-variation-settings:
+    "wght" 400,
+    "opsz" 144;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin: 0 0 24px;
+}
+.tour8-colophon__title em {
+  font-style: italic;
+  font-variation-settings:
+    "wght" 300,
+    "opsz" 144;
+}
+
+.tour8-colophon__body {
+  font-family: var(--tour-font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(245, 241, 235, 0.82);
+  max-width: 580px;
+  margin: 0 0 40px;
+}
+
+.tour8-colophon__cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+
+/* Dark section — button overrides */
+.tour8-entry--colophon .tour-btn--primary {
+  background: #f5f1eb;
+  color: #0a0a0a;
+}
+.tour8-entry--colophon .tour-btn--primary:hover {
+  background: #ffffff;
+}
+.tour8-entry--colophon .tour-btn--secondary {
+  color: #f5f1eb;
+  border-color: rgba(245, 241, 235, 0.4);
+  background: transparent;
+}
+.tour8-entry--colophon .tour-btn--secondary:hover {
+  background: rgba(245, 241, 235, 0.08);
+}
+
+.tour8-colophon__foot {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(245, 241, 235, 0.5);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(245, 241, 235, 0.18);
+  padding-top: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tour8-colophon__foot p {
+  margin: 0;
+}
+
+/* =========================================================================
+   Focus rings
+   ========================================================================= */
+
+.tour8-page :focus-visible {
+  outline: 1px dashed #0a0a0a;
+  outline-offset: 3px;
+}
+.tour8-entry--colophon :focus-visible {
+  outline-color: #f5f1eb;
+}
+
+/* =========================================================================
+   View Transitions — default cross-fade (브라우저 지원 시)
+   ========================================================================= */
+
+@supports (view-transition-name: none) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 360ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* =========================================================================
+   Reduced motion
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .tour8-entry {
+    transition: opacity 100ms ease;
+    transform: none;
+  }
+  .tour8-entry.is-revealed {
+    transform: none;
+  }
+  .tour8-cursor-ring {
+    transition: none;
+  }
+  .tour8-entry__title {
+    transition: none;
+  }
+}
+
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+
+@media (max-width: 1023px) {
+  .tour8-shell {
+    padding: 40px 40px 64px;
+  }
+  .tour8-entry--colophon {
+    margin: 64px -40px -64px;
+    padding: 80px 40px;
+  }
+  .tour8-whole__grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 899px) {
+  .tour8-shell {
+    padding: 32px 24px 56px;
+  }
+  .tour8-entry {
+    padding: 56px 0;
+  }
+  .tour8-entry--home {
+    padding: 40px 0 72px;
+  }
+  .tour8-entry--colophon {
+    margin: 56px -24px -56px;
+    padding: 72px 24px;
+  }
+  .tour8-whole__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .tour8-textures__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .tour8-library__row {
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+  }
+  .tour8-library__arrow {
+    grid-column: 2 / 3;
+    justify-self: start;
+    max-width: 120px;
+    margin-top: 4px;
+  }
+  .tour8-excursion__link {
+    grid-template-columns: 48px 1fr 48px;
+  }
+  .tour8-excursion__dots {
+    display: none;
+  }
+  .tour8-home__arrow {
+    top: -64px;
+    right: -16px;
+    width: 160px;
+    height: 88px;
+  }
+}
+
+@media (max-width: 639px) {
+  .tour8-shell {
+    padding: 24px 16px 48px;
+  }
+  .tour8-entry--colophon {
+    margin: 48px -16px -48px;
+    padding: 64px 16px;
+  }
+  .tour8-entry__meta {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+  .tour8-home__title {
+    font-size: clamp(56px, 14vw, 96px);
+  }
+  .tour8-textures__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tour8-library__arrow {
+    display: none;
+  }
+  .tour8-excursion__page {
+    display: none;
+  }
+  .tour8-excursion__link {
+    grid-template-columns: 40px 1fr;
+  }
+  .tour8-colophon__foot {
+    flex-direction: column;
+  }
+}

@@ -87,6 +87,15 @@ const TOUR_PAGES: readonly TourPageDef[] = [
       "3가지 미니 데모로 DabitOne의 핵심 기능을 직접 체험 (안 Playground, 읽기가 아닌 체험 중심).",
   },
   {
+    // Variant Craft Atlas Landing (실험 경로) — Designer-notebook atlas book.
+    // Custom spring cursor + SVG noise grain + hand-drawn annotations + View Transitions.
+    // rauno.me / Paco Coursey / tldraw / Cal.com design craft 스타일의 2026 craft rebellion.
+    slug: "tour8/index" as FullSlug,
+    title: "DabitOne 투어 — Craft Atlas",
+    description:
+      "디자이너 노트북 질감의 아틀라스 북 (안 Craft Atlas, custom cursor + noise grain + hand-drawn annotations).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",
