@@ -96,6 +96,15 @@ const TOUR_PAGES: readonly TourPageDef[] = [
       "디자이너 노트북 질감의 아틀라스 북 (안 Craft Atlas, custom cursor + noise grain + hand-drawn annotations).",
   },
   {
+    // Variant Kinetic Type Poster Landing (실험 경로) — Typography-first poster series.
+    // 6개 풀 뷰포트 포스터 + marquee ticker + scroll-driven variable font wght axis.
+    // Active Theory · Lusion · Pentagram · Fontfabric "Typographic Maximalism 2026" 레퍼런스.
+    slug: "tour9/index" as FullSlug,
+    title: "DabitOne 투어 — Kinetic Type",
+    description:
+      "거대 가변폰트 포스터 시리즈 (안 Kinetic, 스크롤 드리븐 wght 애니메이션).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",

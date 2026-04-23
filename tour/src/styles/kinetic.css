@@ -1,0 +1,724 @@
+/**
+ * kinetic.css — /tour9/ 전용 (Kinetic Type Poster, Vol. 09).
+ *
+ * 디자인 레퍼런스: Active Theory, Lusion, Pentagram typographic posters,
+ * Fontfabric "Typographic Maximalism 2026", Swiss modernism × scroll-driven motion.
+ *
+ * 원칙:
+ *  - 타이포그래피가 곧 콘텐츠. 제품 UI·카드·스크린샷 금지.
+ *  - 순수 흑·백 + 단 하나의 red(#FF2D2D). 섹션마다 반전 — black-on-white / white-on-black.
+ *  - clamp(120px, 24vw, 400px) 거대 헤드라인. Pretendard Variable(45..920) wght 축 활용.
+ *  - scroll-driven animation-timeline: scroll()/view() — hero wght 100→900.
+ *  - Letter-stagger enter — span 단위 --i 인덱스 + transition-delay.
+ *  - Marquee strip — CSS infinite linear animation, reduced-motion 시 정지.
+ *  - section 전환 시 negative margin + mix-blend-mode: difference 겹침.
+ */
+
+/* =========================================================================
+   Body & shell
+   ========================================================================= */
+
+body.tour9-page {
+  background: #ffffff;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* marquee 가로 오버플로 숨김 */
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #ffffff;
+}
+body.tour9-page #tour-root {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.tour9-shell {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #000000;
+  overflow-x: hidden;
+  /* Poster 06이 black bg일 때도 이후 여백 없음 */
+}
+
+/* =========================================================================
+   Common poster — 풀 뷰포트 한 판
+   ========================================================================= */
+
+.tour9-poster {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(32px, 6vw, 96px) clamp(24px, 4vw, 80px);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.tour9-poster--light {
+  background: #ffffff;
+  color: #000000;
+}
+.tour9-poster--dark {
+  background: #000000;
+  color: #ffffff;
+}
+
+.tour9-poster__eyebrow {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 clamp(32px, 6vh, 80px);
+  opacity: 0.72;
+  line-height: 1;
+}
+
+.tour9-poster__caption {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: clamp(24px, 4vh, 56px) 0 0;
+  opacity: 0.72;
+}
+
+.tour9-poster__caption--red {
+  color: #ff2d2d;
+  opacity: 1;
+  font-variation-settings: "wght" 600;
+  letter-spacing: 0.24em;
+}
+
+/* =========================================================================
+   Letter stagger — span-per-char with IntersectionObserver reveal
+   ========================================================================= */
+
+.tour9-stagger {
+  display: inline-block;
+}
+
+.tour9-stagger__char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.32em);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 30ms);
+  white-space: pre; /* 공백 문자 유지 */
+}
+
+.tour9-poster.is-revealed .tour9-stagger__char {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================================
+   POSTER 01 — DABITONE (hero, black-on-white, scroll-driven wght)
+   ========================================================================= */
+
+.tour9-poster--hero {
+  align-items: stretch;
+  text-align: left;
+}
+
+.tour9-hero__wordmark {
+  font-family: var(--tour-font-display);
+  /* "DABITONE" = 8 chars. 14vw × 8 ≈ 112vw인데 letter-spacing -0.055em 감안하면
+     약 105% 너비. 조금 더 타이트하게 12vw로 하여 단일 라인 유지. */
+  font-size: clamp(72px, 16vw, 260px);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  margin: 0;
+  white-space: nowrap;
+  font-variation-settings: "wght" 500;
+  /* Scroll-driven wght animation: 100 → 920 as user scrolls hero region.
+     animation-timeline: view() — section-scoped; works in Chrome 115+, Safari 26. */
+  animation-name: tour9-hero-wght;
+  animation-duration: 1ms;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 60%;
+  will-change: font-variation-settings;
+}
+
+@keyframes tour9-hero-wght {
+  0% {
+    font-variation-settings: "wght" 100;
+  }
+  100% {
+    font-variation-settings: "wght" 900;
+  }
+}
+
+.tour9-hero__cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: clamp(48px, 8vh, 96px);
+}
+
+.tour9-hero__cta-primary,
+.tour9-hero__cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  font-family: var(--tour-font-body);
+  font-size: 14px;
+  font-variation-settings: "wght" 600;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition:
+    background 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+.tour9-hero__cta-primary {
+  background: #000000;
+  color: #ffffff;
+}
+.tour9-hero__cta-primary:hover {
+  background: #ff2d2d;
+}
+.tour9-hero__cta-secondary {
+  background: transparent;
+  color: #000000;
+  border: 1px solid #000000;
+}
+.tour9-hero__cta-secondary:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* =========================================================================
+   MARQUEE — infinite horizontal ticker strip
+   ========================================================================= */
+
+.tour9-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: clamp(18px, 3vw, 32px) 0;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  background: inherit;
+}
+
+.tour9-marquee--strip-a {
+  background: #ffffff;
+  color: #000000;
+}
+.tour9-marquee--strip-b {
+  background: #000000;
+  color: #ffffff;
+}
+
+.tour9-marquee__track {
+  display: inline-flex;
+  gap: 0;
+  animation: tour9-marquee-scroll 40s linear infinite;
+  will-change: transform;
+}
+.tour9-marquee--reverse .tour9-marquee__track {
+  animation-direction: reverse;
+  animation-duration: 52s;
+}
+
+.tour9-marquee__item {
+  display: inline-block;
+  font-family: var(--tour-font-display);
+  font-size: clamp(44px, 8vw, 120px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variation-settings: "wght" 800;
+  padding: 0 clamp(24px, 3vw, 56px);
+  white-space: nowrap;
+}
+.tour9-marquee__item--sep {
+  color: #ff2d2d;
+  font-variation-settings: "wght" 500;
+  padding: 0 clamp(16px, 2vw, 32px);
+}
+
+.tour9-marquee--strip-b .tour9-marquee__item {
+  font-style: italic;
+  font-family: var(--tour-font-serif);
+  font-variation-settings: "wght" 600;
+  letter-spacing: -0.02em;
+}
+
+@keyframes tour9-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* =========================================================================
+   POSTER 02 — ONE / SOFTWARE (dark, giant red slash)
+   ========================================================================= */
+
+.tour9-poster--onesoft {
+  justify-content: center;
+}
+
+.tour9-onesoft__phrase {
+  font-family: var(--tour-font-display);
+  /* "SOFTWARE" = 8 chars. 14vw × 8 ≈ viewport에 맞춤 */
+  font-size: clamp(80px, 14vw, 220px);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  font-variation-settings: "wght" 900;
+  margin: 0;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.tour9-onesoft__line {
+  display: block;
+}
+.tour9-onesoft__line--indent {
+  padding-left: clamp(24px, 6vw, 160px);
+}
+
+.tour9-onesoft__slash {
+  display: inline-block;
+  color: #ff2d2d;
+  font-size: 1.45em;
+  font-variation-settings: "wght" 300;
+  font-style: italic;
+  padding: 0 0.04em;
+  line-height: 0.7;
+  transform: translateY(0.04em);
+  animation: tour9-slash-lean 6s ease-in-out infinite alternate;
+}
+
+@keyframes tour9-slash-lean {
+  0% {
+    transform: translateY(0.04em) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0.04em) rotate(-6deg);
+  }
+}
+
+/* =========================================================================
+   POSTER 03 — LED × RGB × HEX (light, rotated even rows)
+   ========================================================================= */
+
+.tour9-poster--terms {
+  justify-content: center;
+}
+
+.tour9-terms__stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 1vw, 16px);
+  margin: 0;
+}
+
+.tour9-terms__row {
+  font-family: var(--tour-font-display);
+  /* 3 chars (LED/RGB/HEX) — 20vw 가능. max 380px로 매우 큰 데스크톱 제한 */
+  font-size: clamp(96px, 20vw, 320px);
+  line-height: 0.86;
+  letter-spacing: -0.06em;
+  font-variation-settings: "wght" 900;
+  margin: 0;
+  text-transform: uppercase;
+  display: block;
+  transform-origin: left center;
+  white-space: nowrap;
+}
+.tour9-terms__row:nth-of-type(1) {
+  font-variation-settings: "wght" 920;
+  letter-spacing: -0.06em;
+}
+.tour9-terms__row:nth-of-type(2) {
+  transform: rotate(-2deg);
+  font-variation-settings: "wght" 600;
+  letter-spacing: -0.03em;
+  padding-left: clamp(32px, 6vw, 120px);
+}
+.tour9-terms__row:nth-of-type(3) {
+  font-variation-settings: "wght" 800;
+  letter-spacing: -0.05em;
+  padding-left: clamp(16px, 3vw, 64px);
+}
+.tour9-terms__row--accent {
+  color: #ff2d2d;
+}
+
+.tour9-terms__sub {
+  font-family: var(--tour-font-body);
+  font-size: clamp(18px, 2vw, 28px);
+  font-variation-settings: "wght" 500;
+  letter-spacing: -0.01em;
+  margin: clamp(32px, 5vh, 64px) 0 0;
+  opacity: 0.78;
+}
+
+/* =========================================================================
+   POSTER 04 — 08 (dark, massive numeral + scenario list)
+   ========================================================================= */
+
+.tour9-poster--scenes {
+  flex-direction: row;
+  align-items: stretch;
+  gap: clamp(32px, 5vw, 96px);
+}
+
+.tour9-scenes__numeral-wrap {
+  flex: 0 0 48%;
+  display: flex;
+  align-items: center;
+}
+
+.tour9-scenes__numeral {
+  font-family: var(--tour-font-display);
+  /* "08" = 2 chars, left half (48%)에 fit. 24vw × 2 ≈ 48vw ≈ 좌측 컬럼 채움 */
+  font-size: clamp(180px, 26vw, 420px);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  margin: 0;
+  font-variation-settings: "wght" 200;
+  /* Scroll-driven wght: enters thin, leaves heavy */
+  animation-name: tour9-scenes-wght;
+  animation-duration: 1ms;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 80%;
+  will-change: font-variation-settings;
+}
+
+@keyframes tour9-scenes-wght {
+  0% {
+    font-variation-settings: "wght" 200;
+  }
+  100% {
+    font-variation-settings: "wght" 900;
+  }
+}
+
+.tour9-scenes__list {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: scene;
+}
+
+.tour9-scenes__item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  padding: clamp(12px, 1.6vw, 20px) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  align-items: baseline;
+}
+.tour9-scenes__item:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+}
+.tour9-scenes__item-num {
+  font-family: var(--tour-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  opacity: 0.55;
+}
+.tour9-scenes__item-name {
+  font-family: var(--tour-font-display);
+  font-size: clamp(14px, 1.2vw, 17px);
+  font-variation-settings: "wght" 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em; /* tracked-out */
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* =========================================================================
+   POSTER 05 — NO CLOUD / NO LOGIN / ONE EXE (light, brutalist flip)
+   ========================================================================= */
+
+.tour9-poster--offline {
+  justify-content: center;
+}
+
+.tour9-offline__lines {
+  font-family: var(--tour-font-display);
+  /* 최장 "NO CLOUD" = 8 chars */
+  font-size: clamp(72px, 14vw, 220px);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  font-variation-settings: "wght" 920;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.tour9-offline__line {
+  display: block;
+  color: #000000;
+  transition: color 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tour9-poster--offline.is-revealed .tour9-offline__line:nth-child(1) {
+  color: #000000;
+  transition-delay: 80ms;
+}
+.tour9-poster--offline.is-revealed .tour9-offline__line:nth-child(2) {
+  color: #ff2d2d;
+  transition-delay: 280ms;
+}
+.tour9-poster--offline.is-revealed .tour9-offline__line:nth-child(3) {
+  color: #000000;
+  transition-delay: 480ms;
+}
+
+.tour9-offline__line--indent-a {
+  padding-left: clamp(16px, 4vw, 96px);
+}
+.tour9-offline__line--indent-b {
+  padding-left: clamp(32px, 8vw, 192px);
+}
+
+/* =========================================================================
+   POSTER 06 — BEGIN (dark, red accent, final CTA)
+   ========================================================================= */
+
+.tour9-poster--begin {
+  justify-content: center;
+  padding-bottom: clamp(48px, 8vh, 96px);
+}
+
+.tour9-begin__word {
+  font-family: var(--tour-font-display);
+  font-size: clamp(120px, 18vw, 280px);
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+  font-variation-settings: "wght" 920;
+  margin: 0;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.tour9-begin__word-accent {
+  color: #ff2d2d;
+  font-variation-settings: "wght" 920;
+  display: inline-block;
+  transform: translateY(-0.02em);
+}
+
+.tour9-begin__cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: clamp(40px, 6vh, 80px);
+  align-items: center;
+}
+
+.tour9-begin__cta-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 32px;
+  background: #ff2d2d;
+  color: #ffffff;
+  font-family: var(--tour-font-body);
+  font-size: 15px;
+  font-variation-settings: "wght" 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 200ms ease, transform 200ms ease;
+}
+.tour9-begin__cta-primary:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.tour9-begin__cta-text {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--tour-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.tour9-begin__cta-text:hover {
+  border-color: #ff2d2d;
+  color: #ff2d2d;
+}
+
+.tour9-begin__footer {
+  position: absolute;
+  bottom: clamp(16px, 3vh, 32px);
+  left: clamp(24px, 4vw, 80px);
+  right: clamp(24px, 4vw, 80px);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--tour-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tour9-begin__footer p {
+  margin: 0;
+}
+
+/* =========================================================================
+   Focus rings — high contrast
+   ========================================================================= */
+
+.tour9-page :focus-visible {
+  outline: 2px solid #ff2d2d;
+  outline-offset: 3px;
+}
+.tour9-poster--dark :focus-visible,
+.tour9-poster--begin :focus-visible {
+  outline-color: #ff2d2d;
+}
+
+/* =========================================================================
+   Fallback — browsers without animation-timeline (scroll-driven)
+   wght는 중간값(600)에 고정되어 여전히 강한 인상을 남김
+   ========================================================================= */
+
+@supports not (animation-timeline: view()) {
+  .tour9-hero__wordmark {
+    animation: none;
+    font-variation-settings: "wght" 650;
+  }
+  .tour9-scenes__numeral {
+    animation: none;
+    font-variation-settings: "wght" 650;
+  }
+}
+
+/* =========================================================================
+   Reduced motion — marquee 정지, stagger 즉시 표시, wght 고정
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .tour9-marquee__track {
+    animation-play-state: paused;
+    animation: none;
+    transform: none;
+  }
+  .tour9-stagger__char {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .tour9-hero__wordmark,
+  .tour9-scenes__numeral {
+    animation: none;
+    font-variation-settings: "wght" 650;
+  }
+  .tour9-onesoft__slash {
+    animation: none;
+    transform: none;
+  }
+  .tour9-offline__line {
+    transition: none !important;
+  }
+}
+
+/* =========================================================================
+   Responsive — mobile/tablet tuning
+   ========================================================================= */
+
+@media (max-width: 899px) {
+  .tour9-poster--scenes {
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .tour9-scenes__numeral-wrap {
+    flex: 0 0 auto;
+  }
+  .tour9-scenes__numeral {
+    font-size: clamp(200px, 60vw, 520px);
+  }
+  .tour9-hero__wordmark {
+    font-size: clamp(72px, 22vw, 240px);
+  }
+  .tour9-onesoft__phrase {
+    font-size: clamp(72px, 20vw, 220px);
+  }
+  .tour9-terms__row {
+    font-size: clamp(72px, 22vw, 240px);
+  }
+  .tour9-offline__lines {
+    font-size: clamp(64px, 18vw, 200px);
+  }
+  .tour9-begin__word {
+    font-size: clamp(120px, 32vw, 320px);
+  }
+  .tour9-marquee__item {
+    font-size: clamp(32px, 10vw, 80px);
+  }
+}
+
+@media (max-width: 639px) {
+  .tour9-poster {
+    padding: 48px 20px;
+    min-height: 90vh;
+  }
+  .tour9-hero__wordmark {
+    font-size: clamp(56px, 22vw, 160px);
+    letter-spacing: -0.05em;
+  }
+  .tour9-onesoft__line--indent {
+    padding-left: 20px;
+  }
+  .tour9-terms__row:nth-of-type(2) {
+    padding-left: 16px;
+  }
+  .tour9-terms__row:nth-of-type(3) {
+    padding-left: 8px;
+  }
+  .tour9-offline__line--indent-a {
+    padding-left: 12px;
+  }
+  .tour9-offline__line--indent-b {
+    padding-left: 24px;
+  }
+  .tour9-begin__footer {
+    font-size: 9px;
+    position: static;
+    margin-top: 48px;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .tour9-begin__cta-primary {
+    padding: 14px 22px;
+    font-size: 13px;
+  }
+  .tour9-scenes__item-name {
+    letter-spacing: 0.2em;
+  }
+}

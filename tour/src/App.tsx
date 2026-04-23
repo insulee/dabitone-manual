@@ -12,6 +12,7 @@ import { LandingHorizontal } from "./pages/LandingHorizontal"
 import { LandingScrolly } from "./pages/LandingScrolly"
 import { LandingPlayground } from "./pages/LandingPlayground"
 import { LandingCraft } from "./pages/LandingCraft"
+import { LandingKinetic } from "./pages/LandingKinetic"
 import { TourScenario } from "./pages/TourScenario"
 import { AccessibleView } from "./pages/AccessibleView"
 
@@ -25,11 +26,13 @@ function getCurrentRoute():
   | "landing-scrolly"
   | "landing-playground"
   | "landing-craft"
+  | "landing-kinetic"
   | "scenario"
   | "accessible" {
   const p = window.location.pathname
   if (p.startsWith("/tour/accessible")) return "accessible"
   if (p.match(/\/tour\/quickstart\/[^/]+/)) return "scenario"
+  if (p.startsWith("/tour9")) return "landing-kinetic"
   if (p.startsWith("/tour8")) return "landing-craft"
   if (p.startsWith("/tour7")) return "landing-playground"
   if (p.startsWith("/tour6")) return "landing-scrolly"
@@ -82,6 +85,9 @@ export function App() {
   }
   if (route === "landing-craft") {
     return <LandingCraft />
+  }
+  if (route === "landing-kinetic") {
+    return <LandingKinetic />
   }
   return <Landing />
 }
