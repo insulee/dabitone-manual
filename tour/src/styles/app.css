@@ -272,106 +272,115 @@
   letter-spacing: -0.005em;
 }
 
-/* ==================== Tab Index ==================== */
+/* ==================== Quickstart (tabs) ==================== */
 .tour-tabs {
-  padding: clamp(64px, 10vh, 128px) clamp(24px, 6vw, 96px);
-  background: var(--tour-c-bg);
-  border-bottom: 1px solid var(--tour-c-line);
+  padding: 120px 24px;
 }
 .tour-tabs__inner {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .tour-tabs__eyebrow {
-  font-family: var(--tour-font-mono);
   font-size: var(--tour-fs-label);
   letter-spacing: var(--tour-ls-label);
-  color: var(--tour-c-accent);
   text-transform: uppercase;
-  margin: 0 0 clamp(16px, 2vh, 24px);
+  color: var(--tour-c-text-soft);
+  margin: 0 0 8px;
   font-weight: 600;
 }
 .tour-tabs__title {
-  font-family: var(--tour-font-body);
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1.15;
+  font-family: var(--tour-font-display);
+  font-size: var(--tour-fs-title);
+  font-weight: 600;
+  line-height: var(--tour-lh-tight);
   letter-spacing: var(--tour-ls-tight);
-  font-weight: 500;
-  color: var(--tour-c-text);
-  margin: 0 0 clamp(48px, 6vh, 80px);
+  margin: 0 0 48px;
 }
 .tour-tabs__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
   list-style: none;
-  margin: 0;
   padding: 0;
-  border-top: 1px solid var(--tour-c-line);
+  margin: 0;
 }
 .tour-tabs__item {
-  border-bottom: 1px solid var(--tour-c-line);
+  /* intentionally empty — grid handles layout */
 }
 .tour-tabs__link {
   display: grid;
-  grid-template-columns: 60px 180px 1fr 40px;
-  gap: clamp(16px, 3vw, 40px);
-  padding: clamp(24px, 3vh, 40px) 0;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 16px;
+  row-gap: 4px;
+  padding: 32px 28px;
+  border: 1px solid var(--tour-c-line);
+  background: var(--tour-c-bg-panel);
   text-decoration: none;
-  color: var(--tour-c-text);
-  align-items: baseline;
-  transition: color var(--tour-dur-micro) var(--tour-ease-out);
+  color: inherit;
+  transition:
+    background var(--tour-dur-micro) var(--tour-ease-out),
+    border-color var(--tour-dur-micro) var(--tour-ease-out);
 }
-.tour-tabs__link:hover,
-.tour-tabs__link:focus-visible {
-  color: var(--tour-c-accent);
+.tour-tabs__link:hover {
+  background: var(--tour-c-bg-soft);
+  border-color: var(--tour-c-line-strong);
 }
 .tour-tabs__num {
-  font-family: var(--tour-font-mono);
-  font-size: clamp(18px, 1.5vw, 22px);
-  letter-spacing: var(--tour-ls-mono);
+  grid-row: 1 / 3;
+  grid-column: 1;
+  align-self: center;
+  font-family: var(--tour-font-body);
+  font-size: 40px;
+  font-weight: 300;
   color: var(--tour-c-text-dim);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .tour-tabs__name {
-  font-family: var(--tour-font-body);
-  font-size: clamp(24px, 2.5vw, 36px);
-  font-weight: 500;
+  grid-row: 1;
+  grid-column: 2;
+  font-family: var(--tour-font-display);
+  font-size: var(--tour-fs-section);
+  font-weight: 600;
   letter-spacing: var(--tour-ls-tight);
+  color: var(--tour-c-text);
 }
 .tour-tabs__desc {
-  font-family: var(--tour-font-body);
-  font-size: clamp(14px, 1.1vw, 17px);
+  grid-row: 2;
+  grid-column: 2;
+  font-size: var(--tour-fs-small);
   color: var(--tour-c-text-soft);
-  line-height: 1.4;
 }
 .tour-tabs__arrow {
-  font-family: var(--tour-font-mono);
-  font-size: clamp(18px, 1.5vw, 22px);
-  color: var(--tour-c-text-dim);
-  text-align: right;
-  transition: transform var(--tour-dur-micro) var(--tour-ease-out),
-    color var(--tour-dur-micro) var(--tour-ease-out);
+  grid-row: 1 / 3;
+  grid-column: 3;
+  align-self: center;
+  font-size: 20px;
+  color: var(--tour-c-text);
+  transition: transform var(--tour-dur-micro) var(--tour-ease-out);
 }
-.tour-tabs__link:hover .tour-tabs__arrow,
-.tour-tabs__link:focus-visible .tour-tabs__arrow {
-  color: var(--tour-c-accent);
-  transform: translateX(6px);
+.tour-tabs__link:hover .tour-tabs__arrow {
+  transform: translateX(4px);
 }
-@media (max-width: 900px) {
-  .tour-tabs__link {
-    grid-template-columns: 40px 1fr 32px;
-    grid-template-rows: auto auto;
-    gap: 8px 16px;
+
+@media (max-width: 1023px) {
+  .tour-tabs {
+    padding: 96px 24px;
   }
-  .tour-tabs__name {
-    grid-column: 2;
-    grid-row: 1;
+  .tour-tabs__list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  .tour-tabs__desc {
-    grid-column: 2;
-    grid-row: 2;
+}
+@media (max-width: 639px) {
+  .tour-tabs {
+    padding: 64px 20px;
   }
-  .tour-tabs__arrow {
-    grid-column: 3;
-    grid-row: 1 / span 2;
-    align-self: center;
+  .tour-tabs__list {
+    grid-template-columns: 1fr;
+  }
+  .tour-tabs__title {
+    margin-bottom: 32px;
   }
 }
 
