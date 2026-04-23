@@ -58,6 +58,8 @@ await build({
   bundle: true,
   minify: true,
   loader: { ".css": "css" },
+  // /static/fonts/*.woff2 같은 absolute 경로는 런타임에서 해석되므로 bundle 하지 않음
+  external: ["/static/fonts/*"],
 })
 
 // 3. 병합: tokens.css + app.css → tour.css

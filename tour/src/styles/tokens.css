@@ -3,6 +3,28 @@
  * 가독성 우선: warm stone palette + burnt orange accent + Pretendard primary.
  */
 
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("/static/fonts/PretendardVariable.woff2") format("woff2-variations");
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/static/fonts/InterVariable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/static/fonts/InterVariable-Italic.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 .tour-page {
   /* Typography — Pretendard primary (가독성), Mono는 label 전용 */
   --tour-font-display: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;

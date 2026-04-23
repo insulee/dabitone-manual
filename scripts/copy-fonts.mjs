@@ -1,17 +1,20 @@
 #!/usr/bin/env node
 /**
- * copy-fonts.mjs — Variable WOFF2 폰트를 node_modules → public/static/fonts/ 로 복사.
+ * copy-fonts.mjs — Variable WOFF2 폰트를 node_modules → quartz/static/fonts/ 로 복사.
+ *
+ * quartz/static/**는 Quartz Static emitter가 빌드 시 public/static/**으로 복사하므로,
+ * 이 스크립트의 최종 산출물은 런타임에 /static/fonts/*.woff2 URL로 접근 가능.
  *
  * 대상:
  *   1. Inter Variable (Latin weight axis, normal)
  *        @fontsource-variable/inter/files/inter-latin-wght-normal.woff2
- *        → public/static/fonts/InterVariable.woff2
+ *        → quartz/static/fonts/InterVariable.woff2
  *   2. Inter Variable (Latin weight axis, italic)
  *        @fontsource-variable/inter/files/inter-latin-wght-italic.woff2
- *        → public/static/fonts/InterVariable-Italic.woff2
+ *        → quartz/static/fonts/InterVariable-Italic.woff2
  *   3. Pretendard Variable (단일 파일, 한글 전 영역 포함)
  *        pretendard/dist/web/variable/woff2/PretendardVariable.woff2
- *        → public/static/fonts/PretendardVariable.woff2
+ *        → quartz/static/fonts/PretendardVariable.woff2
  *
  * build 전 자동 실행 (package.json scripts의 `build` 체인 참조).
  *
@@ -25,7 +28,7 @@ import { fileURLToPath } from "node:url"
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const projectRoot = resolve(__dirname, "..")
 
-const destDir = resolve(projectRoot, "public/static/fonts")
+const destDir = resolve(projectRoot, "quartz/static/fonts")
 
 /** @type {Array<{ src: string, dest: string, label: string }>} */
 const assets = [
@@ -73,4 +76,6 @@ for (const a of assets) {
   copyFileSync(a.src, a.dest)
 }
 
-console.log(`✓ Copied ${assets.length} font files to public/static/fonts/`)
+console.log(
+  `✓ Copied ${assets.length} font files to quartz/static/fonts/ (Quartz Static emitter → public/static/fonts/)`,
+)
