@@ -169,50 +169,71 @@
   object-fit: contain;
 }
 
-/* ==================== Hero (통합: 타이틀 + 서브 + 매니페스토) ==================== */
+/* ==================== Hero ==================== */
 .tour-hero {
-  min-height: 100vh;
-  background: var(--tour-c-bg);
-  color: var(--tour-c-text);
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  padding: clamp(72px, 12vh, 144px) clamp(24px, 6vw, 96px);
+  padding: 120px 24px 80px;
   position: relative;
-  border-bottom: 1px solid var(--tour-c-line);
 }
 .tour-hero__inner {
-  max-width: 1400px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 }
 .tour-hero__title {
   font-family: var(--tour-font-display);
   font-size: var(--tour-fs-hero);
-  line-height: var(--tour-lh-tight);
-  letter-spacing: var(--tour-ls-tight);
   font-weight: 700;
+  letter-spacing: var(--tour-ls-display);
+  line-height: var(--tour-lh-tight);
+  margin: 0 0 16px;
   color: var(--tour-c-text);
-  margin: 0;
 }
 .tour-hero__sub {
-  font-family: var(--tour-font-body);
-  font-size: clamp(20px, 2vw, 28px);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+  font-size: var(--tour-fs-body);
   color: var(--tour-c-text-soft);
-  margin: clamp(16px, 2vh, 32px) 0 0;
-  font-weight: 400;
-  max-width: 880px;
+  margin: 0 0 40px;
+  max-width: 600px;
+  line-height: var(--tour-lh-normal);
 }
-.tour-hero__manifesto {
-  font-family: var(--tour-font-body);
-  font-size: clamp(32px, 4.8vw, 72px);
-  line-height: 1.15;
+.tour-hero__cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+@media (max-width: 639px) {
+  .tour-hero { padding: 80px 20px 48px; min-height: 60vh; }
+  .tour-hero__sub { margin-bottom: 32px; }
+  .tour-hero__cta { flex-direction: column; align-items: stretch; }
+  .tour-hero__cta .tour-btn { justify-content: center; }
+}
+
+/* ==================== Manifesto (dark section) ==================== */
+.tour-section--dark {
+  background: var(--tour-c-bg-dark);
+  color: var(--tour-c-text-dark);
+}
+.tour-manifesto {
+  padding: 160px 24px;
+  text-align: center;
+}
+.tour-manifesto__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.tour-manifesto__title {
+  font-family: var(--tour-font-display);
+  font-size: var(--tour-fs-manifesto);
+  font-weight: 600;
   letter-spacing: var(--tour-ls-tight);
-  font-weight: 500;
-  color: var(--tour-c-text);
-  margin: clamp(80px, 12vh, 160px) 0 0;
-  max-width: 1200px;
+  line-height: var(--tour-lh-tight);
+  margin: 0;
+  color: var(--tour-c-text-dark);
+}
+@media (max-width: 639px) {
+  .tour-manifesto { padding: 96px 20px; }
 }
 
 /* ==================== Feature (텍스트 블록) ==================== */

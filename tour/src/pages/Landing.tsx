@@ -10,6 +10,7 @@ export function Landing() {
   return (
     <>
       <Hero />
+      <Manifesto />
       <Feature
         num="F01"
         label="ALL-IN-ONE"
@@ -22,6 +23,7 @@ export function Landing() {
       <Feature
         num="F02"
         label="ONE SCREEN PER TAB"
+        flip
         title="각 탭이 해당 작업의 시작부터 끝까지."
         lines={[
           "통신, 설정, 전송, 편집, 고급 — 다섯 개 탭.",
@@ -42,6 +44,7 @@ export function Landing() {
       <Feature
         num="F04"
         label="HEX · ASCII"
+        flip
         title="한 화면에서, 두 프로토콜."
         lines={[
           "메시지 종류·섹션·페이지를 라디오·콤보박스로 선택하는 HEX. 텍스트 영역에 직접 쓰는 ASCII.",
@@ -50,7 +53,7 @@ export function Landing() {
         ]}
       />
       <TabIndex />
-      <PdfFooter />
+      <Footer />
     </>
   )
 }
@@ -65,11 +68,42 @@ function Hero() {
       <div class="tour-hero__inner">
         <h1 class="tour-hero__title">DabitOne</h1>
         <p class="tour-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
-        <p class="tour-hero__manifesto">
+        <div class="tour-hero__cta">
+          <a class="tour-btn tour-btn--primary" href="#quickstart">
+            투어 시작하기 →
+          </a>
+          <a
+            class="tour-btn tour-btn--secondary"
+            href="https://www.dabitsol.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            DabitOne 다운로드
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Manifesto() {
+  const ref = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (ref.current) revealOnEnter(ref.current)
+  }, [])
+  return (
+    <section
+      ref={ref}
+      class="tour-manifesto tour-section--dark"
+      aria-label="철학"
+      style={{ opacity: 0 }}
+    >
+      <div class="tour-manifesto__inner">
+        <h2 class="tour-manifesto__title">
           픽셀에서 프로토콜까지,
           <br />
           하나의 소프트웨어.
-        </p>
+        </h2>
       </div>
     </section>
   )
