@@ -42,7 +42,7 @@ await build({
   legalComments: "none",
 })
 
-// 2. CSS 번들 — tokens + app + console + desktop + editorial + horizontal + scrolly + playground + craft + kinetic을 하나로 합침
+// 2. CSS 번들 — tokens + app + console + desktop + editorial + horizontal + scrolly + playground + craft + kinetic + canvas를 하나로 합침
 await build({
   entryPoints: [
     resolve(projectRoot, "tour/src/styles/tokens.css"),
@@ -55,6 +55,7 @@ await build({
     resolve(projectRoot, "tour/src/styles/playground.css"),
     resolve(projectRoot, "tour/src/styles/craft.css"),
     resolve(projectRoot, "tour/src/styles/kinetic.css"),
+    resolve(projectRoot, "tour/src/styles/canvas.css"),
   ],
   outdir: outDir,
   bundle: true,
@@ -64,7 +65,7 @@ await build({
   external: ["/static/fonts/*"],
 })
 
-// 3. 병합: tokens + app + console + desktop + editorial + horizontal + scrolly + playground + craft + kinetic → tour.css
+// 3. 병합: tokens + app + console + desktop + editorial + horizontal + scrolly + playground + craft + kinetic + canvas → tour.css
 const tokensPath = resolve(outDir, "tokens.css")
 const appPath = resolve(outDir, "app.css")
 const consolePath = resolve(outDir, "console.css")
@@ -75,6 +76,7 @@ const scrollyPath = resolve(outDir, "scrolly.css")
 const playgroundPath = resolve(outDir, "playground.css")
 const craftPath = resolve(outDir, "craft.css")
 const kineticPath = resolve(outDir, "kinetic.css")
+const canvasPath = resolve(outDir, "canvas.css")
 const tourCssPath = resolve(outDir, "tour.css")
 
 const tokens = readFileSync(tokensPath, "utf-8")
@@ -87,6 +89,7 @@ const scrollyCss = readFileSync(scrollyPath, "utf-8")
 const playgroundCss = readFileSync(playgroundPath, "utf-8")
 const craftCss = readFileSync(craftPath, "utf-8")
 const kineticCss = readFileSync(kineticPath, "utf-8")
+const canvasCss = readFileSync(canvasPath, "utf-8")
 writeFileSync(
   tourCssPath,
   tokens +
@@ -107,7 +110,9 @@ writeFileSync(
     "\n" +
     craftCss +
     "\n" +
-    kineticCss,
+    kineticCss +
+    "\n" +
+    canvasCss,
 )
 unlinkSync(tokensPath)
 unlinkSync(appPath)
@@ -119,6 +124,7 @@ unlinkSync(scrollyPath)
 unlinkSync(playgroundPath)
 unlinkSync(craftPath)
 unlinkSync(kineticPath)
+unlinkSync(canvasPath)
 
 const elapsed = Date.now() - startedAt
 console.log(`[build-tour] done in ${elapsed}ms`)

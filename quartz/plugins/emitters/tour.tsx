@@ -105,6 +105,15 @@ const TOUR_PAGES: readonly TourPageDef[] = [
       "거대 가변폰트 포스터 시리즈 (안 Kinetic, 스크롤 드리븐 wght 애니메이션).",
   },
   {
+    // Variant Generative Canvas Landing (실험 경로) — Algorithmic flow-field background.
+    // Canvas 2D pseudo-Perlin flow field + particle trails + glass island content.
+    // Awwwards experimental / Cell / Lusion / generative.fm 레퍼런스, 신호 처리 메타포.
+    slug: "tour10/index" as FullSlug,
+    title: "DabitOne 투어 — Generative Canvas",
+    description:
+      "알고리즘 flow field + 떠 있는 콘텐츠 아일랜드 (안 Generative, 포인터·스크롤 반응형 Canvas 2D).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",

@@ -13,9 +13,14 @@ import { LandingScrolly } from "./pages/LandingScrolly"
 import { LandingPlayground } from "./pages/LandingPlayground"
 import { LandingCraft } from "./pages/LandingCraft"
 import { LandingKinetic } from "./pages/LandingKinetic"
+import { LandingCanvas } from "./pages/LandingCanvas"
 import { TourScenario } from "./pages/TourScenario"
 import { AccessibleView } from "./pages/AccessibleView"
 
+/**
+ * 라우트 분기 — `/tourN` (N=1..10) path-segment-aware 매칭.
+ * `/tour10`이 `/tour1` 문자열 prefix와 겹치므로 정규식으로 숫자 캡처 후 매핑.
+ */
 function getCurrentRoute():
   | "landing"
   | "landing-grid"
@@ -27,20 +32,39 @@ function getCurrentRoute():
   | "landing-playground"
   | "landing-craft"
   | "landing-kinetic"
+  | "landing-canvas"
   | "scenario"
   | "accessible" {
   const p = window.location.pathname
   if (p.startsWith("/tour/accessible")) return "accessible"
   if (p.match(/\/tour\/quickstart\/[^/]+/)) return "scenario"
-  if (p.startsWith("/tour9")) return "landing-kinetic"
-  if (p.startsWith("/tour8")) return "landing-craft"
-  if (p.startsWith("/tour7")) return "landing-playground"
-  if (p.startsWith("/tour6")) return "landing-scrolly"
-  if (p.startsWith("/tour5")) return "landing-horizontal"
-  if (p.startsWith("/tour4")) return "landing-editorial"
-  if (p.startsWith("/tour3")) return "landing-desktop"
-  if (p.startsWith("/tour2")) return "landing-console"
-  if (p.startsWith("/tour1")) return "landing-grid"
+  // `/tourN(/|$)` — path segment 경계 강제.
+  const m = p.match(/^\/tour(\d+)(?:\/|$)/)
+  if (m) {
+    const n = m[1]
+    switch (n) {
+      case "1":
+        return "landing-grid"
+      case "2":
+        return "landing-console"
+      case "3":
+        return "landing-desktop"
+      case "4":
+        return "landing-editorial"
+      case "5":
+        return "landing-horizontal"
+      case "6":
+        return "landing-scrolly"
+      case "7":
+        return "landing-playground"
+      case "8":
+        return "landing-craft"
+      case "9":
+        return "landing-kinetic"
+      case "10":
+        return "landing-canvas"
+    }
+  }
   return "landing"
 }
 
@@ -88,6 +112,9 @@ export function App() {
   }
   if (route === "landing-kinetic") {
     return <LandingKinetic />
+  }
+  if (route === "landing-canvas") {
+    return <LandingCanvas />
   }
   return <Landing />
 }
