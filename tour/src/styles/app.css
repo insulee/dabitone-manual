@@ -781,3 +781,47 @@
 @media (max-width: 1023px) {
   .tour-rail { position: static; padding: 28px 24px; }
 }
+
+/* ==================== Quickstart — Completion ==================== */
+.tour-completion {
+  margin-top: 80px;
+  padding: 96px 24px;
+}
+.tour-completion__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.tour-completion__eyebrow {
+  font-family: var(--tour-font-mono);
+  font-size: 13px;
+  letter-spacing: var(--tour-ls-label);
+  text-transform: uppercase;
+  color: var(--tour-c-text-dark-soft);
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+.tour-completion__title {
+  font-family: var(--tour-font-display);
+  font-size: var(--tour-fs-manifesto);
+  font-weight: 600;
+  letter-spacing: var(--tour-ls-tight);
+  margin: 0 0 16px;
+  color: var(--tour-c-text-dark);
+}
+.tour-completion__text {
+  font-size: 17px;
+  line-height: var(--tour-lh-normal);
+  color: var(--tour-c-text-dark-soft);
+  margin: 0 0 32px;
+}
+.tour-completion__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 639px) {
+  .tour-completion { padding: 64px 20px; }
+  .tour-completion__actions { flex-direction: column; align-items: stretch; }
+}

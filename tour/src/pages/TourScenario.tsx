@@ -133,7 +133,29 @@ function ScenarioBody({ tour }: { tour: Tour }) {
           nextTour={tour.nextTour}
         />
       </div>
+
+      {isLast && !tour.nextTour && <CompletionScreen tour={tour} />}
     </main>
+  )
+}
+
+function CompletionScreen({ tour }: { tour: Tour }) {
+  return (
+    <section class="tour-completion tour-section--dark">
+      <div class="tour-completion__inner">
+        <p class="tour-completion__eyebrow">COMPLETE</p>
+        <h2 class="tour-completion__title">투어 완료.</h2>
+        <p class="tour-completion__text">
+          {tour.title} 투어가 끝났습니다. 다른 투어를 이어가거나, DabitOne을 지금 설치할 수 있습니다.
+        </p>
+        <div class="tour-completion__actions">
+          <a class="tour-btn tour-btn--primary" href="/tour/">모든 투어 보기 →</a>
+          <a class="tour-btn tour-btn--secondary" href="https://www.dabitsol.com" target="_blank" rel="noreferrer">
+            DabitOne 다운로드
+          </a>
+        </div>
+      </div>
+    </section>
   )
 }
 
