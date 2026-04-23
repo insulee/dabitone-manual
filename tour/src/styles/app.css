@@ -621,3 +621,53 @@
 .tour-section--dark .tour-btn--secondary:hover {
   background: rgba(255, 255, 255, 0.06);
 }
+
+/* ==================== Quickstart — ProgressHeader ==================== */
+.tour-scenario__header {
+  margin-bottom: 32px;
+}
+.tour-scenario__header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.tour-scenario__header-info {
+  flex: 1;
+  min-width: 0;
+}
+.tour-scenario__eyebrow {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-label);
+  letter-spacing: var(--tour-ls-label);
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.tour-scenario__title {
+  font-family: var(--tour-font-display);
+  font-size: var(--tour-fs-manifesto);
+  font-weight: 600;
+  letter-spacing: var(--tour-ls-tight);
+  line-height: var(--tour-lh-tight);
+  margin: 0 0 8px;
+  color: var(--tour-c-text);
+}
+.tour-scenario__subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--tour-c-text-soft);
+  margin: 0;
+  line-height: 1.4;
+}
+.tour-scenario__counter {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-body);
+  color: var(--tour-c-text-soft);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  white-space: nowrap;
+  padding-top: 8px;
+}

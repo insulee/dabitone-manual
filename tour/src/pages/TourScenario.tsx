@@ -9,7 +9,6 @@
 import { useEffect, useState } from "preact/hooks"
 import { currentStepIndex, gotoStep } from "../lib/state"
 import { setStepComplete } from "../lib/storage"
-import { animate, reducedMotion } from "../lib/motion"
 import { LiveRegion } from "../components/LiveRegion"
 import { Hotspot } from "../components/Hotspot"
 import type { Tour, TourStep } from "../types"
@@ -148,76 +147,28 @@ function ProgressHeader({
   pct: number
 }) {
   return (
-    <header style={{ marginBottom: "24px" }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "baseline",
-          marginBottom: "12px",
-          gap: "16px",
-        }}
-      >
-        <div>
-          <div
-            style={{
-              fontSize: "var(--tour-fs-small)",
-              color: "var(--tour-c-text-soft)",
-              textTransform: "uppercase",
-              letterSpacing: "0.1em",
-              marginBottom: "6px",
-            }}
-          >
-            DabitOne 투어
-          </div>
-          <h1
-            style={{
-              fontFamily: "var(--tour-font-display)",
-              fontSize: "var(--tour-fs-section)",
-              letterSpacing: "var(--tour-ls-tight)",
-              fontWeight: 600,
-              margin: 0,
-              lineHeight: "var(--tour-lh-tight)",
-            }}
-          >
-            {tour.title}
-          </h1>
+    <header class="tour-scenario__header">
+      <div class="tour-scenario__header-top">
+        <div class="tour-scenario__header-info">
+          <p class="tour-scenario__eyebrow">DabitOne 투어</p>
+          <h1 class="tour-scenario__title">{tour.title}</h1>
+          {tour.subtitle && (
+            <p class="tour-scenario__subtitle">{tour.subtitle}</p>
+          )}
         </div>
-        <div
-          style={{
-            fontSize: "var(--tour-fs-body)",
-            color: "var(--tour-c-text-soft)",
-            fontVariantNumeric: "tabular-nums",
-            fontWeight: 500,
-          }}
-          aria-live="polite"
-        >
+        <div class="tour-scenario__counter" aria-live="polite">
           {stepIdx + 1} / {tour.steps.length}
         </div>
       </div>
       <div
-        style={{
-          height: "3px",
-          background: "var(--tour-c-line)",
-          borderRadius: "2px",
-          overflow: "hidden",
-        }}
+        class="tour-progress"
         role="progressbar"
         aria-valuenow={stepIdx + 1}
         aria-valuemin={1}
         aria-valuemax={tour.steps.length}
         aria-label="투어 진행률"
       >
-        <div
-          style={{
-            height: "100%",
-            width: `${pct}%`,
-            background: "var(--tour-c-text)",
-            transition: reducedMotion()
-              ? "none"
-              : "width 400ms var(--tour-ease-out)",
-          }}
-        />
+        <div class="tour-progress__fill" style={{ width: `${pct}%` }} />
       </div>
     </header>
   )
