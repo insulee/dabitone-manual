@@ -268,27 +268,25 @@ body.tour11-page #tour-root {
   will-change: transform;
 }
 
-/* Panel */
+/* Panel — 텍스트 전용 포스터 */
 .tour11-panel {
   flex: 0 0 100vw;
   height: 100%;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  align-items: center;
-  padding: 96px 96px 96px 96px;
-  gap: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px clamp(48px, 10vw, 160px);
   box-sizing: border-box;
   position: relative;
 }
 
 .tour11-panel__text {
-  max-width: 520px;
+  max-width: 1040px;
   position: relative;
-  z-index: 2;
 }
 
 .tour11-panel__num {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   font-family: var(--t11-mono);
   font-size: clamp(20px, 1.8vw, 28px);
   font-weight: 500;
@@ -297,9 +295,9 @@ body.tour11-page #tour-root {
 }
 
 .tour11-panel__label {
-  margin: 0 0 24px;
+  margin: 0 0 32px;
   font-family: var(--t11-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -307,95 +305,25 @@ body.tour11-page #tour-root {
 }
 
 .tour11-panel__title {
-  margin: 0 0 24px;
-  font-size: clamp(36px, 4.4vw, 60px);
+  margin: 0 0 40px;
+  font-size: clamp(48px, 7.5vw, 112px);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
   color: var(--t11-ink);
   white-space: pre-line;
 }
 
 .tour11-panel__body {
-  margin: 0 0 12px;
-  font-size: clamp(15px, 1.15vw, 17px);
-  line-height: 1.6;
+  margin: 0 0 16px;
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.55;
   color: var(--t11-ink-soft);
-  max-width: 48ch;
+  max-width: 64ch;
 }
 
 .tour11-panel__body:last-child {
   margin-bottom: 0;
-}
-
-/* Visual area — spotlight + grid frame + watermark */
-.tour11-panel__visual {
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  --mx: 50%;
-  --my: 50%;
-  background: #ffffff;
-  border: 1px solid var(--t11-line);
-}
-
-.tour11-panel__spotlight {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    400px circle at var(--mx) var(--my),
-    rgba(14, 165, 233, 0.12),
-    transparent 55%
-  );
-  transition: background-position 100ms linear;
-  z-index: 1;
-}
-
-.tour11-panel__grid-frame {
-  position: absolute;
-  inset: 32px;
-  border: 1px solid var(--t11-line);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.tour11-panel__grid-frame::before,
-.tour11-panel__grid-frame::after {
-  content: "";
-  position: absolute;
-  background: var(--t11-accent);
-}
-
-.tour11-panel__grid-frame::before {
-  top: -1px;
-  left: -1px;
-  width: 28px;
-  height: 1px;
-}
-
-.tour11-panel__grid-frame::after {
-  top: -1px;
-  left: -1px;
-  width: 1px;
-  height: 28px;
-}
-
-.tour11-panel__diagram {
-  position: relative;
-  z-index: 3;
-  width: 82%;
-  max-width: 440px;
-  pointer-events: none;
-}
-
-.tour11-panel__diagram svg {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* =========================================================================
@@ -666,9 +594,7 @@ body.tour11-page #tour-root {
   }
   .tour11-panel {
     flex-basis: auto;
-    grid-template-columns: 1fr;
-    padding: 72px 24px;
-    gap: 32px;
+    padding: 64px 24px;
     height: auto;
     min-height: auto;
     border-bottom: 1px solid var(--t11-line);
@@ -676,15 +602,8 @@ body.tour11-page #tour-root {
   .tour11-panel:last-child {
     border-bottom: 0;
   }
-  .tour11-panel__visual {
-    min-height: 240px;
-    height: 240px;
-  }
-  .tour11-panel__watermark {
-    font-size: clamp(140px, 38vw, 220px);
-  }
-  .tour11-panel__grid-frame {
-    inset: 16px;
+  .tour11-panel__title {
+    font-size: clamp(40px, 9vw, 72px);
   }
 }
 
@@ -709,7 +628,6 @@ body.tour11-page #tour-root {
   }
   .tour11-panel {
     flex-basis: auto;
-    grid-template-columns: 1fr 1fr;
     height: auto;
     min-height: auto;
     border-bottom: 1px solid var(--t11-line);
@@ -719,9 +637,6 @@ body.tour11-page #tour-root {
   }
   .tour11-horizontal__hud,
   .tour11-horizontal__progress {
-    display: none;
-  }
-  .tour11-panel__spotlight {
     display: none;
   }
   .tour11-tab,
@@ -742,9 +657,3 @@ body.tour11-page #tour-root {
   }
 }
 
-/* Coarse pointer — 모바일: 패널 spotlight 숨김 */
-@media (pointer: coarse) {
-  .tour11-panel__spotlight {
-    display: none;
-  }
-}
