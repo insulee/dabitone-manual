@@ -46,19 +46,21 @@
   --tour-ls-mono: 0.02em;
   --tour-ls-label: 0.16em;
 
-  /* Colors — Light warm stone */
-  --tour-c-bg: #fafaf9;
-  --tour-c-bg-soft: #f5f5f4;
+  /* Colors — Monochrome */
+  --tour-c-bg: #ffffff;
+  --tour-c-bg-soft: #fafafa;
   --tour-c-bg-panel: #ffffff;
-  --tour-c-bg-dark: #1c1917;
-  --tour-c-text: #1c1917;
-  --tour-c-text-soft: #57534e;
-  --tour-c-text-dim: #a8a29e;
-  --tour-c-text-dark: #fafaf9;
-  --tour-c-accent: #c2410c;
-  --tour-c-accent-soft: rgba(194, 65, 12, 0.08);
-  --tour-c-line: rgba(28, 25, 23, 0.08);
-  --tour-c-line-strong: rgba(28, 25, 23, 0.16);
+  --tour-c-bg-dark: #0a0a0a;
+  --tour-c-text: #0a0a0a;
+  --tour-c-text-soft: #525252;
+  --tour-c-text-dim: #a3a3a3;
+  --tour-c-text-dark: #fafafa;
+  --tour-c-text-dark-soft: #a3a3a3;
+  --tour-c-accent: currentColor; /* hotspot pulse 전용 — 배경 따라 자동 반전 */
+  --tour-c-accent-soft: rgba(10, 10, 10, 0.08);
+  --tour-c-line: rgba(10, 10, 10, 0.10);
+  --tour-c-line-strong: rgba(10, 10, 10, 0.18);
+  --tour-c-line-on-dark: rgba(255, 255, 255, 0.12);
 
   /* Motion */
   --tour-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
