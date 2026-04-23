@@ -1,6 +1,7 @@
 /**
- * 랜딩 페이지 — stone light theme (2026-04-22 재조정).
- * 구조: Hero / Manifesto / 5 × FeatureShot(통신·설정·전송·편집·고급) / TabIndex / Footer.
+ * 랜딩 페이지 — 텍스트 중심 (2026-04-23).
+ * 구조: Hero → Manifesto → Feature × 4 (이미지 제거) → Quickstart → Footer.
+ * 특징 4개: All-in-One / 탭별 완결 / dbNet / HEX·ASCII 통합 전송.
  */
 import { useEffect, useRef } from "preact/hooks"
 import { revealOnEnter } from "../lib/observe"
@@ -10,45 +11,44 @@ export function Landing() {
     <>
       <Hero />
       <Manifesto />
-      <FeatureShot
-        label="COMMUNICATION"
-        title="Serial에서 dbNet까지, 한 창에서."
-        image={{
-          src: "/assets/screens/manual-poc/main-comm.png",
-          alt: "DabitOne 통신 설정 화면",
-        }}
+      <Feature
+        num="F01"
+        label="ALL-IN-ONE"
+        title="다섯 도구가 하나의 앱 안에."
+        lines={[
+          "다빛채, DBPS(다빛프로토콜시뮬레이터), dbNet, 시리얼 모니터, 이미지·GIF 편집.",
+          "예전엔 각자 실행하던 프로그램들이 DabitOne 한 창 안에 모였습니다.",
+        ]}
       />
-      <FeatureShot
-        label="SETTINGS"
-        title="화면, 시계, 밝기. 한 번에."
-        image={{
-          src: "/assets/screens/manual-poc/main-setup.png",
-          alt: "DabitOne 설정 화면",
-        }}
+      <Feature
+        num="F02"
+        label="ONE SCREEN PER TAB"
+        title="각 탭이 해당 작업의 시작부터 끝까지."
+        lines={[
+          "통신, 설정, 전송, 편집, 고급 — 다섯 개 탭.",
+          "레거시에서 설정은 흩어져 있었습니다. 화면 크기, 표출 신호, 폰트 전송이 각자 다른 창에서.",
+          "DabitOne은 한 화면 안에 모았습니다. 메뉴 탐색과 창 전환이 줄어든 만큼, 설정 시간도 짧아집니다.",
+        ]}
       />
-      <FeatureShot
-        label="TRANSFER"
-        title="전송 진행률과 실패 분석."
-        image={{
-          src: "/assets/screens/manual-poc/main-simulator.png",
-          alt: "DabitOne 전송 화면",
-        }}
+      <Feature
+        num="F03"
+        label="DBNET"
+        title="IP 검색과 설정, 가장 빠른 길."
+        lines={[
+          "UDP 브로드캐스트 한 번으로 같은 서브넷의 컨트롤러가 MAC·IP 목록으로.",
+          "장비를 클릭하면 연결 설정으로 자동 반영, 곧바로 연결 테스트.",
+          "레거시에서는 IP를 모르면 연결 자체가 막혔습니다. dbNet은 타이핑과 오타 확인의 자리를 덜어 줍니다.",
+        ]}
       />
-      <FeatureShot
-        label="EDITOR"
-        title="텍스트, 이미지, GIF를 한 환경에서."
-        image={{
-          src: "/assets/screens/manual-poc/main-editor.png",
-          alt: "DabitOne 편집기 화면",
-        }}
-      />
-      <FeatureShot
-        label="ADVANCED"
-        title="펌웨어, 로그, 진단."
-        image={{
-          src: "/assets/screens/manual-poc/main-advanced.png",
-          alt: "DabitOne 고급 화면",
-        }}
+      <Feature
+        num="F04"
+        label="HEX · ASCII"
+        title="한 화면에서, 두 프로토콜."
+        lines={[
+          "속성 그리드로 조립하는 HEX, 텍스트 영역으로 쓰는 ASCII.",
+          "가운데의 “ASCII 변환” 버튼이 HEX 설정값을 ASCII 문자열로 바꿔 줍니다.",
+          "프로토콜 문서 없이도 패킷 구조 확인. 시스템 연동과 현장 디버깅에서 학습 시간이 짧아집니다.",
+        ]}
       />
       <TabIndex />
       <PdfFooter />
@@ -85,14 +85,16 @@ function Manifesto() {
   )
 }
 
-function FeatureShot({
+function Feature({
+  num,
   label,
   title,
-  image,
+  lines,
 }: {
+  num: string
   label: string
   title: string
-  image: { src: string; alt: string }
+  lines: string[]
 }) {
   const ref = useRef<HTMLElement>(null)
   useEffect(() => {
@@ -101,21 +103,23 @@ function FeatureShot({
   return (
     <section
       ref={ref}
-      class="tour-shot"
+      class="tour-feature"
       style={{ opacity: 0 }}
       aria-label={label.toLowerCase()}
     >
-      <div class="tour-shot__inner">
-        <p class="tour-shot__eyebrow">{label}</p>
-        <h3 class="tour-shot__title">{title}</h3>
-        <img
-          class="tour-shot__image"
-          src={image.src}
-          alt={image.alt}
-          width={1422}
-          height={1386}
-          loading="lazy"
-        />
+      <div class="tour-feature__inner">
+        <div class="tour-feature__head">
+          <span class="tour-feature__num">{num}</span>
+          <span class="tour-feature__label">{label}</span>
+        </div>
+        <h3 class="tour-feature__title">{title}</h3>
+        <div class="tour-feature__body">
+          {lines.map((line, i) => (
+            <p key={i} class="tour-feature__line">
+              {line}
+            </p>
+          ))}
+        </div>
       </div>
     </section>
   )

@@ -242,70 +242,61 @@
   max-width: 1200px;
 }
 
-/* ==================== Editor Shot (컴팩트) ==================== */
-.tour-shot {
-  padding: clamp(32px, 4vh, 56px) clamp(24px, 6vw, 96px);
+/* ==================== Feature (텍스트 블록) ==================== */
+.tour-feature {
+  padding: clamp(56px, 9vh, 112px) clamp(24px, 6vw, 96px);
   background: var(--tour-c-bg);
   border-bottom: 1px solid var(--tour-c-line);
 }
-.tour-shot__inner {
-  max-width: 1200px;
+.tour-feature__inner {
+  max-width: 920px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 12px clamp(32px, 5vw, 64px);
-  align-items: center;
 }
-.tour-shot__eyebrow {
-  grid-column: 1;
-  grid-row: 1;
+.tour-feature__head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 0 0 clamp(20px, 3vh, 32px);
+}
+.tour-feature__num {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-label);
+  letter-spacing: var(--tour-ls-label);
+  color: var(--tour-c-text-dim);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.tour-feature__label {
   font-family: var(--tour-font-mono);
   font-size: var(--tour-fs-label);
   letter-spacing: var(--tour-ls-label);
   color: var(--tour-c-accent);
   text-transform: uppercase;
-  margin: 0;
   font-weight: 600;
 }
-.tour-shot__title {
-  grid-column: 1;
-  grid-row: 2;
+.tour-feature__title {
   font-family: var(--tour-font-body);
-  font-size: clamp(24px, 2.6vw, 36px);
-  line-height: 1.2;
+  font-size: clamp(28px, 3.2vw, 48px);
+  line-height: 1.15;
   letter-spacing: var(--tour-ls-tight);
   font-weight: 500;
   color: var(--tour-c-text);
-  margin: 0;
-  max-width: 480px;
+  margin: 0 0 clamp(24px, 4vh, 40px);
+  max-width: 820px;
 }
-.tour-shot__image {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  display: block;
-  width: 100%;
-  max-width: 440px;
-  max-height: 260px;
-  height: auto;
-  object-fit: contain;
-  border: 1px solid var(--tour-c-line-strong);
-  margin: 0;
-  justify-self: center;
+.tour-feature__body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.4vh, 16px);
+  max-width: 780px;
 }
-@media (max-width: 720px) {
-  .tour-shot__inner {
-    grid-template-columns: 1fr;
-  }
-  .tour-shot__eyebrow,
-  .tour-shot__title,
-  .tour-shot__image {
-    grid-column: 1;
-    grid-row: auto;
-  }
-  .tour-shot__image {
-    max-height: 240px;
-  }
+.tour-feature__line {
+  font-family: var(--tour-font-body);
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.55;
+  color: var(--tour-c-text-soft);
+  margin: 0;
+  letter-spacing: -0.005em;
 }
 
 /* ==================== Tab Index ==================== */
