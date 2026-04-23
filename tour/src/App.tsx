@@ -10,6 +10,7 @@ import { LandingDesktop } from "./pages/LandingDesktop"
 import { LandingEditorial } from "./pages/LandingEditorial"
 import { LandingHorizontal } from "./pages/LandingHorizontal"
 import { LandingScrolly } from "./pages/LandingScrolly"
+import { LandingPlayground } from "./pages/LandingPlayground"
 import { TourScenario } from "./pages/TourScenario"
 import { AccessibleView } from "./pages/AccessibleView"
 
@@ -21,11 +22,13 @@ function getCurrentRoute():
   | "landing-editorial"
   | "landing-horizontal"
   | "landing-scrolly"
+  | "landing-playground"
   | "scenario"
   | "accessible" {
   const p = window.location.pathname
   if (p.startsWith("/tour/accessible")) return "accessible"
   if (p.match(/\/tour\/quickstart\/[^/]+/)) return "scenario"
+  if (p.startsWith("/tour7")) return "landing-playground"
   if (p.startsWith("/tour6")) return "landing-scrolly"
   if (p.startsWith("/tour5")) return "landing-horizontal"
   if (p.startsWith("/tour4")) return "landing-editorial"
@@ -70,6 +73,9 @@ export function App() {
   }
   if (route === "landing-scrolly") {
     return <LandingScrolly />
+  }
+  if (route === "landing-playground") {
+    return <LandingPlayground />
   }
   return <Landing />
 }

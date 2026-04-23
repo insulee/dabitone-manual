@@ -1,0 +1,465 @@
+/**
+ * Playground — /tour7/ 전용.
+ * Hero + 3 interactive 미니 데모 + End CTA.
+ * 디자인 테시스: 읽지 말고 써보세요. 각 섹션이 action을 유도, passive scroll 없음.
+ */
+
+body.tour7-page {
+  background: var(--tour-c-bg);
+  color: var(--tour-c-text);
+}
+
+.tour7-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px 120px;
+}
+
+/* ==================== Hero ==================== */
+.tour7-hero {
+  padding: 80px 0 120px;
+  border-bottom: 1px solid var(--tour-c-line);
+  margin-bottom: 80px;
+}
+.tour7-hero__eyebrow {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  font-weight: 600;
+  margin: 0 0 24px;
+}
+.tour7-hero__title {
+  font-family: var(--tour-font-display);
+  font-size: clamp(56px, 8vw, 112px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0 0 32px;
+  color: var(--tour-c-text);
+}
+.tour7-hero__sub {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--tour-c-text-soft);
+  max-width: 640px;
+  margin: 0 0 40px;
+}
+.tour7-hero__cta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.tour7-hero__hint {
+  font-family: var(--tour-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--tour-c-text-dim);
+  margin: 0;
+}
+
+/* ==================== Demo section common ==================== */
+.tour7-demo {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--tour-c-line);
+}
+.tour7-demo__header {
+  margin-bottom: 48px;
+}
+.tour7-demo__eyebrow {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+.tour7-demo__title {
+  font-family: var(--tour-font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0;
+  color: var(--tour-c-text);
+}
+.tour7-demo__panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.tour7-demo__controls {
+  padding: 32px;
+  border: 1px solid var(--tour-c-line);
+  background: var(--tour-c-bg-panel);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 320px;
+}
+.tour7-demo__note {
+  padding: 32px;
+  background: var(--tour-c-bg-soft);
+}
+.tour7-demo__note p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--tour-c-text-soft);
+  margin: 0 0 12px;
+}
+.tour7-demo__note p:last-child {
+  margin-bottom: 0;
+}
+.tour7-demo__note--full {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+}
+
+/* ==================== Form elements ==================== */
+.tour7-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tour7-fieldset legend {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.tour7-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-family: var(--tour-font-body);
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  transition: border-color 150ms ease;
+}
+.tour7-radio:hover {
+  border-color: var(--tour-c-line);
+}
+.tour7-radio input[type="radio"] {
+  accent-color: var(--tour-c-text);
+  width: 14px;
+  height: 14px;
+}
+
+.tour7-demo__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.tour7-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tour7-field > span {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  font-weight: 600;
+}
+.tour7-field input,
+.tour7-field select {
+  padding: 10px 12px;
+  border: 1px solid var(--tour-c-line);
+  background: var(--tour-c-bg);
+  font-family: var(--tour-font-mono);
+  font-size: 14px;
+  color: var(--tour-c-text);
+  border-radius: 0;
+}
+.tour7-field input:focus,
+.tour7-field select:focus {
+  outline: 1px solid var(--tour-c-text);
+  outline-offset: 2px;
+}
+
+.tour7-demo__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+/* ==================== Toast (Demo 01) ==================== */
+.tour7-toast {
+  padding: 12px 16px;
+  border: 1px solid currentColor;
+  font-family: var(--tour-font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  animation: tour7-toast-in 250ms ease-out;
+}
+.tour7-toast--ok {
+  color: #00aa5b;
+  background: rgba(0, 170, 91, 0.05);
+}
+.tour7-toast--warn {
+  color: #b87800;
+  background: rgba(184, 120, 0, 0.05);
+}
+.tour7-toast--err {
+  color: #c72424;
+  background: rgba(199, 36, 36, 0.05);
+}
+@keyframes tour7-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== dbNet (Demo 02) ==================== */
+.tour7-dbnet__pulse {
+  text-align: center;
+  padding: 32px 0;
+}
+.tour7-dbnet__pulse-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  border: 2px solid var(--tour-c-text);
+  position: relative;
+}
+.tour7-dbnet__pulse-dot::before,
+.tour7-dbnet__pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--tour-c-text);
+  animation: tour7-pulse 1.5s ease-out infinite;
+}
+.tour7-dbnet__pulse-dot::after {
+  animation-delay: 0.75s;
+}
+@keyframes tour7-pulse {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+.tour7-dbnet__pulse-text {
+  font-family: var(--tour-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--tour-c-text-soft);
+  margin: 0;
+}
+
+.tour7-dbnet__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tour7-dbnet__item {
+  padding: 12px 16px;
+  border: 1px solid var(--tour-c-line);
+  background: var(--tour-c-bg);
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+  font-family: var(--tour-font-mono);
+  font-size: 12px;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease;
+  opacity: 0;
+  animation: tour7-item-in 0.4s ease-out forwards;
+}
+.tour7-dbnet__list .tour7-dbnet__item:nth-child(1) {
+  animation-delay: 0ms;
+}
+.tour7-dbnet__list .tour7-dbnet__item:nth-child(2) {
+  animation-delay: 180ms;
+}
+.tour7-dbnet__list .tour7-dbnet__item:nth-child(3) {
+  animation-delay: 360ms;
+}
+@keyframes tour7-item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.tour7-dbnet__item:hover {
+  border-color: var(--tour-c-text);
+}
+.tour7-dbnet__item.is-selected {
+  background: var(--tour-c-text);
+  color: var(--tour-c-bg);
+  grid-template-columns: 1fr 1fr 1fr auto;
+}
+.tour7-dbnet__mac {
+  color: inherit;
+}
+.tour7-dbnet__ip {
+  color: var(--tour-c-text-soft);
+}
+.tour7-dbnet__item.is-selected .tour7-dbnet__ip,
+.tour7-dbnet__item.is-selected .tour7-dbnet__name {
+  color: inherit;
+  opacity: 0.8;
+}
+.tour7-dbnet__check {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #00aa5b;
+  font-weight: 600;
+}
+.tour7-dbnet__item.is-selected .tour7-dbnet__check {
+  color: #4ee19a;
+}
+
+/* ==================== HEX ↔ ASCII (Demo 03) ==================== */
+.tour7-demo__panel--hex {
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  min-height: auto;
+}
+.tour7-hex__col {
+  padding: 24px;
+  border: 1px solid var(--tour-c-line);
+  background: var(--tour-c-bg-panel);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.tour7-hex__col-label {
+  font-family: var(--tour-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.tour7-hex__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 140px;
+}
+.tour7-hex__ascii {
+  background: var(--tour-c-bg);
+  padding: 16px;
+  border: 1px solid var(--tour-c-line);
+  font-family: var(--tour-font-mono);
+  font-size: 13px;
+  color: var(--tour-c-text);
+  min-height: 60px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 0;
+}
+
+/* ==================== End section ==================== */
+.tour7-end {
+  padding: 120px 0 40px;
+  text-align: center;
+}
+.tour7-end__title {
+  font-family: var(--tour-font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+.tour7-end__sub {
+  font-size: 17px;
+  color: var(--tour-c-text-soft);
+  line-height: 1.7;
+  margin: 0 auto 32px;
+  max-width: 520px;
+}
+.tour7-end__cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+.tour7-end__colophon {
+  font-family: var(--tour-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--tour-c-text-dim);
+  margin: 0;
+}
+
+/* ==================== Mobile ==================== */
+@media (max-width: 899px) {
+  .tour7-shell {
+    padding: 48px 24px 80px;
+  }
+  .tour7-demo__panel {
+    grid-template-columns: 1fr;
+  }
+  .tour7-demo__panel--hex {
+    grid-template-columns: 1fr;
+  }
+  .tour7-hex__center {
+    flex-direction: row;
+    padding: 12px 0;
+  }
+  .tour7-demo__fields {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 639px) {
+  .tour7-shell {
+    padding: 40px 20px 64px;
+  }
+  .tour7-hero {
+    padding: 48px 0 80px;
+    margin-bottom: 48px;
+  }
+  .tour7-demo {
+    padding: 56px 0;
+  }
+  .tour7-demo__controls,
+  .tour7-demo__note,
+  .tour7-hex__col {
+    padding: 24px;
+  }
+  .tour7-dbnet__item {
+    grid-template-columns: 1fr !important;
+    gap: 4px;
+  }
+}

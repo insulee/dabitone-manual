@@ -78,6 +78,15 @@ const TOUR_PAGES: readonly TourPageDef[] = [
     description: "스크롤에 따라 DabitOne UI mock이 4 state로 전환되는 스크롤리텔링.",
   },
   {
+    // Variant Playground Landing (실험 경로) — Interactive Playground.
+    // Hero + 3 미니 데모 (연결 테스트 / dbNet 검색 / HEX↔ASCII 변환) + End CTA.
+    // 읽지 말고 써보세요 — 사용자가 직접 클릭·입력으로 DabitOne 핵심 기능을 체험.
+    slug: "tour7/index" as FullSlug,
+    title: "DabitOne 투어 — Interactive Playground",
+    description:
+      "3가지 미니 데모로 DabitOne의 핵심 기능을 직접 체험 (안 Playground, 읽기가 아닌 체험 중심).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",
