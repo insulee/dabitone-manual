@@ -27,24 +27,24 @@
 
 .tour-page {
   /* Typography — Pretendard primary (가독성), Mono는 label 전용 */
-  --tour-font-display: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
-  --tour-font-body: "Pretendard Variable", -apple-system, sans-serif;
+  --tour-font-display: "Pretendard Variable", "Inter Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+  --tour-font-body: "Pretendard Variable", "Inter Variable", -apple-system, sans-serif;
   --tour-font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
 
-  --tour-fs-hero: clamp(72px, 10vw, 144px);
-  --tour-fs-manifesto: clamp(36px, 5vw, 72px);
-  --tour-fs-title: clamp(28px, 3vw, 48px);
+  --tour-fs-hero: clamp(44px, 9vw, 80px);
+  --tour-fs-manifesto: clamp(32px, 5vw, 48px);
+  --tour-fs-title: clamp(24px, 3vw, 32px);
   --tour-fs-section: clamp(20px, 2vw, 28px);
   --tour-fs-body: clamp(15px, 1.1vw, 17px);
   --tour-fs-small: 14px;
   --tour-fs-label: 13px;
 
-  --tour-lh-tight: 1.05;
-  --tour-lh-normal: 1.55;
+  --tour-lh-tight: 1.1;
+  --tour-lh-normal: 1.65;
   --tour-ls-tight: -0.03em;
   --tour-ls-display: -0.03em;
   --tour-ls-mono: 0.02em;
-  --tour-ls-label: 0.16em;
+  --tour-ls-label: 0.1em;
 
   /* Colors — Monochrome */
   --tour-c-bg: #ffffff;
