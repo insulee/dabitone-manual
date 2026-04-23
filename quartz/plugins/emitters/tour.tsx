@@ -50,6 +50,12 @@ const TOUR_PAGES: readonly TourPageDef[] = [
     description: "LED 전광판 운영 콘솔 (안 C, 다크 · 터미널 메타포).",
   },
   {
+    // Variant E-1 Landing (실험 경로) — App Window Shell. 페이지 자체가 DabitOne 데스크톱 앱 창.
+    slug: "tour3/index" as FullSlug,
+    title: "DabitOne 투어 — App Window",
+    description: "DabitOne 데스크톱 앱 창 메타포 (안 E-1, 라이트 · Variable Font Kinetic).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",
