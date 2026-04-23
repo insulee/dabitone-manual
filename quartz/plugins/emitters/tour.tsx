@@ -114,6 +114,15 @@ const TOUR_PAGES: readonly TourPageDef[] = [
       "알고리즘 flow field + 떠 있는 콘텐츠 아일랜드 (안 Generative, 포인터·스크롤 반응형 Canvas 2D).",
   },
   {
+    // Variant Hybrid Landing (실험 경로) — Bento + Embedded Horizontal Scroll + Micro-Hover.
+    // tour1 Bento 구조를 기본으로 중간에 tour5 방식 섹션 단위 가로 스크롤을 삽입.
+    // Hover는 tour9·tour10 대비 훨씬 차분한 Linear/Vercel/Apple 수준 micro-interaction만 사용.
+    slug: "tour11/index" as FullSlug,
+    title: "DabitOne 투어 — Hybrid",
+    description:
+      "Bento 2×2 + 중간 가로 스크롤 섹션 + 자성 CTA (안 Hybrid, 차분한 micro-hover).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",

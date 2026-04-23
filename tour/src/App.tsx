@@ -14,11 +14,12 @@ import { LandingPlayground } from "./pages/LandingPlayground"
 import { LandingCraft } from "./pages/LandingCraft"
 import { LandingKinetic } from "./pages/LandingKinetic"
 import { LandingCanvas } from "./pages/LandingCanvas"
+import { LandingHybrid } from "./pages/LandingHybrid"
 import { TourScenario } from "./pages/TourScenario"
 import { AccessibleView } from "./pages/AccessibleView"
 
 /**
- * 라우트 분기 — `/tourN` (N=1..10) path-segment-aware 매칭.
+ * 라우트 분기 — `/tourN` (N=1..11) path-segment-aware 매칭.
  * `/tour10`이 `/tour1` 문자열 prefix와 겹치므로 정규식으로 숫자 캡처 후 매핑.
  */
 function getCurrentRoute():
@@ -33,6 +34,7 @@ function getCurrentRoute():
   | "landing-craft"
   | "landing-kinetic"
   | "landing-canvas"
+  | "landing-hybrid"
   | "scenario"
   | "accessible" {
   const p = window.location.pathname
@@ -63,6 +65,8 @@ function getCurrentRoute():
         return "landing-kinetic"
       case "10":
         return "landing-canvas"
+      case "11":
+        return "landing-hybrid"
     }
   }
   return "landing"
@@ -115,6 +119,9 @@ export function App() {
   }
   if (route === "landing-canvas") {
     return <LandingCanvas />
+  }
+  if (route === "landing-hybrid") {
+    return <LandingHybrid />
   }
   return <Landing />
 }
