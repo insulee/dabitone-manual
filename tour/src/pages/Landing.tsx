@@ -1,6 +1,6 @@
 /**
  * 랜딩 페이지 — 텍스트 중심 (2026-04-23).
- * 구조: Hero(통합 manifesto) → Feature × 4 → Quickstart → Footer.
+ * 구조: Hero(통합 manifesto) → Feature × 4 (full-viewport 챕터) → Quickstart → Footer.
  * 특징 4개: All-in-One / 탭별 완결 / dbNet / HEX·ASCII 통합 전송.
  */
 import { useEffect, useRef } from "preact/hooks"
@@ -13,6 +13,7 @@ export function Landing() {
       <Hero />
       <Feature
         num="F01"
+        tone="a"
         label="ALL-IN-ONE"
         title="다섯 도구가 하나의 앱 안에."
         lines={[
@@ -22,8 +23,8 @@ export function Landing() {
       />
       <Feature
         num="F02"
+        tone="b"
         label="ONE SCREEN PER TAB"
-        flip
         title="각 탭이 해당 작업의 시작부터 끝까지."
         lines={[
           "통신, 설정, 전송, 편집, 고급 — 다섯 개 탭.",
@@ -33,6 +34,7 @@ export function Landing() {
       />
       <Feature
         num="F03"
+        tone="a"
         label="DBNET"
         title="IP 검색과 설정, 가장 빠른 길."
         lines={[
@@ -43,8 +45,8 @@ export function Landing() {
       />
       <Feature
         num="F04"
+        tone="b"
         label="HEX · ASCII"
-        flip
         title="한 화면에서, 두 프로토콜."
         lines={[
           "메시지 종류·섹션·페이지를 라디오·콤보박스로 선택하는 HEX. 텍스트 영역에 직접 쓰는 ASCII.",
@@ -95,13 +97,13 @@ function Feature({
   label,
   title,
   lines,
-  flip,
+  tone = "a",
 }: {
   num: string
   label: string
   title: string
   lines: string[]
-  flip?: boolean
+  tone?: "a" | "b"
 }) {
   const ref = useRef<HTMLElement>(null)
   useEffect(() => {
@@ -110,27 +112,23 @@ function Feature({
   return (
     <section
       ref={ref}
-      class={`tour-feature ${flip ? "tour-feature--flip" : ""}`}
+      class={`tour-feature tour-feature--${tone}`}
       style={{ opacity: 0 }}
       aria-label={label.toLowerCase()}
     >
+      <div class="tour-feature__bg-num" aria-hidden="true">{num}</div>
       <div class="tour-feature__inner">
-        <div class="tour-feature__text">
-          <div class="tour-feature__head">
-            <span class="tour-feature__num">{num}</span>
-            <span class="tour-feature__label">{label}</span>
-          </div>
-          <h3 class="tour-feature__title">{title}</h3>
-          <div class="tour-feature__body">
-            {lines.map((line, i) => (
-              <p key={i} class="tour-feature__line">
-                {line}
-              </p>
-            ))}
-          </div>
+        <div class="tour-feature__head">
+          <span class="tour-feature__num">{num}</span>
+          <span class="tour-feature__label">{label}</span>
         </div>
-        <div class="tour-feature__visual" aria-hidden="true">
-          <div class="tour-feature__visual-mark">{num}</div>
+        <h2 class="tour-feature__title">{title}</h2>
+        <div class="tour-feature__body">
+          {lines.map((line, i) => (
+            <p key={i} class="tour-feature__line">
+              {line}
+            </p>
+          ))}
         </div>
       </div>
     </section>
