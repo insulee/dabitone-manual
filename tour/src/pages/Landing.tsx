@@ -69,10 +69,10 @@ function Hero() {
     <section ref={ref} class="tour-hero" aria-label="Hero" style={{ opacity: 0 }}>
       <PixelMotion />
       <div class="tour-hero__inner">
-        <p class="tour-hero__eyebrow">DABITONE</p>
-        <h1 class="tour-hero__title">
+        <h1 class="tour-hero__title">DabitOne</h1>
+        <p class="tour-hero__tagline">
           픽셀에서 프로토콜까지,<br />하나의 소프트웨어.
-        </h1>
+        </p>
         <p class="tour-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
         <div class="tour-hero__cta">
           <a class="tour-btn tour-btn--primary" href="#quickstart">
