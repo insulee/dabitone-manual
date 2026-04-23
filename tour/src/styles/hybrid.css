@@ -384,19 +384,18 @@ body.tour11-page #tour-root {
   height: 28px;
 }
 
-.tour11-panel__watermark {
+.tour11-panel__diagram {
   position: relative;
-  z-index: 2;
-  font-family: var(--t11-mono);
-  font-size: clamp(180px, 22vw, 340px);
-  font-weight: 300;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: var(--t11-ink);
-  opacity: 0.05;
-  user-select: none;
+  z-index: 3;
+  width: 82%;
+  max-width: 440px;
   pointer-events: none;
-  white-space: nowrap;
+}
+
+.tour11-panel__diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* =========================================================================

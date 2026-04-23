@@ -83,6 +83,16 @@ if (scrollTargets) {
   await page.screenshot({ path: "tmp/tour11-verify/panel-1.png", fullPage: false })
   console.log("[2/6] panel-1.png (F01 at progress 0)")
 
+  // Panel 2 (F02) = progress 1/3.
+  await page.evaluate(
+    ({ top, total }) => window.scrollTo(0, top + Math.round(total * (1 / 3))),
+    scrollTargets,
+  )
+  await page.mouse.move(1100, 500)
+  await page.waitForTimeout(600)
+  await page.screenshot({ path: "tmp/tour11-verify/panel-2.png", fullPage: false })
+  console.log("[2b] panel-2.png (F02 at progress 1/3)")
+
   // Panel 3 (F03) = progress 2/3.
   await page.evaluate(
     ({ top, total }) => window.scrollTo(0, top + Math.round(total * (2 / 3))),
@@ -92,6 +102,16 @@ if (scrollTargets) {
   await page.waitForTimeout(600)
   await page.screenshot({ path: "tmp/tour11-verify/panel-3.png", fullPage: false })
   console.log("[3/6] panel-3.png (F03 at progress 2/3)")
+
+  // Panel 4 (F04) = progress ~0.98 (end of horizontal section).
+  await page.evaluate(
+    ({ top, total }) => window.scrollTo(0, top + Math.round(total * 0.99)),
+    scrollTargets,
+  )
+  await page.mouse.move(1100, 500)
+  await page.waitForTimeout(600)
+  await page.screenshot({ path: "tmp/tour11-verify/panel-4.png", fullPage: false })
+  console.log("[3b] panel-4.png (F04 at progress ~1)")
 }
 
 // 4. Quickstart
