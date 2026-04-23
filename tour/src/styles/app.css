@@ -256,11 +256,10 @@
 
 /* ==================== Feature (Full-viewport chapter) ==================== */
 .tour-feature {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 96px 24px;
+  padding: 140px 24px;
   position: relative;
   overflow: hidden;
 }
@@ -341,8 +340,7 @@
 }
 @media (max-width: 767px) {
   .tour-feature {
-    min-height: auto;
-    padding: 112px 20px;
+    padding: 96px 20px;
   }
   .tour-feature__bg-num {
     font-size: clamp(140px, 44vw, 240px);
@@ -353,7 +351,7 @@
   .tour-feature__head { margin-bottom: 24px; }
 }
 @media (max-width: 639px) {
-  .tour-feature { padding: 96px 20px; }
+  .tour-feature { padding: 72px 20px; }
 }
 
 /* ==================== Quickstart (tabs) ==================== */
