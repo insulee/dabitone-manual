@@ -64,6 +64,13 @@ const TOUR_PAGES: readonly TourPageDef[] = [
       "매거진 에디토리얼 레이아웃 (안 F, Source Serif 4 + 비대칭 그리드 · 단일 red accent).",
   },
   {
+    // Variant Horizontal Landing (실험 경로) — Full Horizontal Scroll.
+    // 페이지 자체가 가로 스크롤. 6 패널 film strip + scroll-snap-type: x mandatory.
+    slug: "tour5/index" as FullSlug,
+    title: "DabitOne 투어 — Horizontal",
+    description: "가로 스크롤 film strip (안 Horizontal, 6 패널 · wheel·키보드·dot 네비).",
+  },
+  {
     slug: "tour/quickstart/01-first-connection/index" as FullSlug,
     title: "컨트롤러 최초 연결 — 투어",
     description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",

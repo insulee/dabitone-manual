@@ -42,7 +42,7 @@ await build({
   legalComments: "none",
 })
 
-// 2. CSS 번들 — tokens + app + console + desktop + editorial을 하나로 합침
+// 2. CSS 번들 — tokens + app + console + desktop + editorial + horizontal을 하나로 합침
 await build({
   entryPoints: [
     resolve(projectRoot, "tour/src/styles/tokens.css"),
@@ -50,6 +50,7 @@ await build({
     resolve(projectRoot, "tour/src/styles/console.css"),
     resolve(projectRoot, "tour/src/styles/desktop.css"),
     resolve(projectRoot, "tour/src/styles/editorial.css"),
+    resolve(projectRoot, "tour/src/styles/horizontal.css"),
   ],
   outdir: outDir,
   bundle: true,
@@ -59,12 +60,13 @@ await build({
   external: ["/static/fonts/*"],
 })
 
-// 3. 병합: tokens.css + app.css + console.css + desktop.css + editorial.css → tour.css
+// 3. 병합: tokens + app + console + desktop + editorial + horizontal → tour.css
 const tokensPath = resolve(outDir, "tokens.css")
 const appPath = resolve(outDir, "app.css")
 const consolePath = resolve(outDir, "console.css")
 const desktopPath = resolve(outDir, "desktop.css")
 const editorialPath = resolve(outDir, "editorial.css")
+const horizontalPath = resolve(outDir, "horizontal.css")
 const tourCssPath = resolve(outDir, "tour.css")
 
 const tokens = readFileSync(tokensPath, "utf-8")
@@ -72,15 +74,27 @@ const app = readFileSync(appPath, "utf-8")
 const consoleCss = readFileSync(consolePath, "utf-8")
 const desktopCss = readFileSync(desktopPath, "utf-8")
 const editorialCss = readFileSync(editorialPath, "utf-8")
+const horizontalCss = readFileSync(horizontalPath, "utf-8")
 writeFileSync(
   tourCssPath,
-  tokens + "\n" + app + "\n" + consoleCss + "\n" + desktopCss + "\n" + editorialCss,
+  tokens +
+    "\n" +
+    app +
+    "\n" +
+    consoleCss +
+    "\n" +
+    desktopCss +
+    "\n" +
+    editorialCss +
+    "\n" +
+    horizontalCss,
 )
 unlinkSync(tokensPath)
 unlinkSync(appPath)
 unlinkSync(consolePath)
 unlinkSync(desktopPath)
 unlinkSync(editorialPath)
+unlinkSync(horizontalPath)
 
 const elapsed = Date.now() - startedAt
 console.log(`[build-tour] done in ${elapsed}ms`)
