@@ -193,11 +193,22 @@
   align-items: center;
   padding: 120px 24px 80px;
   position: relative;
+  overflow: hidden;
+}
+.tour-hero__pixel-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 .tour-hero__inner {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 .tour-hero__title {
   font-family: var(--tour-font-display);

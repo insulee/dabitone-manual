@@ -5,6 +5,7 @@
  */
 import { useEffect, useRef } from "preact/hooks"
 import { revealOnEnter } from "../lib/observe"
+import { PixelMotion } from "../components/PixelMotion"
 
 export function Landing() {
   return (
@@ -65,6 +66,7 @@ function Hero() {
   }, [])
   return (
     <section ref={ref} class="tour-hero" aria-label="Hero" style={{ opacity: 0 }}>
+      <PixelMotion />
       <div class="tour-hero__inner">
         <h1 class="tour-hero__title">DabitOne</h1>
         <p class="tour-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
