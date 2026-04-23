@@ -313,6 +313,7 @@ body.tour11-page #tour-root {
   letter-spacing: -0.03em;
   line-height: 1.08;
   color: var(--t11-ink);
+  white-space: pre-line;
 }
 
 .tour11-panel__body {

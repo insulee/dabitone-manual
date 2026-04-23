@@ -77,7 +77,7 @@ const PANELS: readonly Panel[] = [
   {
     num: "F01",
     label: "ALL-IN-ONE",
-    title: "다섯 도구가 하나의 앱 안에.",
+    title: "다섯 도구가\n하나의 앱 안에.",
     lines: [
       "다빛채, DBPS(다빛프로토콜시뮬레이터), dbNet, 시리얼 모니터, 이미지·GIF 편집.",
       "예전엔 각자 실행하던 프로그램들이 DabitOne 한 창 안에 모였습니다.",
@@ -86,7 +86,7 @@ const PANELS: readonly Panel[] = [
   {
     num: "F02",
     label: "ONE SCREEN PER TAB",
-    title: "각 탭이 해당 작업의 시작부터 끝까지.",
+    title: "한 탭 안에\n작업의 처음과 끝.",
     lines: [
       "통신, 설정, 전송, 편집, 고급 — 다섯 개 탭.",
       "레거시에서 설정은 흩어져 있었습니다. 화면 크기, 표출 신호, 폰트 전송이 각자 다른 창에서.",
@@ -96,7 +96,7 @@ const PANELS: readonly Panel[] = [
   {
     num: "F03",
     label: "DBNET",
-    title: "IP 검색과 설정, 가장 빠른 길.",
+    title: "가장 빠른\nIP 검색과 설정.",
     lines: [
       "UDP 브로드캐스트 한 번으로 같은 서브넷의 컨트롤러가 MAC·IP 목록으로.",
       "장비를 클릭하면 연결 설정으로 자동 반영, 곧바로 연결 테스트.",
@@ -106,7 +106,7 @@ const PANELS: readonly Panel[] = [
   {
     num: "F04",
     label: "HEX · ASCII",
-    title: "한 화면에서, 두 프로토콜.",
+    title: "한 화면에서,\n두 프로토콜.",
     lines: [
       "메시지 종류·섹션·페이지를 라디오·콤보박스로 선택하는 HEX. 텍스트 영역에 직접 쓰는 ASCII.",
       "가운데의 \u201cASCII 변환\u201d 버튼이 HEX 설정값을 ASCII 문자열로 바꿔 줍니다.",
