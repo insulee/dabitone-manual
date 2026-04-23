@@ -1,6 +1,6 @@
 /**
  * 랜딩 페이지 — 텍스트 중심 (2026-04-23).
- * 구조: Hero → Manifesto → Feature × 4 (이미지 제거) → Quickstart → Footer.
+ * 구조: Hero(통합 manifesto) → Feature × 4 → Quickstart → Footer.
  * 특징 4개: All-in-One / 탭별 완결 / dbNet / HEX·ASCII 통합 전송.
  */
 import { useEffect, useRef } from "preact/hooks"
@@ -11,7 +11,6 @@ export function Landing() {
   return (
     <>
       <Hero />
-      <Manifesto />
       <Feature
         num="F01"
         label="ALL-IN-ONE"
@@ -68,7 +67,10 @@ function Hero() {
     <section ref={ref} class="tour-hero" aria-label="Hero" style={{ opacity: 0 }}>
       <PixelMotion />
       <div class="tour-hero__inner">
-        <h1 class="tour-hero__title">DabitOne</h1>
+        <p class="tour-hero__eyebrow">DABITONE</p>
+        <h1 class="tour-hero__title">
+          픽셀에서 프로토콜까지,<br />하나의 소프트웨어.
+        </h1>
         <p class="tour-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
         <div class="tour-hero__cta">
           <a class="tour-btn tour-btn--primary" href="#quickstart">
@@ -83,29 +85,6 @@ function Hero() {
             DabitOne 다운로드
           </a>
         </div>
-      </div>
-    </section>
-  )
-}
-
-function Manifesto() {
-  const ref = useRef<HTMLElement>(null)
-  useEffect(() => {
-    if (ref.current) revealOnEnter(ref.current)
-  }, [])
-  return (
-    <section
-      ref={ref}
-      class="tour-manifesto tour-section--dark"
-      aria-label="철학"
-      style={{ opacity: 0 }}
-    >
-      <div class="tour-manifesto__inner">
-        <h2 class="tour-manifesto__title">
-          픽셀에서 프로토콜까지,
-          <br />
-          하나의 소프트웨어.
-        </h2>
       </div>
     </section>
   )

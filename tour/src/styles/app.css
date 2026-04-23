@@ -186,12 +186,12 @@
   .tour-progress__fill { transition: none; }
 }
 
-/* ==================== Hero ==================== */
+/* ==================== Hero (통합 manifesto) ==================== */
 .tour-hero {
-  min-height: 80vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
-  padding: 120px 24px 80px;
+  padding: 120px 24px 96px;
   position: relative;
   overflow: hidden;
 }
@@ -210,13 +210,22 @@
   position: relative;
   z-index: 1;
 }
+.tour-hero__eyebrow {
+  font-family: var(--tour-font-mono);
+  font-size: var(--tour-fs-label);
+  letter-spacing: var(--tour-ls-label);
+  text-transform: uppercase;
+  color: var(--tour-c-text-soft);
+  margin: 0 0 28px;
+  font-weight: 600;
+}
 .tour-hero__title {
   font-family: var(--tour-font-display);
   font-size: var(--tour-fs-hero);
   font-weight: 700;
   letter-spacing: var(--tour-ls-display);
-  line-height: var(--tour-lh-tight);
-  margin: 0 0 16px;
+  line-height: 1.05;
+  margin: 0 0 28px;
   color: var(--tour-c-text);
 }
 .tour-hero__sub {
@@ -232,36 +241,16 @@
   flex-wrap: wrap;
 }
 @media (max-width: 639px) {
-  .tour-hero { padding: 80px 20px 48px; min-height: 60vh; }
+  .tour-hero { padding: 80px 20px 48px; min-height: 70vh; }
   .tour-hero__sub { margin-bottom: 32px; }
   .tour-hero__cta { flex-direction: column; align-items: stretch; }
   .tour-hero__cta .tour-btn { justify-content: center; }
 }
 
-/* ==================== Manifesto (dark section) ==================== */
+/* ==================== Dark section (Footer, Completion) ==================== */
 .tour-section--dark {
   background: var(--tour-c-bg-dark);
   color: var(--tour-c-text-dark);
-}
-.tour-manifesto {
-  padding: 160px 24px;
-  text-align: center;
-}
-.tour-manifesto__inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-.tour-manifesto__title {
-  font-family: var(--tour-font-display);
-  font-size: var(--tour-fs-manifesto);
-  font-weight: 600;
-  letter-spacing: var(--tour-ls-tight);
-  line-height: var(--tour-lh-tight);
-  margin: 0;
-  color: var(--tour-c-text-dark);
-}
-@media (max-width: 639px) {
-  .tour-manifesto { padding: 96px 20px; }
 }
 
 /* ==================== Feature ==================== */
