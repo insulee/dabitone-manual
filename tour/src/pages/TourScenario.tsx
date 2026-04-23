@@ -385,27 +385,23 @@ function Rail({
         <button
           onClick={onPrev}
           disabled={isFirst}
-          style={{
-            ...secondaryButton,
-            opacity: isFirst ? 0.4 : 1,
-            cursor: isFirst ? "not-allowed" : "pointer",
-          }}
+          class="tour-btn tour-btn--secondary"
           aria-label="이전 스텝"
         >
           ← 이전
         </button>
         {!isLast && (
-          <button onClick={onNext} style={primaryButton}>
+          <button onClick={onNext} class="tour-btn tour-btn--primary">
             다음 →
           </button>
         )}
         {isLast && nextTour && (
-          <a href={`/tour/quickstart/${nextTour}/`} style={primaryLink}>
+          <a href={`/tour/quickstart/${nextTour}/`} class="tour-btn tour-btn--primary">
             다음 투어 →
           </a>
         )}
         {isLast && !nextTour && (
-          <a href="/tour/" style={primaryLink}>
+          <a href="/tour/" class="tour-btn tour-btn--primary">
             투어 완료 — 홈으로
           </a>
         )}
@@ -427,31 +423,3 @@ function Rail({
   )
 }
 
-const primaryButton: preact.JSX.CSSProperties = {
-  padding: "12px 24px",
-  fontFamily: "var(--tour-font-body)",
-  fontSize: "var(--tour-fs-body)",
-  fontWeight: 600,
-  letterSpacing: "-0.01em",
-  background: "var(--tour-c-accent)",
-  color: "#fff",
-  border: 0,
-  borderRadius: 0,
-  cursor: "pointer",
-}
-const primaryLink: preact.JSX.CSSProperties = {
-  ...primaryButton,
-  textDecoration: "none",
-  display: "inline-block",
-}
-const secondaryButton: preact.JSX.CSSProperties = {
-  padding: "12px 24px",
-  fontFamily: "var(--tour-font-body)",
-  fontSize: "var(--tour-fs-body)",
-  fontWeight: 500,
-  background: "transparent",
-  color: "var(--tour-c-text)",
-  border: "1px solid var(--tour-c-line-strong)",
-  borderRadius: 0,
-  cursor: "pointer",
-}

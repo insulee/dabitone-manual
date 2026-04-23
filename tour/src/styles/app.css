@@ -464,3 +464,66 @@
   text-transform: uppercase;
   margin: 0;
 }
+
+/* ==================== Buttons ==================== */
+.tour-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-family: var(--tour-font-body);
+  font-size: var(--tour-fs-body);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--tour-dur-micro) var(--tour-ease-out),
+    color var(--tour-dur-micro) var(--tour-ease-out),
+    border-color var(--tour-dur-micro) var(--tour-ease-out);
+}
+.tour-btn--primary {
+  background: var(--tour-c-text);
+  color: var(--tour-c-bg);
+}
+.tour-btn--primary:hover {
+  background: #262626;
+}
+.tour-btn--secondary {
+  background: transparent;
+  color: var(--tour-c-text);
+  border: 1px solid var(--tour-c-line-strong);
+}
+.tour-btn--secondary:hover {
+  background: var(--tour-c-bg-soft);
+}
+.tour-btn--ghost {
+  background: transparent;
+  color: var(--tour-c-text-soft);
+  padding: 8px 12px;
+}
+.tour-btn--ghost:hover {
+  background: var(--tour-c-bg-soft);
+  color: var(--tour-c-text);
+}
+.tour-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+/* Dark-section overrides */
+.tour-section--dark .tour-btn--primary {
+  background: var(--tour-c-text-dark);
+  color: var(--tour-c-bg-dark);
+}
+.tour-section--dark .tour-btn--primary:hover {
+  background: #d4d4d4;
+}
+.tour-section--dark .tour-btn--secondary {
+  color: var(--tour-c-text-dark);
+  border-color: var(--tour-c-line-on-dark);
+}
+.tour-section--dark .tour-btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
