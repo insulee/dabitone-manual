@@ -56,7 +56,7 @@
   --tour-c-text-dim: #a3a3a3;
   --tour-c-text-dark: #fafafa;
   --tour-c-text-dark-soft: #a3a3a3;
-  --tour-c-accent: currentColor; /* hotspot pulse 전용 — 배경 따라 자동 반전 */
+  --tour-c-accent: currentColor; /* hotspot dot·ripple·focus-outline 전용 — currentColor 상속으로 다크 반전 자동 */
   --tour-c-accent-soft: rgba(10, 10, 10, 0.08);
   --tour-c-line: rgba(10, 10, 10, 0.10);
   --tour-c-line-strong: rgba(10, 10, 10, 0.18);

@@ -94,7 +94,7 @@ export function AccessibleView() {
                     fontFamily: "var(--tour-font-mono)",
                     fontSize: "var(--tour-fs-label)",
                     letterSpacing: "var(--tour-ls-label)",
-                    color: "var(--tour-c-accent)",
+                    color: "var(--tour-c-text-soft)",
                     textTransform: "uppercase",
                     marginBottom: "6px",
                     fontWeight: 600,
@@ -191,7 +191,7 @@ export function AccessibleView() {
               <a
                 href="/pdf/DabitOne_Manual_Reference.pdf"
                 style={{
-                  color: "var(--tour-c-accent)",
+                  color: "var(--tour-c-text)",
                   textDecoration: "none",
                   fontWeight: 500,
                 }}
@@ -211,7 +211,7 @@ export function AccessibleView() {
               <a
                 href="/pdf/DabitOne_Manual_Operation.pdf"
                 style={{
-                  color: "var(--tour-c-accent)",
+                  color: "var(--tour-c-text)",
                   textDecoration: "none",
                   fontWeight: 500,
                 }}
@@ -233,7 +233,7 @@ export function AccessibleView() {
               fontSize: "var(--tour-fs-small)",
               letterSpacing: "var(--tour-ls-mono)",
               textTransform: "uppercase",
-              color: "var(--tour-c-accent)",
+              color: "var(--tour-c-text)",
               textDecoration: "none",
             }}
           >
@@ -262,7 +262,7 @@ function Section({
           fontSize: "var(--tour-fs-label)",
           letterSpacing: "var(--tour-ls-label)",
           textTransform: "uppercase",
-          color: "var(--tour-c-accent)",
+          color: "var(--tour-c-text-soft)",
           margin: "0 0 12px",
           fontWeight: 600,
         }}

@@ -107,7 +107,7 @@
   font-size: var(--tour-fs-label);
   letter-spacing: var(--tour-ls-label);
   text-transform: uppercase;
-  color: var(--tour-c-accent);
+  color: var(--tour-c-text-soft);
   margin: 0 0 var(--tour-space-2);
   font-weight: 600;
 }
@@ -126,9 +126,9 @@
   letter-spacing: var(--tour-ls-mono);
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--tour-c-accent);
+  color: var(--tour-c-text);
   text-decoration: none;
-  border-bottom: 1px solid var(--tour-c-accent);
+  border-bottom: 1px solid var(--tour-c-text);
   padding-bottom: 4px;
 }
 .tour-popover__cta:hover {
@@ -243,7 +243,7 @@
   font-family: var(--tour-font-mono);
   font-size: var(--tour-fs-label);
   letter-spacing: var(--tour-ls-label);
-  color: var(--tour-c-accent);
+  color: var(--tour-c-text-soft);
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -401,7 +401,7 @@
   font-family: var(--tour-font-mono);
   font-size: var(--tour-fs-label);
   letter-spacing: var(--tour-ls-label);
-  color: var(--tour-c-accent);
+  color: var(--tour-c-text-soft);
   text-transform: uppercase;
   margin: 0 0 clamp(16px, 2vh, 24px);
   font-weight: 600;
@@ -440,7 +440,7 @@
 }
 .tour-footer__pdf-card:hover,
 .tour-footer__pdf-card:focus-visible {
-  border-color: var(--tour-c-accent);
+  border-color: var(--tour-c-line-strong);
 }
 .tour-footer__pdf-num {
   grid-row: 1 / span 2;
@@ -448,7 +448,7 @@
   font-family: var(--tour-font-mono);
   font-size: clamp(36px, 3.5vw, 56px);
   letter-spacing: var(--tour-ls-mono);
-  color: var(--tour-c-accent);
+  color: var(--tour-c-text-soft);
   align-self: center;
 }
 .tour-footer__pdf-title {

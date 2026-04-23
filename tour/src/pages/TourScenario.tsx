@@ -41,7 +41,7 @@ export function TourScenario({ slug }: Props) {
           <a
             href="/tour/"
             style={{
-              color: "var(--tour-c-accent)",
+              color: "var(--tour-c-text)",
               fontWeight: 600,
               textDecoration: "none",
             }}
@@ -212,7 +212,7 @@ function ProgressHeader({
           style={{
             height: "100%",
             width: `${pct}%`,
-            background: "var(--tour-c-accent)",
+            background: "var(--tour-c-text)",
             transition: reducedMotion()
               ? "none"
               : "width 400ms var(--tour-ease-out)",
@@ -331,7 +331,7 @@ function Rail({
                 style={{
                   position: "absolute",
                   left: 0,
-                  color: "var(--tour-c-accent)",
+                  color: "var(--tour-c-text-soft)",
                 }}
               >
                 ·
@@ -368,7 +368,7 @@ function Rail({
                 <a
                   href={ref.path}
                   style={{
-                    color: "var(--tour-c-accent)",
+                    color: "var(--tour-c-text)",
                     textDecoration: "none",
                     fontSize: "15px",
                   }}
