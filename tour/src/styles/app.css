@@ -448,7 +448,7 @@
   font-family: var(--tour-font-mono);
   font-size: clamp(36px, 3.5vw, 56px);
   letter-spacing: var(--tour-ls-mono);
-  color: var(--tour-c-text-soft);
+  color: var(--tour-c-text-dim);
   align-self: center;
 }
 .tour-footer__pdf-title {

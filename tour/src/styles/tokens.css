@@ -1,6 +1,7 @@
 /**
- * DabitOne 투어 디자인 토큰 — Light stone theme (2026-04-22 재조정).
- * 가독성 우선: warm stone palette + burnt orange accent + Pretendard primary.
+ * DabitOne 투어 디자인 토큰 — Monochrome theme (2026-04-23 풀 리디자인).
+ * 가독성 우선: neutral grayscale + Pretendard Variable (한·영) + Inter Variable (Latin 폴백).
+ * --tour-c-accent = currentColor: hotspot·focus outline 전용으로 다크 섹션 자동 반전.
  */
 
 @font-face {
@@ -27,6 +28,7 @@
 
 .tour-page {
   /* Typography — Pretendard primary (가독성), Mono는 label 전용 */
+  /* Inter Variable: Pretendard 로드 실패 시 Latin 폴백 (Pretendard가 한·영 모두 커버하므로 실사용은 드묾) */
   --tour-font-display: "Pretendard Variable", "Inter Variable", -apple-system, BlinkMacSystemFont, sans-serif;
   --tour-font-body: "Pretendard Variable", "Inter Variable", -apple-system, sans-serif;
   --tour-font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
@@ -42,7 +44,7 @@
   --tour-lh-tight: 1.1;
   --tour-lh-normal: 1.65;
   --tour-ls-tight: -0.03em;
-  --tour-ls-display: -0.03em;
+  --tour-ls-display: -0.03em; /* hero/manifesto 전용 — Phase 3 시각 QA 후 세밀 조정 여지 */
   --tour-ls-mono: 0.02em;
   --tour-ls-label: 0.1em;
 
