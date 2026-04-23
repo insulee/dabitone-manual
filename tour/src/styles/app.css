@@ -23,7 +23,7 @@
   height: 16px;
   border-radius: 50%;
   background: var(--tour-c-accent);
-  box-shadow: 0 0 0 4px rgba(194, 65, 12, 0.25);
+  box-shadow: 0 0 0 4px rgba(10, 10, 10, 0.18);
   z-index: 2;
   position: relative;
   transition: transform var(--tour-dur-micro) var(--tour-ease-out);
