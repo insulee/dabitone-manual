@@ -161,22 +161,22 @@ body.tour11-page #tour-root {
   text-align: left;
 }
 
-.tour11-hero__eyebrow {
-  margin: 0 0 20px;
-  font-family: var(--t11-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--t11-ink-soft);
+.tour11-hero__title {
+  margin: 0 0 28px;
+  font-size: clamp(64px, 10vw, 128px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--t11-ink);
 }
 
-.tour11-hero__title {
-  margin: 0 0 24px;
-  font-size: clamp(40px, 6.5vw, 88px);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+.tour11-hero__tagline {
+  margin: 0 0 28px;
+  max-width: 720px;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
   color: var(--t11-ink);
 }
 

@@ -39,25 +39,22 @@ function Hero() {
   return (
     <section class="tour11-hero" aria-label="Hero">
       <div class="tour11-hero__inner">
-        <p class="tour11-hero__eyebrow">DABITONE</p>
-        <h1 class="tour11-hero__title">
-          하나의 컨트롤러를 움직이는<br />
-          하나의 소프트웨어
-        </h1>
-        <p class="tour11-hero__sub">
-          다빛솔루션 LED 전광판 운영 데스크톱 앱. 픽셀에서 프로토콜까지.
+        <h1 class="tour11-hero__title">DabitOne</h1>
+        <p class="tour11-hero__tagline">
+          픽셀에서 프로토콜까지,<br />하나의 소프트웨어.
         </p>
+        <p class="tour11-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
         <div class="tour11-hero__cta">
+          <MagneticLink href="#quickstart" className="tour11-btn tour11-btn--primary">
+            투어 시작하기<span class="tour11-btn__arrow" aria-hidden="true">→</span>
+          </MagneticLink>
           <MagneticLink
             href="https://www.dabitsol.com"
             target="_blank"
             rel="noreferrer"
-            className="tour11-btn tour11-btn--primary"
+            className="tour11-btn tour11-btn--secondary"
           >
             DabitOne 다운로드<span class="tour11-btn__arrow" aria-hidden="true">→</span>
-          </MagneticLink>
-          <MagneticLink href="#features" className="tour11-btn tour11-btn--secondary">
-            투어 시작<span class="tour11-btn__arrow" aria-hidden="true">→</span>
           </MagneticLink>
         </div>
       </div>
@@ -92,7 +89,8 @@ const PANELS: readonly Panel[] = [
     title: "각 탭이 해당 작업의 시작부터 끝까지.",
     lines: [
       "통신, 설정, 전송, 편집, 고급 — 다섯 개 탭.",
-      "메뉴 탐색과 창 전환이 줄어든 만큼, 설정 시간도 짧아집니다.",
+      "레거시에서 설정은 흩어져 있었습니다. 화면 크기, 표출 신호, 폰트 전송이 각자 다른 창에서.",
+      "DabitOne은 한 화면 안에 모았습니다. 메뉴 탐색과 창 전환이 줄어든 만큼, 설정 시간도 짧아집니다.",
     ],
   },
   {
@@ -101,7 +99,8 @@ const PANELS: readonly Panel[] = [
     title: "IP 검색과 설정, 가장 빠른 길.",
     lines: [
       "UDP 브로드캐스트 한 번으로 같은 서브넷의 컨트롤러가 MAC·IP 목록으로.",
-      "클릭 한 번에 연결 설정 자동 반영, 곧바로 연결 테스트.",
+      "장비를 클릭하면 연결 설정으로 자동 반영, 곧바로 연결 테스트.",
+      "이전보다 안정적인 응답, 타이핑과 오타 확인이 줄어든 흐름.",
     ],
   },
   {
@@ -109,8 +108,9 @@ const PANELS: readonly Panel[] = [
     label: "HEX · ASCII",
     title: "한 화면에서, 두 프로토콜.",
     lines: [
-      "HEX·ASCII 설정을 한 화면에서 전환, 가운데 버튼으로 즉시 변환.",
-      "프로토콜 문서 없이도 패킷 구조 확인, 현장 디버깅 시간이 짧아집니다.",
+      "메시지 종류·섹션·페이지를 라디오·콤보박스로 선택하는 HEX. 텍스트 영역에 직접 쓰는 ASCII.",
+      "가운데의 \u201cASCII 변환\u201d 버튼이 HEX 설정값을 ASCII 문자열로 바꿔 줍니다.",
+      "프로토콜 문서 없이도 패킷 구조 확인. 시스템 연동과 현장 디버깅에서 학습 시간이 짧아집니다.",
     ],
   },
 ] as const
