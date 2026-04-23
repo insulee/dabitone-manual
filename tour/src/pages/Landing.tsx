@@ -182,6 +182,7 @@ function TabIndex() {
   return (
     <section
       ref={ref}
+      id="quickstart"
       class="tour-tabs"
       style={{ opacity: 0 }}
       aria-label="투어 시작"
