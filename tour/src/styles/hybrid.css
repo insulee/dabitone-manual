@@ -152,11 +152,7 @@ body.tour11-page #tour-root {
 
 .tour11-hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(96px, 12vh, 140px) 24px clamp(64px, 10vh, 120px);
+  padding: clamp(96px, 16vh, 180px) 24px clamp(56px, 8vh, 96px);
   background: var(--t11-bg);
   overflow: hidden;
   cursor: none;
@@ -272,8 +268,9 @@ body.tour11-page #tour-root {
    ========================================================================= */
 
 .tour11-horizontal {
+  --tour11-sticky-h: clamp(560px, 72vh, 720px);
   position: relative;
-  height: 400vh;
+  height: calc(var(--tour11-sticky-h) * 4);
   background: var(--t11-bg);
   border-top: 1px solid var(--t11-line);
   border-bottom: 1px solid var(--t11-line);
@@ -282,7 +279,7 @@ body.tour11-page #tour-root {
 .tour11-horizontal__sticky {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: var(--tour11-sticky-h);
   overflow: hidden;
 }
 
@@ -348,7 +345,7 @@ body.tour11-page #tour-root {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 96px clamp(48px, 10vw, 160px);
+  padding: clamp(56px, 8vh, 96px) clamp(48px, 10vw, 160px);
   box-sizing: border-box;
   position: relative;
 }

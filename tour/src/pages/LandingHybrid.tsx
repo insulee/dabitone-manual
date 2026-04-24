@@ -215,7 +215,10 @@ function HorizontalFeatures() {
       raf = requestAnimationFrame(() => {
         if (!pin || !track || !progress) return
         const rect = pin.getBoundingClientRect()
-        const total = pin.offsetHeight - window.innerHeight
+        // sticky 높이를 viewport 대신 실제 sticky 요소 크기로 계산
+        const stickyEl = pin.querySelector(".tour11-horizontal__sticky") as HTMLElement | null
+        const stickyH = stickyEl?.offsetHeight ?? window.innerHeight
+        const total = pin.offsetHeight - stickyH
         const p = Math.max(0, Math.min(1, -rect.top / Math.max(1, total)))
         // 4 panels → 3 transitions, 0 → -75%
         track.style.transform = `translate3d(${-p * 75}%, 0, 0)`
