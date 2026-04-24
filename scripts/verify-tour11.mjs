@@ -54,6 +54,14 @@ await page.waitForTimeout(400)
 await page.screenshot({ path: "tmp/tour11-verify/hero.png", fullPage: false })
 console.log("[1/6] hero.png")
 
+// 1b. Hero with cursor lit — move mouse into upper-right area to trigger matrix lighting
+await page.mouse.move(1050, 300)
+await page.waitForTimeout(400)
+await page.screenshot({ path: "tmp/tour11-verify/hero-lit.png", fullPage: false })
+console.log("[1b] hero-lit.png")
+await page.mouse.move(0, 0)
+await page.waitForTimeout(200)
+
 // 2. Panel 1 (25% progress into horizontal section)
 // horizontal section height = 400vh = 3600px at vh=900.
 // To get 25% progress we need scroll to reach features top + 0.25*(3600-900) = featuresTop + 675.

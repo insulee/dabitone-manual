@@ -12,6 +12,7 @@
  */
 import { useEffect, useRef, useState } from "preact/hooks"
 import { reducedMotion } from "../lib/motion"
+import { PixelMatrix } from "../components/PixelMatrix"
 
 export function LandingHybrid() {
   useEffect(() => {
@@ -38,6 +39,7 @@ export function LandingHybrid() {
 function Hero() {
   return (
     <section class="tour11-hero" aria-label="Hero">
+      <PixelMatrix />
       <div class="tour11-hero__inner">
         <h1 class="tour11-hero__title">DabitOne</h1>
         <p class="tour11-hero__tagline">
