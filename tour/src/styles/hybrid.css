@@ -678,37 +678,13 @@ body.tour11-page #tour-root {
 }
 
 /* =========================================================================
-   Reduced motion
+   Reduced motion — 장식 micro-interaction만 disable.
+   가로 스크롤 sticky-pin은 tour11의 핵심 demo이므로 reduced-motion에서도
+   layout을 유지한다 (W3C reduced-motion은 scroll-tied content reveal보다
+   parallax/autoplay decorative motion 억제가 본의).
    ========================================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .tour11-horizontal {
-    height: auto;
-  }
-  .tour11-horizontal__sticky {
-    position: static;
-    height: auto;
-    overflow: visible;
-  }
-  .tour11-horizontal__track {
-    width: auto;
-    flex-direction: column;
-    transform: none !important;
-    transition: none;
-  }
-  .tour11-panel {
-    flex-basis: auto;
-    height: auto;
-    min-height: auto;
-    border-bottom: 1px solid var(--t11-line);
-  }
-  .tour11-panel:last-child {
-    border-bottom: 0;
-  }
-  .tour11-horizontal__hud,
-  .tour11-horizontal__progress {
-    display: none;
-  }
   .tour11-tab,
   .tour11-tab::before,
   .tour11-tab__num,

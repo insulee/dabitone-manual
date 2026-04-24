@@ -205,7 +205,8 @@ function HorizontalFeatures() {
     const track = trackRef.current
     const progress = progressRef.current
     if (!pin || !track || !progress) return
-    if (reducedMotion()) return
+    // reduced-motion에서도 가로 sticky-pin은 작동시킨다 (tour11 핵심 demo).
+    // 데코레이션(CursorPixel, MagneticLink)만 reducedMotion()으로 bail.
     const mq = window.matchMedia("(min-width: 768px)")
     if (!mq.matches) return
 
