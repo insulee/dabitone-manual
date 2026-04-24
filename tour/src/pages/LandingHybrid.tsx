@@ -40,6 +40,7 @@ function Hero() {
   return (
     <section class="tour11-hero" aria-label="Hero">
       <PixelMatrix />
+      <CursorPixel />
       <div class="tour11-hero__inner">
         <h1 class="tour11-hero__title">DabitOne</h1>
         <p class="tour11-hero__tagline">
@@ -62,6 +63,82 @@ function Hero() {
       </div>
     </section>
   )
+}
+
+/* =========================================================================
+   CursorPixel — 히어로 안에서만 활성되는 작은 cyan 글로우 커서
+   ========================================================================= */
+
+function CursorPixel() {
+  const elRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = elRef.current
+    if (!el) return
+    if (reducedMotion()) return
+    if (window.matchMedia("(pointer: coarse)").matches) return
+
+    const hero = el.closest(".tour11-hero") as HTMLElement | null
+    if (!hero) return
+
+    let targetX = 0
+    let targetY = 0
+    let curX = 0
+    let curY = 0
+    let raf = 0
+    let running = false
+    let visible = false
+
+    function tick() {
+      if (!el) return
+      curX += (targetX - curX) * 0.28
+      curY += (targetY - curY) * 0.28
+      el.style.transform = `translate(${curX.toFixed(2)}px, ${curY.toFixed(2)}px)`
+      if (Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+        running = false
+        return
+      }
+      if (running) raf = requestAnimationFrame(tick)
+    }
+
+    function ensureRunning() {
+      if (!running) {
+        running = true
+        raf = requestAnimationFrame(tick)
+      }
+    }
+
+    function onMove(e: MouseEvent) {
+      if (!hero) return
+      const rect = hero.getBoundingClientRect()
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      if (inside) {
+        targetX = e.clientX - rect.left
+        targetY = e.clientY - rect.top
+        if (!visible && el) {
+          visible = true
+          el.classList.add("is-visible")
+        }
+        ensureRunning()
+      } else if (visible && el) {
+        visible = false
+        el.classList.remove("is-visible")
+      }
+    }
+
+    window.addEventListener("mousemove", onMove)
+    return () => {
+      window.removeEventListener("mousemove", onMove)
+      cancelAnimationFrame(raf)
+      running = false
+    }
+  }, [])
+
+  return <div ref={elRef} class="tour11-hero__cursor-pixel" aria-hidden="true" />
 }
 
 /* =========================================================================

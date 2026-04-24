@@ -152,9 +152,19 @@ body.tour11-page #tour-root {
 
 .tour11-hero {
   position: relative;
-  padding: clamp(96px, 16vh, 180px) 24px clamp(56px, 8vh, 96px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(96px, 12vh, 140px) 24px clamp(64px, 10vh, 120px);
   background: var(--t11-bg);
   overflow: hidden;
+  cursor: none;
+}
+
+.tour11-hero a,
+.tour11-hero button {
+  cursor: pointer;
 }
 
 .tour11-hero__matrix-bg {
@@ -168,12 +178,60 @@ body.tour11-page #tour-root {
   mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
 }
 
+.tour11-hero__cursor-pixel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  background: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 1) 0%,
+    rgba(14, 165, 233, 0.7) 30%,
+    rgba(14, 165, 233, 0.2) 60%,
+    transparent 80%
+  );
+  border-radius: 50%;
+  box-shadow:
+    0 0 14px rgba(14, 165, 233, 0.8),
+    0 0 32px rgba(14, 165, 233, 0.4);
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  will-change: transform, opacity;
+}
+
+.tour11-hero__cursor-pixel.is-visible {
+  opacity: 1;
+}
+
 .tour11-hero__inner {
   position: relative;
   z-index: 1;
+  width: 100%;
   max-width: 1120px;
   margin: 0 auto;
   text-align: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour11-hero {
+    cursor: auto;
+  }
+  .tour11-hero__cursor-pixel {
+    display: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .tour11-hero {
+    cursor: auto;
+  }
+  .tour11-hero__cursor-pixel {
+    display: none;
+  }
 }
 
 .tour11-hero__title {
