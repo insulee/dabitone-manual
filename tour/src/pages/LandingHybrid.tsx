@@ -215,14 +215,12 @@ function HorizontalFeatures() {
       raf = requestAnimationFrame(() => {
         if (!pin || !track || !progress) return
         const rect = pin.getBoundingClientRect()
-        const vh = window.innerHeight
-        // 하단 pin 방식: 섹션 하단이 뷰포트 하단에 닿는 순간(pin 시작) progress 0,
-        // 섹션 상단이 뷰포트 상단에 닿는 순간(pin 끝) progress 1.
+        // 상단 pin 방식: 섹션 상단이 뷰포트 상단에 닿는 순간 progress 0,
+        // sticky pin이 끝나는 순간 1.
         const stickyEl = pin.querySelector(".tour11-horizontal__sticky") as HTMLElement | null
-        const stickyH = stickyEl?.offsetHeight ?? vh
-        const pinStart = vh - stickyH
+        const stickyH = stickyEl?.offsetHeight ?? window.innerHeight
         const range = Math.max(1, pin.offsetHeight - stickyH)
-        const p = Math.max(0, Math.min(1, (pinStart - rect.top) / range))
+        const p = Math.max(0, Math.min(1, -rect.top / range))
         // 4 panels → 3 transitions, 0 → -75%
         track.style.transform = `translate3d(${-p * 75}%, 0, 0)`
         progress.style.transform = `scaleX(${p})`

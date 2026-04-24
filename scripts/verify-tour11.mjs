@@ -76,37 +76,35 @@ const scrollTargets = await page.evaluate(() => {
   const sticky = document.querySelector(".tour11-horizontal__sticky")
   const stickyH = sticky ? sticky.offsetHeight : vh
   const total = h - stickyH
-  const pinStart = vh - stickyH // bottom:0 pin 시작 시점의 rect.top
-  const baseScroll = top - pinStart // progress 0 지점의 scrollY
-  return { top, total, vh, h, stickyH, pinStart, baseScroll }
+  return { top, total, vh, h, stickyH }
 })
 console.log("Features scroll target:", scrollTargets)
 
 if (scrollTargets) {
-  const { baseScroll, total } = scrollTargets
-  // Panel 1 (F01) = progress 0.
-  await page.evaluate((y) => window.scrollTo(0, y), baseScroll + 10)
+  const { top, total } = scrollTargets
+  // Panel 1 (F01) = progress 0.  top:0 pin에서 pin 시작 시점에 바로 캡처.
+  await page.evaluate((y) => window.scrollTo(0, y), top + 10)
   await page.mouse.move(1100, 500)
   await page.waitForTimeout(600)
   await page.screenshot({ path: "tmp/tour11-verify/panel-1.png", fullPage: false })
   console.log("[2/6] panel-1.png (F01 at progress ~0)")
 
   // Panel 2 (F02) = progress 1/3.
-  await page.evaluate((y) => window.scrollTo(0, y), baseScroll + Math.round(total * (1 / 3)))
+  await page.evaluate((y) => window.scrollTo(0, y), top + Math.round(total * (1 / 3)))
   await page.mouse.move(1100, 500)
   await page.waitForTimeout(600)
   await page.screenshot({ path: "tmp/tour11-verify/panel-2.png", fullPage: false })
   console.log("[2b] panel-2.png (F02 at progress 1/3)")
 
   // Panel 3 (F03) = progress 2/3.
-  await page.evaluate((y) => window.scrollTo(0, y), baseScroll + Math.round(total * (2 / 3)))
+  await page.evaluate((y) => window.scrollTo(0, y), top + Math.round(total * (2 / 3)))
   await page.mouse.move(1100, 500)
   await page.waitForTimeout(600)
   await page.screenshot({ path: "tmp/tour11-verify/panel-3.png", fullPage: false })
   console.log("[3/6] panel-3.png (F03 at progress 2/3)")
 
   // Panel 4 (F04) = progress ~0.99.
-  await page.evaluate((y) => window.scrollTo(0, y), baseScroll + Math.round(total * 0.99))
+  await page.evaluate((y) => window.scrollTo(0, y), top + Math.round(total * 0.99))
   await page.mouse.move(1100, 500)
   await page.waitForTimeout(600)
   await page.screenshot({ path: "tmp/tour11-verify/panel-4.png", fullPage: false })

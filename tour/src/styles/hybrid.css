@@ -278,7 +278,7 @@ body.tour11-page #tour-root {
 
 .tour11-horizontal__sticky {
   position: sticky;
-  bottom: 0;
+  top: 0;
   height: var(--tour11-sticky-h);
   overflow: hidden;
 }
