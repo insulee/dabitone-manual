@@ -163,18 +163,6 @@ function HorizontalFeatures() {
       aria-label={`Feature ${PANELS[activeIndex]?.num} · ${PANELS[activeIndex]?.label}`}
     >
       <div class="tour11-horizontal__sticky">
-        <div class="tour11-horizontal__hud" aria-hidden="true">
-          <span>
-            <span class="tour11-horizontal__hud-label">MODULE </span>
-            <span class="tour11-horizontal__hud-value">
-              {String(activeIndex + 1).padStart(2, "0")} / 04
-            </span>
-          </span>
-          <span>
-            <span class="tour11-horizontal__hud-label">SCROLL / </span>
-            <span class="tour11-horizontal__hud-value">HORIZONTAL</span>
-          </span>
-        </div>
         <div class="tour11-horizontal__track" ref={trackRef}>
           {PANELS.map((p) => (
             <PanelCard key={p.num} panel={p} />
@@ -189,13 +177,12 @@ function HorizontalFeatures() {
 }
 
 /**
- * 패널 하나. 텍스트 전용 포스터 — num / label / title / 본문 lines.
+ * 패널 하나. 텍스트 전용 포스터 — label / title / 본문 lines.
  */
 function PanelCard({ panel }: { panel: Panel }) {
   return (
     <article class="tour11-panel">
       <div class="tour11-panel__text">
-        <p class="tour11-panel__num">{panel.num}</p>
         <p class="tour11-panel__label">{panel.label}</p>
         <h2 class="tour11-panel__title">{panel.title}</h2>
         {panel.lines.map((line, i) => (
