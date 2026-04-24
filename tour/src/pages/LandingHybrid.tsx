@@ -216,13 +216,13 @@ function HorizontalFeatures() {
         if (!pin || !track || !progress) return
         const rect = pin.getBoundingClientRect()
         const vh = window.innerHeight
-        // View-based progress: section top이 viewport 하단에 닿는 순간 0,
-        // sticky pin이 끝나는 순간 1. 진입 중에도 track이 흐르며 pin 상태까지 hybrid로 이어짐.
+        // 하단 pin 방식: 섹션 하단이 뷰포트 하단에 닿는 순간(pin 시작) progress 0,
+        // 섹션 상단이 뷰포트 상단에 닿는 순간(pin 끝) progress 1.
         const stickyEl = pin.querySelector(".tour11-horizontal__sticky") as HTMLElement | null
         const stickyH = stickyEl?.offsetHeight ?? vh
-        const pinEnd = -(pin.offsetHeight - stickyH)
-        const range = Math.max(1, vh - pinEnd)
-        const p = Math.max(0, Math.min(1, (vh - rect.top) / range))
+        const pinStart = vh - stickyH
+        const range = Math.max(1, pin.offsetHeight - stickyH)
+        const p = Math.max(0, Math.min(1, (pinStart - rect.top) / range))
         // 4 panels → 3 transitions, 0 → -75%
         track.style.transform = `translate3d(${-p * 75}%, 0, 0)`
         progress.style.transform = `scaleX(${p})`
