@@ -253,10 +253,8 @@ function MagneticFooter() {
   return (
     <section class="tour11-footer" aria-label="시작">
       <div class="tour11-footer__inner">
-        <p class="tour11-footer__eyebrow">START USING</p>
         <h2 class="tour11-footer__title">
-          지금, 현장에서.<br />
-          DabitOne을 시작하세요.
+          지금, DabitOne을 시작하세요.
         </h2>
         <p class="tour11-footer__sub">
           설치 파일은 다빛솔루션 공식 사이트에서 제공됩니다.
