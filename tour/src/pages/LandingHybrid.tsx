@@ -246,6 +246,13 @@ function HorizontalFeatures() {
       ref={pinRef}
       aria-label={`Feature ${PANELS[activeIndex]?.num} · ${PANELS[activeIndex]?.label}`}
     >
+      {[0, 1, 2, 3].map((i) => (
+        <div
+          key={`snap-${i}`}
+          class={`tour11-horizontal__snap-stop tour11-horizontal__snap-stop--${i}`}
+          aria-hidden="true"
+        />
+      ))}
       <div class="tour11-horizontal__sticky">
         <div class="tour11-horizontal__track" ref={trackRef}>
           {PANELS.map((p) => (

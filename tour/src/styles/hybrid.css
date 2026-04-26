@@ -24,6 +24,12 @@ body.tour11-page {
   text-rendering: optimizeLegibility;
 }
 
+/* Page-level scroll snap — tour11에만 적용. mandatory + stop:always로
+   panel 단위 4단계 끊어 이동. */
+html:has(body.tour11-page) {
+  scroll-snap-type: y mandatory;
+}
+
 /* horizontal track overflow는 sticky container 내부에서만 잘라냄.
    body에 overflow-x:hidden 금지 — sticky positioning을 망가뜨림. */
 
@@ -156,6 +162,8 @@ body.tour11-page #tour-root {
   background: var(--t11-bg);
   overflow: hidden;
   cursor: none;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .tour11-hero a,
@@ -283,6 +291,34 @@ body.tour11-page #tour-root {
   overflow: hidden;
 }
 
+/* 4 invisible snap markers — panel별 정확한 scroll position에 stop 강제.
+   absolute, 1px 높이, pointer 이벤트 차단. mandatory + stop:always와 짝. */
+.tour11-horizontal__snap-stop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.tour11-horizontal__snap-stop--0 {
+  top: 0;
+}
+
+.tour11-horizontal__snap-stop--1 {
+  top: var(--tour11-sticky-h);
+}
+
+.tour11-horizontal__snap-stop--2 {
+  top: calc(var(--tour11-sticky-h) * 2);
+}
+
+.tour11-horizontal__snap-stop--3 {
+  top: calc(var(--tour11-sticky-h) * 3);
+}
+
 .tour11-horizontal__hud {
   position: absolute;
   top: 28px;
@@ -403,6 +439,8 @@ body.tour11-page #tour-root {
 .tour11-quickstart {
   padding: clamp(72px, 12vh, 128px) 24px;
   background: var(--t11-bg);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .tour11-quickstart__inner {
@@ -553,14 +591,24 @@ body.tour11-page #tour-root {
    ========================================================================= */
 
 .tour11-footer {
+  /* min-height: 100vh — snap-align:start가 last stop으로 작동하려면 footer top이
+     viewport top에 align 가능해야 함. footer가 viewport보다 작으면 max scroll
+     position에서 멈춰 align 실패. */
+  min-height: 100vh;
   padding: clamp(96px, 14vh, 160px) 24px clamp(64px, 10vh, 120px);
   background: var(--t11-dark-bg);
   color: var(--t11-dark-ink);
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  box-sizing: border-box;
 }
 
 .tour11-footer__inner {
   max-width: 1120px;
   margin: 0 auto;
+  width: 100%;
   text-align: left;
 }
 
