@@ -52,11 +52,11 @@ const tour: Tour = {
         "통신 설정 창 좌측 열에는 Serial / Client TCP/IP / Server TCP/IP / UDP 네 개의 그룹박스가 세로로 나열되어 있습니다. 각 그룹박스 헤더의 라디오 버튼으로 하나 선택. 기본은 Serial입니다.",
       image: SCREEN,
       hotspot: {
-        x: 11,
-        y: 11,
+        x: 9,
+        y: 13,
         ariaLabel: "연결 방식 라디오 버튼 그룹 — Serial 기본 선택",
         label: "연결 방식",
-        box: { w: 23, h: 18 },
+        box: { w: 23, h: 36 },
       },
       srSummary:
         "연결 방식은 네 가지: Serial(시리얼 케이블 직결), Client TCP/IP(컨트롤러 IP 입력), Server TCP/IP(컨트롤러가 접속해옴), UDP(브로드캐스트·단방향). 처음이라면 대부분 Serial 또는 Client TCP/IP입니다.",
@@ -78,8 +78,8 @@ const tour: Tour = {
         "Serial이면 '포트'와 '속도' 드롭다운을 채웁니다. 기본 속도는 115200. 컨트롤러 펌웨어 설정과 일치해야 합니다. 모르는 경우 [속도 찾기] 버튼으로 자동 탐색. TCP/UDP이면 'IP Address'와 'IP Port'를 입력합니다(기본 192.168.0.201 : 5000).",
       image: SCREEN,
       hotspot: {
-        x: 23,
-        y: 16,
+        x: 18,
+        y: 13,
         ariaLabel: "포트·속도 또는 IP·Port 입력 영역",
         label: "설정 입력",
         box: { w: 18, h: 8 },
@@ -102,8 +102,8 @@ const tour: Tour = {
         "응답시간 드롭다운으로 컨트롤러 응답 대기 시간을 1~6초로 조정합니다. 기본 3초. 케이블이 길거나 RS-485 장거리 배선이면 5~6초 권장.",
       image: SCREEN,
       hotspot: {
-        x: 22,
-        y: 75,
+        x: 24,
+        y: 78,
         ariaLabel: "응답시간 드롭다운",
         label: "응답시간",
         box: { w: 10, h: 4 },
@@ -123,8 +123,8 @@ const tour: Tour = {
         "통신 설정 창 맨 아래 [연결 테스트] 버튼을 클릭하면 현재 설정이 저장되고 컨트롤러에 echo 요청이 갑니다. 성공 시 '연결 테스트 성공' 녹색 토스트가 뜨고 상단 상태가 '연결됨'으로 바뀝니다.",
       image: SCREEN,
       hotspot: {
-        x: 16,
-        y: 75,
+        x: 11,
+        y: 78,
         ariaLabel: "연결 테스트 버튼",
         label: "[연결 테스트]",
         box: { w: 12, h: 4 },
