@@ -276,7 +276,11 @@ body.tour11-page #tour-root {
    ========================================================================= */
 
 .tour11-horizontal {
+  /* 72vh sticky pin + viewport center 배치. 위·아래 14vh letterboxing은 같은
+     bg(#fafafa)로 채워져 빈 공간처럼 보이고, 다른 섹션 컨텐츠는 mandatory snap이
+     stop에서 정지시켜 노출 안 됨. */
   --tour11-sticky-h: clamp(560px, 72vh, 720px);
+  --tour11-sticky-offset: calc((100vh - var(--tour11-sticky-h)) / 2);
   position: relative;
   height: calc(var(--tour11-sticky-h) * 4);
   background: var(--t11-bg);
@@ -286,7 +290,8 @@ body.tour11-page #tour-root {
 
 .tour11-horizontal__sticky {
   position: sticky;
-  top: 0;
+  /* viewport center에 panel 정렬: top offset = (100vh - sticky-h) / 2 */
+  top: var(--tour11-sticky-offset);
   height: var(--tour11-sticky-h);
   overflow: hidden;
 }

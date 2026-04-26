@@ -211,31 +211,86 @@ function HorizontalFeatures() {
     if (!mq.matches) return
 
     let raf = 0
+    let currentPanel = 0
+    let isAnimating = false
+    let animTimer = 0
+
+    function getGeometry() {
+      const featuresTop = pin!.getBoundingClientRect().top + window.scrollY
+      const stickyEl = pin!.querySelector(".tour11-horizontal__sticky") as HTMLElement | null
+      const stickyH = stickyEl?.offsetHeight ?? window.innerHeight
+      return { featuresTop, stickyH }
+    }
+
+    function smoothScrollTo(y: number) {
+      isAnimating = true
+      window.scrollTo({ top: y, behavior: reducedMotion() ? "auto" : "smooth" })
+      clearTimeout(animTimer)
+      animTimer = window.setTimeout(() => {
+        isAnimating = false
+      }, 650)
+    }
+
+    /** features 안 4 panel scroll-position 범위 안에 있는가. */
+    function inFeaturesRange() {
+      const { featuresTop, stickyH } = getGeometry()
+      const lastPanelY = featuresTop + 3 * stickyH
+      return window.scrollY >= featuresTop - 1 && window.scrollY <= lastPanelY + 1
+    }
+
+    function onWheel(e: WheelEvent) {
+      if (!inFeaturesRange()) return
+      if (isAnimating) {
+        e.preventDefault()
+        return
+      }
+      // trackpad inertia로 들어오는 작은 deltaY (대개 < 4) 무시 — 실제 입력만 처리
+      if (Math.abs(e.deltaY) < 4) return
+      e.preventDefault()
+      const dir = e.deltaY > 0 ? 1 : -1
+      const next = currentPanel + dir
+      const { featuresTop, stickyH } = getGeometry()
+      if (next < 0) {
+        // panel 0에서 위로 → Hero stop
+        smoothScrollTo(0)
+        currentPanel = 0
+      } else if (next > 3) {
+        // panel 3에서 아래로 → Quickstart stop (= features section 바로 다음)
+        smoothScrollTo(featuresTop + 4 * stickyH)
+        currentPanel = 3
+      } else {
+        currentPanel = next
+        smoothScrollTo(featuresTop + next * stickyH)
+      }
+    }
+
     function onScroll() {
       cancelAnimationFrame(raf)
       raf = requestAnimationFrame(() => {
         if (!pin || !track || !progress) return
         const rect = pin.getBoundingClientRect()
-        // 상단 pin 방식: 섹션 상단이 뷰포트 상단에 닿는 순간 progress 0,
-        // sticky pin이 끝나는 순간 1.
-        const stickyEl = pin.querySelector(".tour11-horizontal__sticky") as HTMLElement | null
-        const stickyH = stickyEl?.offsetHeight ?? window.innerHeight
+        const { stickyH } = getGeometry()
         const range = Math.max(1, pin.offsetHeight - stickyH)
         const p = Math.max(0, Math.min(1, -rect.top / range))
-        // 4 panels → 3 transitions, 0 → -75%
         track.style.transform = `translate3d(${-p * 75}%, 0, 0)`
         progress.style.transform = `scaleX(${p})`
         const idx = Math.min(3, Math.max(0, Math.round(p * 3)))
         setActiveIndex(idx)
+        // animation 중에는 currentPanel을 JS가 명시 설정 — scroll 이벤트가 덮어쓰지 않도록.
+        if (!isAnimating) currentPanel = idx
       })
     }
+
     window.addEventListener("scroll", onScroll, { passive: true })
     window.addEventListener("resize", onScroll)
+    window.addEventListener("wheel", onWheel, { passive: false })
     onScroll()
     return () => {
       window.removeEventListener("scroll", onScroll)
       window.removeEventListener("resize", onScroll)
+      window.removeEventListener("wheel", onWheel)
       cancelAnimationFrame(raf)
+      clearTimeout(animTimer)
     }
   }, [])
 
