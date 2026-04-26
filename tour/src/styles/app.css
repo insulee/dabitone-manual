@@ -19,35 +19,35 @@
   z-index: 10;
 }
 .tour-hotspot__dot {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: var(--tour-c-accent);
-  box-shadow: 0 0 0 4px rgba(10, 10, 10, 0.18);
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.9),
+    0 0 0 4px rgba(10, 10, 10, 0.14);
   z-index: 2;
   position: relative;
   transition: transform var(--tour-dur-micro) var(--tour-ease-out);
 }
-.tour-hotspot__dot::before,
-.tour-hotspot__dot::after {
+/* Ripple — scale 2.4까지만 (= 14px → ~34px). 작은 UI 요소를 가리킬 때
+   인접 컨트롤 침범 안 하는 최소 크기. ring 1개만 + 더 긴 duration으로 침착. */
+.tour-hotspot__dot::before {
   content: "";
   position: absolute;
-  inset: -4px;
+  inset: -3px;
   border-radius: 50%;
-  border: 2px solid var(--tour-c-accent);
+  border: 1.5px solid var(--tour-c-accent);
   pointer-events: none;
-  animation: tour-hotspot-ripple 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-}
-.tour-hotspot__dot::after {
-  animation-delay: 1s;
+  animation: tour-hotspot-ripple 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 @keyframes tour-hotspot-ripple {
   0% {
     transform: scale(1);
-    opacity: 0.9;
+    opacity: 0.55;
   }
   100% {
-    transform: scale(4);
+    transform: scale(2.4);
     opacity: 0;
   }
 }
