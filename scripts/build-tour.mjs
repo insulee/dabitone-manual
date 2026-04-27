@@ -42,20 +42,11 @@ await build({
   legalComments: "none",
 })
 
-// 2. CSS 번들 — tokens + app + console + desktop + editorial + horizontal + scrolly + playground + craft + kinetic + canvas + hybrid를 하나로 합침
+// 2. CSS 번들 — tokens + app + hybrid를 하나로 합침
 await build({
   entryPoints: [
     resolve(projectRoot, "tour/src/styles/tokens.css"),
     resolve(projectRoot, "tour/src/styles/app.css"),
-    resolve(projectRoot, "tour/src/styles/console.css"),
-    resolve(projectRoot, "tour/src/styles/desktop.css"),
-    resolve(projectRoot, "tour/src/styles/editorial.css"),
-    resolve(projectRoot, "tour/src/styles/horizontal.css"),
-    resolve(projectRoot, "tour/src/styles/scrolly.css"),
-    resolve(projectRoot, "tour/src/styles/playground.css"),
-    resolve(projectRoot, "tour/src/styles/craft.css"),
-    resolve(projectRoot, "tour/src/styles/kinetic.css"),
-    resolve(projectRoot, "tour/src/styles/canvas.css"),
     resolve(projectRoot, "tour/src/styles/hybrid.css"),
   ],
   outdir: outDir,
@@ -66,70 +57,18 @@ await build({
   external: ["/static/fonts/*"],
 })
 
-// 3. 병합: tokens + app + console + desktop + editorial + horizontal + scrolly + playground + craft + kinetic + canvas + hybrid → tour.css
+// 3. 병합: tokens + app + hybrid → tour.css
 const tokensPath = resolve(outDir, "tokens.css")
 const appPath = resolve(outDir, "app.css")
-const consolePath = resolve(outDir, "console.css")
-const desktopPath = resolve(outDir, "desktop.css")
-const editorialPath = resolve(outDir, "editorial.css")
-const horizontalPath = resolve(outDir, "horizontal.css")
-const scrollyPath = resolve(outDir, "scrolly.css")
-const playgroundPath = resolve(outDir, "playground.css")
-const craftPath = resolve(outDir, "craft.css")
-const kineticPath = resolve(outDir, "kinetic.css")
-const canvasPath = resolve(outDir, "canvas.css")
 const hybridPath = resolve(outDir, "hybrid.css")
 const tourCssPath = resolve(outDir, "tour.css")
 
 const tokens = readFileSync(tokensPath, "utf-8")
 const app = readFileSync(appPath, "utf-8")
-const consoleCss = readFileSync(consolePath, "utf-8")
-const desktopCss = readFileSync(desktopPath, "utf-8")
-const editorialCss = readFileSync(editorialPath, "utf-8")
-const horizontalCss = readFileSync(horizontalPath, "utf-8")
-const scrollyCss = readFileSync(scrollyPath, "utf-8")
-const playgroundCss = readFileSync(playgroundPath, "utf-8")
-const craftCss = readFileSync(craftPath, "utf-8")
-const kineticCss = readFileSync(kineticPath, "utf-8")
-const canvasCss = readFileSync(canvasPath, "utf-8")
 const hybridCss = readFileSync(hybridPath, "utf-8")
-writeFileSync(
-  tourCssPath,
-  tokens +
-    "\n" +
-    app +
-    "\n" +
-    consoleCss +
-    "\n" +
-    desktopCss +
-    "\n" +
-    editorialCss +
-    "\n" +
-    horizontalCss +
-    "\n" +
-    scrollyCss +
-    "\n" +
-    playgroundCss +
-    "\n" +
-    craftCss +
-    "\n" +
-    kineticCss +
-    "\n" +
-    canvasCss +
-    "\n" +
-    hybridCss,
-)
+writeFileSync(tourCssPath, tokens + "\n" + app + "\n" + hybridCss)
 unlinkSync(tokensPath)
 unlinkSync(appPath)
-unlinkSync(consolePath)
-unlinkSync(desktopPath)
-unlinkSync(editorialPath)
-unlinkSync(horizontalPath)
-unlinkSync(scrollyPath)
-unlinkSync(playgroundPath)
-unlinkSync(craftPath)
-unlinkSync(kineticPath)
-unlinkSync(canvasPath)
 unlinkSync(hybridPath)
 
 const elapsed = Date.now() - startedAt
