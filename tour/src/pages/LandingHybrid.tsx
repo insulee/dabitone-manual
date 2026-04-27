@@ -10,7 +10,7 @@
  *  3. QuickstartTabs — tour1 TabIndex와 동일한 5 tabs. Hover 반응 4가지 동시.
  *  4. MagneticFooter — 다크 패널. Hero와 동일한 Magnetic CTA.
  */
-import { useEffect, useRef, useState } from "preact/hooks"
+import { useEffect, useRef } from "preact/hooks"
 import { reducedMotion } from "../lib/motion"
 import { PixelMatrix } from "../components/PixelMatrix"
 
@@ -25,7 +25,7 @@ export function LandingHybrid() {
   return (
     <div class="tour11-shell">
       <Hero />
-      <HorizontalFeatures />
+      <QuadGrid />
       <QuickstartTabs />
       <MagneticFooter />
     </div>
@@ -44,12 +44,17 @@ function Hero() {
       <div class="tour11-hero__inner">
         <h1 class="tour11-hero__title">DabitOne</h1>
         <p class="tour11-hero__tagline">
-          픽셀에서 프로토콜까지,<br />하나의 소프트웨어.
+          픽셀에서 프로토콜까지,
+          <br />
+          하나의 소프트웨어.
         </p>
         <p class="tour11-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
         <div class="tour11-hero__cta">
           <MagneticLink href="#quickstart" className="tour11-btn tour11-btn--primary">
-            투어 시작하기<span class="tour11-btn__arrow" aria-hidden="true">→</span>
+            투어 시작하기
+            <span class="tour11-btn__arrow" aria-hidden="true">
+              →
+            </span>
           </MagneticLink>
           <MagneticLink
             href="https://www.dabitsol.com"
@@ -57,7 +62,10 @@ function Hero() {
             rel="noreferrer"
             className="tour11-btn tour11-btn--secondary"
           >
-            DabitOne 다운로드<span class="tour11-btn__arrow" aria-hidden="true">→</span>
+            DabitOne 다운로드
+            <span class="tour11-btn__arrow" aria-hidden="true">
+              →
+            </span>
           </MagneticLink>
         </div>
       </div>
@@ -142,7 +150,7 @@ function CursorPixel() {
 }
 
 /* =========================================================================
-   HorizontalFeatures — tour2 ConsolePin 패턴을 light theme으로 이식
+   QuadGrid — 정적 2x2 풀-블리드 그라디언트 4분할 (HorizontalFeatures 대체)
    ========================================================================= */
 
 type Panel = {
@@ -194,145 +202,60 @@ const PANELS: readonly Panel[] = [
   },
 ] as const
 
-function HorizontalFeatures() {
-  const pinRef = useRef<HTMLDivElement>(null)
-  const trackRef = useRef<HTMLDivElement>(null)
-  const progressRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
+const QUAD_COLORS = ["blue", "purple", "teal", "charcoal"] as const
+
+function QuadGrid() {
+  const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const pin = pinRef.current
-    const track = trackRef.current
-    const progress = progressRef.current
-    if (!pin || !track || !progress) return
-    // reduced-motion에서도 가로 sticky-pin은 작동시킨다 (tour11 핵심 demo).
-    // 데코레이션(CursorPixel, MagneticLink)만 reducedMotion()으로 bail.
-    const mq = window.matchMedia("(min-width: 768px)")
-    if (!mq.matches) return
+    const root = ref.current
+    if (!root) return
 
-    let raf = 0
-    let currentPanel = 0
-    let isAnimating = false
-    let animTimer = 0
+    const cards = Array.from(root.querySelectorAll<HTMLElement>(".tour11-quad__card"))
+    if (cards.length === 0) return
 
-    function getGeometry() {
-      const featuresTop = pin!.getBoundingClientRect().top + window.scrollY
-      const stickyEl = pin!.querySelector(".tour11-horizontal__sticky") as HTMLElement | null
-      const stickyH = stickyEl?.offsetHeight ?? window.innerHeight
-      return { featuresTop, stickyH }
+    if (reducedMotion()) {
+      cards.forEach((c) => c.classList.add("is-visible"))
+      return
     }
 
-    function smoothScrollTo(y: number) {
-      isAnimating = true
-      window.scrollTo({ top: y, behavior: reducedMotion() ? "auto" : "smooth" })
-      clearTimeout(animTimer)
-      animTimer = window.setTimeout(() => {
-        isAnimating = false
-      }, 650)
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          const idx = cards.indexOf(entry.target as HTMLElement)
+          const stagger = idx >= 0 ? idx * 80 : 0
+          window.setTimeout(() => {
+            ;(entry.target as HTMLElement).classList.add("is-visible")
+          }, stagger)
+          observer.unobserve(entry.target)
+        })
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+    )
 
-    /** features 안 4 panel scroll-position 범위 안에 있는가. */
-    function inFeaturesRange() {
-      const { featuresTop, stickyH } = getGeometry()
-      const lastPanelY = featuresTop + 3 * stickyH
-      return window.scrollY >= featuresTop - 1 && window.scrollY <= lastPanelY + 1
-    }
-
-    function onWheel(e: WheelEvent) {
-      if (!inFeaturesRange()) return
-      if (isAnimating) {
-        e.preventDefault()
-        return
-      }
-      // trackpad inertia로 들어오는 작은 deltaY (대개 < 4) 무시 — 실제 입력만 처리
-      if (Math.abs(e.deltaY) < 4) return
-      e.preventDefault()
-      const dir = e.deltaY > 0 ? 1 : -1
-      const next = currentPanel + dir
-      const { featuresTop, stickyH } = getGeometry()
-      if (next < 0) {
-        // panel 0에서 위로 → Hero stop
-        smoothScrollTo(0)
-        currentPanel = 0
-      } else if (next > 3) {
-        // panel 3에서 아래로 → Quickstart stop (= features section 바로 다음)
-        smoothScrollTo(featuresTop + 4 * stickyH)
-        currentPanel = 3
-      } else {
-        currentPanel = next
-        smoothScrollTo(featuresTop + next * stickyH)
-      }
-    }
-
-    function onScroll() {
-      cancelAnimationFrame(raf)
-      raf = requestAnimationFrame(() => {
-        if (!pin || !track || !progress) return
-        const rect = pin.getBoundingClientRect()
-        const { stickyH } = getGeometry()
-        const range = Math.max(1, pin.offsetHeight - stickyH)
-        const p = Math.max(0, Math.min(1, -rect.top / range))
-        track.style.transform = `translate3d(${-p * 75}%, 0, 0)`
-        progress.style.transform = `scaleX(${p})`
-        const idx = Math.min(3, Math.max(0, Math.round(p * 3)))
-        setActiveIndex(idx)
-        // animation 중에는 currentPanel을 JS가 명시 설정 — scroll 이벤트가 덮어쓰지 않도록.
-        if (!isAnimating) currentPanel = idx
-      })
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true })
-    window.addEventListener("resize", onScroll)
-    window.addEventListener("wheel", onWheel, { passive: false })
-    onScroll()
-    return () => {
-      window.removeEventListener("scroll", onScroll)
-      window.removeEventListener("resize", onScroll)
-      window.removeEventListener("wheel", onWheel)
-      cancelAnimationFrame(raf)
-      clearTimeout(animTimer)
-    }
+    cards.forEach((c) => observer.observe(c))
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section
-      id="features"
-      class="tour11-horizontal"
-      ref={pinRef}
-      aria-label={`Feature ${PANELS[activeIndex]?.num} · ${PANELS[activeIndex]?.label}`}
-    >
-      {[0, 1, 2, 3].map((i) => (
-        <div
-          key={`snap-${i}`}
-          class={`tour11-horizontal__snap-stop tour11-horizontal__snap-stop--${i}`}
-          aria-hidden="true"
-        />
+    <section id="features" class="tour11-quad" ref={ref} aria-label="DabitOne 핵심 기능 4가지">
+      {PANELS.map((p, i) => (
+        <QuadCard key={p.num} panel={p} colorIdx={i} />
       ))}
-      <div class="tour11-horizontal__sticky">
-        <div class="tour11-horizontal__track" ref={trackRef}>
-          {PANELS.map((p) => (
-            <PanelCard key={p.num} panel={p} />
-          ))}
-        </div>
-        <div class="tour11-horizontal__progress" aria-hidden="true">
-          <div class="tour11-horizontal__progress-bar" ref={progressRef} />
-        </div>
-      </div>
     </section>
   )
 }
 
-/**
- * 패널 하나. 텍스트 전용 포스터 — label / title / 본문 lines.
- */
-function PanelCard({ panel }: { panel: Panel }) {
+function QuadCard({ panel, colorIdx }: { panel: Panel; colorIdx: number }) {
+  const color = QUAD_COLORS[colorIdx % QUAD_COLORS.length]
   return (
-    <article class="tour11-panel">
-      <div class="tour11-panel__text">
-        <p class="tour11-panel__label">{panel.label}</p>
-        <h2 class="tour11-panel__title">{panel.title}</h2>
+    <article class={`tour11-quad__card tour11-quad__card--${color}`}>
+      <div class="tour11-quad__text">
+        <p class="tour11-quad__label">{panel.label}</p>
+        <h2 class="tour11-quad__title">{panel.title}</h2>
         {panel.lines.map((line, i) => (
-          <p key={i} class="tour11-panel__body">
+          <p key={i} class="tour11-quad__body">
             {line}
           </p>
         ))}
@@ -340,7 +263,6 @@ function PanelCard({ panel }: { panel: Panel }) {
     </article>
   )
 }
-
 
 /* =========================================================================
    QuickstartTabs — tour1 TabIndex 구조, hover 반응 강화
@@ -399,12 +321,8 @@ function MagneticFooter() {
   return (
     <section class="tour11-footer" aria-label="시작">
       <div class="tour11-footer__inner">
-        <h2 class="tour11-footer__title">
-          지금, DabitOne을 시작하세요.
-        </h2>
-        <p class="tour11-footer__sub">
-          설치 파일은 다빛솔루션 공식 사이트에서 제공됩니다.
-        </p>
+        <h2 class="tour11-footer__title">지금, DabitOne을 시작하세요.</h2>
+        <p class="tour11-footer__sub">설치 파일은 다빛솔루션 공식 사이트에서 제공됩니다.</p>
         <div class="tour11-footer__cta">
           <MagneticLink
             href="https://www.dabitsol.com"
@@ -412,13 +330,19 @@ function MagneticFooter() {
             rel="noreferrer"
             className="tour11-btn tour11-btn--primary tour11-btn--on-dark"
           >
-            지금 시작하기<span class="tour11-btn__arrow" aria-hidden="true">→</span>
+            지금 시작하기
+            <span class="tour11-btn__arrow" aria-hidden="true">
+              →
+            </span>
           </MagneticLink>
           <MagneticLink
             href="#quickstart"
             className="tour11-btn tour11-btn--secondary tour11-btn--on-dark"
           >
-            Quickstart 보기<span class="tour11-btn__arrow" aria-hidden="true">→</span>
+            Quickstart 보기
+            <span class="tour11-btn__arrow" aria-hidden="true">
+              →
+            </span>
           </MagneticLink>
         </div>
         <p class="tour11-footer__colophon">© 다빛솔루션 · 2026</p>

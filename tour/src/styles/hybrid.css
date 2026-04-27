@@ -272,169 +272,124 @@ body.tour11-page #tour-root {
 }
 
 /* =========================================================================
-   HorizontalFeatures — tour2 ConsolePin light theme 변형
+   QuadGrid — 정적 2x2 풀-블리드 그라디언트 (HorizontalFeatures 대체)
    ========================================================================= */
 
-.tour11-horizontal {
-  /* 72vh sticky pin + viewport center 배치. 위·아래 14vh letterboxing은 같은
-     bg(#fafafa)로 채워져 빈 공간처럼 보이고, 다른 섹션 컨텐츠는 mandatory snap이
-     stop에서 정지시켜 노출 안 됨. */
-  --tour11-sticky-h: clamp(560px, 72vh, 720px);
-  --tour11-sticky-offset: calc((100vh - var(--tour11-sticky-h)) / 2);
+.tour11-quad {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 96px 24px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .tour11-quad {
+    grid-template-columns: 1fr;
+    padding: 64px 16px;
+  }
+}
+
+.tour11-quad__card {
   position: relative;
-  height: calc(var(--tour11-sticky-h) * 4);
-  background: var(--t11-bg);
-  border-top: 1px solid var(--t11-line);
-  border-bottom: 1px solid var(--t11-line);
-}
-
-.tour11-horizontal__sticky {
-  position: sticky;
-  /* viewport center에 panel 정렬: top offset = (100vh - sticky-h) / 2 */
-  top: var(--tour11-sticky-offset);
-  height: var(--tour11-sticky-h);
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-}
-
-/* 4 invisible snap markers — panel별 정확한 scroll position에 stop 강제.
-   absolute, 1px 높이, pointer 이벤트 차단. mandatory + stop:always와 짝. */
-.tour11-horizontal__snap-stop {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  pointer-events: none;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-.tour11-horizontal__snap-stop--0 {
-  top: 0;
-}
-
-.tour11-horizontal__snap-stop--1 {
-  top: var(--tour11-sticky-h);
-}
-
-.tour11-horizontal__snap-stop--2 {
-  top: calc(var(--tour11-sticky-h) * 2);
-}
-
-.tour11-horizontal__snap-stop--3 {
-  top: calc(var(--tour11-sticky-h) * 3);
-}
-
-.tour11-horizontal__hud {
-  position: absolute;
-  top: 28px;
-  left: 48px;
-  right: 48px;
+  border-radius: 24px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 5;
-  font-family: var(--t11-mono);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  color: var(--t11-ink-soft);
-  text-transform: uppercase;
+  align-items: flex-end;
+  padding: 48px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 600ms ease-out,
+    transform 600ms ease-out;
+}
+
+.tour11-quad__card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .tour11-quad__card {
+    padding: 32px;
+  }
+}
+
+.tour11-quad__card--blue {
+  background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+}
+
+.tour11-quad__card--purple {
+  background: linear-gradient(135deg, #3b0764 0%, #581c87 100%);
+}
+
+.tour11-quad__card--teal {
+  background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+}
+
+.tour11-quad__card--charcoal {
+  background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+}
+
+/* SVG turbulence noise grain overlay */
+.tour11-quad__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+  opacity: 0.5;
   pointer-events: none;
 }
 
-.tour11-horizontal__hud-label {
-  color: var(--t11-ink-dim);
-}
-
-.tour11-horizontal__hud-value {
-  color: var(--t11-ink);
-  font-weight: 500;
-}
-
-.tour11-horizontal__track {
-  display: flex;
-  width: 400vw;
-  height: 100%;
-  will-change: transform;
-  transition: transform 100ms linear;
-}
-
-/* Progress bar — 섹션 하단 얇은 2px 바 */
-.tour11-horizontal__progress {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: rgba(10, 10, 10, 0.05);
-  z-index: 6;
-  overflow: hidden;
-}
-
-.tour11-horizontal__progress-bar {
-  height: 100%;
-  width: 100%;
-  background: var(--t11-accent);
-  transform-origin: left center;
-  transform: scaleX(0);
-  will-change: transform;
-}
-
-/* Panel — 텍스트 전용 포스터 */
-.tour11-panel {
-  flex: 0 0 100vw;
-  height: 100%;
+.tour11-quad__text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: clamp(56px, 8vh, 96px) clamp(48px, 10vw, 160px);
-  box-sizing: border-box;
-  position: relative;
+  gap: 16px;
 }
 
-.tour11-panel__text {
-  max-width: 1040px;
-  position: relative;
-}
-
-.tour11-panel__num {
-  margin: 0 0 14px;
-  font-family: var(--t11-mono);
-  font-size: clamp(20px, 1.8vw, 28px);
+.tour11-quad__label {
+  margin: 0;
+  font-family: "Pretendard Variable", sans-serif;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--t11-ink-dim);
-}
-
-.tour11-panel__label {
-  margin: 0 0 32px;
-  font-family: var(--t11-mono);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--t11-accent);
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.tour11-panel__title {
-  margin: 0 0 40px;
-  font-size: clamp(48px, 7.5vw, 112px);
+.tour11-quad__title {
+  margin: 0;
+  font-family: "Pretendard Variable", sans-serif;
+  font-size: clamp(28px, 3vw, 44px);
   font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  color: var(--t11-ink);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fff;
   white-space: pre-line;
 }
 
-.tour11-panel__body {
-  margin: 0 0 16px;
-  font-size: clamp(17px, 1.3vw, 20px);
-  line-height: 1.55;
-  color: var(--t11-ink-soft);
-  max-width: 64ch;
+.tour11-quad__body {
+  margin: 0;
+  font-family: "Pretendard Variable", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.tour11-panel__body:last-child {
-  margin-bottom: 0;
+@media (prefers-reduced-motion: reduce) {
+  .tour11-quad__card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* =========================================================================
@@ -750,4 +705,3 @@ body.tour11-page #tour-root {
     transform: none;
   }
 }
-
