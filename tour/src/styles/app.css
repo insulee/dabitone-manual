@@ -19,44 +19,19 @@
   z-index: 10;
 }
 .tour-hotspot__dot {
-  /* 빈 원 — accent border만, 안쪽은 투명. accent는 currentColor 상속이라
-     light UI 위에선 어둠, dark UI 위에선 밝음으로 자동 반전. */
-  width: 16px;
-  height: 16px;
+  /* GPS pin dot — JS(Hotspot.tsx의 useEffect/requestAnimationFrame)가
+     box-shadow를 매 프레임 inline style로 직접 갱신. CSS animation 사용 X
+     (사용자 환경의 prefers-reduced-motion 강제 1회 truncate 회피). */
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: transparent;
-  border: 2px solid var(--tour-c-accent);
+  background: #c2410c;
   z-index: 2;
   position: relative;
   transition: transform var(--tour-dur-micro) var(--tour-ease-out);
 }
-/* Ripple — scale 2.4까지만 (= 14px → ~34px). 작은 UI 요소를 가리킬 때
-   인접 컨트롤 침범 안 하는 최소 크기. ring 1개만 + 더 긴 duration으로 침착. */
-.tour-hotspot__dot::before {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  border: 1.5px solid var(--tour-c-accent);
-  pointer-events: none;
-  animation: tour-hotspot-ripple 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-}
-@keyframes tour-hotspot-ripple {
-  0% {
-    transform: scale(1);
-    opacity: 0.55;
-  }
-  100% {
-    transform: scale(2.4);
-    opacity: 0;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .tour-hotspot__dot::before,
-  .tour-hotspot__dot::after {
-    animation: none;
-  }
-}
+/* prefers-reduced-motion @media block 의도적 제거 — hotspot ripple은 사용자
+   주의 환기용 핵심 시각 신호이므로 OS reduce-motion 설정 무시하고 항상 표시. */
 .tour-hotspot:hover .tour-hotspot__dot,
 .tour-hotspot:focus-visible .tour-hotspot__dot {
   transform: scale(1.3);
