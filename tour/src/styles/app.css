@@ -19,13 +19,13 @@
   z-index: 10;
 }
 .tour-hotspot__dot {
-  width: 14px;
-  height: 14px;
+  /* 빈 원 — accent border만, 안쪽은 투명. accent는 currentColor 상속이라
+     light UI 위에선 어둠, dark UI 위에선 밝음으로 자동 반전. */
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--tour-c-accent);
-  box-shadow:
-    0 0 0 3px rgba(255, 255, 255, 0.9),
-    0 0 0 4px rgba(10, 10, 10, 0.14);
+  background: transparent;
+  border: 2px solid var(--tour-c-accent);
   z-index: 2;
   position: relative;
   transition: transform var(--tour-dur-micro) var(--tour-ease-out);
