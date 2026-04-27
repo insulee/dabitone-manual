@@ -39,7 +39,7 @@ export function LandingHybrid() {
 function Hero() {
   return (
     <section class="tour11-hero" aria-label="Hero">
-      <PixelMatrix />
+      <PixelMatrix dotSize={2.2} minAlpha={0.22} maxAlpha={0.42} />
       <CursorPixel />
       <div class="tour11-hero__inner">
         <h1 class="tour11-hero__title">DabitOne</h1>
@@ -48,7 +48,6 @@ function Hero() {
           <br />
           하나의 소프트웨어.
         </p>
-        <p class="tour11-hero__sub">다빛솔루션 LED 전광판 운영 소프트웨어.</p>
         <div class="tour11-hero__cta">
           <MagneticLink href="#quickstart" className="tour11-btn tour11-btn--primary">
             투어 시작하기
@@ -167,7 +166,7 @@ const PANELS: readonly Panel[] = [
     title: "다섯 도구가\n하나의 앱 안에.",
     lines: [
       "다빛채, DBPS(다빛프로토콜시뮬레이터), dbNet, 시리얼 모니터, 이미지·GIF 편집.",
-      "예전엔 각자 실행하던 프로그램들이 DabitOne 한 창 안에 모였습니다.",
+      "예전엔 각자 실행하던 프로그램들이 DabitOne 앱 안에 모였습니다.",
     ],
   },
   {
@@ -176,7 +175,7 @@ const PANELS: readonly Panel[] = [
     title: "한 탭 안에\n작업의 처음과 끝.",
     lines: [
       "통신, 설정, 전송, 편집, 고급 — 다섯 개 탭.",
-      "레거시에서 설정은 흩어져 있었습니다. 화면 크기, 표출 신호, 폰트 전송이 각자 다른 창에서.",
+      "모든 설정이 각자 다른 창에 흩어져 있었습니다.",
       "DabitOne은 한 화면 안에 모았습니다. 메뉴 탐색과 창 전환이 줄어든 만큼, 설정 시간도 짧아집니다.",
     ],
   },
@@ -185,9 +184,8 @@ const PANELS: readonly Panel[] = [
     label: "DBNET",
     title: "가장 빠른\nIP 검색과 설정.",
     lines: [
-      "UDP 브로드캐스트 한 번으로 모든 컨트롤러가 MAC·IP 목록으로.",
-      "장비를 클릭하면 연결 설정으로 자동 반영되어, 곧바로 연결 테스트가 가능합니다.",
-      "응답이 더 안정적이고, 타이핑과 오타 확인이 줄어듭니다.",
+      "Search 한 번으로 모든 컨트롤러를 빠르고 정확하게 검색합니다.",
+      "결과는 목록으로 정리되고 바로 골라 연결 테스트가 가능합니다.",
     ],
   },
   {
@@ -195,14 +193,14 @@ const PANELS: readonly Panel[] = [
     label: "HEX · ASCII",
     title: "한 화면에서,\n두 프로토콜.",
     lines: [
-      "메시지 종류·섹션·페이지를 라디오·콤보박스로 선택하는 HEX. 텍스트 영역에 직접 쓰는 ASCII.",
-      "가운데의 \u201cASCII 변환\u201d 버튼이 HEX 설정값을 ASCII 문자열로 바꿔 줍니다.",
-      "프로토콜 문서 없이도 패킷 구조 확인. 시스템 연동과 현장 디버깅에서 학습 시간이 짧아집니다.",
+      "HEX와 ASCII 프로토콜을 한 화면에서 다룹니다.",
+      "옵션을 선택하면 HEX 코드, \u201cASCII 변환\u201d 버튼으로 ASCII 코드까지 볼 수 있습니다.",
+      "프로토콜 문서 없이도 패킷 구조와 예시를 간단한 조작으로 확인합니다.",
     ],
   },
 ] as const
 
-const QUAD_COLORS = ["blue", "purple", "teal", "charcoal"] as const
+const QUAD_COLORS = ["blue", "purple", "teal", "peach"] as const
 
 function QuadGrid() {
   const ref = useRef<HTMLElement>(null)
@@ -254,11 +252,13 @@ function QuadCard({ panel, colorIdx }: { panel: Panel; colorIdx: number }) {
       <div class="tour11-quad__text">
         <p class="tour11-quad__label">{panel.label}</p>
         <h2 class="tour11-quad__title">{panel.title}</h2>
-        {panel.lines.map((line, i) => (
-          <p key={i} class="tour11-quad__body">
-            {line}
-          </p>
-        ))}
+        <div class="tour11-quad__body-group">
+          {panel.lines.map((line, i) => (
+            <p key={i} class="tour11-quad__body">
+              {line}
+            </p>
+          ))}
+        </div>
       </div>
     </article>
   )
