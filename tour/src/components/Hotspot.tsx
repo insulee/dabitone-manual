@@ -23,7 +23,7 @@ export function Hotspot({ data, onActivate }: Props) {
     let raf = 0
     let start: number | null = null
     const DURATION = 2600
-    const MAX_SPREAD = 14
+    const MAX_SPREAD = 21
     function step(ts: number) {
       if (start === null) start = ts
       const elapsed = (ts - start) % DURATION

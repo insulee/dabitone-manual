@@ -20,6 +20,13 @@ const SCREEN = {
   alt: "DabitOne 통신 설정 화면 — Serial·Client TCP/IP·Server TCP/IP·UDP 그룹박스",
 } as const
 
+const TCP_SCREEN = {
+  src: "/assets/screens/manual-poc/main-comm-tcp.png",
+  width: 1183,
+  height: 1155,
+  alt: "DabitOne TCP 연결 화면 — Client TCP/IP 그룹 + dbNet 검색 결과",
+} as const
+
 const tour: Tour = {
   slug: "01-first-connection",
   title: "컨트롤러 최초 연결",
@@ -60,15 +67,9 @@ const tour: Tour = {
       },
       srSummary:
         "연결 방식은 네 가지: Serial(시리얼 케이블 직결), Client TCP/IP(컨트롤러 IP 입력), Server TCP/IP(컨트롤러가 접속해옴), UDP(브로드캐스트·단방향). 처음이라면 대부분 Serial 또는 Client TCP/IP입니다.",
-      tips: [
-        "컨트롤러-PC를 시리얼 케이블로 직접 연결 → Serial",
-        "컨트롤러 IP를 알고 있음 → Client TCP/IP",
-        "브로드캐스트·단방향 송출 → UDP",
-        "컨트롤러가 PC로 접속 → Server TCP/IP (드물음)",
-      ],
-      relatedRefs: [
-        { label: "Serial 상세", path: "/01-communication/serial" },
-        { label: "TCP 상세", path: "/01-communication/tcp" },
+      nextOptions: [
+        { label: "Serial 연결", toStepId: "step-3-config" },
+        { label: "TCP/IP 연결", toStepId: "step-tcp-1" },
       ],
     },
     {
@@ -96,35 +97,14 @@ const tour: Tour = {
       ],
     },
     {
-      id: "step-timing",
-      title: "응답시간 조정 (선택)",
-      description:
-        "응답시간 드롭다운으로 컨트롤러 응답 대기 시간을 1~6초로 조정합니다. 기본 3초. 케이블이 길거나 RS-485 장거리 배선이면 5~6초 권장.",
-      image: SCREEN,
-      hotspot: {
-        x: 24,
-        y: 78,
-        ariaLabel: "응답시간 드롭다운",
-        label: "응답시간",
-        box: { w: 10, h: 4 },
-      },
-      srSummary:
-        "응답시간 기본 3초. 장거리 배선·노이즈 환경에서는 5~6초로 늘려 안정성 확보.",
-      tips: [
-        "단거리 USB-Serial: 3초 기본값 충분",
-        "RS-485 100m 이상: 5~6초 권장",
-        "응답시간을 늘리면 timeout 감소하지만 실패 인지가 늦어짐",
-      ],
-    },
-    {
       id: "step-4-test",
       title: "[연결 테스트] 클릭",
       description:
         "통신 설정 창 맨 아래 [연결 테스트] 버튼을 클릭하면 현재 설정이 저장되고 컨트롤러에 echo 요청이 갑니다. 성공 시 '연결 테스트 성공' 녹색 토스트가 뜨고 상단 상태가 '연결됨'으로 바뀝니다.",
       image: SCREEN,
       hotspot: {
-        x: 11,
-        y: 78,
+        x: 8,
+        y: 75,
         ariaLabel: "연결 테스트 버튼",
         label: "[연결 테스트]",
         box: { w: 12, h: 4 },
@@ -133,7 +113,7 @@ const tour: Tour = {
         "연결 테스트 버튼이 통신 설정 창 하단에 있습니다. 클릭하면 설정 저장 + echo 요청 발송. 응답시간은 기본 3초이며 드롭다운으로 1~6초 선택 가능. 성공 시 녹색 토스트, 응답 없을 때 노란 토스트, 실패 시 빨간 토스트가 표시됩니다.",
       tips: [
         "응답 없음(노란색) → 케이블·속도·IP 재확인, 응답시간을 5~6초로 올려 재시도",
-        "실패(빨간색) → 포트 점유(다른 프로그램이 COM 사용), 서브넷 불일치, 컨트롤러 펌웨어 이슈",
+        "실패(빨간색) → 포트 점유(다른 프로그램이 COM 사용), 실제 연결 안됐음 등",
         "성공 후 다른 탭으로 이동해도 상태 유지됨",
       ],
       relatedRefs: [
@@ -142,25 +122,93 @@ const tour: Tour = {
           path: "/troubleshooting/01-connection",
         },
       ],
+      nextOptions: [
+        { label: "TCP/IP 연결", toStepId: "step-tcp-1" },
+        { label: "다음 투어", toTour: "02-screen-size" },
+      ],
     },
     {
-      id: "step-result",
-      title: "연결 결과 확인",
+      id: "step-tcp-1",
+      title: "Client TCP/IP 선택",
       description:
-        "테스트 후 화면 하단·우측에 토스트 알림이 뜹니다. 녹색=성공, 노란색=응답 없음(케이블·속도 재확인), 빨간색=실패(포트 점유·서브넷 불일치). 성공 시 상단 상태 표시가 '연결됨'으로 바뀝니다.",
-      image: SCREEN,
+        "Client TCP/IP 라디오 버튼을 클릭해 TCP 연결 모드로 전환합니다. 우측 dbNet 영역의 자동 검색·정보 조회가 활성화됩니다.",
+      image: TCP_SCREEN,
+      hotspot: {
+        x: 15,
+        y: 30,
+        ariaLabel: "Client TCP/IP 라디오버튼",
+        label: "Client TCP/IP",
+        box: { w: 18, h: 4 },
+      },
       srSummary:
-        "토스트 색상으로 결과 확인. 녹색은 정상 연결, 노란색은 응답 시간 초과, 빨간색은 연결 실패. 실패 시 통신 설정의 IP·속도·포트를 재점검.",
-      tips: [
-        "노란 토스트: 응답시간을 6초로 올려 재시도",
-        "빨간 토스트: 다른 프로그램이 COM 포트 점유 중일 가능성",
-        "토스트는 잠시 표시 후 자동 사라짐 — 로그 영역에서도 확인 가능",
-      ],
-      relatedRefs: [
-        {
-          label: "연결 트러블슈팅",
-          path: "/troubleshooting/01-connection",
-        },
+        "Client TCP/IP 라디오 선택 시 dbNet 영역이 활성화되어 자동 검색·정보 조회가 가능합니다.",
+    },
+    {
+      id: "step-tcp-2",
+      title: "컨트롤러 검색",
+      description:
+        "dbNet 영역의 [Search] 버튼을 클릭하면 같은 네트워크 안 모든 컨트롤러가 자동 검색됩니다.",
+      image: TCP_SCREEN,
+      hotspot: {
+        x: 54,
+        y: 76,
+        ariaLabel: "Search 버튼",
+        label: "Search",
+        box: { w: 8, h: 4 },
+      },
+      srSummary:
+        "Search 버튼이 UDP 브로드캐스트로 같은 서브넷의 모든 컨트롤러를 검색합니다. 결과는 좌측 list에 MAC 주소로 표시됩니다.",
+    },
+    {
+      id: "step-tcp-3",
+      title: "컨트롤러 선택",
+      description:
+        "검색 list에서 연결할 컨트롤러의 MAC 주소(예: 54-ff-82-0f-ff-ff)를 클릭합니다.",
+      image: TCP_SCREEN,
+      hotspot: {
+        x: 35,
+        y: 17,
+        ariaLabel: "MAC 주소 list 항목",
+        label: "MAC 주소",
+        box: { w: 18, h: 4 },
+      },
+      srSummary:
+        "list에서 MAC 주소 항목을 클릭하면 우측 영역에 해당 컨트롤러의 상세 정보(Board Name·IP·Subnet 등)가 채워집니다.",
+    },
+    {
+      id: "step-tcp-4",
+      title: "컨트롤러 정보 확인",
+      description:
+        "선택한 컨트롤러의 Board Name, IP Address, Subnet, Gateway, Port 등 네트워크 정보가 자동 조회되어 표시됩니다.",
+      image: TCP_SCREEN,
+      hotspot: {
+        x: 55,
+        y: 19,
+        ariaLabel: "Board Name 표시 영역",
+        label: "Board Name",
+        box: { w: 22, h: 4 },
+      },
+      srSummary:
+        "Board Name·IP·Subnet·Gateway·Port 정보가 자동 채워져 별도 입력 없이 연결 설정에 반영할 수 있습니다.",
+    },
+    {
+      id: "step-tcp-5",
+      title: "적용 및 연결",
+      description:
+        "[Add] 버튼을 클릭하면 선택한 컨트롤러 정보가 Client TCP/IP 설정에 자동 반영되고, 곧바로 [연결 테스트]까지 자동 실행됩니다.",
+      image: TCP_SCREEN,
+      hotspot: {
+        x: 68,
+        y: 76,
+        ariaLabel: "Add 버튼",
+        label: "Add",
+        box: { w: 6, h: 4 },
+      },
+      srSummary:
+        "Add 버튼 클릭 시 IP/Port가 Client TCP/IP 영역에 자동 입력되고, 연결 테스트도 자동으로 실행되어 echo 응답을 즉시 확인할 수 있습니다.",
+      nextOptions: [
+        { label: "Serial 연결", toStepId: "step-3-config" },
+        { label: "다음 투어", toTour: "02-screen-size" },
       ],
     },
   ],

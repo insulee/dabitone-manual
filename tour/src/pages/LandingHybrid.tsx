@@ -39,7 +39,7 @@ export function LandingHybrid() {
 function Hero() {
   return (
     <section class="tour11-hero" aria-label="Hero">
-      <PixelMatrix dotSize={2.2} minAlpha={0.22} maxAlpha={0.42} />
+      <PixelMatrix dotSize={2.2} minAlpha={0.18} maxAlpha={0.34} />
       <CursorPixel />
       <div class="tour11-hero__inner">
         <h1 class="tour11-hero__title">DabitOne</h1>
@@ -273,6 +273,7 @@ type Tab = {
   name: string
   desc: string
   slug: string
+  matchSlugs: readonly string[]
 }
 
 const TABS: readonly Tab[] = [
@@ -281,32 +282,62 @@ const TABS: readonly Tab[] = [
     name: "통신",
     desc: "Serial · TCP · UDP · BLE · MQTT · dbNet",
     slug: "01-first-connection",
+    matchSlugs: ["01-first-connection"],
   },
-  { num: "02", name: "설정", desc: "화면 · 시계 · 밝기", slug: "02-screen-size" },
-  { num: "03", name: "전송", desc: "메시지 · 스케줄", slug: "03-send-message" },
-  { num: "04", name: "편집", desc: "텍스트 · 이미지 · GIF", slug: "04-edit-image" },
-  { num: "05", name: "고급", desc: "펌웨어 · 로그 · 진단", slug: "08-firmware" },
+  {
+    num: "02",
+    name: "설정",
+    desc: "화면 · 시계 · 밝기",
+    slug: "02-screen-size",
+    matchSlugs: ["02-screen-size"],
+  },
+  {
+    num: "03",
+    name: "전송",
+    desc: "메시지 · 스케줄",
+    slug: "03-send-message",
+    matchSlugs: ["03-send-message", "06-schedule-pla", "07-background-bgp"],
+  },
+  {
+    num: "04",
+    name: "편집",
+    desc: "텍스트 · 이미지 · GIF",
+    slug: "04-edit-image",
+    matchSlugs: ["04-edit-image", "05-gif-editor"],
+  },
+  {
+    num: "05",
+    name: "고급",
+    desc: "펌웨어 · 로그 · 진단",
+    slug: "08-firmware",
+    matchSlugs: ["08-firmware"],
+  },
 ] as const
 
-function QuickstartTabs() {
+export function QuickstartTabs({ activeSlug }: { activeSlug?: string }) {
   return (
     <section id="quickstart" class="tour11-quickstart" aria-label="Quickstart">
       <div class="tour11-quickstart__inner">
-        <p class="tour11-quickstart__eyebrow">QUICKSTART</p>
-        <h2 class="tour11-quickstart__title">어디서부터 시작할까요?</h2>
         <ul class="tour11-quickstart__list">
-          {TABS.map((t) => (
-            <li key={t.num}>
-              <a class="tour11-tab" href={`/tour/quickstart/${t.slug}/`}>
-                <span class="tour11-tab__num">{t.num}</span>
-                <span class="tour11-tab__name">{t.name}</span>
-                <span class="tour11-tab__desc">{t.desc}</span>
-                <span class="tour11-tab__arrow" aria-hidden="true">
-                  →
-                </span>
-              </a>
-            </li>
-          ))}
+          {TABS.map((t) => {
+            const isActive = activeSlug ? t.matchSlugs.includes(activeSlug) : false
+            return (
+              <li key={t.num}>
+                <a
+                  class={`tour11-tab${isActive ? " is-active" : ""}`}
+                  href={`/tour/quickstart/${t.slug}/`}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  <span class="tour11-tab__num">{t.num}</span>
+                  <span class="tour11-tab__name">{t.name}</span>
+                  <span class="tour11-tab__desc">{t.desc}</span>
+                  <span class="tour11-tab__arrow" aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>

@@ -29,6 +29,18 @@ export interface Hotspot {
 }
 
 /**
+ * 분기 옵션 — step 끝에서 다음 갈 곳을 사용자가 선택.
+ * toStepId: 같은 quickstart 안 step id로 jump.
+ * toTour: 다른 quickstart slug로 이동.
+ */
+export interface NextOption {
+  label: string
+  toStepId?: string
+  toTour?: string
+  primary?: boolean
+}
+
+/**
  * 투어 단일 스텝.
  */
 export interface TourStep {
@@ -45,6 +57,8 @@ export interface TourStep {
   nextHint?: string
   /** 관련 markdown reference 페이지 — R6 cross-link 데이터. */
   relatedRefs?: Array<{ label: string; path: string }>
+  /** 분기 — 있으면 "다음 →" 버튼 대신 옵션 버튼들이 표시됨. */
+  nextOptions?: NextOption[]
 }
 
 /**

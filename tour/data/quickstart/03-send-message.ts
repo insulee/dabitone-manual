@@ -1,117 +1,94 @@
 /**
- * Quickstart 03 — 첫 메시지 전송.
- * 텍스트 입력 후 전광판에 즉시 표출.
+ * Quickstart 03 — 메시지 전송.
+ * 전송 탭에서 HEX/ASCII 프로토콜 작성·전송 + 기타 전송 작업.
  */
 import type { Tour } from "../../src/types"
-
-const EDITOR = {
-  src: "/assets/screens/manual-poc/main-editor.png",
-  width: 1422,
-  height: 1386,
-  alt: "DabitOne 편집 탭 — 텍스트 편집기",
-} as const
 
 const SIM = {
   src: "/assets/screens/manual-poc/main-simulator.png",
   width: 1422,
   height: 1386,
-  alt: "DabitOne 전송 탭 — 진행률 표시",
+  alt: "DabitOne 전송 탭 — HEX/ASCII 프로토콜·페이지메시지·밝기·켜기/끄기 등",
 } as const
 
 const tour: Tour = {
   slug: "03-send-message",
-  title: "첫 메시지 전송",
-  subtitle: "텍스트를 입력하고 전광판에 띄워봅니다",
+  title: "메시지 전송",
+  subtitle: "HEX·ASCII 프로토콜로 메시지·페이지·밝기 등을 컨트롤러에 전송",
   steps: [
     {
-      id: "step-1-editor",
-      title: "[편집] 탭 → 텍스트 입력",
+      id: "step-1-tab",
+      title: "[전송] 탭 이동",
       description:
-        "좌측 [편집] 탭에서 텍스트 편집기가 기본으로 열립니다. 전광판에 띄울 내용을 바로 입력합니다.",
-      image: EDITOR,
-      hotspot: { x: 3, y: 31, ariaLabel: "편집 탭", label: "편집" },
-      srSummary:
-        "편집 탭 진입 시 텍스트 편집기가 기본으로 열립니다. 글꼴·크기·색상·효과를 선택하면서 실시간으로 미리보기가 갱신됩니다.",
-      tips: [
-        "여러 줄 입력 시 줄바꿈이 그대로 표출됨",
-        "글꼴·색상은 미리보기에 즉시 반영",
-      ],
-      relatedRefs: [
-        { label: "텍스트 편집기 상세", path: "/04-editor/text" },
-      ],
-    },
-    {
-      id: "step-2-effect",
-      title: "효과·속도 선택 (선택)",
-      description:
-        "흐름 효과(좌→우 흐름, 점멸, 고정 등), 표시 시간, 속도를 선택합니다. 처음엔 기본값으로도 충분합니다.",
-      image: EDITOR,
-      srSummary:
-        "효과는 흐름·점멸·고정 등이 있고 속도를 느리게·빠르게 조절 가능합니다. 기본값은 보통 '좌에서 우로 흐름, 중간 속도'.",
-      tips: [
-        "효과 미리보기는 하단 프리뷰 영역에서 확인",
-        "과한 효과는 가독성을 해침 — 현장 환경에 맞게 조정",
-      ],
-    },
-    {
-      id: "step-3-send",
-      title: "[전송] 탭으로 이동 → 보내기",
-      description:
-        "[전송] 탭으로 이동해 편집한 메시지를 컨트롤러로 전송합니다. 진행률 바가 표시되고, 완료되면 전광판에 바로 표출됩니다.",
+        "좌측 사이드바에서 [전송] 탭을 클릭합니다. 메시지 전송, 페이지메시지, 밝기, 전광판 켜기/끄기, 배경이미지 등 컨트롤러로 보내는 모든 작업을 한곳에서 관리합니다.",
       image: SIM,
       hotspot: { x: 3, y: 24, ariaLabel: "전송 탭", label: "전송" },
       srSummary:
-        "전송 탭에서 전송 버튼을 누르면 진행률이 실시간으로 표시되며, 완료되면 전광판이 해당 메시지를 보여줍니다.",
-      tips: [
-        "전송 실패 시 로그가 하단에 표시됨 — 연결 재확인",
-        "같은 메시지를 다시 보내면 컨트롤러가 덮어씀",
-      ],
-      relatedRefs: [
-        {
-          label: "전송이 실패할 때",
-          path: "/troubleshooting/03-transfer-fail",
-        },
-      ],
+        "전송 탭은 컨트롤러로 보내는 모든 작업을 통합한 화면입니다. HEX/ASCII 프로토콜·페이지메시지·밝기·켜기/끄기·배경이미지 등.",
     },
     {
-      id: "step-progress",
-      title: "전송 진행률 모니터",
+      id: "step-2-hex",
+      title: "HEX 프로토콜",
       description:
-        "전송 중 진행률 바가 실시간으로 움직이고, 완료 시 녹색 체크가 뜹니다. 실패 시 에러 메시지가 로그 영역에 출력됩니다.",
+        "메시지 종류·섹션·표시반복·화면전환·인코딩/폰트·효과·영역·색상 등 옵션을 선택하고 메시지 내용을 입력한 뒤 [HEX 전송] 버튼을 누르면 HEX 프로토콜이 컨트롤러로 전송됩니다.",
       image: SIM,
       hotspot: {
-        x: 83,
-        y: 14,
-        ariaLabel: "페이지메시지 전송 상태 영역",
-        label: "진행률",
-        box: { w: 26, h: 14 },
+        x: 7,
+        y: 10,
+        ariaLabel: "HEX 프로토콜 영역",
+        label: "HEX 프로토콜",
+        box: { w: 40, h: 55 },
       },
       srSummary:
-        "진행률 0~100% 바 표시. 완료 후 녹색 확인 아이콘. 실패 시 빨간 에러 + 로그 메시지.",
-      tips: [
-        "대용량 메시지는 전송 수 초 소요 — 중단 금지",
-        "중단 시 컨트롤러 메모리가 부분 상태로 남을 수 있음",
-      ],
+        "HEX 프로토콜 영역에서 메시지 옵션·내용을 작성한 후 [HEX 전송]을 누르면 컨트롤러로 HEX 패킷이 전송됩니다.",
     },
     {
-      id: "step-confirm",
-      title: "전광판 표출 확인",
+      id: "step-3-ascii-convert",
+      title: "ASCII 변환",
       description:
-        "전송 완료 후 실제 전광판에서 메시지가 표시되는지 현장 확인합니다. 깨지거나 일부만 나오면 화면 크기·표출신호 설정이 맞지 않은 경우가 대부분입니다.",
+        "HEX 프로토콜에서 선택한 옵션과 입력 내용을 [ASCII 변환] 버튼으로 ASCII 프로토콜로 자동 변환합니다. 변환된 문자열은 아래 'ASCII 프로토콜' 영역에 채워집니다.",
       image: SIM,
+      hotspot: {
+        x: 22,
+        y: 63,
+        ariaLabel: "ASCII 변환 버튼",
+        label: "ASCII 변환",
+        box: { w: 12, h: 4 },
+      },
       srSummary:
-        "현장 전광판에서 메시지 표출 확인. 문제가 있으면 화면 크기 설정 → 표출신호 순으로 재검토.",
-      tips: [
-        "일부만 보이면 가로/세로 모듈 수 재확인",
-        "글자 깨지면 폰트 재전송",
-        "색 이상하면 색상 깊이(BPP) 재확인",
-      ],
-      relatedRefs: [
-        {
-          label: "화면이 이상하게 나올 때",
-          path: "/troubleshooting/02-display-corruption",
-        },
-      ],
+        "[ASCII 변환] 버튼 클릭 시 HEX 옵션 + 메시지가 ASCII 문자열로 변환되어 아래 영역에 채워집니다.",
+    },
+    {
+      id: "step-4-ascii",
+      title: "ASCII 프로토콜",
+      description:
+        "ASCII 프로토콜 영역에 변환된 문자열을 확인하거나 직접 입력한 뒤 [ASCII 전송] 버튼을 누르면 컨트롤러로 ASCII 프로토콜이 전송됩니다.",
+      image: SIM,
+      hotspot: {
+        x: 8,
+        y: 68,
+        ariaLabel: "ASCII 프로토콜 영역",
+        label: "ASCII 프로토콜",
+        box: { w: 40, h: 12 },
+      },
+      srSummary:
+        "ASCII 프로토콜 영역에서 변환·직접 입력 후 [ASCII 전송]으로 컨트롤러에 전송합니다.",
+    },
+    {
+      id: "step-5-other",
+      title: "기타 전송",
+      description:
+        "페이지메시지(페이지 수·전송·초기화), 밝기, 전광판 켜기/끄기, 배경이미지, 화면채우기, 섹션별 효과 등 메시지 외 컨트롤러 전송 작업을 우측 영역에서 관리합니다.",
+      image: SIM,
+      hotspot: {
+        x: 77,
+        y: 8,
+        ariaLabel: "페이지메시지 및 기타 전송 영역",
+        label: "기타 전송",
+        box: { w: 22, h: 80 },
+      },
+      srSummary:
+        "페이지메시지·밝기·켜기/끄기·배경이미지·화면채우기·섹션별 효과 등 메시지 외 전송 옵션을 우측 패널에서 일괄 관리합니다.",
     },
   ],
   nextTour: "04-edit-image",

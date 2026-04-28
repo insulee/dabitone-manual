@@ -13,6 +13,7 @@ import { LiveRegion } from "../components/LiveRegion"
 import { Hotspot } from "../components/Hotspot"
 import type { Tour, TourStep } from "../types"
 import { loadTour } from "../../data/quickstart"
+import { QuickstartTabs } from "./LandingHybrid"
 
 interface Props {
   slug: string
@@ -107,6 +108,7 @@ function ScenarioBody({ tour }: { tour: Tour }) {
         <Stage step={step} />
         <Rail
           step={step}
+          tour={tour}
           stepIdx={stepIdx}
           isFirst={isFirst}
           isLast={isLast}
@@ -117,6 +119,10 @@ function ScenarioBody({ tour }: { tour: Tour }) {
       </div>
 
       {isLast && !tour.nextTour && <CompletionScreen tour={tour} />}
+
+      <div class="tour11-shell">
+        <QuickstartTabs activeSlug={tour.slug} />
+      </div>
     </main>
   )
 }
@@ -160,9 +166,6 @@ function ProgressHeader({
             <p class="tour-scenario__subtitle">{tour.subtitle}</p>
           )}
         </div>
-        <div class="tour-scenario__counter" aria-live="polite">
-          {stepIdx + 1} / {tour.steps.length}
-        </div>
       </div>
       <div
         class="tour-progress"
@@ -186,17 +189,18 @@ function Stage({ step }: { step: TourStep }) {
     ? { ...hotspot, ...mobileOverride }
     : hotspot
 
+  const ratio = step.image.width / step.image.height
   return (
-    <div class="tour-stage" style={{ aspectRatio: `${step.image.width} / ${step.image.height}` }}>
-      <img
-        class="tour-stage__image"
-        src={step.image.src}
-        alt={step.image.alt}
-        width={step.image.width}
-        height={step.image.height}
-        loading="eager"
-        decoding="async"
-      />
+    <div
+      class="tour-stage"
+      role="img"
+      aria-label={step.image.alt}
+      style={{
+        aspectRatio: `${step.image.width} / ${step.image.height}`,
+        maxWidth: `calc(60vh * ${ratio})`,
+        backgroundImage: `url(${step.image.src})`,
+      }}
+    >
       {effective && (
         <Hotspot
           data={effective}
@@ -211,6 +215,7 @@ function Stage({ step }: { step: TourStep }) {
 
 function Rail({
   step,
+  tour,
   stepIdx,
   isFirst,
   isLast,
@@ -219,6 +224,7 @@ function Rail({
   nextTour,
 }: {
   step: TourStep
+  tour: Tour
   stepIdx: number
   isFirst: boolean
   isLast: boolean
@@ -226,6 +232,17 @@ function Rail({
   onNext: () => void
   nextTour?: string
 }) {
+  function handleOption(opt: { toStepId?: string; toTour?: string }) {
+    if (opt.toStepId) {
+      const idx = tour.steps.findIndex((s) => s.id === opt.toStepId)
+      if (idx >= 0) gotoStep(idx)
+    } else if (opt.toTour) {
+      window.location.assign(`/tour/quickstart/${opt.toTour}/`)
+    }
+  }
+
+  const hasOptions = step.nextOptions && step.nextOptions.length > 0
+
   return (
     <aside class="tour-rail">
       <h2 class="tour-rail__title">{step.title}</h2>
@@ -239,19 +256,6 @@ function Rail({
         </ul>
       )}
 
-      {step.relatedRefs && step.relatedRefs.length > 0 && (
-        <div class="tour-rail__refs">
-          <div class="tour-rail__refs-head">더 자세히</div>
-          <ul class="tour-rail__refs-list">
-            {step.relatedRefs.map((ref, i) => (
-              <li key={i}>
-                <a class="tour-rail__ref-link" href={ref.path}>{ref.label} →</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
       <div class="tour-rail__actions">
         <button
           onClick={onPrev}
@@ -261,22 +265,36 @@ function Rail({
         >
           ← 이전
         </button>
-        {!isLast && (
-          <button onClick={onNext} class="tour-btn tour-btn--primary">다음 →</button>
-        )}
-        {isLast && nextTour && (
-          <a href={`/tour/quickstart/${nextTour}/`} class="tour-btn tour-btn--primary">
-            다음 투어 →
-          </a>
-        )}
-        {isLast && !nextTour && (
-          <a href="/tour/" class="tour-btn tour-btn--primary">
-            투어 완료 — 홈으로
-          </a>
+        {hasOptions ? (
+          step.nextOptions!.map((opt, i) => (
+            <button
+              key={i}
+              onClick={() => handleOption(opt)}
+              class="tour-btn tour-btn--primary"
+            >
+              {opt.label} →
+            </button>
+          ))
+        ) : (
+          <>
+            {!isLast && (
+              <button onClick={onNext} class="tour-btn tour-btn--primary">다음 →</button>
+            )}
+            {isLast && nextTour && (
+              <a href={`/tour/quickstart/${nextTour}/`} class="tour-btn tour-btn--primary">
+                다음 투어 →
+              </a>
+            )}
+            {isLast && !nextTour && (
+              <a href="/tour/" class="tour-btn tour-btn--primary">
+                투어 완료 — 홈으로
+              </a>
+            )}
+          </>
         )}
       </div>
 
-      {step.nextHint && !isLast && (
+      {step.nextHint && !isLast && !hasOptions && (
         <p class="tour-rail__hint">다음: {step.nextHint}</p>
       )}
     </aside>

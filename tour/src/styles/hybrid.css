@@ -284,7 +284,7 @@ body.tour11-page #tour-root {
 
 .tour11-quad__card {
   position: relative;
-  aspect-ratio: 10 / 9;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 24px;
   padding: 48px;
@@ -409,7 +409,7 @@ body.tour11-page #tour-root {
    ========================================================================= */
 
 .tour11-quickstart {
-  padding: clamp(72px, 12vh, 128px) 24px;
+  padding: clamp(56px, 8vh, 96px) 24px;
   background: var(--t11-bg);
 }
 
@@ -461,9 +461,9 @@ body.tour11-page #tour-root {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 32px 28px 44px;
-  min-height: 220px;
+  gap: 8px;
+  padding: 19px 28px 26px;
+  min-height: 132px;
   text-decoration: none;
   color: var(--t11-ink);
   background: transparent;
@@ -494,6 +494,19 @@ body.tour11-page #tour-root {
 .tour11-tab:hover::before,
 .tour11-tab:focus-visible::before {
   width: 3px;
+}
+
+.tour11-tab.is-active {
+  background: rgba(14, 165, 233, 0.05);
+}
+
+.tour11-tab.is-active::before {
+  width: 3px;
+}
+
+.tour11-tab.is-active .tour11-tab__num {
+  color: var(--t11-accent);
+  font-weight: 600;
 }
 
 .tour11-tab__num {
@@ -537,7 +550,7 @@ body.tour11-page #tour-root {
 .tour11-tab__arrow {
   position: absolute;
   right: 24px;
-  bottom: 20px;
+  bottom: 12px;
   font-size: 20px;
   color: var(--t11-ink-dim);
   transition:
