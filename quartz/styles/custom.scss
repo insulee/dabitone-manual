@@ -148,14 +148,14 @@ a.internal.tag-link {
   // ─── Route restructure: docs 폴더 라벨 자체 숨기기 ───
   // folderDefaultState: "open" 덕분에 .folder-outer.open 가 적용되어 자식 자동 노출.
   // 컨테이너 자체를 display:none — 라벨·아이콘·여백 모두 제거.
-  & .folder-container[data-folderpath="docs"] {
+  & .folder-container[data-folderpath="docs/index"] {
     display: none !important;
   }
-  & li:has(> .folder-container[data-folderpath="docs"]) > .folder-outer {
+  & li:has(> .folder-container[data-folderpath="docs/index"]) > .folder-outer {
     margin-left: 0;
     padding-left: 0;
   }
-  & li:has(> .folder-container[data-folderpath="docs"]) > .folder-outer > ul {
+  & li:has(> .folder-container[data-folderpath="docs/index"]) > .folder-outer > ul {
     padding-left: 0;
     margin-left: 0;
   }
