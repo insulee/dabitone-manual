@@ -144,6 +144,20 @@ a.internal.tag-link {
   & .explorer-content {
     margin-top: 0;
   }
+
+  // ─── Route restructure: docs 폴더는 사이드바에서 시각적으로 unwrap ───
+  // 라벨 hide + 항상 펼친 상태 강제 + 자식 들여쓰기 제거
+  & .folder-container[data-folderpath="docs"] {
+    display: none !important;
+  }
+  & .folder-container[data-folderpath="docs"] + .folder-outer {
+    grid-template-rows: 1fr !important;
+    visibility: visible !important;
+  }
+  & .folder-container[data-folderpath="docs"] + .folder-outer > ul {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
 }
 
 // ─── Breadcrumbs ───

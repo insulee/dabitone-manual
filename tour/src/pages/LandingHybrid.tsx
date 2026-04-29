@@ -387,6 +387,15 @@ function MagneticFooter() {
               →
             </span>
           </MagneticLink>
+          <MagneticLink
+            href="/docs/"
+            className="tour11-btn tour11-btn--secondary tour11-btn--on-dark"
+          >
+            전체 매뉴얼
+            <span class="tour11-btn__arrow" aria-hidden="true">
+              →
+            </span>
+          </MagneticLink>
         </div>
         <p class="tour11-footer__colophon">© 다빛솔루션 · 2026</p>
       </div>
