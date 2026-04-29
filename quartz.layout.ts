@@ -1,20 +1,24 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
-// 사이드바에서 숨길 최상위 폴더 (URL은 유지, Explorer만 숨김)
-// FileTrieNode에 depth 필드가 없어서 slug 첫 segment로 체크.
+// 사이드바에서 숨길 폴더 (URL은 유지, Explorer만 숨김)
+// 새 라우트: 매뉴얼은 /docs/, tour 영역은 /quickstart·/accessible.
+// 사이드바는 매뉴얼 페이지에서만 노출되므로 tour 영역과 docs/ 안의 보조 폴더를 hide.
 const hiddenFilterFn = (node: any) => {
-  const hidden = new Set([
-    "blog",
-    "getting-started",
-    "troubleshooting",
-    "templates",
-    "tour",
-    "tags",
-  ])
   const slug = String(node.slug ?? "")
+  // root 레벨 hide: tour 영역 + 태그 인덱스
+  const rootHidden = new Set(["quickstart", "accessible", "tags"])
   const first = slug.split("/")[0]
-  if (hidden.has(first)) return false
+  if (rootHidden.has(first)) return false
+  // docs/ 하위 hide: blog·getting-started·troubleshooting·templates는 별도 페이지에서만 노출
+  const firstTwo = slug.split("/").slice(0, 2).join("/")
+  const docsHidden = new Set([
+    "docs/blog",
+    "docs/getting-started",
+    "docs/troubleshooting",
+    "docs/templates",
+  ])
+  if (docsHidden.has(firstTwo)) return false
   return true
 }
 
@@ -38,8 +42,9 @@ const customSortFn = (a: any, b: any) => {
     }
     const aParts = String(a.slug ?? "").split("/")
     const bParts = String(b.slug ?? "").split("/")
-    const aFolder = aParts[0]
-    const bFolder = bParts[0]
+    // 직속 부모 폴더로 비교 (docs/01-communication/serial → "01-communication")
+    const aFolder = aParts.length >= 2 ? aParts[aParts.length - 2] : aParts[0]
+    const bFolder = bParts.length >= 2 ? bParts[bParts.length - 2] : bParts[0]
     const aName = aParts[aParts.length - 1]
     const bName = bParts[bParts.length - 1]
     if (aFolder === bFolder && orderMap[aFolder]) {
@@ -68,15 +73,17 @@ const customSortFn = (a: any, b: any) => {
   return a.isFolder ? -1 : 1
 }
 
-// 최상위 폴더 사이드바 이름 오버라이드 — index.md 없이 fileSegmentHint로
+// 폴더 사이드바 이름 오버라이드 — index.md 없이 fileSegmentHint로
 // fallback되면 '01-communication' 같은 slug가 노출되므로 짧은 한글 라벨로 덮는다.
-// 클로저 금지(브라우저 측 new Function 평가) — 인라인 라벨.
+// 새 구조: docs/<카테고리>/index 형태 (3 segments).
 const folderLabelMapFn = (node: any) => {
   if (!node.isFolder) return
   const slug = String(node.slug ?? "")
   const parts = slug.split("/")
-  if (parts.length !== 2 || parts[parts.length - 1] !== "index") return
+  const last = parts[parts.length - 1]
+  if (last !== "index") return
   const labels: Record<string, string> = {
+    "docs": "매뉴얼",
     "01-communication": "통신",
     "02-settings": "설정",
     "03-transfer": "전송",
@@ -84,7 +91,9 @@ const folderLabelMapFn = (node: any) => {
     "05-advanced": "고급",
     "file-formats": "파일 형식",
   }
-  const label = labels[parts[0]]
+  // 직속 폴더 이름으로 라벨 매칭
+  const folderName = parts[parts.length - 2] ?? parts[0]
+  const label = labels[folderName]
   if (label) node.displayName = label
 }
 
