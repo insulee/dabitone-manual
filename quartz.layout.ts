@@ -1,87 +1,37 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
-// 사이드바에서 숨길 폴더 (URL은 유지, Explorer만 숨김)
-// 새 라우트: 매뉴얼은 /docs/, tour 영역은 /quickstart·/accessible.
-// 사이드바는 매뉴얼 페이지에서만 노출되므로 tour 영역과 docs/ 안의 보조 폴더를 hide.
+// 사이드바 폴더 hide — slugSegment 기반(Quartz default와 동일 패턴).
+// Quartz fileTrie는 노드 단위로 호출하며 slugSegment는 노드의 직속 segment.
+// /quickstart·/accessible (tour 영역)와 docs/ 안 보조 폴더는 매뉴얼 사이드바에 안 보이게.
 const hiddenFilterFn = (node: any) => {
-  const slug = String(node.slug ?? "")
-  // root 레벨 hide: tour 영역 + 태그 인덱스
-  const rootHidden = new Set(["quickstart", "accessible", "tags"])
-  const first = slug.split("/")[0]
-  if (rootHidden.has(first)) return false
-  // docs/ 하위 hide: blog·getting-started·troubleshooting·templates는 별도 페이지에서만 노출
-  const firstTwo = slug.split("/").slice(0, 2).join("/")
-  const docsHidden = new Set([
-    "docs/blog",
-    "docs/getting-started",
-    "docs/troubleshooting",
-    "docs/templates",
-  ])
-  if (docsHidden.has(firstTwo)) return false
+  const seg = String(node.slugSegment ?? "")
+  if (seg === "quickstart" || seg === "accessible" || seg === "tags") return false
+  if (seg === "blog" || seg === "getting-started" || seg === "troubleshooting" || seg === "templates") return false
   return true
 }
 
-// 폴더 숫자 prefix(01-, 02-) 기반 정렬 — slug 기준.
-// 파일은 같은 폴더 안에서 `overview`가 항상 최상단, 이후는 폴더별 explicit
-// 순서(orderMap) → explicit 없는 나머지는 slug 알파벳순 fallback.
-// 클로저 금지(브라우저 new Function 평가) — 맵 인라인.
+// 폴더 prefix(01-, 02-) 알파벳 정렬 + 같은 폴더에서 overview 최상단.
+// 폴더별 explicit 순서는 폴더 segmentHint 기반 (옛 layout과 동일).
 const customSortFn = (a: any, b: any) => {
-  if (!a.isFolder && !b.isFolder) {
-    const aIsOv = String(a.slug ?? "").endsWith("/overview")
-    const bIsOv = String(b.slug ?? "").endsWith("/overview")
-    if (aIsOv && !bIsOv) return -1
-    if (!aIsOv && bIsOv) return 1
-
-    const orderMap: Record<string, string[]> = {
-      "01-communication": ["serial", "dbnet", "tcp", "udp", "ble", "mqtt"],
-      "02-settings": ["screen-size", "display-signal", "font"],
-      "03-transfer": ["message"],
-      "04-editor": ["text", "image", "gif", "schedule-grid", "split-mode"],
-      "05-advanced": ["time", "board-settings", "firmware", "theme"],
-    }
-    const aParts = String(a.slug ?? "").split("/")
-    const bParts = String(b.slug ?? "").split("/")
-    // 직속 부모 폴더로 비교 (docs/01-communication/serial → "01-communication")
-    const aFolder = aParts.length >= 2 ? aParts[aParts.length - 2] : aParts[0]
-    const bFolder = bParts.length >= 2 ? bParts[bParts.length - 2] : bParts[0]
-    const aName = aParts[aParts.length - 1]
-    const bName = bParts[bParts.length - 1]
-    if (aFolder === bFolder && orderMap[aFolder]) {
-      const order = orderMap[aFolder]
-      const aIdx = order.indexOf(aName)
-      const bIdx = order.indexOf(bName)
-      if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx
-      if (aIdx !== -1) return -1
-      if (bIdx !== -1) return 1
-    }
-    const aSlug = String(a.slug ?? a.displayName)
-    const bSlug = String(b.slug ?? b.displayName)
-    return aSlug.localeCompare(bSlug, undefined, {
-      numeric: true,
-      sensitivity: "base",
-    })
-  }
   if (a.isFolder && b.isFolder) {
-    const aSlug = String(a.slug ?? a.displayName)
-    const bSlug = String(b.slug ?? b.displayName)
-    return aSlug.localeCompare(bSlug, undefined, {
-      numeric: true,
-      sensitivity: "base",
-    })
+    const aSeg = String(a.slugSegment ?? a.displayName)
+    const bSeg = String(b.slugSegment ?? b.displayName)
+    return aSeg.localeCompare(bSeg, undefined, { numeric: true, sensitivity: "base" })
   }
-  return a.isFolder ? -1 : 1
+  if (a.isFolder !== b.isFolder) return a.isFolder ? -1 : 1
+  // 둘 다 파일
+  const aSeg = String(a.slugSegment ?? "")
+  const bSeg = String(b.slugSegment ?? "")
+  if (aSeg === "overview" && bSeg !== "overview") return -1
+  if (aSeg !== "overview" && bSeg === "overview") return 1
+  return aSeg.localeCompare(bSeg, undefined, { numeric: true, sensitivity: "base" })
 }
 
-// 폴더 사이드바 이름 오버라이드 — index.md 없이 fileSegmentHint로
-// fallback되면 '01-communication' 같은 slug가 노출되므로 짧은 한글 라벨로 덮는다.
-// 새 구조: docs/<카테고리>/index 형태 (3 segments).
+// 폴더 사이드바 이름 오버라이드 — slugSegment로 라벨 매칭.
 const folderLabelMapFn = (node: any) => {
   if (!node.isFolder) return
-  const slug = String(node.slug ?? "")
-  const parts = slug.split("/")
-  const last = parts[parts.length - 1]
-  if (last !== "index") return
+  const seg = String(node.slugSegment ?? "")
   const labels: Record<string, string> = {
     "docs": "매뉴얼",
     "01-communication": "통신",
@@ -91,9 +41,7 @@ const folderLabelMapFn = (node: any) => {
     "05-advanced": "고급",
     "file-formats": "파일 형식",
   }
-  // 직속 폴더 이름으로 라벨 매칭
-  const folderName = parts[parts.length - 2] ?? parts[0]
-  const label = labels[folderName]
+  const label = labels[seg]
   if (label) node.displayName = label
 }
 
