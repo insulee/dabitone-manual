@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     baseUrl: "dabitone.dabitsol.com",
     ignorePatterns: [
       "private",
-      "templates",
+      "docs/templates",
       ".obsidian",
       ".claude",
       ".trash",
