@@ -1,70 +1,38 @@
 ---
-title: BLE (Bluetooth)
-description: "BLE 페어링 — 블루투스 Low Energy 기반 무선 연결 (DabitOne 신기능)"
-last_updated: 2026-04-21
+title: BLE
+description: "BLE(Bluetooth Low Energy) 통신 설정 — DB300WB 컨버터 페어링"
+last_updated: 2026-04-29
 ---
 
-# BLE (Bluetooth Low Energy)
+# BLE
 
+> [!abstract] DB300WB BLE 컨버터로 컨트롤러를 무선 연결
+> Windows 블루투스로 페어링한 뒤 `BLE` 버튼으로 BLE 시작, `Serial` 모드의 Bluetooth COM 포트로 통신.
 
-> 경로: **[통신] → [BLE] 버튼** (별도 설정창 팝업)
+### 기본값
 
-## 언제 쓰나
+- 이름: `dabit_ble`
+- 비밀번호: `dabit_ble`
+- DB300WB는 `Client TCP/IP` 모드에서만 정상 동작
 
-- 케이블 없이 **근거리 무선**으로 컨트롤러와 통신하고 싶을 때
-- 설치·운영 스태프의 **모바일 장비**에서 원격 제어할 때 (BLE 지원 PC 기준)
-- 현장 방문 시 **빠른 점검·설정 변경**용
+### 연결 절차
 
-> [!info] BLE는 DabitOne에 새로 추가된 신기능입니다. 컨트롤러 펌웨어도 BLE를 지원해야 동작하며, 근거리(~10m)에서만 안정적으로 통신됩니다.
+#### Windows 블루투스 페어링
+- Windows `Bluetooth 및 장치` > `dabit_ble` 선택 > 페어링
+- `장치 관리자` > `포트(COM & LPT)` > 1~2개의 Bluetooth COM 포트 확인
 
-## 기본 사용
+#### DabitOne 통신 설정
+- `통신` > `Serial` 라디오 버튼 선택
+- `포트`: 페어링된 Bluetooth COM 포트 선택
+- `속도`: `115200`
+- 좌측 하단 `BLE` 버튼 클릭 → 블루투스 설정 창
+  - 블루투스 이름: `dabit_ble`
+  - 블루투스 비밀번호: `dabit_ble`
+  - `BeginBLE` (시작) 클릭
+  - 로그 영역에 `[DIBD BLE OK!]` 확인
+  - `닫기`
+- `연결 테스트` 클릭
 
-1. 메인 통신 창 하단의 **[BLE]** 버튼 클릭 → 전용 설정창 팝업
-2. BLE 설정창에서 주변 BLE 장비 스캔
-3. 대상 컨트롤러(장비명 또는 MAC 주소) 선택
-4. 페어링 진행 (필요 시 PIN 입력)
-5. 페어링 완료 후 메인 화면으로 돌아오면 해당 컨트롤러와 BLE 연결 사용 가능
+> [!info] DB300WB BLE 이름·비밀번호는 PC 소프트웨어로만 변경 가능하다.
 
-## 화면 구성 (BLE 설정창)
-
-| 요소 | 유형 | 설명 |
-|-----|-----|-----|
-| 장치 목록 | ListBox | 스캔 결과의 BLE 장비들 (이름·MAC·신호 강도) |
-| **[스캔]** | Button | 주변 BLE 장비 재검색 |
-| **[페어링]** | Button | 선택한 장비와 페어링 시도 |
-| **[해제]** | Button | 기존 페어링 해제 |
-| 신호 강도 | 표시 | RSSI(dBm) — -60 이상이면 양호, -80 이하면 재배치 권장 |
-
-## 주요 옵션
-
-### 페어링 PIN
-
-컨트롤러 쪽에 PIN 보호가 설정된 경우 입력 필요. 기본 PIN은 제품 설명서 확인.
-
-### 신호 강도 기준
-
-- **-40 ~ -60 dBm**: 매우 양호 (바로 옆)
-- **-60 ~ -75 dBm**: 양호 (같은 방)
-- **-75 ~ -85 dBm**: 보통 (벽 1개 너머)
-- **-85 dBm 이하**: 불안정 (자주 끊김, 더 가까이 이동)
-
-## 제약
-
-> [!warning] BLE는 **대용량 콘텐츠 전송**에는 부적합합니다. 속도가 제한되어 대형 GIF·PLA 업로드 시 시간이 오래 걸리거나 실패할 수 있습니다. 큰 작업은 Serial·TCP를 권장합니다.
-
-| 항목 | 제약 |
-|------|-----|
-| 유효 거리 | ~10m (장애물에 따라 감소) |
-| 전송 속도 | Serial·TCP 대비 느림 |
-| 동시 연결 | BLE 표준상 1:1 |
-| PC 요구 | BLE 지원 블루투스 어댑터 필요 |
-
-## 설정 영속성
-
-> [!info] 페어링 정보는 Windows 블루투스 설정에도 함께 저장됩니다. 재실행 시 자동 재연결.
-
-## 관련
-
-- TCP 무선 대안: Wi-Fi + [TCP](/01-communication/tcp)
-- 원격 관리: [MQTT](/01-communication/mqtt)
-- 문제 해결: [연결이 안 될 때](/troubleshooting/01-connection)
+---
