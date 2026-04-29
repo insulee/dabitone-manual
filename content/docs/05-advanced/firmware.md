@@ -2,6 +2,8 @@
 title: 펌웨어
 description: "펌웨어 정보 조회·모델 검증·업데이트"
 last_updated: 2026-04-29
+aliases:
+  - "/05-advanced/firmware"
 ---
 
 # 펌웨어

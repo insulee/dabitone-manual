@@ -2,6 +2,8 @@
 title: TCP (Client / Server)
 description: "TCP/IP 연결 설정 — dbNet으로 컨트롤러 검색 후 IP·Port 자동 채움"
 last_updated: 2026-04-29
+aliases:
+  - "/01-communication/tcp"
 ---
 
 # TCP (Client / Server)

@@ -2,6 +2,8 @@
 title: DAT
 description: "전광판에 표시되는 한 장면 — 텍스트 또는 이미지 비트맵의 바이너리"
 last_updated: 2026-04-21
+aliases:
+  - "/file-formats/dat"
 ---
 
 # DAT

@@ -2,6 +2,8 @@
 title: 전송이 실패할 때
 description: "전송 도중 끊김·CRC 오류·타임아웃 증상별 대응"
 last_updated: 2026-04-21
+aliases:
+  - "/troubleshooting/03-transfer-fail"
 ---
 
 # 전송이 실패할 때

@@ -2,6 +2,8 @@
 title: 통신 개요
 description: "DabitOne 통신 탭 화면 구성 — Serial·Client TCP/IP·Server TCP/IP·UDP·BLE·dbNet"
 last_updated: 2026-04-29
+aliases:
+  - "/01-communication/overview"
 ---
 
 # 통신 개요

@@ -2,6 +2,8 @@
 title: UDP
 description: "UDP 연결 설정 — 비연결형·단방향 송출"
 last_updated: 2026-04-29
+aliases:
+  - "/01-communication/udp"
 ---
 
 # UDP

@@ -2,6 +2,8 @@
 title: BLE
 description: "BLE(Bluetooth Low Energy) 통신 설정 — DB300WB 컨버터 페어링"
 last_updated: 2026-04-29
+aliases:
+  - "/01-communication/ble"
 ---
 
 # BLE

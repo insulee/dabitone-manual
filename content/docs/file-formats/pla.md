@@ -2,6 +2,8 @@
 title: PLA
 description: "여러 DAT·ANI를 시간 순서로 묶은 플레이리스트 스케줄"
 last_updated: 2026-04-21
+aliases:
+  - "/file-formats/pla"
 ---
 
 # PLA

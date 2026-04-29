@@ -2,6 +2,8 @@
 title: 화면 크기·배열·색상
 description: "가로×세로 모듈 수, 모듈 해상도, 색상 깊이(BPP), 배열 유형"
 last_updated: 2026-04-29
+aliases:
+  - "/02-settings/screen-size"
 ---
 
 # 화면 크기·배열·색상

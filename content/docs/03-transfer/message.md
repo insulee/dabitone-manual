@@ -2,6 +2,8 @@
 title: 메시지 전송
 description: "HEX 프로토콜·ASCII 프로토콜 — 텍스트·이미지·효과 컨트롤러 직접 송신"
 last_updated: 2026-04-29
+aliases:
+  - "/03-transfer/message"
 ---
 
 # 메시지 전송

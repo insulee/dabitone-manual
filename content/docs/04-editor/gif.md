@@ -2,6 +2,8 @@
 title: GIF 편집
 description: "내장 GIF 편집기 — 프레임 타임라인·딜레이·반복"
 last_updated: 2026-04-29
+aliases:
+  - "/04-editor/gif"
 ---
 
 # GIF 편집

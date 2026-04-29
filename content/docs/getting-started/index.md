@@ -1,5 +1,7 @@
 ---
 title: 시작하기
+aliases:
+  - "/getting-started"
 ---
 
 DabitOne 설치와 첫 실행을 안내합니다.

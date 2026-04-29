@@ -2,6 +2,8 @@
 title: 스케줄 그리드
 description: "PLA/BGP 타임라인 그리드 편집 — 시간대별 콘텐츠 배치"
 last_updated: 2026-04-29
+aliases:
+  - "/04-editor/schedule-grid"
 ---
 
 # 스케줄 그리드

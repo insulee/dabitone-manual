@@ -2,6 +2,8 @@
 title: FNT
 description: "컨트롤러 내장 폰트 파일 (16×16 고정 비트맵)"
 last_updated: 2026-04-21
+aliases:
+  - "/file-formats/fnt"
 ---
 
 # FNT

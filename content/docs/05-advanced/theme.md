@@ -2,6 +2,8 @@
 title: 테마
 description: "DabitOne 앱 UI 라이트/다크 테마 + 액센트 색상"
 last_updated: 2026-04-29
+aliases:
+  - "/05-advanced/theme"
 ---
 
 # 테마

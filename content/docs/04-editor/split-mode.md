@@ -2,6 +2,8 @@
 title: 분할 모드
 description: "화면을 2~4 섹션으로 나눠 각 섹션 독립 재생"
 last_updated: 2026-04-29
+aliases:
+  - "/04-editor/split-mode"
 ---
 
 # 분할 모드

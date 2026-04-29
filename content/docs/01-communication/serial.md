@@ -2,6 +2,8 @@
 title: Serial
 description: "시리얼(RS-232/RS-485) 연결 설정 — 포트·속도·RS-485 주소"
 last_updated: 2026-04-29
+aliases:
+  - "/01-communication/serial"
 ---
 
 # Serial

@@ -2,6 +2,8 @@
 title: 텍스트 편집
 description: "글꼴·크기·색상·정렬·효과 → DAT/ANI 메시지"
 last_updated: 2026-04-29
+aliases:
+  - "/04-editor/text"
 ---
 
 # 텍스트 편집

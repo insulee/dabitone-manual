@@ -2,6 +2,8 @@
 title: 밝기
 description: "전광판 밝기 송신·고급설정"
 last_updated: 2026-04-29
+aliases:
+  - "/03-transfer/brightness"
 ---
 
 # 밝기

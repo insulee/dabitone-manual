@@ -2,6 +2,8 @@
 title: MQTT
 description: "MQTT 브로커 경유 원격 연결 — 인터넷으로 멀리 있는 컨트롤러 관리 (DabitOne 신기능)"
 last_updated: 2026-04-21
+aliases:
+  - "/01-communication/mqtt"
 ---
 
 # MQTT

@@ -6,6 +6,8 @@ tags:
   - troubleshooting
   - 표출
   - 모듈
+aliases:
+  - "/troubleshooting/07-partial-display"
 ---
 
 # 일부 모듈만 표출·나머지 블랙

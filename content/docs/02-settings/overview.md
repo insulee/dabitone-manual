@@ -2,6 +2,8 @@
 title: 설정 개요
 description: "화면 크기·표출 신호·폰트 — 컨트롤러 기본 운영 설정"
 last_updated: 2026-04-29
+aliases:
+  - "/02-settings/overview"
 ---
 
 # 설정 개요

@@ -6,6 +6,8 @@ tags:
   - troubleshooting
   - 동기화
   - 다중 컨트롤러
+aliases:
+  - "/troubleshooting/08-sync-failure"
 ---
 
 # 여러 컨트롤러 동기화 실패

@@ -2,6 +2,8 @@
 title: 편집 개요
 description: "텍스트·이미지·GIF·스케줄·분할 모드 — 컨트롤러 콘텐츠 제작"
 last_updated: 2026-04-29
+aliases:
+  - "/04-editor/overview"
 ---
 
 # 편집 개요

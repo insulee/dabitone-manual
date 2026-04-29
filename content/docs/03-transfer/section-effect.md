@@ -2,6 +2,8 @@
 title: 섹션별 효과
 description: "분할 섹션 효과 모드 송신"
 last_updated: 2026-04-29
+aliases:
+  - "/03-transfer/section-effect"
 ---
 
 # 섹션별 효과

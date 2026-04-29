@@ -2,6 +2,8 @@
 title: 시간 설정
 description: "컨트롤러 RTC PC 동기화 + NTP 자동 동기화"
 last_updated: 2026-04-29
+aliases:
+  - "/05-advanced/time"
 ---
 
 # 시간 설정

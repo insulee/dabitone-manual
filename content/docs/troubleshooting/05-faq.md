@@ -2,6 +2,8 @@
 title: 자주 묻는 질문 (FAQ)
 description: "DabitOne 자주 묻는 질문 — 설치·연결·편집·전송·펌웨어·호환성·라이선스"
 last_updated: 2026-04-22
+aliases:
+  - "/troubleshooting/05-faq"
 ---
 
 # 자주 묻는 질문 (FAQ)

@@ -2,6 +2,8 @@
 title: 전송 개요
 description: "한 화면에 메시지·페이지·밝기·전원·배경·화면채우기·섹션 효과 그룹박스 배치"
 last_updated: 2026-04-29
+aliases:
+  - "/03-transfer/overview"
 ---
 
 # 전송 개요

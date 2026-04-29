@@ -2,6 +2,8 @@
 title: 펌웨어 오류
 description: "업데이트 실패·부팅 반복·펌웨어 정보 읽기 실패 대응"
 last_updated: 2026-04-21
+aliases:
+  - "/troubleshooting/04-firmware-error"
 ---
 
 # 펌웨어 오류

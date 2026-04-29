@@ -2,6 +2,8 @@
 title: 표시가 깨질 때
 description: "색상 밀림·잔상·일부 모듈만 표시·글자 뒤집힘 증상별 대응"
 last_updated: 2026-04-21
+aliases:
+  - "/troubleshooting/02-display-corruption"
 ---
 
 # 표시가 깨질 때

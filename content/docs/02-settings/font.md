@@ -2,6 +2,8 @@
 title: 폰트 전송
 description: "FNT 폰트 파일을 컨트롤러 슬롯에 업로드"
 last_updated: 2026-04-29
+aliases:
+  - "/02-settings/font"
 ---
 
 # 폰트 전송

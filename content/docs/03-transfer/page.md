@@ -2,6 +2,8 @@
 title: 페이지메시지
 description: "컨트롤러 페이지 수 송신·페이지 초기화"
 last_updated: 2026-04-29
+aliases:
+  - "/03-transfer/page"
 ---
 
 # 페이지메시지

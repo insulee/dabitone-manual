@@ -1,5 +1,7 @@
 ---
 title: 파일 형식 개요
+aliases:
+  - "/file-formats/overview"
 ---
 
 # 파일 형식 개요

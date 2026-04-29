@@ -2,6 +2,8 @@
 title: 연결이 안 될 때
 description: "Serial·TCP·UDP 연결 실패·응답 없음·COM 포트 충돌 증상별 대응"
 last_updated: 2026-04-21
+aliases:
+  - "/troubleshooting/01-connection"
 ---
 
 # 연결이 안 될 때

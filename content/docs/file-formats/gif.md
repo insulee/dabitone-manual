@@ -2,6 +2,8 @@
 title: GIF
 description: "표준 GIF 포맷 — DabitOne 내장 편집기로 제작·편집 후 ANI로 변환"
 last_updated: 2026-04-21
+aliases:
+  - "/file-formats/gif"
 ---
 
 # GIF

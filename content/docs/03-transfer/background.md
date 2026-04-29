@@ -2,6 +2,8 @@
 title: 배경이미지
 description: "배경 레이어 단일 항목 컨트롤러 송신"
 last_updated: 2026-04-29
+aliases:
+  - "/03-transfer/background"
 ---
 
 # 배경이미지

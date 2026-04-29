@@ -2,6 +2,8 @@
 title: 전체 화면 구조
 description: "DabitOne 5 그룹 사이드바 개요와 주요 UI 용어, 첫 사용자 추천 워크플로우"
 last_updated: 2026-04-22
+aliases:
+  - "/getting-started/overview"
 ---
 
 # 전체 화면 구조

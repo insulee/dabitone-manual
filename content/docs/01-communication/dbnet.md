@@ -2,6 +2,8 @@
 title: dbNet
 description: "네트워크 자동 검색 도구 — 컨트롤러 발견·원격 설정"
 last_updated: 2026-04-29
+aliases:
+  - "/01-communication/dbnet"
 ---
 
 # dbNet

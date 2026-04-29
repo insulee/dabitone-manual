@@ -6,6 +6,8 @@ tags:
   - troubleshooting
   - 색상
   - RGB
+aliases:
+  - "/troubleshooting/06-color-mismatch"
 ---
 
 # 색 반전·RGB 순서 문제

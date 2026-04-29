@@ -2,6 +2,8 @@
 title: 설치
 description: "DabitOne 다운로드·설치·첫 실행·자주 겪는 설치 오류 — 5분 이내"
 last_updated: 2026-04-22
+aliases:
+  - "/getting-started/install"
 ---
 
 # 설치

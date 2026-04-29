@@ -2,6 +2,8 @@
 title: 전광판 켜기/끄기
 description: "전광판 표출 즉시 ON/OFF"
 last_updated: 2026-04-29
+aliases:
+  - "/03-transfer/power"
 ---
 
 # 전광판 켜기/끄기

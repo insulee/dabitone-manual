@@ -2,6 +2,8 @@
 title: 고급 개요
 description: "시간·보드 기능·펌웨어·테마 — 설치 초기·트러블슈팅"
 last_updated: 2026-04-29
+aliases:
+  - "/05-advanced/overview"
 ---
 
 # 고급 개요

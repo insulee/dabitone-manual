@@ -2,6 +2,8 @@
 title: 보드 기능 설정
 description: "디버깅·BH1·J2·J3·보드레이트 — 컨트롤러 하드웨어 상세 (전문가용)"
 last_updated: 2026-04-29
+aliases:
+  - "/05-advanced/board-settings"
 ---
 
 # 보드 기능 설정

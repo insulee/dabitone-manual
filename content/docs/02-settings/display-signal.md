@@ -2,6 +2,8 @@
 title: 표출 신호
 description: "Color Order·Scan Order·Gamma·자동 전송 간격 — 모듈 신호 세부 설정"
 last_updated: 2026-04-29
+aliases:
+  - "/02-settings/display-signal"
 ---
 
 # 표출 신호

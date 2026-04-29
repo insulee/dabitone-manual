@@ -2,6 +2,8 @@
 title: BGP
 description: "배경 레이어 전용 스케줄 파일"
 last_updated: 2026-04-21
+aliases:
+  - "/file-formats/bgp"
 ---
 
 # BGP

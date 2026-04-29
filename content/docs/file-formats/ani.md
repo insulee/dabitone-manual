@@ -2,6 +2,8 @@
 title: ANI
 description: "여러 DAT 프레임 + 타이밍을 묶은 애니메이션"
 last_updated: 2026-04-21
+aliases:
+  - "/file-formats/ani"
 ---
 
 # ANI

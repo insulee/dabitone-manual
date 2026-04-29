@@ -2,6 +2,8 @@
 title: 이미지 편집
 description: "BMP/PNG/JPG → DAT 변환·크롭·팔레트"
 last_updated: 2026-04-29
+aliases:
+  - "/04-editor/image"
 ---
 
 # 이미지 편집
