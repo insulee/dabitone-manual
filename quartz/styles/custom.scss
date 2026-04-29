@@ -145,18 +145,19 @@ a.internal.tag-link {
     margin-top: 0;
   }
 
-  // ─── Route restructure: docs 폴더는 사이드바에서 시각적으로 unwrap ───
-  // 라벨 hide + 항상 펼친 상태 강제 + 자식 들여쓰기 제거
-  & .folder-container[data-folderpath="docs"] {
+  // ─── Route restructure: docs 폴더 라벨만 hide (자식은 자연스럽게 노출) ───
+  // 폴더 컨테이너 자체는 두고 라벨 button + svg 만 시각적으로 제거.
+  // .folder-outer는 default state 'open'으로 이미 펼쳐진 상태 (layout.ts).
+  & .folder-container[data-folderpath="docs"] > .folder-icon,
+  & .folder-container[data-folderpath="docs"] > div {
     display: none !important;
   }
-  & .folder-container[data-folderpath="docs"] + .folder-outer {
-    grid-template-rows: 1fr !important;
-    visibility: visible !important;
+  & li:has(> .folder-container[data-folderpath="docs"]) > .folder-outer {
+    margin-left: 0;
+    padding-left: 0;
   }
-  & .folder-container[data-folderpath="docs"] + .folder-outer > ul {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
+  & li:has(> .folder-container[data-folderpath="docs"]) > .folder-outer > ul {
+    padding-left: 0;
   }
 }
 

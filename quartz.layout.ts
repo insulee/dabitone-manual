@@ -146,7 +146,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.Explorer({
       folderClickBehavior: "collapse",
-      folderDefaultState: "collapsed",
+      folderDefaultState: "open",
       sortFn: customSortFn,
       filterFn: hiddenFilterFn,
       mapFn: folderLabelMapFn,
@@ -176,7 +176,7 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.Explorer({
       folderClickBehavior: "collapse",
-      folderDefaultState: "collapsed",
+      folderDefaultState: "open",
       sortFn: customSortFn,
       filterFn: hiddenFilterFn,
       mapFn: folderLabelMapFn,

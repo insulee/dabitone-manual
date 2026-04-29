@@ -49,7 +49,7 @@ function Hero() {
           하나의 소프트웨어.
         </p>
         <div class="tour11-hero__cta">
-          <MagneticLink href="#quickstart" className="tour11-btn tour11-btn--primary">
+          <MagneticLink href="/quickstart/01-connect/" className="tour11-btn tour11-btn--primary">
             투어 시작하기
             <span class="tour11-btn__arrow" aria-hidden="true">
               →
