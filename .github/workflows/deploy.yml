@@ -10,10 +10,10 @@ permissions:
   pages: write
   id-token: write
 
-# 동시 배포 방지 — 완료 대기 후 다음 실행
+# 동시 배포 방지 — 새 push 시 진행 중 빌드 취소 후 최신 상태로 재시작
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
