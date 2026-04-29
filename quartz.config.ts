@@ -10,7 +10,7 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "DabitOne 매뉴얼",
     pageTitleSuffix: " - 다빛솔루션",
-    enableSPA: true,
+    enableSPA: false,
     enablePopovers: true,
     analytics: null,
     locale: "ko-KR",
