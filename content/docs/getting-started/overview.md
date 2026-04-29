@@ -160,4 +160,4 @@ DabitOne이 관리하는 파일들의 실제 경로:
 - 화면 크기 맞추기 → [/quickstart/02-display-setup/](/quickstart/02-display-setup/)
 - 첫 메시지 → [/quickstart/03-send-message/](/quickstart/03-send-message/)
 - 자세한 컨트롤 설명 → [UI 레퍼런스](/)
-- 문제 해결 → [트러블슈팅](/docs/troubleshooting/)
+- 문제 해결 → [트러블슈팅](/docs/troubleshooting)

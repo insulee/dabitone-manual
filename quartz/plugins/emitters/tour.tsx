@@ -77,7 +77,8 @@ const TOUR_PAGES: readonly TourPageDef[] = [
  * Route restructure: /tour 가 루트로 이전, 매뉴얼은 /docs 하위로.
  */
 const TOUR_ALIASES: Record<string, string> = {
-  // /tour/* → / (root)로 이전 — tour/index는 새 root index가 emit하므로 redirect 불필요
+  // /tour/* → / (root)로 이전. tour/index도 redirect 필요.
+  "tour/index": ".",
   "tour/quickstart/01-connect/index": "quickstart/01-connect/",
   "tour/quickstart/02-display-setup/index": "quickstart/02-display-setup/",
   "tour/quickstart/03-send-message/index": "quickstart/03-send-message/",

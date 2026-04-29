@@ -61,7 +61,7 @@ DabitOne의 좌측 사이드바 5개 탭 순서 그대로 구성했습니다.
 ## 파일 형식 · 문제 해결
 
 - [파일 포맷](/docs/file-formats/overview) — DAT·ANI·GIF·PLA·BGP·FNT 6종
-- [트러블슈팅](/docs/troubleshooting/) — 연결·표시·전송·펌웨어·색상·동기화 등 8가지 증상
+- [트러블슈팅](/docs/troubleshooting) — 연결·표시·전송·펌웨어·색상·동기화 등 8가지 증상
 - [자주 묻는 질문](/docs/troubleshooting/05-faq) — 22 Q&A (설치·연결·편집·전송·펌웨어 카테고리)
 - [릴리즈 노트](/docs/blog/2026-04-21-v1-1-0) — v1.1.0 변경사항
 
