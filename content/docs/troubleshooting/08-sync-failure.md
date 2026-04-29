@@ -61,8 +61,8 @@ tags:
 
 ## 관련
 
-- [전송 실패 시](/troubleshooting/03-transfer-fail)
-- [펌웨어 오류](/troubleshooting/04-firmware-error)
-- [시간 설정](/05-advanced/time)
-- [편집기 분할 모드](/04-editor/split-mode)
-- [dbNet 통신](/01-communication/dbnet)
+- [전송 실패 시](/docs/troubleshooting/03-transfer-fail)
+- [펌웨어 오류](/docs/troubleshooting/04-firmware-error)
+- [시간 설정](/docs/05-advanced/time)
+- [편집기 분할 모드](/docs/04-editor/split-mode)
+- [dbNet 통신](/docs/01-communication/dbnet)

@@ -11,16 +11,16 @@ last_updated: 2026-04-29
 
 ### 좌측 — 메시지 작성·송신
 
-- [메시지 전송](/03-transfer/message) — `HEX 프로토콜`·`ASCII 프로토콜`로 텍스트·이미지·효과 송신
+- [메시지 전송](/docs/03-transfer/message) — `HEX 프로토콜`·`ASCII 프로토콜`로 텍스트·이미지·효과 송신
 
 ### 우측 — 운영 그룹
 
-- [페이지메시지](/03-transfer/page) — 페이지 수 송신·초기화
-- [밝기](/03-transfer/brightness) — 100% / 75% / 50% / 25% / 5% + 고급설정
-- [전광판 켜기/끄기](/03-transfer/power) — 표출 즉시 ON/OFF
-- [배경이미지](/03-transfer/background) — 배경 레이어 송신
+- [페이지메시지](/docs/03-transfer/page) — 페이지 수 송신·초기화
+- [밝기](/docs/03-transfer/brightness) — 100% / 75% / 50% / 25% / 5% + 고급설정
+- [전광판 켜기/끄기](/docs/03-transfer/power) — 표출 즉시 ON/OFF
+- [배경이미지](/docs/03-transfer/background) — 배경 레이어 송신
 - 화면채우기 — 단색으로 화면 전체 채우기 (검정 등 + `채우기`)
-- [섹션별 효과](/03-transfer/section-effect) — 분할 영역 효과 적용·송신
+- [섹션별 효과](/docs/03-transfer/section-effect) — 분할 영역 효과 적용·송신
 
 ### 하단 — 로그
 

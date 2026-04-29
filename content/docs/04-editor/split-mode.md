@@ -23,7 +23,7 @@ last_updated: 2026-04-29
 - 각 섹션 클릭 → DAT/ANI/텍스트 배정
 - (선택) `사용자 정의`에서 경계선 드래그로 비율 조정
 - `Ctrl+S` → 분할 설정 저장
-- 섹션별 효과는 [섹션 효과](/03-transfer/section-effect)에서
+- 섹션별 효과는 [섹션 효과](/docs/03-transfer/section-effect)에서
 
 ### 레이아웃 종류
 

@@ -56,15 +56,15 @@ last_updated: YYYY-MM-DD
 ### 5. 잘 안될 때 (짧게)
 
 ```markdown
-- **응답 없음** — COM 포트 중복 확인. [연결 문제 해결](/troubleshooting/01-connection)
+- **응답 없음** — COM 포트 중복 확인. [연결 문제 해결](/docs/troubleshooting/01-connection)
 - **CRC 오류** — 전선 상태 점검, 재연결
 ```
 
 ### 6. 관련 페이지
 
 ```markdown
-- [다음 단계: 화면 크기 설정](/quickstart/02-screen-size)
-- [통신 개요](/01-communication/overview)
+- [다음 단계: 화면 크기 설정](/quickstart/02-display-setup)
+- [통신 개요](/docs/01-communication/overview)
 ```
 
 ## 톤·문체

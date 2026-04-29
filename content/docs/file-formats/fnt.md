@@ -38,7 +38,7 @@ C:\Users\[사용자]\Documents\DabitOne\Fonts\
 
 ## 업로드 방법
 
-[설정 → 폰트 전송](/02-settings/font)에서:
+[설정 → 폰트 전송](/docs/02-settings/font)에서:
 
 1. FNT 파일 선택
 2. 저장할 **슬롯 번호** 선택 (기존 폰트를 덮어쓸지 주의)
@@ -72,5 +72,5 @@ C:\Users\[사용자]\Documents\DabitOne\Fonts\
 
 ## 관련 페이지
 
-- [설정 → 폰트 전송](/02-settings/font)
-- [편집 → 텍스트](/04-editor/text) — 업로드된 폰트 사용
+- [설정 → 폰트 전송](/docs/02-settings/font)
+- [편집 → 텍스트](/docs/04-editor/text) — 업로드된 폰트 사용

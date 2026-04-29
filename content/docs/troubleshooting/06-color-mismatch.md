@@ -50,6 +50,6 @@ tags:
 
 ## 관련
 
-- [표출신호 설정 상세](/02-settings/display-signal)
-- [화면 크기·색상 깊이](/02-settings/screen-size)
-- [화면이 이상하게 나올 때 (일반)](/troubleshooting/02-display-corruption)
+- [표출신호 설정 상세](/docs/02-settings/display-signal)
+- [화면 크기·색상 깊이](/docs/02-settings/screen-size)
+- [화면이 이상하게 나올 때 (일반)](/docs/troubleshooting/02-display-corruption)

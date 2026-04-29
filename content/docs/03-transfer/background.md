@@ -21,6 +21,6 @@ last_updated: 2026-04-29
 
 > [!info] 배경 레이어 위에 전면 메시지가 표출. 가독성을 위해 적용 후 실 화면 확인 권장.
 
-> [!info] 새 배경 등록은 [편집](/04-editor/overview) 탭에서 작업.
+> [!info] 새 배경 등록은 [편집](/docs/04-editor/overview) 탭에서 작업.
 
 ---

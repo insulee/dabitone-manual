@@ -38,10 +38,10 @@ last_updated: 2026-04-29
 
 ### 통신 방식별 상세
 
-- [Serial](/01-communication/serial)
-- [TCP (Client / Server)](/01-communication/tcp)
-- [UDP](/01-communication/udp)
-- [BLE](/01-communication/ble)
-- [dbNet](/01-communication/dbnet)
+- [Serial](/docs/01-communication/serial)
+- [TCP (Client / Server)](/docs/01-communication/tcp)
+- [UDP](/docs/01-communication/udp)
+- [BLE](/docs/01-communication/ble)
+- [dbNet](/docs/01-communication/dbnet)
 
 ---

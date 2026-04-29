@@ -11,10 +11,10 @@ last_updated: 2026-04-29
 
 ### 주요 섹션
 
-- [시간 설정](/05-advanced/time) — 컨트롤러 RTC 동기화·NTP
-- [보드 기능 설정](/05-advanced/board-settings) — 하드웨어 상세 (전문가용)
-- [펌웨어](/05-advanced/firmware) — 모델 검증·업데이트
-- [테마](/05-advanced/theme) — 라이트/다크 UI 전환
+- [시간 설정](/docs/05-advanced/time) — 컨트롤러 RTC 동기화·NTP
+- [보드 기능 설정](/docs/05-advanced/board-settings) — 하드웨어 상세 (전문가용)
+- [펌웨어](/docs/05-advanced/firmware) — 모델 검증·업데이트
+- [테마](/docs/05-advanced/theme) — 라이트/다크 UI 전환
 
 > [!warning] 보드 기능 설정은 잘못 바꾸면 표시 깨짐 또는 컨트롤러 응답 없음 가능. 변경 전 현 값 메모 필수.
 

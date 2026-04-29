@@ -11,11 +11,11 @@ last_updated: 2026-04-29
 
 ### 편집 모드
 
-- [텍스트](/04-editor/text) — 글꼴·크기·색상·효과·속도
-- [이미지](/04-editor/image) — BMP/PNG/JPG → DAT 변환
-- [GIF](/04-editor/gif) — 프레임 타임라인 기반 애니메이션 (신기능)
-- [스케줄 그리드](/04-editor/schedule-grid) — 시간대별 콘텐츠 배치 (PLA)
-- [분할 모드](/04-editor/split-mode) — 화면을 영역으로 나눠 동시 재생
+- [텍스트](/docs/04-editor/text) — 글꼴·크기·색상·효과·속도
+- [이미지](/docs/04-editor/image) — BMP/PNG/JPG → DAT 변환
+- [GIF](/docs/04-editor/gif) — 프레임 타임라인 기반 애니메이션 (신기능)
+- [스케줄 그리드](/docs/04-editor/schedule-grid) — 시간대별 콘텐츠 배치 (PLA)
+- [분할 모드](/docs/04-editor/split-mode) — 화면을 영역으로 나눠 동시 재생
 
 ### 공통 워크플로우
 
@@ -25,6 +25,6 @@ last_updated: 2026-04-29
 - `Ctrl+S` → DAT/ANI/PLA/BGP로 자동 변환·저장
 - `전송` 탭에서 컨트롤러로 송신
 
-> [!info] 편집 결과물 포맷 상세는 [파일 포맷](/file-formats/dat) 참조.
+> [!info] 편집 결과물 포맷 상세는 [파일 포맷](/docs/file-formats/dat) 참조.
 
 ---

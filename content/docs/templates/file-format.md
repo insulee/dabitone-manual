@@ -58,8 +58,8 @@ last_updated: YYYY-MM-DD
 ### 5. 관련 파일 형식
 
 ```markdown
-- [ANI](/file-formats/ani) — DAT 여러 개 + 타이밍으로 애니메이션
-- [PLA](/file-formats/pla) — DAT/ANI 여러 개 + 스케줄
+- [ANI](/docs/file-formats/ani) — DAT 여러 개 + 타이밍으로 애니메이션
+- [PLA](/docs/file-formats/pla) — DAT/ANI 여러 개 + 스케줄
 ```
 
 ### 6. 기술 상세 (링크만)

@@ -12,10 +12,10 @@ last_updated: 2026-04-21
 
 | 편집 화면 | 결과물 |
 |----------|--------|
-| [텍스트 편집](/04-editor/text) | `.DAT` — 지정한 글꼴·효과로 렌더된 텍스트 비트맵 |
-| [이미지 편집](/04-editor/image) | `.DAT` — BMP/PNG/JPG를 전광판 해상도·색상 깊이로 변환한 비트맵 |
+| [텍스트 편집](/docs/04-editor/text) | `.DAT` — 지정한 글꼴·효과로 렌더된 텍스트 비트맵 |
+| [이미지 편집](/docs/04-editor/image) | `.DAT` — BMP/PNG/JPG를 전광판 해상도·색상 깊이로 변환한 비트맵 |
 
-한 파일은 **한 장면**을 담습니다. 연속 재생하려면 여러 DAT를 [ANI](/file-formats/ani) 또는 [PLA](/file-formats/pla)로 묶으세요.
+한 파일은 **한 장면**을 담습니다. 연속 재생하려면 여러 DAT를 [ANI](/docs/file-formats/ani) 또는 [PLA](/docs/file-formats/pla)로 묶으세요.
 
 ## 어디에 저장되나
 
@@ -45,9 +45,9 @@ last_updated: 2026-04-21
 
 ## 관련 파일 형식
 
-- [ANI](/file-formats/ani) — DAT 여러 개 + 타이밍으로 구성한 애니메이션
-- [PLA](/file-formats/pla) — DAT/ANI 여러 개 + 시간 스케줄로 구성한 플레이리스트
-- [BGP](/file-formats/bgp) — 배경 레이어용 스케줄
+- [ANI](/docs/file-formats/ani) — DAT 여러 개 + 타이밍으로 구성한 애니메이션
+- [PLA](/docs/file-formats/pla) — DAT/ANI 여러 개 + 시간 스케줄로 구성한 플레이리스트
+- [BGP](/docs/file-formats/bgp) — 배경 레이어용 스케줄
 
 ## 기술 상세 (개발자용)
 
@@ -55,5 +55,5 @@ last_updated: 2026-04-21
 
 ## 체험
 
-- [/tour/quickstart/03-send-message/](/tour/quickstart/03-send-message/) — 텍스트 DAT 만들기
-- [/tour/quickstart/04-edit-image/](/tour/quickstart/04-edit-image/) — 이미지 DAT 만들기
+- [/quickstart/03-send-message/](/quickstart/03-send-message/) — 텍스트 DAT 만들기
+- [/quickstart/04-edit-image/](/quickstart/04-edit-image/) — 이미지 DAT 만들기

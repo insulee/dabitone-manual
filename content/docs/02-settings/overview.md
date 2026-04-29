@@ -11,9 +11,9 @@ last_updated: 2026-04-29
 
 ### 주요 섹션
 
-- [화면 크기·배열·색상](/02-settings/screen-size) — 가로·세로 모듈 수, 모듈 해상도, 색상 깊이, 배열
-- [표출 신호](/02-settings/display-signal) — Color Order·Scan Order·Gamma·자동 전송 간격
-- [폰트 전송](/02-settings/font) — 컨트롤러 슬롯에 사용자 폰트(FNT) 업로드
+- [화면 크기·배열·색상](/docs/02-settings/screen-size) — 가로·세로 모듈 수, 모듈 해상도, 색상 깊이, 배열
+- [표출 신호](/docs/02-settings/display-signal) — Color Order·Scan Order·Gamma·자동 전송 간격
+- [폰트 전송](/docs/02-settings/font) — 컨트롤러 슬롯에 사용자 폰트(FNT) 업로드
 
 > [!info] 변경값은 `적용` 또는 `전송`으로 즉시 반영. 컨트롤러 비휘발 메모리에 저장되어 재부팅 후에도 유지.
 

@@ -8,12 +8,12 @@ DabitOne가 다루는 파일 포맷별 설명입니다. 사용자 관점에서 "
 
 ## 포맷
 
-- [DAT](/file-formats/dat) — 텍스트 렌더링 결과 또는 이미지 비트맵. 전광판에 직접 표시되는 기본 단위
-- [ANI](/file-formats/ani) — 여러 DAT 프레임을 타이밍과 묶은 애니메이션
-- [GIF](/file-formats/gif) — 표준 GIF 포맷. DabitOne 내장 편집기로 제작·편집 가능
-- [PLA](/file-formats/pla) — 표시 스케줄(플레이리스트). DAT/ANI 항목과 효과 설정을 담음
-- [BGP](/file-formats/bgp) — 배경 스케줄. PLA와 유사하나 배경 전용
-- [FNT](/file-formats/fnt) — 컨트롤러 내장 폰트 파일(16×16 고정 픽셀)
+- [DAT](/docs/file-formats/dat) — 텍스트 렌더링 결과 또는 이미지 비트맵. 전광판에 직접 표시되는 기본 단위
+- [ANI](/docs/file-formats/ani) — 여러 DAT 프레임을 타이밍과 묶은 애니메이션
+- [GIF](/docs/file-formats/gif) — 표준 GIF 포맷. DabitOne 내장 편집기로 제작·편집 가능
+- [PLA](/docs/file-formats/pla) — 표시 스케줄(플레이리스트). DAT/ANI 항목과 효과 설정을 담음
+- [BGP](/docs/file-formats/bgp) — 배경 스케줄. PLA와 유사하나 배경 전용
+- [FNT](/docs/file-formats/fnt) — 컨트롤러 내장 폰트 파일(16×16 고정 픽셀)
 
 ## 저장 위치
 

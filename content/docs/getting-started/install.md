@@ -54,7 +54,7 @@ last_updated: 2026-04-22
 
 1. 바탕화면 또는 시작 메뉴에서 **DabitOne** 아이콘 클릭
 2. 실행되면 좌측 사이드바 맨 위의 **[통신]** 탭이 기본 선택된 상태로 뜹니다
-3. 여기서부터는 → [/tour/quickstart/01-first-connection/](/tour/quickstart/01-first-connection/) 투어가 안내
+3. 여기서부터는 → [/quickstart/01-connect/](/quickstart/01-connect/) 투어가 안내
 
 ### 설치 검증 체크리스트
 
@@ -130,7 +130,7 @@ last_updated: 2026-04-22
 
 ## 관련 페이지
 
-- [전체 화면 구조](/getting-started/overview) — 5 그룹 사이드바 개요
-- [/tour/](/tour/) — 인터랙티브 체험 투어
-- [연결이 안 될 때](/troubleshooting/01-connection)
-- [자주 묻는 질문](/troubleshooting/05-faq)
+- [전체 화면 구조](/docs/getting-started/overview) — 5 그룹 사이드바 개요
+- [/](/) — 인터랙티브 체험 투어
+- [연결이 안 될 때](/docs/troubleshooting/01-connection)
+- [자주 묻는 질문](/docs/troubleshooting/05-faq)

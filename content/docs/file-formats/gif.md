@@ -6,7 +6,7 @@ last_updated: 2026-04-21
 
 # GIF
 
-> **GIF** — 웹·그래픽 업계 표준 애니메이션 포맷. DabitOne은 표준 GIF를 직접 **제작·편집**할 수 있는 내장 편집기를 제공하며, 전광판 전송 시 자동으로 [ANI](/file-formats/ani)로 변환.
+> **GIF** — 웹·그래픽 업계 표준 애니메이션 포맷. DabitOne은 표준 GIF를 직접 **제작·편집**할 수 있는 내장 편집기를 제공하며, 전광판 전송 시 자동으로 [ANI](/docs/file-formats/ani)로 변환.
 
 ## 표준 GIF vs ANI
 
@@ -26,7 +26,7 @@ last_updated: 2026-04-21
 - 프레임별 이미지·텍스트 삽입
 - 반복 재생 횟수 설정
 
-자세한 편집 방법은 [편집 → GIF](/04-editor/gif) 참조.
+자세한 편집 방법은 [편집 → GIF](/docs/04-editor/gif) 참조.
 
 ## 어디에 저장되나
 
@@ -39,7 +39,7 @@ last_updated: 2026-04-21
 
 ### 기존 GIF 불러오기
 
-1. [편집 → GIF](/04-editor/gif) 모드에서 "가져오기"
+1. [편집 → GIF](/docs/04-editor/gif) 모드에서 "가져오기"
 2. DabitOne이 자동으로 각 프레임을 **내부 편집 프레임**으로 변환
 3. 이후 프레임 단위 편집 가능
 
@@ -58,9 +58,9 @@ last_updated: 2026-04-21
 
 ## 관련 파일 형식
 
-- [ANI](/file-formats/ani) — GIF의 전광판 전용 버전 (전송 시 자동 변환)
-- [DAT](/file-formats/dat) — ANI 내부 프레임 포맷
+- [ANI](/docs/file-formats/ani) — GIF의 전광판 전용 버전 (전송 시 자동 변환)
+- [DAT](/docs/file-formats/dat) — ANI 내부 프레임 포맷
 
 ## 체험
 
-- [/tour/quickstart/05-gif-editor/](/tour/quickstart/05-gif-editor/)
+- [/quickstart/04-edit-image/](/quickstart/04-edit-image/)
