@@ -409,7 +409,7 @@ body.tour11-page #tour-root {
    ========================================================================= */
 
 .tour11-quickstart {
-  padding: clamp(56px, 8vh, 96px) 24px;
+  padding: clamp(16px, 3vh, 32px) 24px clamp(56px, 8vh, 96px);
   background: var(--t11-bg);
 }
 

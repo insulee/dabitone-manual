@@ -118,10 +118,8 @@ function ScenarioBody({ tour }: { tour: Tour }) {
         />
       </div>
 
-      {isLast && !tour.nextTour && <CompletionScreen tour={tour} />}
-
       <div class="tour11-shell">
-        <QuickstartTabs activeSlug={tour.slug} />
+        <QuickstartTabs activeSlug={tour.slug} hideHeading />
       </div>
     </main>
   )
@@ -160,7 +158,7 @@ function ProgressHeader({
     <header class="tour-scenario__header">
       <div class="tour-scenario__header-top">
         <div class="tour-scenario__header-info">
-          <p class="tour-scenario__eyebrow">DabitOne 투어</p>
+          <p class="tour-scenario__eyebrow">QUICKSTART</p>
           <h1 class="tour-scenario__title">{tour.title}</h1>
           {tour.subtitle && (
             <p class="tour-scenario__subtitle">{tour.subtitle}</p>
@@ -246,7 +244,13 @@ function Rail({
   return (
     <aside class="tour-rail">
       <h2 class="tour-rail__title">{step.title}</h2>
-      <p class="tour-rail__desc">{step.description}</p>
+      <div class="tour-rail__desc">
+        {step.description.split("\n").map((line, i) => (
+          <p key={i} class="tour-rail__desc-line">
+            {line}
+          </p>
+        ))}
+      </div>
 
       {step.tips && step.tips.length > 0 && (
         <ul class="tour-rail__tips">

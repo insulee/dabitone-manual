@@ -1,6 +1,6 @@
 /**
- * Quickstart 04 — 이미지 편집·전송.
- * BMP/PNG/JPG를 DAT로 변환해 전광판에 표출.
+ * Quickstart 04 — 스케줄/배경이미지 전송.
+ * 콘텐츠·이미지·GIF 편집 후 PLA/BGP로 컨트롤러에 전송.
  */
 import type { Tour } from "../../src/types"
 
@@ -8,114 +8,118 @@ const EDITOR = {
   src: "/assets/screens/manual-poc/main-editor.png",
   width: 1422,
   height: 1386,
-  alt: "DabitOne 편집 탭 — 이미지 편집 모드",
+  alt: "DabitOne 편집 탭 — 표시파일 list 기본 화면",
+} as const
+
+const CONTENTS = {
+  src: "/assets/screens/manual-poc/main-editor-contents.png",
+  width: 1182,
+  height: 1156,
+  alt: "DabitOne 편집 탭 — 콘텐츠 편집 창",
+} as const
+
+const IMAGE = {
+  src: "/assets/screens/manual-poc/main-editor-image.png",
+  width: 1182,
+  height: 1152,
+  alt: "DabitOne 편집 탭 — 이미지 편집 창",
+} as const
+
+const GIF = {
+  src: "/assets/screens/manual-poc/main-editor-gif.png",
+  width: 1182,
+  height: 1151,
+  alt: "DabitOne 편집 탭 — GIF 편집 창",
+} as const
+
+const SB = {
+  src: "/assets/screens/manual-poc/main-editor-sb.png",
+  width: 1182,
+  height: 1152,
+  alt: "DabitOne 편집 탭 — 표시파일 list (PLA/BGP)",
 } as const
 
 const tour: Tour = {
   slug: "04-edit-image",
-  title: "이미지 편집·전송",
-  subtitle: "BMP·PNG·JPG를 전광판 포맷(DAT)으로 변환",
+  title: "스케줄/배경이미지 전송",
+  subtitle: "콘텐츠·이미지·GIF 편집 후 PLA/BGP로 컨트롤러 전송",
   steps: [
     {
-      id: "step-1-open",
-      title: "이미지 가져오기",
+      id: "step-1-tab",
+      title: "[편집] 탭 이동",
       description:
-        "[편집] 탭에서 '이미지' 모드를 선택한 뒤, 파일 불러오기로 BMP·PNG·JPG를 엽니다. 드래그 앤 드롭도 지원합니다.",
+        "좌측 사이드바에서 [편집] 탭을 클릭합니다.\n콘텐츠 편집(텍스트·이미지·GIF), 이미지 편집(픽셀 단위 BMP/JPG), GIF 편집(픽셀 단위 GIF), PLA·BGP 파일 저장·전송까지 표시 콘텐츠 제작·관리를 한곳에서 합니다.",
       image: EDITOR,
       hotspot: { x: 3, y: 31, ariaLabel: "편집 탭", label: "편집" },
       srSummary:
-        "편집 탭의 이미지 모드에서 파일을 불러오거나 드래그 앤 드롭으로 가져올 수 있습니다. BMP, PNG, JPG 포맷 지원.",
-      tips: [
-        "큰 이미지는 자동 리사이즈되어 전광판 해상도에 맞춰짐",
-        "배경 투명 PNG 지원 — 검정 배경으로 채워짐",
-      ],
-      relatedRefs: [
-        { label: "이미지 편집기 상세", path: "/04-editor/image" },
-        { label: "DAT 포맷", path: "/file-formats/dat" },
-      ],
+        "편집 탭에서 콘텐츠·이미지·GIF 편집과 PLA/BGP 파일 저장·전송을 통합 관리합니다.",
     },
     {
-      id: "step-2-adjust",
-      title: "크기·위치·효과 조정",
+      id: "step-2-contents",
+      title: "콘텐츠 편집",
       description:
-        "이미지 크기, 위치, 효과를 조정합니다. 전광판 화면 대비 미리보기를 보면서 결정하세요.",
-      image: EDITOR,
+        "[콘텐츠 편집] 버튼으로 콘텐츠 편집 창을 엽니다.\n메인 블록에 텍스트를 직접 입력하거나 이미지·GIF 파일을 불러와 배치하고, 입장/퇴장 효과·효과속도·유지시간 등 표시 옵션을 설정한 뒤 DAT 파일로 저장합니다.",
+      image: CONTENTS,
+      hotspot: {
+        x: 10,
+        y: 13,
+        ariaLabel: "콘텐츠 편집 버튼",
+        label: "콘텐츠 편집",
+        box: { w: 10, h: 4 },
+      },
       srSummary:
-        "이미지 크기는 드래그 또는 숫자 입력으로 조정 가능. 중앙 정렬 버튼으로 자동 배치. 효과는 페이드·슬라이드·점멸 등 선택 가능.",
-      tips: [
-        "선명도가 떨어지면 원본 이미지를 더 큰 해상도로 준비",
-        "GIF는 이 모드에서는 첫 프레임만 — [GIF 편집] 사용",
-      ],
+        "콘텐츠 편집 창에서 텍스트·이미지·GIF를 조합하고 효과·속도·유지시간을 설정 후 DAT 파일로 저장합니다.",
     },
     {
-      id: "step-3-send",
-      title: "DAT로 저장 후 전송",
+      id: "step-3-image",
+      title: "이미지 편집",
       description:
-        "저장 시 자동으로 DAT 포맷(전광판 고유 형식)으로 변환됩니다. 전송 탭에서 컨트롤러로 보내면 표출 완료.",
-      image: EDITOR,
+        "[이미지 편집] 버튼으로 이미지 편집 창을 엽니다.\n색상을 선택해 픽셀 단위로 직접 이미지를 그리고 BMP·JPG 등으로 저장합니다.\n저장한 이미지는 [콘텐츠 편집]에서 불러와 DAT 파일로 변환해 전광판에 표출할 수 있습니다.",
+      image: IMAGE,
+      hotspot: {
+        x: 19,
+        y: 13,
+        ariaLabel: "이미지 편집 버튼",
+        label: "이미지 편집",
+        box: { w: 10, h: 4 },
+      },
       srSummary:
-        "저장 시 DAT 파일이 프로젝트 폴더에 생성되고 전송 탭에서 선택해 전광판으로 보냅니다.",
-      tips: [
-        "저장 경로 기본: 내 문서\\DabitOne\\Data\\",
-        "파일명은 내용을 알아볼 수 있게 — 예: logo-main.DAT",
-      ],
+        "이미지 편집 창에서 픽셀 단위로 이미지를 그려 BMP·JPG로 저장. 저장한 이미지는 콘텐츠 편집에서 DAT로 변환합니다.",
     },
     {
-      id: "step-color",
-      title: "색상 보정 (풀컬러)",
+      id: "step-4-gif",
+      title: "GIF 편집",
       description:
-        "풀컬러(24비트) 전광판이면 RGB 감마·채도·밝기 보정으로 현장 LED 특성에 맞춥니다. 단색·3색 전광판은 불필요.",
-      image: EDITOR,
+        "[GIF 편집] 버튼으로 GIF 편집 창을 엽니다.\n픽셀 단위로 프레임을 그려 GIF 파일을 생성·편집합니다.\n저장한 GIF는 [콘텐츠 편집]에서 불러와 ANI 파일로 변환해 동영상 콘텐츠를 표출할 수 있습니다.",
+      image: GIF,
+      hotspot: {
+        x: 29,
+        y: 13,
+        ariaLabel: "GIF 편집 버튼",
+        label: "GIF 편집",
+        box: { w: 8, h: 4 },
+      },
       srSummary:
-        "RGB 보정 옵션으로 LED 모듈 제조사별 색 편차를 조정. 기본값은 중립. 현장에서 색이 어색하면 채도·감마 미세 조정.",
-      tips: [
-        "옐로우/오렌지 톤이 강하면 R 채널 살짝 낮추기",
-        "흐릿하게 보이면 감마 0.9 정도로",
-        "실내 조명·주변 광에 따라 달라지니 현장 조정이 정답",
-      ],
+        "GIF 편집 창에서 픽셀 단위로 프레임을 그려 GIF를 생성. 저장한 GIF는 콘텐츠 편집에서 ANI로 변환합니다.",
     },
     {
-      id: "step-verify",
-      title: "전광판 표출 확인",
+      id: "step-5-sb",
+      title: "PLA/BGP 저장 및 전송",
       description:
-        "현장 전광판에서 이미지가 의도대로 표출되는지 확인합니다. 해상도·크기·색상 모두 점검.",
-      image: EDITOR,
+        "표시파일 list 하단의 [편집] 버튼으로 항목을 추가하고 이미지(DAT) 또는 동영상(ANI) 파일을 골라 list를 구성합니다.\n[다른 이름 저장]으로 PLA(스케줄) 또는 BGP(배경) 파일로 저장한 뒤 [전송] 버튼을 누르면 컨트롤러로 전송되어 전광판에 원하는 대로 표출됩니다.",
+      image: SB,
+      hotspot: {
+        x: 38,
+        y: 13,
+        ariaLabel: "전송 버튼",
+        label: "전송",
+        box: { w: 6, h: 4 },
+      },
       srSummary:
-        "현장 실제 표출 점검. 이상 있으면 편집 단계로 돌아가 수정 후 재전송.",
-      tips: [
-        "일부만 보이면 화면 크기 설정 재확인",
-        "글자·외곽이 뭉개지면 원본 해상도 증가 후 재변환",
-      ],
-    },
-    {
-      id: "step-text-1",
-      title: "[편집] 탭 → 텍스트 입력",
-      description:
-        "좌측 [편집] 탭에서 텍스트 편집기가 기본으로 열립니다. 전광판에 띄울 내용을 바로 입력합니다.",
-      image: EDITOR,
-      hotspot: { x: 3, y: 31, ariaLabel: "편집 탭", label: "편집" },
-      srSummary:
-        "편집 탭 진입 시 텍스트 편집기가 기본으로 열립니다. 글꼴·크기·색상·효과를 선택하면서 실시간으로 미리보기가 갱신됩니다.",
-      tips: [
-        "여러 줄 입력 시 줄바꿈이 그대로 표출됨",
-        "글꼴·색상은 미리보기에 즉시 반영",
-      ],
-    },
-    {
-      id: "step-text-2",
-      title: "효과·속도 선택 (선택)",
-      description:
-        "흐름 효과(좌→우 흐름, 점멸, 고정 등), 표시 시간, 속도를 선택합니다. 처음엔 기본값으로도 충분합니다.",
-      image: EDITOR,
-      srSummary:
-        "효과는 흐름·점멸·고정 등이 있고 속도를 느리게·빠르게 조절 가능합니다. 기본값은 보통 '좌에서 우로 흐름, 중간 속도'.",
-      tips: [
-        "효과 미리보기는 하단 프리뷰 영역에서 확인",
-        "과한 효과는 가독성을 해침 — 현장 환경에 맞게 조정",
-      ],
+        "표시파일 list에 DAT/ANI 항목을 추가하고 PLA/BGP 파일로 저장한 뒤 [전송] 버튼으로 컨트롤러에 보냅니다.",
     },
   ],
-  nextTour: "05-gif-editor",
+  nextTour: "05-advanced",
 }
 
 export default tour

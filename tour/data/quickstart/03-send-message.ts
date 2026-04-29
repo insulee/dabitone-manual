@@ -20,7 +20,7 @@ const tour: Tour = {
       id: "step-1-tab",
       title: "[전송] 탭 이동",
       description:
-        "좌측 사이드바에서 [전송] 탭을 클릭합니다. 메시지 전송, 페이지메시지, 밝기, 전광판 켜기/끄기, 배경이미지 등 컨트롤러로 보내는 모든 작업을 한곳에서 관리합니다.",
+        "좌측 사이드바에서 [전송] 탭을 클릭합니다.\n메시지 전송, 페이지메시지, 밝기, 전광판 켜기/끄기, 배경이미지 등 컨트롤러로 보내는 모든 작업을 한곳에서 관리합니다.",
       image: SIM,
       hotspot: { x: 3, y: 24, ariaLabel: "전송 탭", label: "전송" },
       srSummary:
@@ -46,7 +46,7 @@ const tour: Tour = {
       id: "step-3-ascii-convert",
       title: "ASCII 변환",
       description:
-        "HEX 프로토콜에서 선택한 옵션과 입력 내용을 [ASCII 변환] 버튼으로 ASCII 프로토콜로 자동 변환합니다. 변환된 문자열은 아래 'ASCII 프로토콜' 영역에 채워집니다.",
+        "HEX 프로토콜에서 선택한 옵션과 입력 내용을 [ASCII 변환] 버튼으로 ASCII 프로토콜로 자동 변환합니다.\n변환된 문자열은 아래 'ASCII 프로토콜' 영역에 채워집니다.",
       image: SIM,
       hotspot: {
         x: 22,

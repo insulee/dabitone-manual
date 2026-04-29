@@ -7,14 +7,11 @@ import type { Tour } from "../../src/types"
 type LoaderFn = () => Promise<{ default: Tour } | { tour: Tour }>
 
 const LOADERS: Record<string, LoaderFn> = {
-  "01-first-connection": () => import("./01-first-connection"),
-  "02-screen-size": () => import("./02-screen-size"),
+  "01-connect": () => import("./01-connect"),
+  "02-display-setup": () => import("./02-display-setup"),
   "03-send-message": () => import("./03-send-message"),
   "04-edit-image": () => import("./04-edit-image"),
-  "05-gif-editor": () => import("./05-gif-editor"),
-  "06-schedule-pla": () => import("./06-schedule-pla"),
-  "07-background-bgp": () => import("./07-background-bgp"),
-  "08-firmware": () => import("./08-firmware"),
+  "05-advanced": () => import("./05-advanced"),
 }
 
 export async function loadTour(slug: string): Promise<Tour | null> {

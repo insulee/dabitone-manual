@@ -38,14 +38,14 @@ const TOUR_PAGES: readonly TourPageDef[] = [
     description: "새로운 전광판 운영 경험.",
   },
   {
-    slug: "tour/quickstart/01-first-connection/index" as FullSlug,
-    title: "컨트롤러 최초 연결 — 투어",
-    description: "Serial·TCP·UDP 중 하나로 처음 연결하는 과정을 단계별 체험.",
+    slug: "tour/quickstart/01-connect/index" as FullSlug,
+    title: "통신 연결 — 투어",
+    description: "Serial·TCP/IP로 컨트롤러를 연결하는 과정을 단계별 체험.",
   },
   {
-    slug: "tour/quickstart/02-screen-size/index" as FullSlug,
-    title: "화면 크기 설정 — 투어",
-    description: "가로·세로 모듈 수와 색상 깊이 설정.",
+    slug: "tour/quickstart/02-display-setup/index" as FullSlug,
+    title: "전광판 설정 — 투어",
+    description: "화면 구성·표출신호·폰트 전송.",
   },
   {
     slug: "tour/quickstart/03-send-message/index" as FullSlug,
@@ -58,24 +58,9 @@ const TOUR_PAGES: readonly TourPageDef[] = [
     description: "BMP/PNG/JPG를 DAT로 변환해 보내기.",
   },
   {
-    slug: "tour/quickstart/05-gif-editor/index" as FullSlug,
-    title: "GIF 편집 — 투어",
-    description: "내장 GIF 편집기로 동영상 제작.",
-  },
-  {
-    slug: "tour/quickstart/06-schedule-pla/index" as FullSlug,
-    title: "스케줄 편집 (PLA) — 투어",
-    description: "여러 메시지를 순차 재생.",
-  },
-  {
-    slug: "tour/quickstart/07-background-bgp/index" as FullSlug,
-    title: "배경 스케줄 (BGP) — 투어",
-    description: "배경화면 순환 스케줄.",
-  },
-  {
-    slug: "tour/quickstart/08-firmware/index" as FullSlug,
-    title: "펌웨어 업데이트 — 투어",
-    description: "컨트롤러 펌웨어 갱신.",
+    slug: "tour/quickstart/05-advanced/index" as FullSlug,
+    title: "고급 설정 — 투어",
+    description: "보드기능·펌웨어·기타 컨트롤러 설정 관리.",
   },
   {
     slug: "tour/accessible/index" as FullSlug,
@@ -93,14 +78,20 @@ const TOUR_PAGES: readonly TourPageDef[] = [
  */
 const TOUR_ALIASES: Record<string, string> = {
   "quickstart/index": "tour/",
-  "quickstart/01-first-connection/index": "tour/quickstart/01-first-connection/",
-  "quickstart/02-screen-size/index": "tour/quickstart/02-screen-size/",
+  "quickstart/01-first-connection/index": "tour/quickstart/01-connect/",
+  "quickstart/02-screen-size/index": "tour/quickstart/02-display-setup/",
   "quickstart/03-send-message/index": "tour/quickstart/03-send-message/",
   "quickstart/04-edit-image/index": "tour/quickstart/04-edit-image/",
-  "quickstart/05-gif-editor/index": "tour/quickstart/05-gif-editor/",
-  "quickstart/06-schedule-pla/index": "tour/quickstart/06-schedule-pla/",
-  "quickstart/07-background-bgp/index": "tour/quickstart/07-background-bgp/",
-  "quickstart/08-firmware/index": "tour/quickstart/08-firmware/",
+  "quickstart/05-gif-editor/index": "tour/quickstart/04-edit-image/",
+  "quickstart/06-schedule-pla/index": "tour/quickstart/04-edit-image/",
+  "quickstart/07-background-bgp/index": "tour/quickstart/04-edit-image/",
+  "quickstart/08-firmware/index": "tour/quickstart/05-advanced/",
+  "tour/quickstart/05-gif-editor/index": "tour/quickstart/04-edit-image/",
+  "tour/quickstart/06-schedule-pla/index": "tour/quickstart/04-edit-image/",
+  "tour/quickstart/07-background-bgp/index": "tour/quickstart/04-edit-image/",
+  "tour/quickstart/01-first-connection/index": "tour/quickstart/01-connect/",
+  "tour/quickstart/02-screen-size/index": "tour/quickstart/02-display-setup/",
+  "tour/quickstart/08-firmware/index": "tour/quickstart/05-advanced/",
 }
 
 function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {

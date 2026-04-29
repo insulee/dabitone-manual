@@ -28,15 +28,15 @@ const TCP_SCREEN = {
 } as const
 
 const tour: Tour = {
-  slug: "01-first-connection",
-  title: "컨트롤러 최초 연결",
-  subtitle: "Serial·TCP·UDP 중 하나로 처음 연결하기",
+  slug: "01-connect",
+  title: "통신 연결",
+  subtitle: "Serial·TCP/IP로 컨트롤러 연결",
   steps: [
     {
       id: "step-1-tab",
       title: "좌측 [통신] 탭 확인",
       description:
-        "DabitOne을 실행하면 좌측 사이드바 맨 위의 [통신] 탭이 기본으로 선택되어 있고, 우측에 '통신 설정' 창이 뜹니다. 다른 탭에 있다면 [통신]을 클릭하세요.",
+        "DabitOne을 실행하면 좌측 사이드바 맨 위의 [통신] 탭이 기본으로 선택되어 있고, 우측에 '통신 설정' 창이 뜹니다.\n다른 탭에 있다면 [통신]을 클릭하세요.",
       image: SCREEN,
       hotspot: {
         x: 3,
@@ -56,7 +56,7 @@ const tour: Tour = {
       id: "step-2-method",
       title: "연결 방식 선택",
       description:
-        "통신 설정 창 좌측 열에는 Serial / Client TCP/IP / Server TCP/IP / UDP 네 개의 그룹박스가 세로로 나열되어 있습니다. 각 그룹박스 헤더의 라디오 버튼으로 하나 선택. 기본은 Serial입니다.",
+        "통신 설정 창 좌측 열에는 Serial / Client TCP/IP / Server TCP/IP / UDP 네 개의 그룹박스가 세로로 나열되어 있습니다.\n각 그룹박스 헤더의 라디오 버튼으로 하나 선택. 기본은 Serial입니다.",
       image: SCREEN,
       hotspot: {
         x: 9,
@@ -76,7 +76,7 @@ const tour: Tour = {
       id: "step-3-config",
       title: "설정 입력",
       description:
-        "Serial이면 '포트'와 '속도' 드롭다운을 채웁니다. 기본 속도는 115200. 컨트롤러 펌웨어 설정과 일치해야 합니다. 모르는 경우 [속도 찾기] 버튼으로 자동 탐색. TCP/UDP이면 'IP Address'와 'IP Port'를 입력합니다(기본 192.168.0.201 : 5000).",
+        "Serial이면 '포트'와 '속도' 드롭다운을 채웁니다.\n기본 속도는 115200. 컨트롤러 펌웨어 설정과 일치해야 합니다.\n모르는 경우 [속도 찾기] 버튼으로 자동 탐색. TCP/UDP이면 'IP Address'와 'IP Port'를 입력합니다(기본 192.168.0.201 : 5000).",
       image: SCREEN,
       hotspot: {
         x: 18,
@@ -87,11 +87,6 @@ const tour: Tour = {
       },
       srSummary:
         "Serial은 포트와 속도를 선택, TCP/UDP는 IP 주소와 포트 번호를 입력합니다. 모든 값은 컨트롤러 설정과 일치해야 합니다. 속도가 불확실하면 속도 찾기 버튼으로 자동 탐색 가능.",
-      tips: [
-        "속도 범위: 9600 / 19200 / 38400 / 57600 / 115200 / 230400 / 921600",
-        "RS-485 배선이면 'RS-485 Address' 체크박스 활성화 후 주소값 선택",
-        "TCP 기본 포트 5000, UDP 포트는 5108로 고정",
-      ],
       relatedRefs: [
         { label: "Serial 상세", path: "/01-communication/serial" },
       ],
@@ -100,7 +95,7 @@ const tour: Tour = {
       id: "step-4-test",
       title: "[연결 테스트] 클릭",
       description:
-        "통신 설정 창 맨 아래 [연결 테스트] 버튼을 클릭하면 현재 설정이 저장되고 컨트롤러에 echo 요청이 갑니다. 성공 시 '연결 테스트 성공' 녹색 토스트가 뜨고 상단 상태가 '연결됨'으로 바뀝니다.",
+        "통신 설정 창 맨 아래 [연결 테스트] 버튼을 클릭하면 현재 설정이 저장되고 컨트롤러에 echo 요청이 갑니다.\n성공 시 '연결 테스트 성공' 녹색 토스트가 뜨고 상단 상태가 '연결됨'으로 바뀝니다.",
       image: SCREEN,
       hotspot: {
         x: 8,
@@ -111,11 +106,6 @@ const tour: Tour = {
       },
       srSummary:
         "연결 테스트 버튼이 통신 설정 창 하단에 있습니다. 클릭하면 설정 저장 + echo 요청 발송. 응답시간은 기본 3초이며 드롭다운으로 1~6초 선택 가능. 성공 시 녹색 토스트, 응답 없을 때 노란 토스트, 실패 시 빨간 토스트가 표시됩니다.",
-      tips: [
-        "응답 없음(노란색) → 케이블·속도·IP 재확인, 응답시간을 5~6초로 올려 재시도",
-        "실패(빨간색) → 포트 점유(다른 프로그램이 COM 사용), 실제 연결 안됐음 등",
-        "성공 후 다른 탭으로 이동해도 상태 유지됨",
-      ],
       relatedRefs: [
         {
           label: "연결이 안 될 때",
@@ -131,7 +121,7 @@ const tour: Tour = {
       id: "step-tcp-1",
       title: "Client TCP/IP 선택",
       description:
-        "Client TCP/IP 라디오 버튼을 클릭해 TCP 연결 모드로 전환합니다. 우측 dbNet 영역의 자동 검색·정보 조회가 활성화됩니다.",
+        "Client TCP/IP 라디오 버튼을 클릭해 TCP 연결 모드로 전환합니다.\n우측 dbNet 영역의 자동 검색·정보 조회가 활성화됩니다.",
       image: TCP_SCREEN,
       hotspot: {
         x: 15,
@@ -212,7 +202,7 @@ const tour: Tour = {
       ],
     },
   ],
-  nextTour: "02-screen-size",
+  nextTour: "02-display-setup",
 }
 
 export default tour

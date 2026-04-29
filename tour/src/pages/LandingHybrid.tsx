@@ -281,43 +281,55 @@ const TABS: readonly Tab[] = [
     num: "01",
     name: "통신",
     desc: "Serial · TCP · UDP · BLE · MQTT · dbNet",
-    slug: "01-first-connection",
-    matchSlugs: ["01-first-connection"],
+    slug: "01-connect",
+    matchSlugs: ["01-connect"],
   },
   {
     num: "02",
     name: "설정",
-    desc: "화면 · 시계 · 밝기",
-    slug: "02-screen-size",
-    matchSlugs: ["02-screen-size"],
+    desc: "화면 구성 · 표출신호 · 폰트",
+    slug: "02-display-setup",
+    matchSlugs: ["02-display-setup"],
   },
   {
     num: "03",
     name: "전송",
-    desc: "메시지 · 스케줄",
+    desc: "HEX · ASCII 프로토콜",
     slug: "03-send-message",
-    matchSlugs: ["03-send-message", "06-schedule-pla", "07-background-bgp"],
+    matchSlugs: ["03-send-message"],
   },
   {
     num: "04",
     name: "편집",
-    desc: "텍스트 · 이미지 · GIF",
+    desc: "PLA · BGP · 텍스트 · 이미지 · GIF",
     slug: "04-edit-image",
-    matchSlugs: ["04-edit-image", "05-gif-editor"],
+    matchSlugs: ["04-edit-image"],
   },
   {
     num: "05",
     name: "고급",
-    desc: "펌웨어 · 로그 · 진단",
-    slug: "08-firmware",
-    matchSlugs: ["08-firmware"],
+    desc: "보드 · 펌웨어 · 기타",
+    slug: "05-advanced",
+    matchSlugs: ["05-advanced"],
   },
 ] as const
 
-export function QuickstartTabs({ activeSlug }: { activeSlug?: string }) {
+export function QuickstartTabs({
+  activeSlug,
+  hideHeading,
+}: {
+  activeSlug?: string
+  hideHeading?: boolean
+}) {
   return (
     <section id="quickstart" class="tour11-quickstart" aria-label="Quickstart">
       <div class="tour11-quickstart__inner">
+        {!hideHeading && (
+          <>
+            <p class="tour11-quickstart__eyebrow">QUICKSTART</p>
+            <h2 class="tour11-quickstart__title">어디서부터 시작할까요?</h2>
+          </>
+        )}
         <ul class="tour11-quickstart__list">
           {TABS.map((t) => {
             const isActive = activeSlug ? t.matchSlugs.includes(activeSlug) : false
