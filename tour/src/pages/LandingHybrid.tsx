@@ -337,7 +337,7 @@ export function QuickstartTabs({
               <li key={t.num}>
                 <a
                   class={`tour11-tab${isActive ? " is-active" : ""}`}
-                  href={`/tour/quickstart/${t.slug}/`}
+                  href={`/quickstart/${t.slug}/`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   <span class="tour11-tab__num">{t.num}</span>

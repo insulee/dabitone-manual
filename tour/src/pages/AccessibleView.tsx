@@ -1,5 +1,5 @@
 /**
- * 접근성 대안 경로 `/tour/accessible/` — 키보드·스크린 리더 전용 텍스트 뷰.
+ * 접근성 대안 경로 `/accessible/` — 키보드·스크린 리더 전용 텍스트 뷰.
  * LED Grid aesthetic 적용 (2026-04-21 재설계).
  */
 import { landing } from "../../data/landing"
@@ -121,7 +121,7 @@ export function AccessibleView() {
                 }}
               >
                 <a
-                  href={`/tour/quickstart/${h.tourSlug}/`}
+                  href={`/quickstart/${h.tourSlug}/`}
                   style={{
                     fontFamily: "var(--tour-font-body)",
                     fontSize: "20px",
@@ -227,7 +227,7 @@ export function AccessibleView() {
 
         <p style={{ marginTop: "96px" }}>
           <a
-            href="/tour/"
+            href="/"
             style={{
               fontFamily: "var(--tour-font-mono)",
               fontSize: "var(--tour-fs-small)",

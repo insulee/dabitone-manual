@@ -51,7 +51,7 @@ export interface TourStep {
   hotspot?: Hotspot
   /** 모바일 breakpoint 대응 hotspot 좌표 덮어쓰기. */
   mobileHotspot?: Partial<Hotspot>
-  /** 스크린 리더·/tour/accessible/ 대안 렌더용 전체 서사 (visual 없이도 이해 가능). */
+  /** 스크린 리더·/accessible/ 대안 렌더용 전체 서사 (visual 없이도 이해 가능). */
   srSummary: string
   tips?: string[]
   nextHint?: string

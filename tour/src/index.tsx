@@ -47,6 +47,15 @@ document.addEventListener("nav", () => {
 
 // tour-page 내 tour 링크는 micromorph SPA를 우회하고 full page reload로 이동.
 // micromorph diff와 Preact re-mount 사이 race 상황에서 흰 화면 발생 방지.
+// 새 라우트: 루트(/), /quickstart/*, /accessible/* 가 tour 영역. /docs/* 는 매뉴얼.
+function isTourPath(pathname: string): boolean {
+  return (
+    pathname === "/" ||
+    pathname === "/index.html" ||
+    pathname.startsWith("/quickstart/") ||
+    pathname.startsWith("/accessible")
+  )
+}
 document.addEventListener(
   "click",
   (e) => {
@@ -55,12 +64,7 @@ document.addEventListener(
     if (!a) return
     if (a.target === "_blank" || a.hasAttribute("download")) return
     if (!document.body.classList.contains("tour-page")) return
-    const href = a.getAttribute("href") ?? ""
-    const isTourLink =
-      href.startsWith("/tour/") ||
-      (href.startsWith("./") && a.pathname.includes("/tour/")) ||
-      (href.startsWith("../") && a.pathname.includes("/tour/"))
-    if (!isTourLink) return
+    if (!isTourPath(a.pathname)) return
     e.preventDefault()
     e.stopImmediatePropagation()
     window.location.assign(a.href)

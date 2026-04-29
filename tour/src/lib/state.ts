@@ -35,8 +35,8 @@ export function hydrateFromUrl() {
       const n = parseInt(s, 10)
       if (!Number.isNaN(n)) currentStepIndex.value = n
     }
-    // slug 추출: /tour/quickstart/<slug>/ → <slug>
-    const match = window.location.pathname.match(/\/tour\/quickstart\/([^/]+)\/?$/)
+    // slug 추출: /quickstart/<slug>/ → <slug>
+    const match = window.location.pathname.match(/\/quickstart\/([^/]+)\/?$/)
     if (match) currentTourSlug.value = match[1]
   } catch {
     // no-op

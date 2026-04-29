@@ -865,7 +865,7 @@
 }
 
 /* ==================== Features Grid (variant B, /tour1) ==================== */
-/* 기존 .tour-feature* 규칙은 /tour/ 안 A용. 아래는 /tour1/ 안 B 전용 2×2 grid. */
+/* 기존 .tour-feature* 규칙은 루트(/) 투어용. 아래는 variant B 2×2 grid. */
 .tour-features-grid {
   padding: 120px 24px;
   background: var(--tour-c-bg);

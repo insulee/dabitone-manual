@@ -9,8 +9,8 @@ import { AccessibleView } from "./pages/AccessibleView"
 
 function getCurrentRoute(): "landing" | "scenario" | "accessible" {
   const p = window.location.pathname
-  if (p.startsWith("/tour/accessible")) return "accessible"
-  if (p.match(/\/tour\/quickstart\/[^/]+/)) return "scenario"
+  if (p.startsWith("/accessible")) return "accessible"
+  if (p.match(/\/quickstart\/[^/]+/)) return "scenario"
   return "landing"
 }
 

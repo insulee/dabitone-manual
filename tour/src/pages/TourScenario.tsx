@@ -39,7 +39,7 @@ export function TourScenario({ slug }: Props) {
           <h1 class="tour-section__title">투어를 열 수 없습니다</h1>
           <p class="tour-section__caption">{loadError}</p>
           <a
-            href="/tour/"
+            href="/"
             style={{
               color: "var(--tour-c-text)",
               fontWeight: 600,
@@ -135,7 +135,7 @@ function CompletionScreen({ tour }: { tour: Tour }) {
           {tour.title} 투어가 끝났습니다. 다른 투어를 이어가거나, DabitOne을 지금 설치할 수 있습니다.
         </p>
         <div class="tour-completion__actions">
-          <a class="tour-btn tour-btn--primary" href="/tour/">모든 투어 보기 →</a>
+          <a class="tour-btn tour-btn--primary" href="/">모든 투어 보기 →</a>
           <a class="tour-btn tour-btn--secondary" href="https://www.dabitsol.com" target="_blank" rel="noreferrer">
             DabitOne 다운로드
           </a>
@@ -235,7 +235,7 @@ function Rail({
       const idx = tour.steps.findIndex((s) => s.id === opt.toStepId)
       if (idx >= 0) gotoStep(idx)
     } else if (opt.toTour) {
-      window.location.assign(`/tour/quickstart/${opt.toTour}/`)
+      window.location.assign(`/quickstart/${opt.toTour}/`)
     }
   }
 
@@ -285,12 +285,12 @@ function Rail({
               <button onClick={onNext} class="tour-btn tour-btn--primary">다음 →</button>
             )}
             {isLast && nextTour && (
-              <a href={`/tour/quickstart/${nextTour}/`} class="tour-btn tour-btn--primary">
+              <a href={`/quickstart/${nextTour}/`} class="tour-btn tour-btn--primary">
                 다음 투어 →
               </a>
             )}
             {isLast && !nextTour && (
-              <a href="/tour/" class="tour-btn tour-btn--primary">
+              <a href="/" class="tour-btn tour-btn--primary">
                 투어 완료 — 홈으로
               </a>
             )}
