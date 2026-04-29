@@ -118,6 +118,7 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   const tourJs = joinSegments(baseDir, "static/tour/tour.js")
   const preScript = joinSegments(baseDir, "prescript.js")
   const postScript = joinSegments(baseDir, "postscript.js")
+  const contentIndex = joinSegments(baseDir, "static/contentIndex.json")
   const fullTitle = `${page.title}${cfg.pageTitleSuffix ?? ""}`
   const lang = cfg.locale?.split("-")[0] ?? "ko"
 
@@ -133,6 +134,7 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   <link rel="stylesheet" href="${tourCss}">
   <link rel="icon" href="${joinSegments(baseDir, "static/icon.png")}">
   <script src="${preScript}"></script>
+  <script type="application/javascript" data-persist="true">const fetchData = fetch("${contentIndex}").then(data => data.json())</script>
 </head>
 <body data-slug="${page.slug}" class="tour-page" style="background:#fafaf9;color:#1c1917;">
   <div id="tour-root">
