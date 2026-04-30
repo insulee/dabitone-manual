@@ -132,7 +132,7 @@ function ProgressHeader({ tour, stepIdx, pct }: { tour: Tour; stepIdx: number; p
               메인
             </a>
             <a href="/docs/" class="tour-scenario__nav-link">
-              메뉴얼
+              매뉴얼
             </a>
           </nav>
           <h1 class="tour-scenario__title">{tour.title}</h1>

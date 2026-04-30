@@ -691,7 +691,6 @@
 .tour-scenario__nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   min-height: 30px;
   color: var(--tour-c-text);
   text-decoration: none;
@@ -704,26 +703,11 @@
     color var(--tour-dur-micro) var(--tour-ease-out),
     box-shadow var(--tour-dur-micro) var(--tour-ease-out);
 }
-.tour-scenario__nav-link::after {
-  content: "→";
-  color: var(--tour-c-text-dim);
-  font-size: 14px;
-  line-height: 1;
-  transform: translateY(1px);
-  transition:
-    color var(--tour-dur-micro) var(--tour-ease-out),
-    transform var(--tour-dur-micro) var(--tour-ease-out);
-}
 .tour-scenario__nav-link:hover,
 .tour-scenario__nav-link:focus-visible {
   color: var(--tour-c-text);
   box-shadow: inset 0 -2px 0 var(--tour-c-text);
   outline: none;
-}
-.tour-scenario__nav-link:hover::after,
-.tour-scenario__nav-link:focus-visible::after {
-  color: var(--tour-c-text);
-  transform: translate(3px, 1px);
 }
 .tour-scenario__counter {
   font-family: var(--tour-font-mono);
