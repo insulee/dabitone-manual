@@ -98,9 +98,7 @@ function ScenarioBody({ tour }: { tour: Tour }) {
 
   return (
     <main class="tour-scenario" aria-label={`투어: ${tour.title}`}>
-      <LiveRegion
-        message={`스텝 ${stepIdx + 1} / ${tour.steps.length}: ${step.title}`}
-      />
+      <LiveRegion message={`스텝 ${stepIdx + 1} / ${tour.steps.length}: ${step.title}`} />
 
       <ProgressHeader tour={tour} stepIdx={stepIdx} pct={progressPct} />
 
@@ -109,7 +107,6 @@ function ScenarioBody({ tour }: { tour: Tour }) {
         <Rail
           step={step}
           tour={tour}
-          stepIdx={stepIdx}
           isFirst={isFirst}
           isLast={isLast}
           onPrev={prev}
@@ -119,50 +116,20 @@ function ScenarioBody({ tour }: { tour: Tour }) {
       </div>
 
       <div class="tour11-shell">
-        <QuickstartTabs activeSlug={tour.slug} hideHeading />
+        <QuickstartTabs activeSlug={tour.slug} hideHeading compact />
       </div>
     </main>
   )
 }
 
-function CompletionScreen({ tour }: { tour: Tour }) {
-  return (
-    <section class="tour-completion tour-section--dark">
-      <div class="tour-completion__inner">
-        <p class="tour-completion__eyebrow">COMPLETE</p>
-        <h2 class="tour-completion__title">투어 완료.</h2>
-        <p class="tour-completion__text">
-          {tour.title} 투어가 끝났습니다. 다른 투어를 이어가거나, DabitOne을 지금 설치할 수 있습니다.
-        </p>
-        <div class="tour-completion__actions">
-          <a class="tour-btn tour-btn--primary" href="/">모든 투어 보기 →</a>
-          <a class="tour-btn tour-btn--secondary" href="https://www.dabitsol.com" target="_blank" rel="noreferrer">
-            DabitOne 다운로드
-          </a>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function ProgressHeader({
-  tour,
-  stepIdx,
-  pct,
-}: {
-  tour: Tour
-  stepIdx: number
-  pct: number
-}) {
+function ProgressHeader({ tour, stepIdx, pct }: { tour: Tour; stepIdx: number; pct: number }) {
   return (
     <header class="tour-scenario__header">
       <div class="tour-scenario__header-top">
         <div class="tour-scenario__header-info">
           <p class="tour-scenario__eyebrow">QUICKSTART</p>
           <h1 class="tour-scenario__title">{tour.title}</h1>
-          {tour.subtitle && (
-            <p class="tour-scenario__subtitle">{tour.subtitle}</p>
-          )}
+          {tour.subtitle && <p class="tour-scenario__subtitle">{tour.subtitle}</p>}
         </div>
       </div>
       <div
@@ -183,9 +150,8 @@ function Stage({ step }: { step: TourStep }) {
   const useMobile = typeof window !== "undefined" && window.innerWidth < 720
   const hotspot = step.hotspot
   const mobileOverride = step.mobileHotspot
-  const effective = useMobile && mobileOverride && hotspot
-    ? { ...hotspot, ...mobileOverride }
-    : hotspot
+  const effective =
+    useMobile && mobileOverride && hotspot ? { ...hotspot, ...mobileOverride } : hotspot
 
   const ratio = step.image.width / step.image.height
   return (
@@ -214,7 +180,6 @@ function Stage({ step }: { step: TourStep }) {
 function Rail({
   step,
   tour,
-  stepIdx,
   isFirst,
   isLast,
   onPrev,
@@ -223,7 +188,6 @@ function Rail({
 }: {
   step: TourStep
   tour: Tour
-  stepIdx: number
   isFirst: boolean
   isLast: boolean
   onPrev: () => void
@@ -255,7 +219,9 @@ function Rail({
       {step.tips && step.tips.length > 0 && (
         <ul class="tour-rail__tips">
           {step.tips.map((tip, i) => (
-            <li key={i} class="tour-rail__tip">{tip}</li>
+            <li key={i} class="tour-rail__tip">
+              {tip}
+            </li>
           ))}
         </ul>
       )}
@@ -271,18 +237,16 @@ function Rail({
         </button>
         {hasOptions ? (
           step.nextOptions!.map((opt, i) => (
-            <button
-              key={i}
-              onClick={() => handleOption(opt)}
-              class="tour-btn tour-btn--primary"
-            >
+            <button key={i} onClick={() => handleOption(opt)} class="tour-btn tour-btn--primary">
               {opt.label} →
             </button>
           ))
         ) : (
           <>
             {!isLast && (
-              <button onClick={onNext} class="tour-btn tour-btn--primary">다음 →</button>
+              <button onClick={onNext} class="tour-btn tour-btn--primary">
+                다음 →
+              </button>
             )}
             {isLast && nextTour && (
               <a href={`/quickstart/${nextTour}/`} class="tour-btn tour-btn--primary">
@@ -304,4 +268,3 @@ function Rail({
     </aside>
   )
 }
-

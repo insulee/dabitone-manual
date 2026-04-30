@@ -9,16 +9,18 @@
  * 각 shell은 Quartz 공통 CSS/JS(`/index.css`, `/postscript.js`)를 로드하고
  * `<div id="tour-root">`에 Preact 투어 앱이 클라이언트 측 하이드레이션된다.
  *
- * 레거시 URL(`/quickstart/01-first-connection/`)은 meta refresh redirect stub으로
- * 새 경로(`/tour/quickstart/01-first-connection/`)로 이동시킨다.
+ * 레거시 URL(`/tour/*`, 옛 quickstart slug)은 meta refresh redirect stub으로
+ * 현재 루트 경로(`/`, `/quickstart/*`, `/docs/*`)로 이동시킨다.
  */
 import { QuartzEmitterPlugin } from "../types"
 import { write } from "./helpers"
-import { FullSlug, joinSegments, pathToRoot } from "../../util/path"
+import { FullSlug, QUARTZ, joinSegments, pathToRoot } from "../../util/path"
 import { BuildCtx } from "../../util/ctx"
+import { createHash } from "node:crypto"
+import { readFileSync } from "node:fs"
 
 type TourPageDef = {
-  slug: FullSlug // 예: "tour" (→ /tour.html), "tour/quickstart/01-first-connection"
+  slug: FullSlug // 예: "index" (→ /index.html), "quickstart/01-connect/index"
   title: string
   description: string
 }
@@ -116,6 +118,8 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   const quartzCss = joinSegments(baseDir, "index.css")
   const tourCss = joinSegments(baseDir, "static/tour/tour.css")
   const tourJs = joinSegments(baseDir, "static/tour/tour.js")
+  const tourCssVersion = assetVersion("static/tour/tour.css")
+  const tourJsVersion = assetVersion("static/tour/tour.js")
   const preScript = joinSegments(baseDir, "prescript.js")
   const postScript = joinSegments(baseDir, "postscript.js")
   const contentIndex = joinSegments(baseDir, "static/contentIndex.json")
@@ -131,7 +135,7 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   <meta name="color-scheme" content="light">
   <title>${escapeHtml(fullTitle)}</title>
   <link rel="stylesheet" href="${quartzCss}">
-  <link rel="stylesheet" href="${tourCss}">
+  <link rel="stylesheet" href="${tourCss}?v=${tourCssVersion}">
   <link rel="icon" href="${joinSegments(baseDir, "static/icon.png")}">
   <script src="${preScript}"></script>
   <script type="application/javascript" data-persist="true">const fetchData = fetch("${contentIndex}").then(data => data.json())</script>
@@ -156,12 +160,21 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
     </div>
   </noscript>
   <script src="${postScript}" type="module"></script>
-  <script src="${tourJs}" type="module"></script>
+  <script src="${tourJs}?v=${tourJsVersion}" type="module"></script>
 </body>
 </html>`
 }
 
-function renderAliasRedirect(ctx: BuildCtx, fromSlug: string, toSlug: string): string {
+function assetVersion(path: string): string {
+  try {
+    const content = readFileSync(joinSegments(QUARTZ, path))
+    return createHash("sha256").update(content).digest("hex").slice(0, 12)
+  } catch {
+    return "dev"
+  }
+}
+
+function renderAliasRedirect(fromSlug: string, toSlug: string): string {
   const baseDir = pathToRoot(fromSlug as FullSlug)
   const redirUrl = joinSegments(baseDir, toSlug)
   return `<!DOCTYPE html>
@@ -208,7 +221,7 @@ export const TourEmitter: QuartzEmitterPlugin = () => ({
         ctx,
         slug: fromSlug as FullSlug,
         ext: ".html",
-        content: renderAliasRedirect(ctx, fromSlug, toSlug),
+        content: renderAliasRedirect(fromSlug, toSlug),
       })
     }
   },
@@ -227,7 +240,7 @@ export const TourEmitter: QuartzEmitterPlugin = () => ({
         ctx,
         slug: fromSlug as FullSlug,
         ext: ".html",
-        content: renderAliasRedirect(ctx, fromSlug, toSlug),
+        content: renderAliasRedirect(fromSlug, toSlug),
       })
     }
   },

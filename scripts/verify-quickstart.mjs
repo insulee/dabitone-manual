@@ -15,14 +15,11 @@ const OUT = "tmp/quickstart"
 mkdirSync(OUT, { recursive: true })
 
 const ALL_SLUGS = [
-  "01-first-connection",
-  "02-screen-size",
+  "01-connect",
+  "02-display-setup",
   "03-send-message",
   "04-edit-image",
-  "05-gif-editor",
-  "06-schedule-pla",
-  "07-background-bgp",
-  "08-firmware",
+  "05-advanced",
 ]
 
 const target = process.argv[2]
@@ -39,7 +36,7 @@ const page = await ctx.newPage()
 
 for (const slug of slugs) {
   for (let s = 0; s < MAX_STEPS; s++) {
-    const url = `${BASE}/tour/quickstart/${slug}/?s=${s}`
+    const url = `${BASE}/quickstart/${slug}/?s=${s}`
     try {
       await page.goto(url, { waitUntil: "networkidle", timeout: 10000 })
       await page.waitForTimeout(400)

@@ -1,40 +1,39 @@
 # DabitOne 매뉴얼 사이트
 
 **URL**: https://dabitone.dabitsol.com
-**소스**: 이 디렉토리는 Quartz SSG 기반 사이트의 루트입니다.
-**브랜치**: `feature/dabitone-manual` (main merge 전까지 preview만)
+**구성**: `/` 원페이지 소개, `/quickstart/*` 투어, `/docs/*` 매뉴얼
+**호스팅**: GitHub Pages (`.github/workflows/deploy.yml`)
 
-## 팀 편집 흐름
-
-1. Obsidian으로 `content/` 폴더를 Vault로 열어서 Markdown 편집
-2. 저장 시 `scripts/auto-deploy.ps1`이 변경을 감지해 자동으로 `git push` → Cloudflare Pages가 재배포
-3. 몇 분 내에 `https://dabitone.dabitsol.com`에 반영
-
-## 로컬 빌드·미리보기
+## 로컬 빌드
 
 ```powershell
-cd D:\Gitea\dabitone-manual\manual
+cd D:\GitHub\dabitone-manual
 npm ci
-npx quartz build --serve
-# → http://localhost:8080
+npm run build
+npm run verify:serve
+# http://localhost:8888
 ```
 
-## 스크립트
+`tour/src`나 `tour/data`만 빠르게 확인할 때는 `npm run build:tour`를 실행합니다. 이 명령은 `quartz/static/tour`와 기존 `public/static/tour`를 같이 갱신합니다.
 
-| 파일 | 역할 |
-|------|------|
-| `scripts/auto-deploy.ps1` | content 변경 감지 → deploy.sh 호출 |
-| `scripts/deploy.sh` | quartz build + git push |
-| `scripts/deploy-cf.ps1` | 수동 Cloudflare Pages 배포 (Wrangler) |
-| `scripts/capture-screens.ps1` | DabitOne WPF 자동 스크린샷 캡처 |
-| `scripts/build-pdf.mjs` | Playwright로 챕터별 PDF 자동 생성 |
+## 자동 배포
 
-## 결정 기록
+```powershell
+pwsh -ExecutionPolicy Bypass -File scripts/auto-deploy.ps1
+```
 
-- [ADR-001 Cloudflare Pages Direct Upload](docs/decisions/001-deploy-mode.md)
+watcher는 `content`, `tour`, `quartz`, 주요 설정 파일 변경을 감지해 `scripts/deploy.sh`를 실행합니다. `deploy.sh`는 CI와 같은 `npm run build`를 수행한 뒤 관련 소스를 커밋하고 `main`에 push합니다.
 
-## 관련 문서
+## 주요 스크립트
 
-- [설계](../docs/plans/2026-04-21-dabitone-manual-design.md)
-- [구현 계획 v2](../docs/plans/2026-04-21-dabitone-manual-plan.md)
-- [CLAUDE.md — 멀티세션 / Worktree 운영 규칙](../CLAUDE.md)
+| 명령                                 | 역할                                                             |
+| ------------------------------------ | ---------------------------------------------------------------- |
+| `npm run build:tour`                 | Preact quickstart 번들 생성 및 local `public/static/tour` 미러링 |
+| `npm run build`                      | 폰트 복사, tour 번들, Quartz 정적 사이트 빌드                    |
+| `npm run verify:serve`               | `public`을 `localhost:8888`로 서빙                               |
+| `node scripts/verify-quickstart.mjs` | quickstart 화면/핫스팟 확인용 스크린샷 생성                      |
+| `node scripts/capture-pages.mjs`     | 라이브 사이트 주요 경로 캡처                                     |
+
+## 배포 경로
+
+GitHub Actions는 push 후 `npm ci → npm run build:tour → npx quartz build → public 업로드` 순서로 배포합니다. `public/`은 빌드 산출물이며 커밋 대상이 아닙니다.

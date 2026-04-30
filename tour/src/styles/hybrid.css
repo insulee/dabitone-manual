@@ -698,6 +698,39 @@ body.tour11-page #tour-root {
   }
 }
 
+/* Scenario footer tabs — keep screenshot stage sizing unchanged. */
+.tour11-quickstart--compact {
+  padding: 12px 0 0;
+}
+
+.tour11-quickstart--compact .tour11-quickstart__inner {
+  max-width: none;
+}
+
+.tour11-quickstart--compact .tour11-tab {
+  justify-content: center;
+  gap: 0;
+  min-height: 58px;
+  padding: 14px 44px 14px 20px;
+}
+
+.tour11-quickstart--compact .tour11-tab__name {
+  font-size: clamp(17px, 1.2vw, 20px);
+  line-height: 1;
+}
+
+.tour11-quickstart--compact .tour11-tab__arrow {
+  right: 18px;
+  bottom: 50%;
+  font-size: 18px;
+  transform: translateY(50%);
+}
+
+.tour11-quickstart--compact .tour11-tab:hover .tour11-tab__arrow,
+.tour11-quickstart--compact .tour11-tab:focus-visible .tour11-tab__arrow {
+  transform: translate(8px, 50%);
+}
+
 /* =========================================================================
    Reduced motion — 장식 micro-interaction만 disable.
    가로 스크롤 sticky-pin은 tour11의 핵심 demo이므로 reduced-motion에서도

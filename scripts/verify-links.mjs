@@ -11,8 +11,8 @@
  *   - 콘솔 요약, exit 1 if broken
  *
  * codex review findings 반영:
- *   - [P1] /tour/* 는 Preact hydration 대기 (waitForSelector)
- *   - [P1] /tour/quickstart/<slug>/ 는 ?s=0..7 순회 (relatedRefs 전수 수집)
+ *   - [P1] tour routes는 Preact hydration 대기 (waitForSelector)
+ *   - [P1] /quickstart/<slug>/ 는 ?s=0..7 순회 (relatedRefs 전수 수집)
  *   - [P2] /pdf/, /assets/ 는 HEAD 요청 status 체크 (404 방지)
  */
 
@@ -24,35 +24,32 @@ const OUT = "verify-links"
 
 const SEEDS = [
   "/",
-  "/tour/",
-  "/tour/accessible/",
-  "/getting-started/",
-  "/01-communication/",
-  "/02-settings/",
-  "/03-transfer/",
-  "/04-editor/",
-  "/05-advanced/",
-  "/file-formats/",
-  "/troubleshooting/",
-  "/blog/",
+  "/accessible/",
+  "/docs/",
+  "/docs/getting-started/",
+  "/docs/01-communication/",
+  "/docs/02-settings/",
+  "/docs/03-transfer/",
+  "/docs/04-editor/",
+  "/docs/05-advanced/",
+  "/docs/file-formats/",
+  "/docs/troubleshooting/",
+  "/docs/blog/",
 ]
 
 const TOUR_SLUGS = [
-  "01-first-connection",
-  "02-screen-size",
+  "01-connect",
+  "02-display-setup",
   "03-send-message",
   "04-edit-image",
-  "05-gif-editor",
-  "06-schedule-pla",
-  "07-background-bgp",
-  "08-firmware",
+  "05-advanced",
 ]
 
 const TOUR_HYDRATION_SELECTORS = {
-  "/tour/": ".tour-tabs__list",
-  "/tour/accessible/": "a[href*='/tour/quickstart/']",
+  "/": ".tour11-quickstart__list",
+  "/accessible/": "a[href*='/quickstart/']",
 }
-const SCENARIO_HYDRATION_SELECTOR = ".tour-scenario__rail"
+const SCENARIO_HYDRATION_SELECTOR = ".tour-scenario"
 
 async function waitForHydration(page, path) {
   const selector = TOUR_HYDRATION_SELECTORS[path] || null
@@ -62,7 +59,7 @@ async function waitForHydration(page, path) {
     } catch {
       /* best effort */
     }
-  } else if (path.startsWith("/tour/quickstart/")) {
+  } else if (path.startsWith("/quickstart/")) {
     try {
       await page.waitForSelector(SCENARIO_HYDRATION_SELECTOR, { timeout: 8000 })
     } catch {
@@ -72,9 +69,7 @@ async function waitForHydration(page, path) {
 }
 
 async function collectLinks(page) {
-  const hrefs = await page.$$eval("a[href]", (as) =>
-    as.map((a) => a.getAttribute("href")),
-  )
+  const hrefs = await page.$$eval("a[href]", (as) => as.map((a) => a.getAttribute("href")))
   return hrefs.filter(Boolean)
 }
 
@@ -126,7 +121,7 @@ async function main() {
       broken.push({ from: "seed", to: path, status })
       return
     }
-    if (path.startsWith("/tour/")) {
+    if (path === "/" || path.startsWith("/accessible/") || path.startsWith("/quickstart/")) {
       await waitForHydration(page, path)
     }
     await page.waitForTimeout(300)
@@ -162,14 +157,14 @@ async function main() {
   // Tour 시나리오 각 step ?s=0..7 순회
   for (const slug of TOUR_SLUGS) {
     for (let s = 0; s < 8; s++) {
-      const path = `/tour/quickstart/${slug}/?s=${s}`
+      const path = `/quickstart/${slug}/?s=${s}`
       try {
         const res = await page.goto(BASE + path, {
           waitUntil: "networkidle",
           timeout: 15000,
         })
         if ((res?.status() ?? 0) !== 200) continue
-        await waitForHydration(page, `/tour/quickstart/${slug}/`)
+        await waitForHydration(page, `/quickstart/${slug}/`)
         await page.waitForTimeout(300)
         let hrefs
         try {
@@ -253,9 +248,7 @@ async function main() {
   if (broken.length) {
     console.log("\n깨진 링크:")
     for (const b of broken) {
-      console.log(
-        `  [${b.status}] ${b.to}${b.error ? "  (" + b.error + ")" : ""}`,
-      )
+      console.log(`  [${b.status}] ${b.to}${b.error ? "  (" + b.error + ")" : ""}`)
       console.log(`        from: ${b.from}`)
     }
     console.log(`\n상세: ${OUT}/report.json`)

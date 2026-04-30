@@ -27,7 +27,7 @@ const HOTSPOTS: LandingData["hotspots"] = [
     },
     summary:
       "Serial·TCP·UDP·BLE·MQTT·dbNet을 한 화면에 모았습니다. 예전엔 별도 창으로 흩어져 있던 설정이 이제 한눈에 보이고 한 번에 바뀝니다.",
-    tourSlug: "01-first-connection",
+    tourSlug: "01-connect",
   },
   {
     id: "nav-setup",
@@ -39,7 +39,7 @@ const HOTSPOTS: LandingData["hotspots"] = [
     },
     summary:
       "화면 크기, 색상 깊이, 시계, 밝기 스케줄 등 컨트롤러의 기본 운영 설정을 모았습니다. 값이 바뀌면 바로 저장, 복잡한 확인창 없이 깔끔하게.",
-    tourSlug: "02-screen-size",
+    tourSlug: "02-display-setup",
   },
   {
     id: "nav-simulator",
@@ -61,8 +61,7 @@ const HOTSPOTS: LandingData["hotspots"] = [
       ariaLabel: "편집 탭 — 텍스트·이미지·GIF 제작",
       label: "편집",
     },
-    summary:
-      "텍스트·이미지·GIF 제작 환경을 전면 재설계했습니다. 드래그 앤 드롭이 됩니다. 정말로.",
+    summary: "텍스트·이미지·GIF 제작 환경을 전면 재설계했습니다. 드래그 앤 드롭이 됩니다. 정말로.",
     tourSlug: "04-edit-image",
   },
   {
@@ -75,7 +74,7 @@ const HOTSPOTS: LandingData["hotspots"] = [
     },
     summary:
       "펌웨어 업데이트, 로그, 진단 등 고급 운영 기능을 모았습니다. 신규 사용자에겐 안 보여도 전문가에겐 바로 손에 닿는 곳에.",
-    tourSlug: "08-firmware",
+    tourSlug: "05-advanced",
   },
 ]
 

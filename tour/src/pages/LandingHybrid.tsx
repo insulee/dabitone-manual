@@ -317,12 +317,18 @@ const TABS: readonly Tab[] = [
 export function QuickstartTabs({
   activeSlug,
   hideHeading,
+  compact,
 }: {
   activeSlug?: string
   hideHeading?: boolean
+  compact?: boolean
 }) {
   return (
-    <section id="quickstart" class="tour11-quickstart" aria-label="Quickstart">
+    <section
+      id="quickstart"
+      class={`tour11-quickstart${compact ? " tour11-quickstart--compact" : ""}`}
+      aria-label="Quickstart"
+    >
       <div class="tour11-quickstart__inner">
         {!hideHeading && (
           <>
@@ -340,9 +346,9 @@ export function QuickstartTabs({
                   href={`/quickstart/${t.slug}/`}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  <span class="tour11-tab__num">{t.num}</span>
+                  {!compact && <span class="tour11-tab__num">{t.num}</span>}
                   <span class="tour11-tab__name">{t.name}</span>
-                  <span class="tour11-tab__desc">{t.desc}</span>
+                  {!compact && <span class="tour11-tab__desc">{t.desc}</span>}
                   <span class="tour11-tab__arrow" aria-hidden="true">
                     →
                   </span>

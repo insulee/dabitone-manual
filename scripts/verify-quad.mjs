@@ -1,5 +1,5 @@
 /**
- * /tour/ QuadGrid 자율 검증 — desktop + mobile screenshot.
+ * / QuadGrid 자율 검증 — desktop + mobile screenshot.
  * 8888 http-server 가 떠있어야 함.
  *
  * 실행: node scripts/verify-quad.mjs
@@ -23,11 +23,10 @@ for (const [name, viewport] of viewports) {
     reducedMotion: "reduce",
   })
   const page = await ctx.newPage()
-  await page.goto("http://localhost:8888/tour/", { waitUntil: "networkidle" })
-  await page.waitForFunction(
-    () => document.querySelectorAll(".tour11-quad__card").length === 4,
-    { timeout: 5000 },
-  )
+  await page.goto("http://localhost:8888/", { waitUntil: "networkidle" })
+  await page.waitForFunction(() => document.querySelectorAll(".tour11-quad__card").length === 4, {
+    timeout: 5000,
+  })
   await page.locator("#features").scrollIntoViewIfNeeded()
   await page.waitForTimeout(900) // entrance stagger 80ms × 4 + transition 600ms
   await page.screenshot({ path: `tmp/quad-${name}.png`, fullPage: true })

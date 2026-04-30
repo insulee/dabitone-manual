@@ -21,16 +21,7 @@ import { mkdir, writeFile } from "fs/promises"
 const BASE = process.env.BASE_URL || "http://localhost:8888"
 const OUT = "verify-hotspots"
 
-const TOURS = [
-  "01-first-connection",
-  "02-screen-size",
-  "03-send-message",
-  "04-edit-image",
-  "05-gif-editor",
-  "06-schedule-pla",
-  "07-background-bgp",
-  "08-firmware",
-]
+const TOURS = ["01-connect", "02-display-setup", "03-send-message", "04-edit-image", "05-advanced"]
 
 const MAX_STEPS = 8
 
@@ -46,7 +37,7 @@ async function main() {
 
   for (const slug of TOURS) {
     for (let s = 0; s < MAX_STEPS; s++) {
-      const url = `${BASE}/tour/quickstart/${slug}/?s=${s}`
+      const url = `${BASE}/quickstart/${slug}/?s=${s}`
       try {
         await page.goto(url, {
           waitUntil: "networkidle",
@@ -85,10 +76,7 @@ async function main() {
         }
 
         // 좌표 측정
-        const hotspot = await page
-          .locator(".tour-hotspot")
-          .first()
-          .boundingBox()
+        const hotspot = await page.locator(".tour-hotspot").first().boundingBox()
         const stage = await page.locator(".tour-stage").boundingBox()
 
         if (!hotspot || !stage) {
@@ -110,9 +98,7 @@ async function main() {
           stagePath,
           status: "ok",
         })
-        console.log(
-          `✓ ${slug} s${s}: hotspot 화면상 (${xPct}%, ${yPct}%) → ${stagePath}`,
-        )
+        console.log(`✓ ${slug} s${s}: hotspot 화면상 (${xPct}%, ${yPct}%) → ${stagePath}`)
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e)
         results.push({ slug, step: s, status: "error", error: msg })
@@ -126,11 +112,7 @@ async function main() {
   await browser.close()
 
   // 요약 + JSON 저장
-  await writeFile(
-    `${OUT}/report.json`,
-    JSON.stringify(results, null, 2),
-    "utf-8",
-  )
+  await writeFile(`${OUT}/report.json`, JSON.stringify(results, null, 2), "utf-8")
 
   console.log("\n=== 요약 ===")
   const ok = results.filter((r) => r.status === "ok").length

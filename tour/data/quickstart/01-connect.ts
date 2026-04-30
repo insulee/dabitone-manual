@@ -48,9 +48,7 @@ const tour: Tour = {
       srSummary:
         "DabitOne 좌측 사이드바 맨 위에 통신 탭이 있고 기본으로 선택되어 있습니다. 클릭하면 통신 설정 창이 우측에 표시됩니다.",
       nextHint: "연결 방식을 고를 차례입니다.",
-      relatedRefs: [
-        { label: "통신 개요", path: "/01-communication/overview" },
-      ],
+      relatedRefs: [{ label: "통신 개요", path: "/01-communication/overview" }],
     },
     {
       id: "step-2-method",
@@ -87,9 +85,7 @@ const tour: Tour = {
       },
       srSummary:
         "Serial은 포트와 속도를 선택, TCP/UDP는 IP 주소와 포트 번호를 입력합니다. 모든 값은 컨트롤러 설정과 일치해야 합니다. 속도가 불확실하면 속도 찾기 버튼으로 자동 탐색 가능.",
-      relatedRefs: [
-        { label: "Serial 상세", path: "/01-communication/serial" },
-      ],
+      relatedRefs: [{ label: "Serial 상세", path: "/01-communication/serial" }],
     },
     {
       id: "step-4-test",
@@ -114,7 +110,7 @@ const tour: Tour = {
       ],
       nextOptions: [
         { label: "TCP/IP 연결", toStepId: "step-tcp-1" },
-        { label: "다음 투어", toTour: "02-screen-size" },
+        { label: "다음 투어", toTour: "02-display-setup" },
       ],
     },
     {
@@ -152,8 +148,7 @@ const tour: Tour = {
     {
       id: "step-tcp-3",
       title: "컨트롤러 선택",
-      description:
-        "검색 list에서 연결할 컨트롤러의 MAC 주소(예: 54-ff-82-0f-ff-ff)를 클릭합니다.",
+      description: "검색 list에서 연결할 컨트롤러의 MAC 주소(예: 54-ff-82-0f-ff-ff)를 클릭합니다.",
       image: TCP_SCREEN,
       hotspot: {
         x: 35,
@@ -198,7 +193,7 @@ const tour: Tour = {
         "Add 버튼 클릭 시 IP/Port가 Client TCP/IP 영역에 자동 입력되고, 연결 테스트도 자동으로 실행되어 echo 응답을 즉시 확인할 수 있습니다.",
       nextOptions: [
         { label: "Serial 연결", toStepId: "step-3-config" },
-        { label: "다음 투어", toTour: "02-screen-size" },
+        { label: "다음 투어", toTour: "02-display-setup" },
       ],
     },
   ],
