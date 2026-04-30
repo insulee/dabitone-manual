@@ -165,7 +165,7 @@ function ProgressHeader({
           )}
         </div>
         <nav class="tour-scenario__exit-nav" aria-label="빠져나가기">
-          <a class="tour-scenario__exit-link" href="/">← 홈</a>
+          <a class="tour-scenario__exit-link" href="/">홈</a>
           <a class="tour-scenario__exit-link" href="/docs/">매뉴얼</a>
         </nav>
       </div>

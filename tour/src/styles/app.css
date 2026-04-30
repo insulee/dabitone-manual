@@ -133,7 +133,7 @@
 .tour-stage {
   position: relative;
   width: 100%;
-  max-height: 42vh;
+  max-height: 38vh;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;
@@ -680,28 +680,27 @@
   padding-top: 8px;
 }
 
-/* Quickstart 빠져나가기 nav — 우상단 — 홈/매뉴얼 빠른 이동 */
+/* Quickstart 빠져나가기 nav — 우상단 — minimal text link (Apple 스타일) */
 .tour-scenario__exit-nav {
   display: flex;
-  gap: 16px;
+  gap: 28px;
   flex-shrink: 0;
   align-items: center;
 }
 .tour-scenario__exit-link {
-  font-family: var(--tour-font-mono);
-  font-size: var(--tour-fs-small);
-  letter-spacing: var(--tour-ls-mono);
-  text-transform: uppercase;
+  font-family: var(--tour-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--tour-c-text-soft);
   text-decoration: none;
-  padding: 8px 12px;
-  border: 1px solid var(--tour-c-line);
-  transition: color 0.15s, border-color 0.15s;
+  padding: 0;
+  border: 0;
+  transition: color 0.15s;
 }
 .tour-scenario__exit-link:hover,
 .tour-scenario__exit-link:focus-visible {
   color: var(--tour-c-text);
-  border-color: var(--tour-c-text);
 }
 
 /* ==================== Quickstart — Rail ==================== */
