@@ -133,13 +133,36 @@
 .tour-stage {
   position: relative;
   width: 100%;
-  max-height: 38vh;
+  max-height: 60vh;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;
   background-color: var(--tour-c-bg-panel);
 }
-/* (이전: stage 좌상단 버전·우하단 시계 cover 박스 제거 — 사용자 요청) */
+/* DabitOne V1.x.x 버전 표시 (좌상단) — 윈도우 타이틀바 배경색 */
+.tour-stage::before {
+  content: "";
+  position: absolute;
+  top: 0.3%;
+  left: 8.5%;
+  width: 7%;
+  height: 1.8%;
+  background: #f5f5f5;
+  pointer-events: none;
+  z-index: 1;
+}
+/* 우하단 날짜·시간 — 콘텐츠 영역 흰색 */
+.tour-stage::after {
+  content: "";
+  position: absolute;
+  right: 0.5%;
+  bottom: 0.3%;
+  width: 14%;
+  height: 1.8%;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 1;
+}
 
 /* ==================== Quickstart — Progress bar ==================== */
 .tour-progress {
@@ -609,7 +632,7 @@
 
 /* ==================== Quickstart — ProgressHeader ==================== */
 .tour-scenario__header {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 .tour-scenario__header-top {
   display: flex;
@@ -655,29 +678,6 @@
   font-weight: 500;
   white-space: nowrap;
   padding-top: 8px;
-}
-
-/* Quickstart 빠져나가기 nav — 우상단 — minimal text link (Apple 스타일) */
-.tour-scenario__exit-nav {
-  display: flex;
-  gap: 28px;
-  flex-shrink: 0;
-  align-items: center;
-}
-.tour-scenario__exit-link {
-  font-family: var(--tour-font-body);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--tour-c-text-soft);
-  text-decoration: none;
-  padding: 0;
-  border: 0;
-  transition: color 0.15s;
-}
-.tour-scenario__exit-link:hover,
-.tour-scenario__exit-link:focus-visible {
-  color: var(--tour-c-text);
 }
 
 /* ==================== Quickstart — Rail ==================== */
@@ -827,38 +827,37 @@
 }
 
 /* ==================== Quickstart — Container + Grid ==================== */
-/* 한 화면 fit 우선: min-height 제거 + padding 축소.
-   stage·rail·quickstart-tabs 합이 viewport에 들어가도록. */
 .tour-scenario {
+  min-height: 100vh;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 16px 32px 0;
+  padding: 24px 32px;
 }
 .tour-scenario__stage-and-rail {
   display: grid;
   grid-template-columns: auto minmax(360px, 520px);
   gap: 24px;
-  margin-top: 16px;
+  margin-top: 24px;
   align-items: start;
 }
 @media (max-width: 1023px) {
   .tour-scenario {
-    padding: 16px 24px 0;
+    padding: 32px 24px;
   }
   .tour-scenario__stage-and-rail {
     grid-template-columns: minmax(0, 1.4fr) minmax(240px, 1fr);
-    gap: 24px;
-    margin-top: 16px;
+    gap: 32px;
+    margin-top: 32px;
   }
 }
 @media (max-width: 767px) {
   .tour-scenario {
-    padding: 16px 16px 0;
+    padding: 24px 16px;
   }
   .tour-scenario__stage-and-rail {
     grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 16px;
+    gap: 24px;
+    margin-top: 24px;
   }
   .tour-stage {
     max-height: none;

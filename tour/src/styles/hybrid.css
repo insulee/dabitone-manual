@@ -409,7 +409,7 @@ body.tour11-page #tour-root {
    ========================================================================= */
 
 .tour11-quickstart {
-  padding: clamp(40px, 6vh, 72px) 24px clamp(20px, 3vh, 32px);
+  padding: clamp(16px, 3vh, 32px) 24px clamp(56px, 8vh, 96px);
   background: var(--t11-bg);
 }
 
@@ -461,9 +461,9 @@ body.tour11-page #tour-root {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 14px 28px 16px;
-  min-height: 96px;
+  gap: 8px;
+  padding: 19px 28px 26px;
+  min-height: 132px;
   text-decoration: none;
   color: var(--t11-ink);
   background: transparent;

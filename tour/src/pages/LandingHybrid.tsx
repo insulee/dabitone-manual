@@ -326,8 +326,8 @@ export function QuickstartTabs({
       <div class="tour11-quickstart__inner">
         {!hideHeading && (
           <>
-            <p class="tour11-quickstart__eyebrow">TAKE THE TOUR.</p>
-            <h2 class="tour11-quickstart__title">어디서부터 둘러볼까요?</h2>
+            <p class="tour11-quickstart__eyebrow">QUICKSTART</p>
+            <h2 class="tour11-quickstart__title">어디서부터 시작할까요?</h2>
           </>
         )}
         <ul class="tour11-quickstart__list">
@@ -379,10 +379,10 @@ function MagneticFooter() {
             </span>
           </MagneticLink>
           <MagneticLink
-            href="/quickstart/01-connect/"
+            href="#quickstart"
             className="tour11-btn tour11-btn--secondary tour11-btn--on-dark"
           >
-            투어 시작하기
+            Quickstart 보기
             <span class="tour11-btn__arrow" aria-hidden="true">
               →
             </span>
