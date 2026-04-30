@@ -127,18 +127,17 @@ function ProgressHeader({ tour, stepIdx, pct }: { tour: Tour; stepIdx: number; p
     <header class="tour-scenario__header">
       <div class="tour-scenario__header-top">
         <div class="tour-scenario__header-info">
-          <p class="tour-scenario__eyebrow">QUICKSTART</p>
+          <nav class="tour-scenario__nav" aria-label="상위 페이지 이동">
+            <a href="/" class="tour-scenario__nav-link">
+              메인
+            </a>
+            <a href="/docs/" class="tour-scenario__nav-link">
+              메뉴얼
+            </a>
+          </nav>
           <h1 class="tour-scenario__title">{tour.title}</h1>
           {tour.subtitle && <p class="tour-scenario__subtitle">{tour.subtitle}</p>}
         </div>
-        <nav class="tour-scenario__nav" aria-label="상위 페이지 이동">
-          <a href="/" class="tour-scenario__nav-link">
-            홈
-          </a>
-          <a href="/docs/" class="tour-scenario__nav-link">
-            문서
-          </a>
-        </nav>
       </div>
       <div
         class="tour-progress"
