@@ -326,8 +326,8 @@ export function QuickstartTabs({
       <div class="tour11-quickstart__inner">
         {!hideHeading && (
           <>
-            <p class="tour11-quickstart__eyebrow">QUICKSTART</p>
-            <h2 class="tour11-quickstart__title">어디서부터 시작할까요?</h2>
+            <p class="tour11-quickstart__eyebrow">WHERE TO START?</p>
+            <h2 class="tour11-quickstart__title">어디서부터 둘러볼까요?</h2>
           </>
         )}
         <ul class="tour11-quickstart__list">
