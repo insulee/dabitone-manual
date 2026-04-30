@@ -332,8 +332,8 @@ export function QuickstartTabs({
       <div class="tour11-quickstart__inner">
         {!hideHeading && (
           <>
-            <p class="tour11-quickstart__eyebrow">QUICKSTART</p>
-            <h2 class="tour11-quickstart__title">어디서부터 시작할까요?</h2>
+            <p class="tour11-quickstart__eyebrow">Tour</p>
+            <h2 class="tour11-quickstart__title">여기에서 둘러보세요.</h2>
           </>
         )}
         <ul class="tour11-quickstart__list">
@@ -385,10 +385,10 @@ function MagneticFooter() {
             </span>
           </MagneticLink>
           <MagneticLink
-            href="#quickstart"
+            href="https://dabitone.dabitsol.com/quickstart/01-connect/"
             className="tour11-btn tour11-btn--secondary tour11-btn--on-dark"
           >
-            Quickstart 보기
+            투어 시작하기
             <span class="tour11-btn__arrow" aria-hidden="true">
               →
             </span>
