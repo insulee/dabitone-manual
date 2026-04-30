@@ -461,9 +461,9 @@ body.tour11-page #tour-root {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 19px 28px 26px;
-  min-height: 132px;
+  gap: 6px;
+  padding: 14px 28px 16px;
+  min-height: 96px;
   text-decoration: none;
   color: var(--t11-ink);
   background: transparent;
