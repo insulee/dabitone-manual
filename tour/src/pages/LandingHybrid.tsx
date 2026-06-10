@@ -40,7 +40,6 @@ function Hero() {
   return (
     <section class="tour11-hero" aria-label="Hero">
       <PixelMatrix dotSize={2.2} minAlpha={0.18} maxAlpha={0.34} />
-      <CursorPixel />
       <div class="tour11-hero__inner">
         <h1 class="tour11-hero__title">DabitOne</h1>
         <p class="tour11-hero__tagline">
@@ -48,104 +47,9 @@ function Hero() {
           <br />
           하나의 소프트웨어.
         </p>
-        <div class="tour11-hero__cta">
-          <MagneticLink href="/quickstart/01-connect/" className="tour11-btn tour11-btn--primary">
-            투어 시작하기
-            <span class="tour11-btn__arrow" aria-hidden="true">
-              →
-            </span>
-          </MagneticLink>
-          <MagneticLink
-            href="https://www.dabitsol.com"
-            target="_blank"
-            rel="noreferrer"
-            className="tour11-btn tour11-btn--secondary"
-          >
-            DabitOne 다운로드
-            <span class="tour11-btn__arrow" aria-hidden="true">
-              →
-            </span>
-          </MagneticLink>
-        </div>
       </div>
     </section>
   )
-}
-
-/* =========================================================================
-   CursorPixel — 히어로 안에서만 활성되는 작은 cyan 글로우 커서
-   ========================================================================= */
-
-function CursorPixel() {
-  const elRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const el = elRef.current
-    if (!el) return
-    if (reducedMotion()) return
-    if (window.matchMedia("(pointer: coarse)").matches) return
-
-    const hero = el.closest(".tour11-hero") as HTMLElement | null
-    if (!hero) return
-
-    let targetX = 0
-    let targetY = 0
-    let curX = 0
-    let curY = 0
-    let raf = 0
-    let running = false
-    let visible = false
-
-    function tick() {
-      if (!el) return
-      curX += (targetX - curX) * 0.28
-      curY += (targetY - curY) * 0.28
-      el.style.transform = `translate(${curX.toFixed(2)}px, ${curY.toFixed(2)}px)`
-      if (Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
-        running = false
-        return
-      }
-      if (running) raf = requestAnimationFrame(tick)
-    }
-
-    function ensureRunning() {
-      if (!running) {
-        running = true
-        raf = requestAnimationFrame(tick)
-      }
-    }
-
-    function onMove(e: MouseEvent) {
-      if (!hero) return
-      const rect = hero.getBoundingClientRect()
-      const inside =
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom
-      if (inside) {
-        targetX = e.clientX - rect.left
-        targetY = e.clientY - rect.top
-        if (!visible && el) {
-          visible = true
-          el.classList.add("is-visible")
-        }
-        ensureRunning()
-      } else if (visible && el) {
-        visible = false
-        el.classList.remove("is-visible")
-      }
-    }
-
-    window.addEventListener("mousemove", onMove)
-    return () => {
-      window.removeEventListener("mousemove", onMove)
-      cancelAnimationFrame(raf)
-      running = false
-    }
-  }, [])
-
-  return <div ref={elRef} class="tour11-hero__cursor-pixel" aria-hidden="true" />
 }
 
 /* =========================================================================
@@ -374,7 +278,7 @@ function MagneticFooter() {
         <p class="tour11-footer__sub">설치 파일은 다빛솔루션 공식 사이트에서 제공됩니다.</p>
         <div class="tour11-footer__cta">
           <MagneticLink
-            href="https://www.dabitsol.com"
+            href="https://dabitsol.com/download/"
             target="_blank"
             rel="noreferrer"
             className="tour11-btn tour11-btn--primary tour11-btn--on-dark"
@@ -389,15 +293,6 @@ function MagneticFooter() {
             className="tour11-btn tour11-btn--secondary tour11-btn--on-dark"
           >
             투어 시작하기
-            <span class="tour11-btn__arrow" aria-hidden="true">
-              →
-            </span>
-          </MagneticLink>
-          <MagneticLink
-            href="/docs/"
-            className="tour11-btn tour11-btn--secondary tour11-btn--on-dark"
-          >
-            전체 매뉴얼
             <span class="tour11-btn__arrow" aria-hidden="true">
               →
             </span>
