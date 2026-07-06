@@ -1,7 +1,7 @@
 /**
  * 랜딩 페이지 데이터 — Hero + 5 핫스팟.
  * 2026-04-21 재설계: 레거시 호명 제거, "DabitOne." / "새로운 전광판 운영 경험."
- * 핫스팟 좌표는 main-comm.png (1422×1386) 기준 % 값. 실제 렌더 후 시각 검증으로 조정.
+ * 핫스팟 좌표는 main-comm.png (1166×1148) 기준 % 값. 실제 렌더 후 시각 검증으로 조정.
  */
 import type { LandingData } from "../src/types"
 
@@ -10,8 +10,8 @@ const HERO: LandingData["hero"] = {
   subtitle: "새로운 전광판 운영 경험.",
   heroImage: {
     src: "/assets/screens/manual-poc/main-comm.png",
-    width: 1422,
-    height: 1386,
+    width: 1166,
+    height: 1148,
     alt: "DabitOne 메인 화면 — 통신 설정 탭이 기본 선택된 상태",
   },
 }
@@ -20,8 +20,8 @@ const HOTSPOTS: LandingData["hotspots"] = [
   {
     id: "nav-connect",
     hotspot: {
-      x: 8,
-      y: 19,
+      x: 3.5,
+      y: 12.5,
       ariaLabel: "통신 탭 — 컨트롤러 연결",
       label: "통신",
     },
@@ -32,8 +32,8 @@ const HOTSPOTS: LandingData["hotspots"] = [
   {
     id: "nav-setup",
     hotspot: {
-      x: 8,
-      y: 23,
+      x: 3.5,
+      y: 18.5,
       ariaLabel: "설정 탭 — 화면 크기·시계·밝기",
       label: "설정",
     },
@@ -44,8 +44,8 @@ const HOTSPOTS: LandingData["hotspots"] = [
   {
     id: "nav-simulator",
     hotspot: {
-      x: 8,
-      y: 27,
+      x: 3.5,
+      y: 25,
       ariaLabel: "전송 탭 — 메시지·스케줄 전송",
       label: "전송",
     },
@@ -56,8 +56,8 @@ const HOTSPOTS: LandingData["hotspots"] = [
   {
     id: "nav-editor",
     hotspot: {
-      x: 8,
-      y: 31,
+      x: 3.5,
+      y: 31.5,
       ariaLabel: "편집 탭 — 텍스트·이미지·GIF 제작",
       label: "편집",
     },
@@ -67,8 +67,8 @@ const HOTSPOTS: LandingData["hotspots"] = [
   {
     id: "nav-advanced",
     hotspot: {
-      x: 8,
-      y: 35,
+      x: 3.5,
+      y: 38,
       ariaLabel: "고급 탭 — 펌웨어·로그·진단",
       label: "고급",
     },

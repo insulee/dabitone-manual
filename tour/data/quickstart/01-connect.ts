@@ -9,21 +9,21 @@
  * - [연결 테스트] 버튼, 응답시간 기본 3초
  * - 토스트 색상: 녹(성공)·노(응답없음)·적(실패)
  *
- * 이미지는 manual-poc/main-comm.png (1422×1386) 기준 % 좌표.
+ * 이미지는 manual-poc/main-comm.png (1166×1148) 기준 % 좌표.
  */
 import type { Tour } from "../../src/types"
 
 const SCREEN = {
   src: "/assets/screens/manual-poc/main-comm.png",
-  width: 1422,
-  height: 1386,
+  width: 1166,
+  height: 1148,
   alt: "DabitOne 통신 설정 화면 — Serial·Client TCP/IP·Server TCP/IP·UDP 그룹박스",
 } as const
 
 const TCP_SCREEN = {
   src: "/assets/screens/manual-poc/main-comm-tcp.png",
-  width: 1183,
-  height: 1155,
+  width: 1166,
+  height: 1148,
   alt: "DabitOne TCP 연결 화면 — Client TCP/IP 그룹 + dbNet 검색 결과",
 } as const
 
@@ -39,11 +39,11 @@ const tour: Tour = {
         "DabitOne을 실행하면 좌측 사이드바 맨 위의 [통신] 탭이 기본으로 선택되어 있고, 우측에 '통신 설정' 창이 뜹니다.\n다른 탭에 있다면 [통신]을 클릭하세요.",
       image: SCREEN,
       hotspot: {
-        x: 3,
-        y: 12,
+        x: 3.5,
+        y: 12.5,
         ariaLabel: "통신 탭",
         label: "통신",
-        box: { w: 7, h: 5 },
+        box: { w: 6, h: 4 },
       },
       srSummary:
         "DabitOne 좌측 사이드바 맨 위에 통신 탭이 있고 기본으로 선택되어 있습니다. 클릭하면 통신 설정 창이 우측에 표시됩니다.",
@@ -57,11 +57,11 @@ const tour: Tour = {
         "통신 설정 창 좌측 열에는 Serial / Client TCP/IP / Server TCP/IP / UDP 네 개의 그룹박스가 세로로 나열되어 있습니다.\n각 그룹박스 헤더의 라디오 버튼으로 하나 선택. 기본은 Serial입니다.",
       image: SCREEN,
       hotspot: {
-        x: 9,
-        y: 13,
+        x: 11,
+        y: 10.5,
         ariaLabel: "연결 방식 라디오 버튼 그룹 — Serial 기본 선택",
         label: "연결 방식",
-        box: { w: 23, h: 36 },
+        box: { w: 24, h: 59 },
       },
       srSummary:
         "연결 방식은 네 가지: Serial(시리얼 케이블 직결), Client TCP/IP(컨트롤러 IP 입력), Server TCP/IP(컨트롤러가 접속해옴), UDP(브로드캐스트·단방향). 처음이라면 대부분 Serial 또는 Client TCP/IP입니다.",
@@ -77,11 +77,11 @@ const tour: Tour = {
         "Serial이면 '포트'와 '속도' 드롭다운을 채웁니다.\n기본 속도는 115200. 컨트롤러 펌웨어 설정과 일치해야 합니다.\n모르는 경우 [속도 찾기] 버튼으로 자동 탐색. TCP/UDP이면 'IP Address'와 'IP Port'를 입력합니다(기본 192.168.0.201 : 5000).",
       image: SCREEN,
       hotspot: {
-        x: 18,
-        y: 13,
+        x: 26,
+        y: 16,
         ariaLabel: "포트·속도 또는 IP·Port 입력 영역",
         label: "설정 입력",
-        box: { w: 18, h: 8 },
+        box: { w: 13, h: 7 },
       },
       srSummary:
         "Serial은 포트와 속도를 선택, TCP/UDP는 IP 주소와 포트 번호를 입력합니다. 모든 값은 컨트롤러 설정과 일치해야 합니다. 속도가 불확실하면 속도 찾기 버튼으로 자동 탐색 가능.",
@@ -94,11 +94,11 @@ const tour: Tour = {
         "통신 설정 창 맨 아래 [연결 테스트] 버튼을 클릭하면 현재 설정이 저장되고 컨트롤러에 echo 요청이 갑니다.\n성공 시 '연결 테스트 성공' 녹색 토스트가 뜨고 상단 상태가 '연결됨'으로 바뀝니다.",
       image: SCREEN,
       hotspot: {
-        x: 8,
-        y: 75,
+        x: 15,
+        y: 76,
         ariaLabel: "연결 테스트 버튼",
         label: "[연결 테스트]",
-        box: { w: 12, h: 4 },
+        box: { w: 11, h: 3 },
       },
       srSummary:
         "연결 테스트 버튼이 통신 설정 창 하단에 있습니다. 클릭하면 설정 저장 + echo 요청 발송. 응답시간은 기본 3초이며 드롭다운으로 1~6초 선택 가능. 성공 시 녹색 토스트, 응답 없을 때 노란 토스트, 실패 시 빨간 토스트가 표시됩니다.",
@@ -136,8 +136,8 @@ const tour: Tour = {
         "dbNet 영역의 [Search] 버튼을 클릭하면 같은 네트워크 안 모든 컨트롤러가 자동 검색됩니다.",
       image: TCP_SCREEN,
       hotspot: {
-        x: 54,
-        y: 76,
+        x: 57,
+        y: 92,
         ariaLabel: "Search 버튼",
         label: "Search",
         box: { w: 8, h: 4 },
@@ -183,8 +183,8 @@ const tour: Tour = {
         "[Add] 버튼을 클릭하면 선택한 컨트롤러 정보가 Client TCP/IP 설정에 자동 반영되고, 곧바로 [연결 테스트]까지 자동 실행됩니다.",
       image: TCP_SCREEN,
       hotspot: {
-        x: 68,
-        y: 76,
+        x: 69,
+        y: 92,
         ariaLabel: "Add 버튼",
         label: "Add",
         box: { w: 6, h: 4 },

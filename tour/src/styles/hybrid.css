@@ -261,8 +261,28 @@ body.tour11-page #tour-root {
   flex-wrap: wrap;
 }
 
+.tour11-hero__platform {
+  margin: 20px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--t11-ink-soft);
+}
+
+/* 한국어 어절 단위 줄바꿈 — 헤드라인·카드 제목이 어절 중간에서 끊기지 않게.
+   overflow-wrap은 긴 영문 토큰(URL 등) 넘침 방지용 안전장치. */
+.tour11-hero__title,
+.tour11-hero__tagline,
+.tour11-quad__title,
+.tour11-quickstart__title,
+.tour11-tab__name,
+.tour11-footer__title,
+.tour11-footer__sub {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 /* =========================================================================
-   QuadGrid — 정적 2x2 풀-블리드 그라디언트 (HorizontalFeatures 대체)
+   QuadGrid — 정적 2x3 풀-블리드 그라디언트 (HorizontalFeatures 대체)
    ========================================================================= */
 
 .tour11-quad {
@@ -285,6 +305,9 @@ body.tour11-page #tour-root {
 .tour11-quad__card {
   position: relative;
   aspect-ratio: 4 / 3;
+  /* overflow:hidden이 grid item의 auto min-height를 0으로 만들어 4:3보다 긴
+     콘텐츠가 잘리는 것을 방지 — 콘텐츠가 넘치면 비율 대신 콘텐츠 높이로 늘어남. */
+  min-height: fit-content;
   overflow: hidden;
   border-radius: 24px;
   padding: 48px;
@@ -302,7 +325,11 @@ body.tour11-page #tour-root {
 }
 
 @media (max-width: 768px) {
+  /* 모바일 카드 본문 잘림 수정 — 4:3 고정 비율 해제, 콘텐츠 높이만큼.
+     (390px 실측: 4:3 고정 268.5px vs 콘텐츠 284~353px → 마지막 문단 소실) */
   .tour11-quad__card {
+    aspect-ratio: auto;
+    height: auto;
     padding: 32px;
   }
 }
@@ -335,6 +362,20 @@ body.tour11-page #tour-root {
   background-image:
     radial-gradient(at 15% 15%, #fef3c7 0%, transparent 55%),
     radial-gradient(at 85% 85%, #fed7aa 0%, transparent 60%);
+}
+
+.tour11-quad__card--green {
+  background-color: #dcfce7;
+  background-image:
+    radial-gradient(at 15% 15%, #ccfbf1 0%, transparent 55%),
+    radial-gradient(at 85% 85%, #bbf7d0 0%, transparent 60%);
+}
+
+.tour11-quad__card--rose {
+  background-color: #ffe4e6;
+  background-image:
+    radial-gradient(at 15% 15%, #ffedd5 0%, transparent 55%),
+    radial-gradient(at 85% 85%, #fecdd3 0%, transparent 60%);
 }
 
 /* SVG turbulence noise grain overlay (어두운 grain) */

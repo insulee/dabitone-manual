@@ -13,29 +13,29 @@ const EDITOR = {
 
 const CONTENTS = {
   src: "/assets/screens/manual-poc/main-editor-contents.png",
-  width: 1182,
-  height: 1156,
+  width: 1166,
+  height: 1148,
   alt: "DabitOne 편집 탭 — 콘텐츠 편집 창",
 } as const
 
 const IMAGE = {
   src: "/assets/screens/manual-poc/main-editor-image.png",
-  width: 1182,
-  height: 1152,
+  width: 1166,
+  height: 1148,
   alt: "DabitOne 편집 탭 — 이미지 편집 창",
 } as const
 
 const GIF = {
   src: "/assets/screens/manual-poc/main-editor-gif.png",
-  width: 1182,
-  height: 1151,
+  width: 1166,
+  height: 1148,
   alt: "DabitOne 편집 탭 — GIF 편집 창",
 } as const
 
 const SB = {
   src: "/assets/screens/manual-poc/main-editor-sb.png",
-  width: 1182,
-  height: 1152,
+  width: 1166,
+  height: 1148,
   alt: "DabitOne 편집 탭 — 표시파일 list (PLA/BGP)",
 } as const
 
@@ -50,7 +50,7 @@ const tour: Tour = {
       description:
         "좌측 사이드바에서 [편집] 탭을 클릭합니다.\n콘텐츠 편집(텍스트·이미지·GIF), 이미지 편집(픽셀 단위 BMP/JPG), GIF 편집(픽셀 단위 GIF), PLA·BGP 파일 저장·전송까지 표시 콘텐츠 제작·관리를 한곳에서 합니다.",
       image: EDITOR,
-      hotspot: { x: 3, y: 31, ariaLabel: "편집 탭", label: "편집" },
+      hotspot: { x: 3, y: 26, ariaLabel: "편집 탭", label: "편집" },
       srSummary:
         "편집 탭에서 콘텐츠·이미지·GIF 편집과 PLA/BGP 파일 저장·전송을 통합 관리합니다.",
     },

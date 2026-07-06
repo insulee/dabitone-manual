@@ -23,6 +23,8 @@ type TourPageDef = {
   slug: FullSlug // 예: "index" (→ /index.html), "quickstart/01-connect/index"
   title: string
   description: string
+  /** og:title 별도 지정 (미지정 시 title + suffix 사용). 링크 공유 카드용 풍부한 제목. */
+  ogTitle?: string
 }
 
 /**
@@ -36,8 +38,9 @@ type TourPageDef = {
 const TOUR_PAGES: readonly TourPageDef[] = [
   {
     slug: "index" as FullSlug,
-    title: "DabitOne 투어",
-    description: "새로운 전광판 운영 경험.",
+    title: "DabitOne",
+    ogTitle: "DabitOne — LED 전광판 운영 소프트웨어",
+    description: "픽셀에서 프로토콜까지, 하나의 소프트웨어. 다빛솔루션 DabitOne.",
   },
   {
     slug: "quickstart/01-connect/index" as FullSlug,
@@ -126,6 +129,14 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   const fullTitle = `${page.title}${cfg.pageTitleSuffix ?? ""}`
   const lang = cfg.locale?.split("-")[0] ?? "ko"
 
+  // OG/Twitter 카드 — 링크 공유 시 미리보기. baseUrl 기준 절대 URL 필수.
+  const siteOrigin = `https://${cfg.baseUrl ?? "dabitone.dabitsol.com"}`
+  const pagePath = page.slug === "index" ? "" : page.slug.replace(/\/index$/, "/")
+  const socialUrl = `${siteOrigin}/${pagePath}`
+  const ogTitle = page.ogTitle ?? fullTitle
+  // 제품 대표 스크린샷 (quartz/static/og-image.png는 Quartz 기본 배너라 부적합)
+  const ogImage = `${siteOrigin}/assets/screens/manual-poc/main-comm.png`
+
   return `<!DOCTYPE html>
 <html lang="${lang}" data-tour-page>
 <head>
@@ -134,6 +145,13 @@ function renderTourShell(ctx: BuildCtx, page: TourPageDef): string {
   <meta name="description" content="${escapeHtml(page.description)}">
   <meta name="color-scheme" content="light">
   <title>${escapeHtml(fullTitle)}</title>
+  <meta property="og:title" content="${escapeHtml(ogTitle)}">
+  <meta property="og:description" content="${escapeHtml(page.description)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${socialUrl}">
+  <meta property="og:image" content="${ogImage}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="${ogImage}">
   <link rel="stylesheet" href="${quartzCss}">
   <link rel="stylesheet" href="${tourCss}?v=${tourCssVersion}">
   <link rel="icon" href="${joinSegments(baseDir, "static/icon.png")}">

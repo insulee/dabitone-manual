@@ -22,7 +22,7 @@ const tour: Tour = {
       description:
         "좌측 사이드바에서 [전송] 탭을 클릭합니다.\n메시지 전송, 페이지메시지, 밝기, 전광판 켜기/끄기, 배경이미지 등 컨트롤러로 보내는 모든 작업을 한곳에서 관리합니다.",
       image: SIM,
-      hotspot: { x: 3, y: 24, ariaLabel: "전송 탭", label: "전송" },
+      hotspot: { x: 3, y: 21, ariaLabel: "전송 탭", label: "전송" },
       srSummary:
         "전송 탭은 컨트롤러로 보내는 모든 작업을 통합한 화면입니다. HEX/ASCII 프로토콜·페이지메시지·밝기·켜기/끄기·배경이미지 등.",
     },
@@ -49,8 +49,8 @@ const tour: Tour = {
         "HEX 프로토콜에서 선택한 옵션과 입력 내용을 [ASCII 변환] 버튼으로 ASCII 프로토콜로 자동 변환합니다.\n변환된 문자열은 아래 'ASCII 프로토콜' 영역에 채워집니다.",
       image: SIM,
       hotspot: {
-        x: 22,
-        y: 63,
+        x: 20,
+        y: 82,
         ariaLabel: "ASCII 변환 버튼",
         label: "ASCII 변환",
         box: { w: 12, h: 4 },
@@ -66,7 +66,7 @@ const tour: Tour = {
       image: SIM,
       hotspot: {
         x: 8,
-        y: 68,
+        y: 86,
         ariaLabel: "ASCII 프로토콜 영역",
         label: "ASCII 프로토콜",
         box: { w: 40, h: 12 },

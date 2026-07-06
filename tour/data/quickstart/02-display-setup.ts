@@ -22,7 +22,7 @@ const tour: Tour = {
       description:
         "좌측 사이드바에서 [설정] 탭을 클릭합니다.\n전광판 화면 구성, 표출신호 설정, 폰트 전송 등 전광판 설정을 한곳에서 관리합니다.",
       image: SCREEN,
-      hotspot: { x: 3, y: 18, ariaLabel: "설정 탭", label: "설정" },
+      hotspot: { x: 3, y: 16, ariaLabel: "설정 탭", label: "설정" },
       srSummary:
         "[설정] 탭에서 전광판 화면 구성·표출신호·폰트 전송을 통합 관리합니다.",
     },

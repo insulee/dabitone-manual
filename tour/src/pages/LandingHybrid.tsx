@@ -4,9 +4,8 @@
  * tour2 방식(가로 sticky pin)으로 교체.
  *
  * 구성 (위→아래):
- *  1. Hero — tour1 컴팩트 히어로. 2개의 Magnetic CTA (반경 140px · 최대 14px).
- *  2. HorizontalFeatures — F01~F04 4개 패널을 세로 스크롤 진행도에 맞춰 가로 translate.
- *     섹션 높이 400vh, 내부는 sticky top:0 height:100vh. 패널 위 커서 따라가는 cyan spotlight.
+ *  1. Hero — tour1 컴팩트 히어로. 2개의 Magnetic CTA (반경 140px · 최대 14px) + 플랫폼 표기.
+ *  2. QuadGrid — F01~F06 6개 카드(2열×3행) 정적 그라디언트. IntersectionObserver 스크롤 리빌.
  *  3. QuickstartTabs — tour1 TabIndex와 동일한 5 tabs. Hover 반응 4가지 동시.
  *  4. MagneticFooter — 다크 패널. Hero와 동일한 Magnetic CTA.
  */
@@ -47,13 +46,33 @@ function Hero() {
           <br />
           하나의 소프트웨어.
         </p>
+        <div class="tour11-hero__cta">
+          <MagneticLink
+            href="https://dabitsol.com/download/"
+            target="_blank"
+            rel="noreferrer"
+            className="tour11-btn tour11-btn--primary"
+          >
+            지금 시작하기
+            <span class="tour11-btn__arrow" aria-hidden="true">
+              →
+            </span>
+          </MagneticLink>
+          <MagneticLink href="/quickstart/01-connect/" className="tour11-btn tour11-btn--secondary">
+            투어 시작하기
+            <span class="tour11-btn__arrow" aria-hidden="true">
+              →
+            </span>
+          </MagneticLink>
+        </div>
+        <p class="tour11-hero__platform">{"Windows\u00A010/11 지원"}</p>
       </div>
     </section>
   )
 }
 
 /* =========================================================================
-   QuadGrid — 정적 2x2 풀-블리드 그라디언트 4분할 (HorizontalFeatures 대체)
+   QuadGrid — 정적 2x3 풀-블리드 그라디언트 6분할 (HorizontalFeatures 대체)
    ========================================================================= */
 
 type Panel = {
@@ -102,9 +121,27 @@ const PANELS: readonly Panel[] = [
       "프로토콜 문서 없이도 패킷 구조와 예시를 간단한 조작으로 확인합니다.",
     ],
   },
+  {
+    num: "F05",
+    label: "LIVE PREVIEW",
+    title: "보내기 전 미리보기,\n보낸 후 전광판 화면.",
+    lines: [
+      "전송 탭 미리보기로 오타·색·잘림을 보내기 전에 확인합니다.",
+      "전송 후에는 전광판 화면 창이 실제 표출을 그대로 비춥니다.",
+    ],
+  },
+  {
+    num: "F06",
+    label: "DISPLAY SIGNAL",
+    title: "어떤 모듈이든,\n표출신호를 맞춥니다.",
+    lines: [
+      "내장 표출신호 목록에서 모듈에 맞는 신호를 골라 바로 적용합니다.",
+      "목록에 없는 모듈은 스캔 방식·디코더 IC·색 순서를 문자열 패턴으로 직접 정의해 등록합니다.",
+    ],
+  },
 ] as const
 
-const QUAD_COLORS = ["blue", "purple", "teal", "peach"] as const
+const QUAD_COLORS = ["blue", "purple", "teal", "peach", "green", "rose"] as const
 
 function QuadGrid() {
   const ref = useRef<HTMLElement>(null)
@@ -141,7 +178,7 @@ function QuadGrid() {
   }, [])
 
   return (
-    <section id="features" class="tour11-quad" ref={ref} aria-label="DabitOne 핵심 기능 4가지">
+    <section id="features" class="tour11-quad" ref={ref} aria-label="DabitOne 핵심 기능 6가지">
       {PANELS.map((p, i) => (
         <QuadCard key={p.num} panel={p} colorIdx={i} />
       ))}
@@ -275,7 +312,9 @@ function MagneticFooter() {
     <section class="tour11-footer" aria-label="시작">
       <div class="tour11-footer__inner">
         <h2 class="tour11-footer__title">지금, DabitOne을 시작하세요.</h2>
-        <p class="tour11-footer__sub">설치 파일은 다빛솔루션 공식 사이트에서 제공됩니다.</p>
+        <p class="tour11-footer__sub">
+          {"설치 파일은 다빛솔루션 공식 사이트에서 제공됩니다. Windows\u00A010/11을 지원합니다."}
+        </p>
         <div class="tour11-footer__cta">
           <MagneticLink
             href="https://dabitsol.com/download/"
